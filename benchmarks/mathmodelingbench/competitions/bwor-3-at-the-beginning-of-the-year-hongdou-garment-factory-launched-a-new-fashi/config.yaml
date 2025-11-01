@@ -1,0 +1,16 @@
+id: bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi
+name: Bwor 3 At The Beginning Of The Year Hongdou Garment Factory Launched A New Fashi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi/description.md
+
+dataset:
+  answers: bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi/prepared/private/answer.csv
+  sample_submission: bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-3-at-the-beginning-of-the-year-hongdou-garment-factory-launched-a-new-fashi.prepare:prepare

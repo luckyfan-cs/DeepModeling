@@ -1,0 +1,16 @@
+id: mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti
+name: Mamo Easy 161 A Real Estate Developer Is Planning To Build Two Types Of Properti
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti/description.md
+
+dataset:
+  answers: mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti/prepared/private/answer.csv
+  sample_submission: mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-161-a-real-estate-developer-is-planning-to-build-two-types-of-properti.prepare:prepare

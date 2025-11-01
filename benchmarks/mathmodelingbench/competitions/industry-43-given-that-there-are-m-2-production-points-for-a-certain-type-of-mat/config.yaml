@@ -1,0 +1,16 @@
+id: industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat
+name: Industry 43 Given That There Are M 2 Production Points For A Certain Type Of Mat
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat/description.md
+
+dataset:
+  answers: industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat/prepared/private/answer.csv
+  sample_submission: industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-43-given-that-there-are-m-2-production-points-for-a-certain-type-of-mat.prepare:prepare

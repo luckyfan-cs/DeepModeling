@@ -1,0 +1,10 @@
+# Mamo Easy 612 A Farmer Is Planning To Allocate Resources Across Four Different C
+
+A farmer is planning to allocate resources across four different crops: x1, x2, x3, and x4. These could represent different types of grains or vegetables. The total allocation for crops x1 and x2 combined cannot exceed 1000 units due to the available arable land.\n\nTo achieve a balanced crop diversity and ensure soil health, the combined effort of twice the allocation for crop x3 plus three times that for crop x4 must be at least 500 units.\n\nIn addition, to maintain the balance between cash crops and food crops, the difference in allocation between crop x1 and crop x4 should not exceed 200 units.\n\nLastly, considering certain climate or soil conditions, half of the allocation for crop x3 should be greater than or equal to that for crop x2.\n\nEach unit of resource allocated to crops X1, X2, X3, and X4 incurs costs quantified as 50 , 30 , 20 , and 10 units respectively. The farmer aims to minimize the total cost while adhering to these constraints and ensuring that all allocations are in whole numbers due to practical considerations related with farming practices.\n\nGiven these conditions:\n What is the minimum total cost required for this scenario in terms of resource units? Provide your answer rounded off to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

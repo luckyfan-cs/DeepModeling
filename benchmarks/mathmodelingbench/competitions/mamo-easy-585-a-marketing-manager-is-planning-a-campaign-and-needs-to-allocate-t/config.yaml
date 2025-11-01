@@ -1,0 +1,16 @@
+id: mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t
+name: Mamo Easy 585 A Marketing Manager Is Planning A Campaign And Needs To Allocate T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t/description.md
+
+dataset:
+  answers: mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t/prepared/private/answer.csv
+  sample_submission: mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-585-a-marketing-manager-is-planning-a-campaign-and-needs-to-allocate-t.prepare:prepare

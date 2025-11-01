@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t",
+  "en_question": "In a city with a population of 6399, a new social media app starts to gain popularity. Initially, there are 2415 people using the app. The rate at which new users join is proportional to the product of the number of current users and the number of people not yet using it, with a proportionality constant of 0.396 per day. How many people will be using the app after 10 days? Provide your answer in the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "6398"
+}

@@ -1,0 +1,6 @@
+{
+  "en_question": "\n    \\noindent\\textbf{5.12 Truck Delivery Problem (Set Covering Problem)} Longyun Company must currently deliver goods to 5 customers: 1 unit of goods to Customer A, 2 units to Customer B, 3 units to Customer C, 4 units to Customer D, 8 units to Customer E. The company has 4 trucks, each used only once: Truck 1: capacity of 2 units, Truck 2: capacity of 6 units, Truck 3: capacity of 8 units, Truck 4: capacity of 11 units. The cost of using truck j is c_j. Constraints: A truck cannot deliver to both Customer A and Customer C. A truck cannot deliver to both Customer B and Customer D. Objective:Formulate an integer programming model to determine how to assign the deliveries to the trucks to minimize the total transportation cost.\n",
+  "cn_question": "\n    \\noindent\\textbf{5.12 卡车送货问题（覆盖问题）} 龙运公司目前必须向 5 家用户送货，\n需在用户 A 处卸下 1 个单位重量的货物，在用户 B 处卸下 2 个单位重量的货物，\n在用户 C 处卸下 3 个单位重量的货物，在用户 D 处卸下 4 个单位重量的货物，\n在用户 E 处卸下 8 个单位重量的货物。公司有各种卡车四辆：\n1 号车载重能力为 2 个单位，2 号车载重能力为 6 个单位，\n3 号车载重能力为 8 个单位，4 号车载重能力为 11 个单位。\n每辆车只运输一次，卡车 $j$ 的一次运费为 $c_j$。\n假定一辆卡车不能同时给用户 A 和 C 送货；同样，也不能同时给用户 B 和 D 送货。\n请列出一个整数规划模型表达式，以确定装送全部货物应如何配置卡车，使其运费最小。\n",
+  "difficulty": "Medium",
+  "id": 19
+}

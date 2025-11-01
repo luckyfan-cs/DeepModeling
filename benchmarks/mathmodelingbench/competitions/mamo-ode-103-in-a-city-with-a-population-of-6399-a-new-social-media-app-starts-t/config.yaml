@@ -1,0 +1,16 @@
+id: mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t
+name: Mamo Ode 103 In A City With A Population Of 6399 A New Social Media App Starts T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t/description.md
+
+dataset:
+  answers: mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t/prepared/private/answer.csv
+  sample_submission: mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-103-in-a-city-with-a-population-of-6399-a-new-social-media-app-starts-t.prepare:prepare

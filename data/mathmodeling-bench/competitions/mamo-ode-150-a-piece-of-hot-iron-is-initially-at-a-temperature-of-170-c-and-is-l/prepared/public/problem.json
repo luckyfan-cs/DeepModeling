@@ -1,0 +1,6 @@
+{
+  "id": 151,
+  "Question": "A piece of hot iron is initially at a temperature of 170°C and is left to cool in a room with a constant ambient temperature of 22°C. The rate constant \\(k\\) for the cooling process, according to Newton's Law of Cooling, is found to be \\(0.005 \\, \\text{min}^{-1}\\). Calculate the temperature of the iron after 14 minutes. Provide your answer in °C and up to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

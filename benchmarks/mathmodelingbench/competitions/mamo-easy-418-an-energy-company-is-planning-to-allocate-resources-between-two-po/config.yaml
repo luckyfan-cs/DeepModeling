@@ -1,0 +1,16 @@
+id: mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po
+name: Mamo Easy 418 An Energy Company Is Planning To Allocate Resources Between Two Po
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po/description.md
+
+dataset:
+  answers: mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po/prepared/private/answer.csv
+  sample_submission: mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-418-an-energy-company-is-planning-to-allocate-resources-between-two-po.prepare:prepare

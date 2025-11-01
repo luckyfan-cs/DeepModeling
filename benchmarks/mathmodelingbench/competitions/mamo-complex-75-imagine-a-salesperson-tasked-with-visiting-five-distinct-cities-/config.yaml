@@ -1,0 +1,16 @@
+id: mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-
+name: Mamo Complex 75 Imagine A Salesperson Tasked With Visiting Five Distinct Cities 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-/description.md
+
+dataset:
+  answers: mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-/prepared/private/answer.csv
+  sample_submission: mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-75-imagine-a-salesperson-tasked-with-visiting-five-distinct-cities-.prepare:prepare

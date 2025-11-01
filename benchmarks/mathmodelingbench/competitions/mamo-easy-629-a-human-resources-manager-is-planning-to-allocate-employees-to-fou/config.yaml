@@ -1,0 +1,16 @@
+id: mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou
+name: Mamo Easy 629 A Human Resources Manager Is Planning To Allocate Employees To Fou
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou/description.md
+
+dataset:
+  answers: mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou/prepared/private/answer.csv
+  sample_submission: mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-629-a-human-resources-manager-is-planning-to-allocate-employees-to-fou.prepare:prepare

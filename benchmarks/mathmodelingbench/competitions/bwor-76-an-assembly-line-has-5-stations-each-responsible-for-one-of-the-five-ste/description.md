@@ -1,0 +1,15 @@
+# Bwor 76 An Assembly Line Has 5 Stations Each Responsible For One Of The Five Ste
+
+An assembly line has 5 stations, each responsible for one of the five steps in the assembly of a certain product. Five workers — A, B, C, D, and E — are to be assigned to operate these stations. Due to differences in individual skills, the production efficiency of each worker varies by station. The specific efficiencies are shown in Table 8-10 (unit: pieces/min). Question: How should each worker be assigned to a station to maximize the overall production capacity of the assembly line?  
+
+  Table 8-10  
+
+
+  <html><body><table><tr><td>Worker \ Station</td><td>I</td><td>II</td><td>Ⅲ</td><td>IV</td><td>V</td></tr><tr><td>A</td><td>2</td><td>3</td><td>4</td><td>1</td><td>7</td></tr><tr><td>B</td><td>3</td><td>4</td><td>2</td><td>5</td><td>6</td></tr><tr><td>C</td><td>2</td><td>5</td><td>3</td><td>4</td><td>1</td></tr><tr><td>D</td><td>5</td><td>2</td><td>3</td><td>2</td><td>5</td></tr><tr><td>E</td><td>3</td><td>7</td><td>6</td><td>2</td><td>4</td></tr></table></body></html>
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

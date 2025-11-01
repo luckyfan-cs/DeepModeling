@@ -1,0 +1,10 @@
+# Mamo Easy 155 A Real Estate Developer Is Planning To Build Two Types Of Properti
+
+A real estate developer is planning to build two types of properties, X and Y. Each type of property requires a certain investment: $\$300,000$ for property X and $\$200,000$ for property Y. The total number of properties that can be built is limited to 10 due to zoning restrictions. To maintain the balance in their portfolio, the developer wants to ensure that the number of properties of type X should be at least five times the number of properties of type Y. Given that at least one unit each must be constructed for both types (X and Y), and all constructions are whole units due to nature of construction process.\n\nCalculate the minimum total investment required for this scenario, rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

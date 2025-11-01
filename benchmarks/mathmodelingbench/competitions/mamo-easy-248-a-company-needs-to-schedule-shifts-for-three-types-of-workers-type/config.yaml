@@ -1,0 +1,16 @@
+id: mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type
+name: Mamo Easy 248 A Company Needs To Schedule Shifts For Three Types Of Workers Type
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type/description.md
+
+dataset:
+  answers: mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type/prepared/private/answer.csv
+  sample_submission: mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-248-a-company-needs-to-schedule-shifts-for-three-types-of-workers-type.prepare:prepare

@@ -1,0 +1,10 @@
+# Mamo Easy 469 A Sports Coach Is Planning To Allocate Training Hours Between Two 
+
+A sports coach is planning to allocate training hours between two types of exercises for an upcoming tournament. The total number of hours that can be allocated for both exercises combined is limited to 10 due to time constraints. To achieve the fitness objectives, the combined effort from these exercises must yield a minimum effectiveness score, calculated as three times the hours spent on exercise X plus four times those spent on exercise Y, of at least 30 points. Furthermore, the difference in hours between exercise X and Y should not exceed 2 to ensure balanced training. Given that the fatigue scores associated with each hour of training are 40 for exercise X and 60 for exercise Y, and the coach aims to minimize the total fatigue score while meeting all constraints (with X and Y being integers). Additionally, he needs to consider that he cannot spend more than six hours on exercise X or eight hours on exercise Y due to physical limitations of his athletes. What is the minimum total fatigue score rounded to the nearest whole number?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

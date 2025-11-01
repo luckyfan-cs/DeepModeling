@@ -1,0 +1,16 @@
+id: mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-
+name: Mamo Easy 119 A Tourism Agency Is Planning To Organize Two Types Of Trips X And 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-/description.md
+
+dataset:
+  answers: mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-/prepared/private/answer.csv
+  sample_submission: mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-119-a-tourism-agency-is-planning-to-organize-two-types-of-trips-x-and-.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo
+name: Mamo Easy 152 A Shipping Company Has Two Types Of Containers X And Y For Transpo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo/description.md
+
+dataset:
+  answers: mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo/prepared/private/answer.csv
+  sample_submission: mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-152-a-shipping-company-has-two-types-of-containers-x-and-y-for-transpo.prepare:prepare

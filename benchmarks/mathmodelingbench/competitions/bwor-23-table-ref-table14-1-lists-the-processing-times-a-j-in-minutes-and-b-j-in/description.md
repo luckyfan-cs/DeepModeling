@@ -1,0 +1,25 @@
+# Bwor 23 Table Ref Table14 1 Lists The Processing Times A J In Minutes And B J In
+
+Table \ref{table14-1} lists the processing times A_j (in minutes) and B_j (in minutes) for 6 jobs on machines A and B, respectively. Each job must first be processed on machine A and then on machine B. The objective is to determine the optimal job sequence that minimizes the total processing time.
+
+\begin{table}[h]
+    \centering
+    \caption{Processing times on machines A and B}
+    \label{table14-1}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Processing Time} & \textbf{Job 1} & \textbf{Job 2} & \textbf{Job 3} & \textbf{Job 4} & \textbf{Job 5} & \textbf{Job 6} \\
+        \hline
+        A & 30 & 60 & 60 & 20 & 80 & 90 \\
+        \hline
+        B & 70 & 70 & 50 & 60 & 30 & 40 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

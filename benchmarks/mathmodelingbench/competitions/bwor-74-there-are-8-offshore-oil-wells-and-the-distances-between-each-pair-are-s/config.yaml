@@ -1,0 +1,16 @@
+id: bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s
+name: Bwor 74 There Are 8 Offshore Oil Wells And The Distances Between Each Pair Are S
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s/description.md
+
+dataset:
+  answers: bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s/prepared/private/answer.csv
+  sample_submission: bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-74-there-are-8-offshore-oil-wells-and-the-distances-between-each-pair-are-s.prepare:prepare

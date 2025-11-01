@@ -1,0 +1,6 @@
+{
+  "id": 169,
+  "Question": "An electrical circuit, initially open and consisting of an inductor, a resistor, and a capacitor, is closed at time t=0. At this moment, the capacitor has a charge of 2 coulombs, and a current of 3 amperes flows through the circuit. The applied voltage follows \\(E(t)=20 \\cos t\\). In this circuit, the voltage drop across the resistor is proportional to 4 times the rate of change of charge, across the capacitor is 10 times the charge, and across the inductor is 2 times the rate of change of current. Model the circuit's behavior with an initial value problem. Calculate the charge on the capacitor at \\(t=0.1\\) seconds, considering the direction of charge flow as positive. Express your answer in coulombs, rounded to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

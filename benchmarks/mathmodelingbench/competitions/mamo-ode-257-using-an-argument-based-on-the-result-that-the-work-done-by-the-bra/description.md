@@ -1,0 +1,10 @@
+# Mamo Ode 257 Using An Argument Based On The Result That The Work Done By The Bra
+
+Using an argument based on the result that the work done by the braking system must equal the change in kinetic energy, we found that the braking distance db is proportional to the square of the velocity. Consider launching a satellite into orbit using a single-stage rocket. The rocket is continuously losing mass, which is being propelled away from it at significant speeds. We are interested in predicting the maximum speed the rocket can attain. Assume the rocket of mass m is moving with speed v. In a small increment of time \Delta t it loses a small mass \Delta mp, which leaves the rocket with speed u in a direction opposite to v. Here, \Delta mp is the small propellant mass. The resulting speed of the rocket is v + \Delta v. c  = u + v is the relative exhaust speed (the speed of the burnt gases relative to the rocket). Assume that initially, at time t = 0, the velocity v = 0 and the mass of the rocket is m = M +P, where P is the mass of the payload satellite and M = \epsilonM +(1-\epsilon)M is the initial fuel mass \epsilonM plus the mass (1-\epsilon) M of the rocket casings and instruments. Determine that when all the fuel is burned in second, the speed of the rocket in km/s, with c = 3 km/sec, \epsilon= 0.8, and \beta=100, where \beta = P /M is the ratio of the payload mass to the rocket mass. Keep three significant digit in answer.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

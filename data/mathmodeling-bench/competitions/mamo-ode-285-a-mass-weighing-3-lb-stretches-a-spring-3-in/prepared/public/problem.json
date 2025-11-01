@@ -1,0 +1,6 @@
+{
+  "id": 286,
+  "Question": "A mass weighing 3 lb stretches a spring 3 in. If the mass is pushed upward, contracting the spring a distance of 1 in, and then set in motion with a downward velocity of 2 ft/s,  regard the initial velocity as the positive direction, and if there is no damping. Determine its position after 0.2s in inch. Keep three significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

@@ -1,0 +1,16 @@
+id: industry-99-in-network-communication-services-bandwidth-plays-an-important-role
+name: Industry 99 In Network Communication Services Bandwidth Plays An Important Role
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-99-in-network-communication-services-bandwidth-plays-an-important-role/description.md
+
+dataset:
+  answers: industry-99-in-network-communication-services-bandwidth-plays-an-important-role/prepared/private/answer.csv
+  sample_submission: industry-99-in-network-communication-services-bandwidth-plays-an-important-role/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-99-in-network-communication-services-bandwidth-plays-an-important-role.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-99-in-network-communication-services-bandwidth-plays-an-important-role.prepare:prepare

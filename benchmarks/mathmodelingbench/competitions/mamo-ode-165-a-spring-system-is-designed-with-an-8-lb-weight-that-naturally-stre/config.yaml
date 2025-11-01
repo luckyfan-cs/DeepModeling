@@ -1,0 +1,16 @@
+id: mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre
+name: Mamo Ode 165 A Spring System Is Designed With An 8 Lb Weight That Naturally Stre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre/description.md
+
+dataset:
+  answers: mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre/prepared/private/answer.csv
+  sample_submission: mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-165-a-spring-system-is-designed-with-an-8-lb-weight-that-naturally-stre.prepare:prepare

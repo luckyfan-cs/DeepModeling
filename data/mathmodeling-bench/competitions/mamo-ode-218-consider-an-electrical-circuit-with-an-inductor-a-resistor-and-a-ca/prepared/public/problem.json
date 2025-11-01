@@ -1,0 +1,6 @@
+{
+  "id": 219,
+  "Question": "Consider an electrical circuit with an inductor, a resistor, and a capacitor. The inductance of the coil is \\(9.33\\) henries, the resistance is \\(3.677\\) ohms, and the capacitance is \\(0.446\\) farads. Initially, the capacitor has a charge of \\(7\\) coulombs and when the circuit is closed, a current of \\(-3.625\\) amperes flows immediately without any external voltage source applied to it. Assuming that current flowing from positive to negative terminal as positive direction, find out how much charge will be left on the capacitor at \\(t = 9\\) seconds? Give your answer in coulombs rounded off to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

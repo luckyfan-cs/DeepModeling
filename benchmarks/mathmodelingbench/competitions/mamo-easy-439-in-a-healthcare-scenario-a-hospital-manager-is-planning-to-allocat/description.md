@@ -1,0 +1,10 @@
+# Mamo Easy 439 In A Healthcare Scenario A Hospital Manager Is Planning To Allocat
+
+In a healthcare scenario, a hospital manager is planning to allocate staff members between two critical roles: Doctors and Nurses. The objective is to minimize the total staffing cost associated with these roles, with costs being 5 units for each Doctor and 3 units for each Nurse.\n\nThe allocation must adhere to the following constraints due to operational requirements and patient needs:\n- The combined effort of twice the number of Doctors plus the number of Nurses must be at least 50, reflecting specific service demands.\n- The sum of Doctors and three times the number of Nurses should not exceed 100, ensuring balanced resource distribution among different care services.\n- There should always be at least 10 more Doctors than Nurses in order to maintain certain medical standards.\n\nGiven these conditions and aiming for whole numbers in staffing due to scheduling practicalities (Doctors or Nurses cannot be fractional), what is the minimum total staffing cost for the hospital, given the optimal allocation between Doctors and Nurses? Provide your answer rounded to nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

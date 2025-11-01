@@ -1,0 +1,16 @@
+id: mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across
+name: Mamo Easy 628 A Human Resources Manager Is Planning To Allocate Employees Across
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across/description.md
+
+dataset:
+  answers: mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across/prepared/private/answer.csv
+  sample_submission: mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-628-a-human-resources-manager-is-planning-to-allocate-employees-across.prepare:prepare

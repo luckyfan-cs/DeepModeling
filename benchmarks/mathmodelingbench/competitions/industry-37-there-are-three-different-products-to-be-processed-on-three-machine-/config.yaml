@@ -1,0 +1,16 @@
+id: industry-37-there-are-three-different-products-to-be-processed-on-three-machine-
+name: Industry 37 There Are Three Different Products To Be Processed On Three Machine 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-37-there-are-three-different-products-to-be-processed-on-three-machine-/description.md
+
+dataset:
+  answers: industry-37-there-are-three-different-products-to-be-processed-on-three-machine-/prepared/private/answer.csv
+  sample_submission: industry-37-there-are-three-different-products-to-be-processed-on-three-machine-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-37-there-are-three-different-products-to-be-processed-on-three-machine-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-37-there-are-three-different-products-to-be-processed-on-three-machine-.prepare:prepare

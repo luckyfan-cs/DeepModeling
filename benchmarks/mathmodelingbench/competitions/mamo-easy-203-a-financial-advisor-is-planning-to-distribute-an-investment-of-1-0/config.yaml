@@ -1,0 +1,16 @@
+id: mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0
+name: Mamo Easy 203 A Financial Advisor Is Planning To Distribute An Investment Of 1 0
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0/description.md
+
+dataset:
+  answers: mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0/prepared/private/answer.csv
+  sample_submission: mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-203-a-financial-advisor-is-planning-to-distribute-an-investment-of-1-0.prepare:prepare

@@ -1,0 +1,10 @@
+# Mamo Easy 33 A Financial Manager Is Planning The Allocation Of Funds Between Two
+
+A financial manager is planning the allocation of funds between two investment options, X and Y. The investment in option $X$ cannot be less than \$5000, and for option $Y$, it cannot be less than \$2000. The total investment in both options combined is constrained to a maximum of \$10000. Additionally, to meet the portfolio's return objectives, the combined yield from these investments must generate a minimum interest income calculated as 7% of the investment in X plus 8% of the investment in Y yielding at least \$700. Given that the transaction costs per dollar for option $X$ are \$0.01 and for option $Y$ are \$0.02, and the financial manager aims to minimize these costs while meeting all constraints(X, Y are integers). Find the minimum total transaction cost rounded to two decimal places.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

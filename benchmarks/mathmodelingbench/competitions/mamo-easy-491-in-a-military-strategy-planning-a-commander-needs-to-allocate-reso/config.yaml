@@ -1,0 +1,16 @@
+id: mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso
+name: Mamo Easy 491 In A Military Strategy Planning A Commander Needs To Allocate Reso
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso/description.md
+
+dataset:
+  answers: mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso/prepared/private/answer.csv
+  sample_submission: mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-491-in-a-military-strategy-planning-a-commander-needs-to-allocate-reso.prepare:prepare

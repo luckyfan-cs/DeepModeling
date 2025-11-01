@@ -1,0 +1,16 @@
+id: mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol
+name: Mamo Ode 27 A Tank Initially Contains 1376 L Of Water With 18 Kg Of Sugar Dissol
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol/description.md
+
+dataset:
+  answers: mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol/prepared/private/answer.csv
+  sample_submission: mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-27-a-tank-initially-contains-1376-l-of-water-with-18-kg-of-sugar-dissol.prepare:prepare

@@ -1,0 +1,6 @@
+{
+  "id": 251,
+  "Question": "We consider a falling object of mass m = 10 kg and drag coefficient y = 2 kg/s. Suppose this object is dropped from a height of 300 m. Find its distance in m to the ground after 10.48s. Keep three significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,10 @@
+# Mamo Ode 330 In The Scenario Of Treating Ventricular Arrhythmia With Lidocaine W
+
+In the scenario of treating ventricular arrhythmia with lidocaine, we model the dynamics of the drug's distribution between the bloodstream and body tissue to ensure its concentration remains within a therapeutic yet non-lethal range. For an adult, the maximum dosage for ventricular tachycardia is 3 mg/kg, with the drug available in 0.5%, 1%, and 2% solutions. Using a differential equation model, where x(t) represents the lidocaine concentration in the bloodstream (mg/L) and y(t) symbolizes the concentration in body tissue (mg/L), we apply specific numerical parameters to simulate the drug's kinetics: the transfer rate of lidocaine from tissue to bloodstream is 0.038 per hour, and from bloodstream to tissue is 0.066 per hour. The clearance rates are -0.019 per hour for the bloodstream and -0.038 per hour for the tissue. Starting with an initial condition of 0.05 m/L drug in the bloodstream (x(0) = 0.05) and an initial injection dosage directly into the body tissue (y(0) = 0.05mg/L). Find the lidocaine concentration in the bloodstream in mg/L after t = 2 h. Keep one significant digit number in answer.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

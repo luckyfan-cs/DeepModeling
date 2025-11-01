@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-0-a-tank-contains-100-mathrm-l-of-water",
+  "en_question": "A tank contains $100 \\mathrm{~L}$ of water. A solution with a salt concentration of $0.4 \\mathrm{~kg} / \\mathrm{L}$ is added at a rate of $5 \\mathrm{~L} / \\mathrm{min}$. The solution is kept mixed and is drained from the tank at a rate of $3 \\mathrm{~L} / \\mathrm{min}$. Find the concentration after 20 minutes(in kg/L). Keep 4 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.2275"
+}

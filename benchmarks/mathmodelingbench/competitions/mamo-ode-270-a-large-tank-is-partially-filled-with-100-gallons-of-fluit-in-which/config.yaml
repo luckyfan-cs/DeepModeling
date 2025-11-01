@@ -1,0 +1,16 @@
+id: mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which
+name: Mamo Ode 270 A Large Tank Is Partially Filled With 100 Gallons Of Fluit In Which
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which/description.md
+
+dataset:
+  answers: mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which/prepared/private/answer.csv
+  sample_submission: mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-270-a-large-tank-is-partially-filled-with-100-gallons-of-fluit-in-which.prepare:prepare

@@ -1,0 +1,6 @@
+{
+  "id": 137,
+  "Question": "A car engine is initially at a temperature of 55°C. After the car is turned off, it cools down in an environment where the ambient temperature is 10°C. It was observed that after 18 hours, the engine's temperature decreased to 12.572°C. Using Newton's Law of Cooling, calculate the temperature of the engine after 19 hours. Provide your answer in °C and up to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

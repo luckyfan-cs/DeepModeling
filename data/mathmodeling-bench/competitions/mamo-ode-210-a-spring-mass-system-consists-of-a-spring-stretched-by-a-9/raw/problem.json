@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-210-a-spring-mass-system-consists-of-a-spring-stretched-by-a-9",
+  "en_question": "A spring-mass system consists of a spring stretched by a 9.33-kg weight, with the damping constant being \\(1.542 \\mathrm{kg}-\\mathrm{sec} / \\mathrm{m}\\), and the spring constant being 5.697 N/m. If the mass is released from -0.337 m below the equilibrium position (considering downward as positive) with an initial velocity of \\(0.843 \\mathrm{m} / \\mathrm{sec}\\), calculate the displacement of the mass from its equilibrium position at t = 5 seconds, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.305"
+}

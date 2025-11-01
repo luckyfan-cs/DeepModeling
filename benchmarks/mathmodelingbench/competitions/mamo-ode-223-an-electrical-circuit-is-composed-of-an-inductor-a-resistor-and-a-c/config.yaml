@@ -1,0 +1,16 @@
+id: mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c
+name: Mamo Ode 223 An Electrical Circuit Is Composed Of An Inductor A Resistor And A C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c/description.md
+
+dataset:
+  answers: mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c/prepared/private/answer.csv
+  sample_submission: mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-223-an-electrical-circuit-is-composed-of-an-inductor-a-resistor-and-a-c.prepare:prepare

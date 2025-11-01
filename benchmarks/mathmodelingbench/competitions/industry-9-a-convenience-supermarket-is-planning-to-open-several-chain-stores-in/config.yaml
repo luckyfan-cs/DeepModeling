@@ -1,0 +1,16 @@
+id: industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in
+name: Industry 9 A Convenience Supermarket Is Planning To Open Several Chain Stores In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in/description.md
+
+dataset:
+  answers: industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in/prepared/private/answer.csv
+  sample_submission: industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-9-a-convenience-supermarket-is-planning-to-open-several-chain-stores-in.prepare:prepare

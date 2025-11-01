@@ -1,0 +1,16 @@
+id: industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl
+name: Industry 20 A Restaurant Needs To Order Dining Tables From Three Different Suppl
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl/description.md
+
+dataset:
+  answers: industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl/prepared/private/answer.csv
+  sample_submission: industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-20-a-restaurant-needs-to-order-dining-tables-from-three-different-suppl.prepare:prepare

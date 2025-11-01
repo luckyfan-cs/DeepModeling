@@ -1,0 +1,16 @@
+id: mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi
+name: Mamo Complex 35 You Re On A Mission To Carefully Plan Your Weekly Meal Prep Aimi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi/description.md
+
+dataset:
+  answers: mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi/prepared/private/answer.csv
+  sample_submission: mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-35-you-re-on-a-mission-to-carefully-plan-your-weekly-meal-prep-aimi.prepare:prepare

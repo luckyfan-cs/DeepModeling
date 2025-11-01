@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-265-a-thermometer-is-removed-from-a-room-where-the-temperature-is-70-f-",
+  "en_question": "A thermometer is removed from a room where the temperature is 70\u00b0 F and is taken outside, where the air temperature is 10\u00b0 F. After one-half minute the thermometer reads 50\u00b0 F. What is the reading of the thermometer in F at t = 1 min? Keep four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "36.67"
+}

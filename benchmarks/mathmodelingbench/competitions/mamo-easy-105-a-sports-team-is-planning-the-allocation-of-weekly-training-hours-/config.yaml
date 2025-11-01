@@ -1,0 +1,16 @@
+id: mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-
+name: Mamo Easy 105 A Sports Team Is Planning The Allocation Of Weekly Training Hours 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-/description.md
+
+dataset:
+  answers: mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-/prepared/private/answer.csv
+  sample_submission: mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-105-a-sports-team-is-planning-the-allocation-of-weekly-training-hours-.prepare:prepare

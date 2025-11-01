@@ -1,0 +1,10 @@
+# Mamo Easy 86 A Manager Is Planning The Work Schedule For Two Teams X And Y
+
+A manager is planning the work schedule for two teams, $X$ and $Y$. The total hours both teams can work in a week cannot exceed 24 due to labor laws. To maintain minimum operational requirements, team $X$ must work at least 4 hours per week and team $Y$ must work at least 6 hours per week. Every hour of team $X$'s time costs \$8 while every hour of team $Y$'s time costs \$10. Given these constraints and considering that scheduling needs to be done in whole hours, what is the minimum total cost for the manager's weekly scheduling plan? Provide your answer in dollars rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

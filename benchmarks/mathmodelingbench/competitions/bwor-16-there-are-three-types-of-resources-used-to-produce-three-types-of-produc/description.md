@@ -1,0 +1,31 @@
+# Bwor 16 There Are Three Types Of Resources Used To Produce Three Types Of Produc
+
+There are three types of resources used to produce three types of products. The available amount of each resource, the variable cost and selling price per unit of each product, the unit consumption of resources, and the fixed costs of organizing production for each product are shown in Table 5-6. A production plan is to be formulated to maximize total profit.
+
+\begin{table}[h]
+    \centering
+    \caption{Table 5-6: Production Planning Data}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c|ccc|c}
+        \toprule
+        Unit Consumption & \multicolumn{3}{c|}{Product} & Resource Amount \\
+        \cmidrule(lr){2-4}
+        Resource & I & II & III & \\
+        \midrule
+        A & 2 & 4 & 8 & 500 \\
+        B & 2 & 3 & 4 & 300 \\
+        C & 1 & 2 & 3 & 100 \\
+        \midrule
+        Variable cost per unit & 4 & 5 & 6 & \\
+        Fixed cost & 100 & 150 & 200 & \\
+        Selling price per unit & 8 & 10 & 12 & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,6 @@
+{
+  "en_question": "\n\n A trading company specializes in the wholesale of a certain type of grain. The company currently has a warehouse with a capacity of 5,000 dan, and as of January 1, it has: 1,000 dan of grain in stock, 20,000 yuan in available capital, Estimated purchase and sale prices for the first quarter are shown below:  \n\n Table 1-8 – Grain Prices  \n\n\n<html><body><table><tr><td>Month</td><td>Purchase Price (yuan/dan)</td><td>Selling Price (yuan/dan)</td></tr><tr><td>1</td><td>2.85</td><td>3.10</td></tr><tr><td>2</td><td>3.05</td><td>3.25</td></tr><tr><td>3</td><td>2.90</td><td>2.95</td></tr></table></body></html>  \n\nGrain arrives in the month it is purchased, but can only be sold starting in the next month.Cash payment upon delivery. The target inventory at the end of March is 2,000 dan.\n",
+  "cn_question": "\n\n1.32一贸易公司专门经营某种杂粮的批发业务。公司现有库容5000担的仓库。1月1日,公司拥有库存1000担杂粮，并有资金20000元。估计第一季度杂粮价格如表1 -8 所示。  \n\n表1-8  \n\n\n<html><body><table><tr><td>月份</td><td>进货价/(元/担）</td><td>出货价/(元/担）</td></tr><tr><td>1</td><td>2.85</td><td>3.10</td></tr><tr><td>2</td><td>3.05</td><td>3.25</td></tr><tr><td>3</td><td>2.90</td><td>2.95</td></tr></table></body></html>  \n\n如买进的杂粮当月到货，但需到下月才能卖出，且规定“货到付款”。公司希望本季末库存为2000担。问：应采取什么样的买进与卖出的策略使3个月总的获利最大？\n",
+  "difficulty": "Medium",
+  "id": 29
+}

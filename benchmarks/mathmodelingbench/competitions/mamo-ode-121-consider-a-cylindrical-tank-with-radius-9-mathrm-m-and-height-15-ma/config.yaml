@@ -1,0 +1,16 @@
+id: mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma
+name: Mamo Ode 121 Consider A Cylindrical Tank With Radius 9 Mathrm M And Height 15 Ma
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma/description.md
+
+dataset:
+  answers: mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma/prepared/private/answer.csv
+  sample_submission: mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-121-consider-a-cylindrical-tank-with-radius-9-mathrm-m-and-height-15-ma.prepare:prepare

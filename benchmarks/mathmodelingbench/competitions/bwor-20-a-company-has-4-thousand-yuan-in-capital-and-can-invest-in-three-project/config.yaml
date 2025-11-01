@@ -1,0 +1,16 @@
+id: bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project
+name: Bwor 20 A Company Has 4 Thousand Yuan In Capital And Can Invest In Three Project
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project/description.md
+
+dataset:
+  answers: bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project/prepared/private/answer.csv
+  sample_submission: bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-20-a-company-has-4-thousand-yuan-in-capital-and-can-invest-in-three-project.prepare:prepare

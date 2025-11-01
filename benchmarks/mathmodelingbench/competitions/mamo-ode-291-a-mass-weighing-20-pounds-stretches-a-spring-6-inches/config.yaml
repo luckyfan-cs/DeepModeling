@@ -1,0 +1,16 @@
+id: mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches
+name: Mamo Ode 291 A Mass Weighing 20 Pounds Stretches A Spring 6 Inches
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches/description.md
+
+dataset:
+  answers: mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches/prepared/private/answer.csv
+  sample_submission: mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-291-a-mass-weighing-20-pounds-stretches-a-spring-6-inches.prepare:prepare

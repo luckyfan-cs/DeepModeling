@@ -1,0 +1,16 @@
+id: mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-
+name: Mamo Easy 443 A Retail Store Manager Is Planning To Stock Two Types Of Products 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-/description.md
+
+dataset:
+  answers: mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-/prepared/private/answer.csv
+  sample_submission: mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-443-a-retail-store-manager-is-planning-to-stock-two-types-of-products-.prepare:prepare

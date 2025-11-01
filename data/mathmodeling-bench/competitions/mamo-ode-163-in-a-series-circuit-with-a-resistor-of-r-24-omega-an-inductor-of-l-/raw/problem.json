@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-163-in-a-series-circuit-with-a-resistor-of-r-24-omega-an-inductor-of-l-",
+  "en_question": "In a series circuit with a resistor of $R=24 \\Omega$, an inductor of $L=2 \\mathrm{H}$, a capacitor of $C=0.005 \\mathrm{F}$, initially charged to $Q=0.001 \\mathrm{C}$ with no starting current, the battery has been replaced by a generator that emits a voltage described by $E(t)=12 \\sin 10 t$. Calculate the charge on the capacitor at time $t=0.2$ seconds after the generator begins operation. Provide the answer in Coulombs, rounded to five significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.031875"
+}

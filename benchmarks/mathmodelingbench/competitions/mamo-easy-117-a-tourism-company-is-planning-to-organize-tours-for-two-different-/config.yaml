@@ -1,0 +1,16 @@
+id: mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-
+name: Mamo Easy 117 A Tourism Company Is Planning To Organize Tours For Two Different 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-/description.md
+
+dataset:
+  answers: mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-/prepared/private/answer.csv
+  sample_submission: mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-117-a-tourism-company-is-planning-to-organize-tours-for-two-different-.prepare:prepare

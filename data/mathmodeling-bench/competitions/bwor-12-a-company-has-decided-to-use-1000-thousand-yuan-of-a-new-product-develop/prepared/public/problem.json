@@ -1,0 +1,6 @@
+{
+  "en_question": "\n    A company has decided to use 1000 thousand yuan of a new product development fund to invest in the development of three new products: A, B, and C. Forecasted return on investment (ROI) for each product is: Product A: 5%, Product B: 7%, Product C: 10%, Due to associated risks, the company has defined the following priority constraints: 1.At least 300 thousand yuan must be invested in Product A. 2.To diversify investment risk, no single product may receive more than 35% of the total fund. 3.At least 10% of the fund (i.e., 1 million yuan) must be reserved for emergency use.4.The objective is to maximize total profit from the investment. \nPlease formulate a model to maximize the total investment profit(in thousand yuan).\n",
+  "cn_question": "\n    公司决定使用1000万元新产品开发基金开发A、B、C三种新产品。经预测估计,开发A、B、C三种新产品的投资利润率分别为5%、7%、10%。由于新产品开发有一定风险,公司研究后确定了下列优先顺序目标:\n第一,A产品至少投资300万元; 第二,为分散投资风险,任何一种新产品的开发投资不超过开发基金总额的35%;第三,应至少留有10%的开发基金，以备急用;第四,使总的投资利润最大。\n请建立模型使总的投资利润最大\n",
+  "difficulty": "Medium",
+  "id": 12
+}

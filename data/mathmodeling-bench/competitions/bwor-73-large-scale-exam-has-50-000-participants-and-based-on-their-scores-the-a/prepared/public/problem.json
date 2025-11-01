@@ -1,0 +1,6 @@
+{
+  "en_question": "\n\n   large-scale exam has 50,000 participants, and based on their scores, the answer sheets are marked with A, B, C, D, or E, from highest to lowest. According to historical data from similar exams, the percentage distribution of these five grades is: A: 10%, B: 25%, C: 30%, D: 20%, E: 15%. If a computer is used to sort the answer sheets by recognizing one grade at a time (i.e., each scan can only detect one specific grade), Question: What order of sorting should be used to minimize the total sorting workload? \n\n",
+  "cn_question": "\n\n  8.15某项大型考试有 50 000人参加,按得分高低在试卷上分别标记 A、B、C、D、E。按历年同类考试成绩，这5档成绩的得分比例为 $10\\,\\%\\,,25\\,\\%\\,,30\\,\\%\\,,20\\,\\%\\,,15\\,\\%$ 。若用计算机按得分标记将5档试卷分检（计算机每次只能识别一个标记)。问应按什么顺序，使分检的总工作量为最小？ \n\n",
+  "difficulty": "Medium",
+  "id": 73
+}

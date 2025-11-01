@@ -1,0 +1,16 @@
+id: mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-
+name: Mamo Ode 125 Let H T And V T Be The Height And Volume Of Water In A Rectangular 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-/description.md
+
+dataset:
+  answers: mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-/prepared/private/answer.csv
+  sample_submission: mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-125-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-rectangular-.prepare:prepare

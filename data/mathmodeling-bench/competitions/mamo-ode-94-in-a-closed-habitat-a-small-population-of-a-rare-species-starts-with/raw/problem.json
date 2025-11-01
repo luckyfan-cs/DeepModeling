@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-94-in-a-closed-habitat-a-small-population-of-a-rare-species-starts-with",
+  "en_question": "In a closed habitat, a small population of a rare species starts with only 60 individuals. The population growth is modeled by a natural increase of 4% per year, adjusted for the limiting effects of available resources, with an estimated carrying capacity of 1200 individuals. Calculate the expected population size after 10 years, rounding your answer to the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "87"
+}

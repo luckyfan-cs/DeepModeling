@@ -1,0 +1,16 @@
+id: mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-
+name: Mamo Easy 165 In A Marketing Strategy A Company Plans To Allocate Resources For 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-/description.md
+
+dataset:
+  answers: mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-/prepared/private/answer.csv
+  sample_submission: mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-165-in-a-marketing-strategy-a-company-plans-to-allocate-resources-for-.prepare:prepare

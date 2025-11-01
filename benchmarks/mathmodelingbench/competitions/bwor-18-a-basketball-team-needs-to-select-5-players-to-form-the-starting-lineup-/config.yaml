@@ -1,0 +1,16 @@
+id: bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-
+name: Bwor 18 A Basketball Team Needs To Select 5 Players To Form The Starting Lineup 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-/description.md
+
+dataset:
+  answers: bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-/prepared/private/answer.csv
+  sample_submission: bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-18-a-basketball-team-needs-to-select-5-players-to-form-the-starting-lineup-.prepare:prepare

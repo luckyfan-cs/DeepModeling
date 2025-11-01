@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-45-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu",
+  "en_question": "Consider a series R-L circuit with a resistor of 12 Ohms and an inductor of 4 H. A battery provides a constant voltage of 60 V. When the switch is closed at t=0, the current starts from I(0)=0. Calculate the current in the circuit after 1 second (in A). Keep 3 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4.75"
+}

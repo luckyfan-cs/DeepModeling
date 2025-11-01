@@ -1,0 +1,6 @@
+{
+  "id": 50,
+  "Question": "In a closed R-L circuit with a resistor of 8 Ohms and an inductor of 2 Henries, how many seconds after the switch is closed will it take the current to reach half of its steady-state value? Keep 3 significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

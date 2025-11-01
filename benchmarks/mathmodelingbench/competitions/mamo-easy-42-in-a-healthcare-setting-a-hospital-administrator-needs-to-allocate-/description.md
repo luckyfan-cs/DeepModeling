@@ -1,0 +1,10 @@
+# Mamo Easy 42 In A Healthcare Setting A Hospital Administrator Needs To Allocate 
+
+In a healthcare setting, a hospital administrator needs to allocate staff between two roles: Doctors and Nurses. The staffing allocation must adhere to the following constraints due to various operational requirements:  - Each doctor and nurse can treat a certain number of patients per day, with one doctor able to treat 2 patients and one nurse able to treat 3 patients. To ensure adequate patient care, the total number of patients treated by both doctors and nurses combined must be at least 10.- Due to budget constraints, the total number of staff (doctors + nurses) that can be hired is limited to 12.\n\nEach doctor requires an investment of 5 units (e.g., salary, training costs), while each nurse requires an investment of 3 units. The hospital aims to minimize these costs while ensuring all staffing requirements are met.\n\nGiven these conditions and considering that staffing levels need to be in whole numbers due to the nature of personnel hiring:What is the minimum total cost for staffing doctors and nurses at this hospital, rounded off to the nearest whole unit?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

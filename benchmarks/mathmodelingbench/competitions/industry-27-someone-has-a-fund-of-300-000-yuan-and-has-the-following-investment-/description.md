@@ -1,0 +1,16 @@
+# Industry 27 Someone Has A Fund Of 300 000 Yuan And Has The Following Investment 
+
+Someone has a fund of 300,000 yuan and has the following investment projects in the next three years:
+(1) Investment can be made at the beginning of each year within three years, with an annual profit of 20% of the investment amount, and the principal and interest can be used for investment in the following year;
+(2) Investment is only allowed at the beginning of the first year, and it can be recovered at the end of the second year, with the total principal and interest amounting to 150% of the investment amount, but the investment limit is no more than 150,000 yuan;
+(3) Investment is allowed at the beginning of the second year within three years, and it can be recovered at the end of the third year, with the total principal and interest amounting to 160% of the investment amount, and the investment limit is 200,000 yuan;
+(4) Investment is allowed at the beginning of the third year within three years, and it can be recovered in one year with a profit of 40%, and the investment limit is 100,000 yuan.
+Chapter One: Linear Programming and Simplex Method
+Try to determine an investment plan for this person that maximizes the principal and interest at the end of the third year.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su
+name: Industry 96 A Company Mixes Four Types Of Liquid Raw Materials With Different Su
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su/description.md
+
+dataset:
+  answers: industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su/prepared/private/answer.csv
+  sample_submission: industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-96-a-company-mixes-four-types-of-liquid-raw-materials-with-different-su.prepare:prepare

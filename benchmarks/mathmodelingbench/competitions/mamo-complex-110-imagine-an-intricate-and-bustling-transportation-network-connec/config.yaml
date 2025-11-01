@@ -1,0 +1,16 @@
+id: mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec
+name: Mamo Complex 110 Imagine An Intricate And Bustling Transportation Network Connec
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec/description.md
+
+dataset:
+  answers: mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec/prepared/private/answer.csv
+  sample_submission: mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-110-imagine-an-intricate-and-bustling-transportation-network-connec.prepare:prepare

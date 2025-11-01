@@ -1,0 +1,16 @@
+id: mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-
+name: Mamo Complex 141 In The Quest To Streamline Its Distribution Network Marketflow 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-/description.md
+
+dataset:
+  answers: mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-/prepared/private/answer.csv
+  sample_submission: mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-141-in-the-quest-to-streamline-its-distribution-network-marketflow-.prepare:prepare

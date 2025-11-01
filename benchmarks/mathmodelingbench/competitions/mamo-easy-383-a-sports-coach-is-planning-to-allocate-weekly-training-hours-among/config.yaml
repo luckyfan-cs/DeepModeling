@@ -1,0 +1,16 @@
+id: mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among
+name: Mamo Easy 383 A Sports Coach Is Planning To Allocate Weekly Training Hours Among
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among/description.md
+
+dataset:
+  answers: mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among/prepared/private/answer.csv
+  sample_submission: mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-383-a-sports-coach-is-planning-to-allocate-weekly-training-hours-among.prepare:prepare

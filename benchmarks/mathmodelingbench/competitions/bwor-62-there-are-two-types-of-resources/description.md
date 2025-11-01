@@ -1,0 +1,15 @@
+# Bwor 62 There Are Two Types Of Resources
+
+There are two types of resources. The first resource has x units, and the second resource has y units, to be allocated to n departments. The profit obtained by allocating x_i units of the first resource and y_i units of the second resource to department i is denoted as r_i(x, y). Suppose x = 3, y = 3, and n = 3, and the profits r_i(x, y) are listed in Table 7-3 below.Question: How should these two resources be allocated to the i departments to maximize total profit?  
+
+  Table 7-3  
+
+
+  <html><body><table><tr><td rowspan="2">x\y</td><td colspan="4">r(x,y)</td><td colspan="4">r2(.x,y)</td><td colspan="4">r3(x,y)</td></tr><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>0</td><td>1</td><td>2</td><td>3</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>0</td><td>0</td><td>1</td><td>3</td><td>6</td><td>0</td><td>2</td><td>4</td><td>6</td><td>0</td><td>3</td><td>5</td><td>8</td></tr><tr><td>1</td><td>4</td><td>5</td><td>6</td><td>7</td><td>1</td><td>4</td><td>6</td><td>7</td><td>2</td><td>5</td><td>7</td><td>9</td></tr><tr><td>2</td><td>5</td><td>6</td><td>7</td><td>8</td><td>4</td><td>6</td><td>8</td><td>9</td><td>4</td><td>7</td><td>9</td><td>11</td></tr><tr><td>3</td><td>6</td><td>7</td><td>8</td><td>9</td><td>6</td><td>8</td><td>10</td><td>11</td><td>6</td><td>9</td><td>11</td><td>13</td></tr></table></body></html>
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

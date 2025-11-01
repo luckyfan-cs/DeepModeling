@@ -1,0 +1,10 @@
+# Mamo Easy 29 A Transportation Company Is Planning The Allocation Of Vehicles Bet
+
+A transportation company is planning the allocation of vehicles between two delivery routes, X and Y. The vehicles are either trucks (for route X) or vans (for route Y), and due to their nature, they must be whole numbers. To fulfill a certain demand, the combined capacity of 4 trucks plus 3 vans should be at least 15 units. Meanwhile, due to road restrictions, the sum of twice the number of trucks and the number of vans cannot exceed 30 units. Each truck costs \$6 per day to operate, while each van costs \$7 per day. The company aims to minimize its daily operating cost while meeting all constraints. What is the minimum daily operating cost in dollars for this scenario? Please round your answer to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

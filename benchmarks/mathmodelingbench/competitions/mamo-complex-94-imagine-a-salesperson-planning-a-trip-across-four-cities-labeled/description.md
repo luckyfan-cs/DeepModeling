@@ -1,0 +1,18 @@
+# Mamo Complex 94 Imagine A Salesperson Planning A Trip Across Four Cities Labeled
+
+Imagine a salesperson planning a trip across four cities, labeled City 1, City 2, City 3, and City 4. This salesperson must devise a travel route that allows them to visit each of these cities exactly once and return to their starting point, all while aiming to keep their travel costs as low as possible.
+
+Here's a breakdown of the travel costs between each pair of cities:
+- The travel cost from City 1 to City 2 is 94 units, to City 3 is 34 units, and to City 4 is 87 units.
+- From City 2, it costs 94 units to get back to City 1, 62 units to go to City 3, and 87 units to reach City 4.
+- Traveling from City 3, the costs are 34 units back to City 1, 62 units to City 2, and 97 units to City 4.
+- Lastly, from City 4, it costs 87 units to travel back to City 1, 87 units to City 2, and 97 units to City 3.
+
+The challenge for the salesperson is to find the route that minimizes the total travel cost. What is the minimum total travel cost for the salesperson to visit each city exactly once and return to the starting city?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

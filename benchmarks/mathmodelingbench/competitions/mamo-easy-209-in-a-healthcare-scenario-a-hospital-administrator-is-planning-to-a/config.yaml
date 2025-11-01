@@ -1,0 +1,16 @@
+id: mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a
+name: Mamo Easy 209 In A Healthcare Scenario A Hospital Administrator Is Planning To A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a/description.md
+
+dataset:
+  answers: mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a/prepared/private/answer.csv
+  sample_submission: mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-209-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-a.prepare:prepare

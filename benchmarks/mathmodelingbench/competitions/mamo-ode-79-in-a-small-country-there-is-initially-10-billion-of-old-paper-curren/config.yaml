@@ -1,0 +1,16 @@
+id: mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren
+name: Mamo Ode 79 In A Small Country There Is Initially 10 Billion Of Old Paper Curren
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren/description.md
+
+dataset:
+  answers: mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren/prepared/private/answer.csv
+  sample_submission: mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren.prepare:prepare

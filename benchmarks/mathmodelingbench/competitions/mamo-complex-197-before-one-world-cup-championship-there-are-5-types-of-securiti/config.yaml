@@ -1,0 +1,16 @@
+id: mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti
+name: Mamo Complex 197 Before One World Cup Championship There Are 5 Types Of Securiti
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti/description.md
+
+dataset:
+  answers: mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti/prepared/private/answer.csv
+  sample_submission: mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-197-before-one-world-cup-championship-there-are-5-types-of-securiti.prepare:prepare

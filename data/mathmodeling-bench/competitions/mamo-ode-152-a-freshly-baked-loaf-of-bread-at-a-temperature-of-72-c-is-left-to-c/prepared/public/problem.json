@@ -1,0 +1,6 @@
+{
+  "id": 153,
+  "Question": "A freshly baked loaf of bread at a temperature of 72°C is left to cool in a room where the ambient temperature is constant at 35°C. The rate constant \\(k\\) for the cooling process, according to Newton's Law of Cooling, is found to be \\(0.196 \\, \\text{hr}^{-1}\\). Calculate the temperature of the loaf after 12 hours. Provide your answer in °C and up to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

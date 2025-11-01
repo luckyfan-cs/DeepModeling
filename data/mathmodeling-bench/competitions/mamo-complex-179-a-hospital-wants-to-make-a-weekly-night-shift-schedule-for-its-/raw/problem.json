@@ -1,0 +1,7 @@
+{
+  "id": "mamo-complex-179-a-hospital-wants-to-make-a-weekly-night-shift-schedule-for-its-",
+  "en_question": "A hospital wants to make a weekly night shift schedule for its nurses.The demand for the night shift on day j is dj , for j = 1, ..., 7. d1 = 5, d2 = 4, d3 = 7, d4 = 3, d5 = 8, d6 = 4, d7 = 3. Every nurse works 5 days in a row. We want to minimize the total number of nurses used while meeting all demand. Ignore the integrality constraints for now (i.e., we allow \u201chalf\u201d nurse if necessary). Provide your answer rounded to the nearest integer.",
+  "cn_question": "",
+  "difficulty": "complex_lp",
+  "expected_answer": "8"
+}

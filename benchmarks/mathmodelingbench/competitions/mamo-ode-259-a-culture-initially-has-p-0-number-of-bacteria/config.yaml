@@ -1,0 +1,16 @@
+id: mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria
+name: Mamo Ode 259 A Culture Initially Has P 0 Number Of Bacteria
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria/description.md
+
+dataset:
+  answers: mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria/prepared/private/answer.csv
+  sample_submission: mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-259-a-culture-initially-has-p-0-number-of-bacteria.prepare:prepare

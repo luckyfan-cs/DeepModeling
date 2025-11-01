@@ -1,0 +1,16 @@
+id: mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del
+name: Mamo Complex 88 Consider A Scenario Where A Courier Delivery Person Needs To Del
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del/description.md
+
+dataset:
+  answers: mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del/prepared/private/answer.csv
+  sample_submission: mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-88-consider-a-scenario-where-a-courier-delivery-person-needs-to-del.prepare:prepare

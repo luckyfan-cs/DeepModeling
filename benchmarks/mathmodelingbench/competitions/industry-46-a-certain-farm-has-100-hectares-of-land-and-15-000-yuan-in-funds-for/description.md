@@ -1,0 +1,21 @@
+# Industry 46 A Certain Farm Has 100 Hectares Of Land And 15 000 Yuan In Funds For
+
+A certain farm has 100 hectares of land and 15,000 yuan in funds for production development. The labor force situation on the farm is 3,500 person-days in autumn and winter, and 4,000 person-days in spring and summer. If the labor force itself is not fully utilized, they can work externally, earning 2.1 yuan/person-day in spring and summer and 1.8 yuan/person-day in autumn and winter.
+
+The farm cultivates three types of crops: soybeans, corn, and wheat, and also raises dairy cows and chickens. Crop cultivation requires no specialized investment, but raising animals involves an investment of 400 yuan per dairy cow and 3 yuan per chicken. Raising dairy cows requires allocating 1.5 hectares of land per cow to grow feed, and involves 100 person-days in autumn and winter, and 50 person-days in spring and summer per cow. The annual net income is 400 yuan per dairy cow. Raising chickens does not use land, requires 0.6 person-days in autumn and winter, and 0.3 person-days in spring and summer per chicken. Annual net income is 2 yuan per chicken. The current chicken coop can accommodate up to 3,000 chickens, and the cow barn can accommodate up to 32 dairy cows. The labor and income requirements for the three types of crops per year are shown in Table 1-9.
+
+Table 1-9
+| Item           | Soybean | Corn | Wheat |
+|----------------|---------|------|-------|
+| Person-days (Autumn/Winter) | 20      | 35   | 10    |
+| Person-days (Spring/Summer) | 50      | 75   | 40    |
+| Annual Net Income (Yuan/hectare) | 175     | 300   | 120   |
+
+Determine the farm's operating plan to maximize annual net income. Please note that Labor days are calculated in whole days, fractions are not allowed.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

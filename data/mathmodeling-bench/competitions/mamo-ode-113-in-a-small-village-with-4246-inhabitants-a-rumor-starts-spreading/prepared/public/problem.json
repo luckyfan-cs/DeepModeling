@@ -1,0 +1,6 @@
+{
+  "id": 114,
+  "Question": "In a small village with 4246 inhabitants, a rumor starts spreading. At the initial time t = 0 days, 969 people have already heard the rumor. The rate of spread of the rumor is 0.038 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, can you determine how many people in the village will have heard the rumor after 6 days? Provide your answer in whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

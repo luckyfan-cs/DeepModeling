@@ -1,0 +1,16 @@
+id: mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a
+name: Mamo Easy 237 An Agricultural Manager Is Planning The Distribution Of Farmland A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a/description.md
+
+dataset:
+  answers: mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a/prepared/private/answer.csv
+  sample_submission: mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-237-an-agricultural-manager-is-planning-the-distribution-of-farmland-a.prepare:prepare

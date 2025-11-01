@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in",
+  "en_question": "A freshly baked loaf of bread at a temperature of 73\u00b0C is placed in a room where the ambient temperature is constant at 27\u00b0C. After 5 minutes, the temperature of the bread has decreased to approximately 62.83\u00b0C. Using Newton's Law of Cooling, calculate the estimated temperature of the bread after 11 minutes. Provide your answer in \u00b0C and to two decimal places.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "53.54"
+}

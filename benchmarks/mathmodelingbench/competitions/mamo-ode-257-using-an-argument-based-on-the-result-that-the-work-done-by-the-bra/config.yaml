@@ -1,0 +1,16 @@
+id: mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra
+name: Mamo Ode 257 Using An Argument Based On The Result That The Work Done By The Bra
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra/description.md
+
+dataset:
+  answers: mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra/prepared/private/answer.csv
+  sample_submission: mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-257-using-an-argument-based-on-the-result-that-the-work-done-by-the-bra.prepare:prepare

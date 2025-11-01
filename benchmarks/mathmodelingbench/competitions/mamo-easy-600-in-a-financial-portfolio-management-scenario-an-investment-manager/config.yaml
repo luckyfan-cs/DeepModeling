@@ -1,0 +1,16 @@
+id: mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager
+name: Mamo Easy 600 In A Financial Portfolio Management Scenario An Investment Manager
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager/description.md
+
+dataset:
+  answers: mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager/prepared/private/answer.csv
+  sample_submission: mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-600-in-a-financial-portfolio-management-scenario-an-investment-manager.prepare:prepare

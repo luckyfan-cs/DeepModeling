@@ -1,0 +1,19 @@
+# Mamo Complex 63 Imagine A Scenario Where A Salesperson Needs To Visit Five Diffe
+
+Imagine a scenario where a salesperson needs to visit five different cities, identified as Cities 1 through 5, to present their products. The salesperson has the flexibility to choose any city as a starting point; however, they are required to visit each city exactly once and then return to the starting city. The primary goal is to complete this circuit while incurring the lowest possible travel cost.
+
+Here’s a summary of the travel costs between the cities:
+- The cost to travel from City 1 to City 2 is 28 units, to City 3 is 89 units, to City 4 is 59 units, and to City 5 is 41 units.
+- From City 2, it costs 28 units to reach City 1, 85 units to get to City 3, 12 units to City 4, and 68 units to City 5.
+- Traveling from City 3, the costs are 89 units to City 1, 85 units to City 2, 22 units to City 4, and 70 units to City 5.
+- From City 4, the journey costs 59 units to City 1, 12 units to City 2, 22 units to City 3, and 48 units to City 5.
+- Lastly, from City 5, it costs 41 units to travel to City 1, 68 units to City 2, 70 units to City 3, and 48 units to City 4.
+
+What is the minimum total travel cost for the salesperson to visit each of the five cities exactly once and return to the starting city?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

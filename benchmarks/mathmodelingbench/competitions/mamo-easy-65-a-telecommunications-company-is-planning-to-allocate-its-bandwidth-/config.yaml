@@ -1,0 +1,16 @@
+id: mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-
+name: Mamo Easy 65 A Telecommunications Company Is Planning To Allocate Its Bandwidth 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-/description.md
+
+dataset:
+  answers: mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-/prepared/private/answer.csv
+  sample_submission: mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-65-a-telecommunications-company-is-planning-to-allocate-its-bandwidth-.prepare:prepare

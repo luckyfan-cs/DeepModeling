@@ -1,0 +1,16 @@
+id: mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55
+name: Mamo Ode 62 An Investor Deposits 91 827 Into An Account That Earns 55
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55/description.md
+
+dataset:
+  answers: mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55/prepared/private/answer.csv
+  sample_submission: mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-62-an-investor-deposits-91-827-into-an-account-that-earns-55.prepare:prepare

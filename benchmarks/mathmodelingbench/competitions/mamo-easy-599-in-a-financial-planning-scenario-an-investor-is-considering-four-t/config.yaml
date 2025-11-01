@@ -1,0 +1,16 @@
+id: mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t
+name: Mamo Easy 599 In A Financial Planning Scenario An Investor Is Considering Four T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t/description.md
+
+dataset:
+  answers: mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t/prepared/private/answer.csv
+  sample_submission: mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-599-in-a-financial-planning-scenario-an-investor-is-considering-four-t.prepare:prepare

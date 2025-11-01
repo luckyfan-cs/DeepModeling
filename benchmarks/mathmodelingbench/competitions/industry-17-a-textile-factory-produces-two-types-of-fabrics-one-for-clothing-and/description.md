@@ -1,0 +1,20 @@
+# Industry 17 A Textile Factory Produces Two Types Of Fabrics One For Clothing And
+
+A textile factory produces two types of fabrics: one for clothing and the other for curtains. The factory operates two shifts, with a weekly production time set at 110 hours. Both types of fabrics are produced at a rate of 1000 meters per hour. Assuming that up to 70,000 meters of curtain fabric can be sold per week, with a profit of 2.5 yuan per meter, and up to 45,000 meters of clothing fabric can be sold per week, with a profit of 1.5 yuan per meter, the factory has the following objectives in formulating its production plan:
+
+$p_{1}$ : The weekly production time must fully utilize 110 hours;
+
+$p_{2}$ : Overtime should not exceed 10 hours per week;
+
+$p_{3}$ : At least 70,000 meters of curtain fabric and 45,000 meters of clothing fabric must be sold per week;
+
+$p_{4}$ : Minimize overtime as much as possible.
+
+Formulate a model for this problem.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

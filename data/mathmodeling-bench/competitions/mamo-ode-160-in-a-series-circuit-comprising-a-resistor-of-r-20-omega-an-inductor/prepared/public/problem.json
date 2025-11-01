@@ -1,0 +1,6 @@
+{
+  "id": 161,
+  "Question": "In a series circuit comprising a resistor of $R=20 \\Omega$, an inductor of $L=1 \\mathrm{H}$, a capacitor of $C=0.002 \\mathrm{F}$, and connected to a $12-\\mathrm{V}$ battery, with the initial charge on the capacitor and the initial current through the circuit both set to 0, calculate both the charge on the capacitor and the current through the circuit at time $t=0.1$ seconds. Assume the relationship for current over time is given by a function that takes into account the circuit's resistance, inductance, and capacitance. Provide the current's value in Amperes, rounded to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

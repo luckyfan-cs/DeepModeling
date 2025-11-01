@@ -1,0 +1,10 @@
+# Mamo Easy 451 In An Agriculture Scenario A Farmer Is Planning To Allocate Resour
+
+In an agriculture scenario, a farmer is planning to allocate resources between two necessary items: Fertilizer and Pesticide. The farmer needs at least 50 units combined of both to ensure good crop health. However, due to environmental regulations and the risk of overuse, the combined use of twice the amount of Fertilizer and Pesticide cannot exceed 120 units. Furthermore, to maintain a balanced soil composition, the amount of Fertilizer used should always be at least 10 units more than that of Pesticide.\n\nThe costs associated with each unit are $2 for Fertilizer and $3 for Pesticide. The farmer aims to minimize the total cost while adhering to these constraints. Considering practicalities, only whole numbers can be used for both Fertilizer and Pesticide amounts.\n\nGiven that the range for possible amounts of Fertilizer is from 0 to 100 units and for Pesticide is from 0 to 60 units, what is the minimum total cost in dollars that the farmer has to incur given these conditions? Provide your answer rounded off to nearest whole dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

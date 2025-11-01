@@ -1,0 +1,16 @@
+id: industry-70-consider-assigning-n-2-factories-to-n-locations
+name: Industry 70 Consider Assigning N 2 Factories To N Locations
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-70-consider-assigning-n-2-factories-to-n-locations/description.md
+
+dataset:
+  answers: industry-70-consider-assigning-n-2-factories-to-n-locations/prepared/private/answer.csv
+  sample_submission: industry-70-consider-assigning-n-2-factories-to-n-locations/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-70-consider-assigning-n-2-factories-to-n-locations.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-70-consider-assigning-n-2-factories-to-n-locations.prepare:prepare

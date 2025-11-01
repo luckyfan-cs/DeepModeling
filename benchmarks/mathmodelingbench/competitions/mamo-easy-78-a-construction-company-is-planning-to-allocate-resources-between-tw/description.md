@@ -1,0 +1,10 @@
+# Mamo Easy 78 A Construction Company Is Planning To Allocate Resources Between Tw
+
+A construction company is planning to allocate resources between two projects: Project $X$ and Project $Y$. Each project requires a certain number of workers and the allocations must be whole numbers due to the nature of the work. To meet the requirements, at least twice the number of workers for Project X plus those for Project Y should be no less than 8. On the other hand, the total number of workers assigned to Project X and thrice those for Project Y cannot exceed 15 due to budget constraints. The cost associated with each worker on Projects $X$ and $Y$ are $\$5000$ and $\$3000$, respectively. The company aims to minimize its costs while meeting these constraints. Calculate the minimum cost required for this operation, rounded to nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

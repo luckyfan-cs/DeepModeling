@@ -1,0 +1,16 @@
+id: mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its
+name: Mamo Complex 162 Supplytek Is A Retail Supply Company That Needs To Optimize Its
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its/description.md
+
+dataset:
+  answers: mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its/prepared/private/answer.csv
+  sample_submission: mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-162-supplytek-is-a-retail-supply-company-that-needs-to-optimize-its.prepare:prepare

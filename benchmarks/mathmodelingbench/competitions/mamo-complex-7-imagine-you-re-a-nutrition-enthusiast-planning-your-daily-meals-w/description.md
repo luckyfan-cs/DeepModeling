@@ -1,0 +1,22 @@
+# Mamo Complex 7 Imagine You Re A Nutrition Enthusiast Planning Your Daily Meals W
+
+Imagine you're a nutrition enthusiast, planning your daily meals while aiming to meet all your dietary needs without breaking the bank. You're considering five different types of food to include in your meal plan: Chicken, Rice, Apples, Cheese, and Tofu. Each of these foods contributes different amounts of protein, carbohydrates, and calories, and comes with its own price.
+
+Here's the nutritional content and cost for each food:
+
+- Chicken: Provides 14 grams of protein, 28 grams of carbohydrates, and 184 calories for $5.
+- Rice: Offers 10 grams of protein, 27 grams of carbohydrates, and 298 calories for just $1.
+- Apples: Come with 4 grams of protein, 13 grams of carbohydrates, and 162 calories for $5.
+- Cheese: Is a protein powerhouse with 19 grams, contains only 5 grams of carbohydrates and provides 81 calories for $9.
+- Tofu: Balances 10 grams of protein, 8 grams of carbohydrates, and 147 calories for $9.
+
+Your goal is to consume at least 97 grams of protein, 140 grams of carbohydrates, and 2304 calories from your daily meals. You aim to achieve all these nutritional targets with the cheapest possible combination of these five food options. 
+
+What is the minimum cost you need to spend to meet all your dietary requirements? Please note, your response should be a single value, indicating the the optimal and minimal cost.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

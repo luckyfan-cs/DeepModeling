@@ -1,0 +1,16 @@
+id: mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init
+name: Mamo Ode 11 How Many Kilograms Of Salt Are In The Tank After One Hour If It Init
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init/description.md
+
+dataset:
+  answers: mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init/prepared/private/answer.csv
+  sample_submission: mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init.prepare:prepare

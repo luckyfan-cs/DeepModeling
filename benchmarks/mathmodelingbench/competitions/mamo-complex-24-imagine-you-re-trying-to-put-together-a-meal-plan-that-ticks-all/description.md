@@ -1,0 +1,23 @@
+# Mamo Complex 24 Imagine You Re Trying To Put Together A Meal Plan That Ticks All
+
+Imagine you're trying to put together a meal plan that ticks all the boxes: it meets all your nutritional needs and it doesn't break the bank. You're considering six different food items: Chicken, Rice, Eggs, Broccoli, Lentils, and Apples. Each of these foods provides different amounts of protein, carbohydrates, and calories, and they all come at different prices.
+
+Here's a rundown of what each food offers and how much it costs:
+
+- Chicken: It gives you 18 grams of protein, 5 grams of carbohydrates, and 202 calories for just $1.
+- Rice: With 14 grams of protein, 13 grams of carbs, and 234 calories, Rice is a bit pricier at $7.
+- Eggs: Like Chicken, Eggs also offer 18 grams of protein, along with 4 grams of carbs and 220 calories for $4.
+- Broccoli: A great source of protein at 7 grams, with 15 grams of carbs and 247 calories, this vegetable will cost you $3.
+- Lentils: They provide 15 grams of protein, 17 grams of carbs, and 88 calories for only $1.
+- Apples: They offer 8 grams of protein, 13 grams of carbohydrates, and 77 calories for $2.
+
+You know that your meal plan needs to give you at least 70 grams of protein, 187 grams of carbohydrates, and 2181 calories. Your challenge is to determine the least expensive way to get all the nutrients you need from this group of six food items.
+
+So, what is the minimum total cost you would need to spend to meet all your dietary requirements for the day?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm
+name: Mamo Ode 99 A News Item Is Heard On The Late News By 5 Of The 100 People In A Sm
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm/description.md
+
+dataset:
+  answers: mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm/prepared/private/answer.csv
+  sample_submission: mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm.prepare:prepare

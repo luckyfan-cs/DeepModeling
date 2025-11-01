@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-108-in-a-remote-village-with-9588-inhabitants-a-new-religion-starts-spr",
+  "en_question": "In a remote village with 9588 inhabitants, a new religion starts spreading. At the initial time t = 0 days, 4099 people have already converted to the new faith. The rate of conversion is 0.779 per day. According to a model where the rate of conversion is proportional to the product of the numbers of the population who have converted and the numbers who have not, can you determine how many villagers will have converted after 10 days? Provide your answer in whole numbers.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "9587"
+}

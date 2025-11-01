@@ -1,0 +1,6 @@
+{
+  "id": 262,
+  "Question": "The population of a town grows at a rate proportional to the population present at time t. The initial population of 500 increases by 15% in 10 years. What will be the population in 30 years? Keep in four significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

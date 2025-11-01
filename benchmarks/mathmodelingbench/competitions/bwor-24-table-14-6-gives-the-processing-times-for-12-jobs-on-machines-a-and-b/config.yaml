@@ -1,0 +1,16 @@
+id: bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b
+name: Bwor 24 Table 14 6 Gives The Processing Times For 12 Jobs On Machines A And B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b/description.md
+
+dataset:
+  answers: bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b/prepared/private/answer.csv
+  sample_submission: bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-24-table-14-6-gives-the-processing-times-for-12-jobs-on-machines-a-and-b.prepare:prepare

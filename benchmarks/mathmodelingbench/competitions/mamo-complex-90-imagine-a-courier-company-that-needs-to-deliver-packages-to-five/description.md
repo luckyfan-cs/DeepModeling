@@ -1,0 +1,17 @@
+# Mamo Complex 90 Imagine A Courier Company That Needs To Deliver Packages To Five
+
+Imagine a courier company that needs to deliver packages to five different cities, labeled as E, F, G, H, and I. The company requires that their courier starts from any city, delivers packages to each city exactly once, and finally returns to the starting city. The aim is to devise a route that minimizes the total delivery cost, which could be influenced by factors like distance, traffic, and fuel expenses.
+Let's break down the delivery costs between the cities:
+To deliver from City E to F, it costs 64 units, to G costs 78 units, to H costs 23 units, and to I costs 15 units.
+From City F, it costs 64 units to reach E, 15 units to deliver to G, 44 units to H, and 93 units to I.
+If the courier starts from City G, the costs are 78 units to E, 15 units to F, 53 units to H, and 57 units to I.
+From City H, it costs 23 units to deliver to E, 44 units to F, 53 units to G, and 56 units to I.
+Finally, from City I, it costs 15 units to reach E, 93 units to F, 57 units to G, and 56 units to H.
+What is the minimum total delivery cost for the courier to deliver packages to each city exactly once and return to the starting city?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

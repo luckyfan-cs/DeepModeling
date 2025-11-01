@@ -1,0 +1,6 @@
+{
+  "id": 90,
+  "Question": "In a small isolated habitat, a population of a rare species of butterfly is observed. The population follows a logistic growth model, with a natural growth rate of 4% per year and an environmental carrying capacity of 1200 butterflies. Starting from an initial count of 60 butterflies, calculate the population size after 10 years. Provide your answer as the nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu
+name: Mamo Ode 47 Consider A Series R L Circuit With A Resistor Of 12 Ohms And An Indu
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu/description.md
+
+dataset:
+  answers: mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu/prepared/private/answer.csv
+  sample_submission: mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-47-consider-a-series-r-l-circuit-with-a-resistor-of-12-ohms-and-an-indu.prepare:prepare

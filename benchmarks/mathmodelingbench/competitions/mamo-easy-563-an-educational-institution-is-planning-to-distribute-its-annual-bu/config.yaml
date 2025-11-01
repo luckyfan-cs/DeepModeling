@@ -1,0 +1,16 @@
+id: mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu
+name: Mamo Easy 563 An Educational Institution Is Planning To Distribute Its Annual Bu
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu/description.md
+
+dataset:
+  answers: mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu/prepared/private/answer.csv
+  sample_submission: mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-563-an-educational-institution-is-planning-to-distribute-its-annual-bu.prepare:prepare

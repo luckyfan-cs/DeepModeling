@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-142-a-freshly-baked-loaf-of-bread-is-removed-from-the-oven-at-a-tempera",
+  "en_question": "A freshly baked loaf of bread is removed from the oven at a temperature of 152\u00b0C and placed in a room with an ambient temperature of 18\u00b0C. After 17 minutes, the temperature of the bread has decreased to approximately 105.605\u00b0C. Using Newton's Law of Cooling, what would be the expected temperature of the bread after 18 minutes? Provide your answer in \u00b0C and round it to six significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "103.442"
+}

@@ -1,0 +1,10 @@
+# Mamo Easy 196 In A Financial Planning Scenario An Investment Manager Is Consider
+
+In a financial planning scenario, an investment manager is considering three different types of investments: $X$, $Y$, and $Z$. These could represent different asset classes or financial products. The total investment across all three categories cannot exceed 500 units due to the client's budget constraints. Investment $X$ requires a minimum allocation of 100 units, reflecting perhaps a minimum buy-in for that particular asset class. Similarly, investment $Y$ requires a minimum allocation of 50 units and investment $Z$ requires at least 30 units.\n\nEach unit of investment in options $X$, $Y$, and $Z$ has associated costs (including purchase price, transaction fees, management fees etc.) which are respectively \$1000 , \$1500 , and \$2000 per unit. The goal is to minimize the total cost while meeting all the constraints and ensuring that all investments are in whole numbers due to regulatory requirements or nature of the assets involved.\n\nWhat is the minimum total cost required for this portfolio construction strategy in dollars? Provide your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

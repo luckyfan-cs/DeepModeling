@@ -1,0 +1,16 @@
+id: mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i
+name: Mamo Ode 272 A 200 Volt Electromotive Force Is Applied To An Rc Series Circuit I
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i/description.md
+
+dataset:
+  answers: mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i/prepared/private/answer.csv
+  sample_submission: mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i.prepare:prepare

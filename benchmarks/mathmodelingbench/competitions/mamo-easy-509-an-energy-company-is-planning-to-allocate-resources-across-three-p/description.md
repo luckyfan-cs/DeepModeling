@@ -1,0 +1,10 @@
+# Mamo Easy 509 An Energy Company Is Planning To Allocate Resources Across Three P
+
+An energy company is planning to allocate resources across three projects: $x1, x2$, and $x3$. These projects could represent investments in different energy sources or technologies. The total investment across all three projects cannot exceed 1000 units due to budget constraints. The allocation must adhere to the following constraints:\n- The difference between twice the resource allocated for project $x1$ and thrice that of project $x2$ should be at least 200 units.\n- The resource allocated for project $x1$ cannot exceed by more than 300 units, half of that allocated for project $x3$.\n- The combined resource allocation for project $x2$, two and a half times as much minus the allocations for both projects $x1$ and $x3$, should not fall below -500 units.\n\nEach unit of investment in projects $x1, x2$, and $x3$ yields different returns or costs, quantified as 50 , 60 , and 70 units respectively. Given these conditions and aiming for whole numbers of investments due to practical reasons, find the minimum total investment cost required given these conditions rounded off to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

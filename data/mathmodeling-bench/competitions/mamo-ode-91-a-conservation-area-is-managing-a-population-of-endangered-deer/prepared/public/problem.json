@@ -1,0 +1,6 @@
+{
+  "id": 92,
+  "Question": "A conservation area is managing a population of endangered deer. The population's growth is modeled with a logistic growth equation, accounting for a natural growth rate of 8% per year and a carrying capacity of 1000 deer. Additionally, the population decreases by 15 deer per year due to poaching and natural predation. Starting with 200 deer, estimate the population after 5 years. Your answer should be rounded to the nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

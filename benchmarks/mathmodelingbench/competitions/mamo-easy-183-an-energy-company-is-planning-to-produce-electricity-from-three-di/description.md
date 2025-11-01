@@ -1,0 +1,10 @@
+# Mamo Easy 183 An Energy Company Is Planning To Produce Electricity From Three Di
+
+An energy company is planning to produce electricity from three different sources: coal, gas, and nuclear power. Each of these sources has a different cost associated with it: coal costs \$4 per unit, gas costs \$3 per unit, and nuclear power costs \$2 per unit. The total production of electricity from all three sources must be at least 5000 units due to demand constraints. However, the company also faces limitations in its capacity for each source: it can only produce up to 3000 units from coal, 2000 units from gas, and 1500 units from nuclear power. The company aims to minimize the total cost while meeting all these constraints.\n\nGiven that the production quantities are whole numbers due to the nature of the process (for instance because machinery operates in discrete cycles or because contracts for fuel purchase or waste disposal are signed for entire lots), what is the minimum total cost (in dollars) that the company needs to spend on producing electricity under these conditions? Give your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

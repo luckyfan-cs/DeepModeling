@@ -1,0 +1,10 @@
+# Mamo Easy 264 In A Human Resources Allocation Scenario A Company Needs To Alloca
+
+In a human resources allocation scenario, a company needs to allocate resources across three departments: $X, Y$, and $Z$. These departments could represent different functional areas such as operations, marketing, and research & development respectively. The total personnel that can be supported is limited to 200 due to budget constraints. Department $X$ requires a minimum staffing of 50 employees to maintain its functionality while department $Y$ requires at least 30 employees. Similarly, department $Z$ needs a minimum of 20 employees possibly due to its more specialized nature. Each employee in departments $X, Y$, and $Z$ incurs different costs which are quantified as $\$5000 , \$4000 , and \$6000$ respectively. The company aims to minimize the total cost while adhering to the staffing constraints for each department (and ensuring that all staff allocations are in whole numbers due to the indivisible nature of personnel). Calculate the minimum total cost required for this scenario, rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

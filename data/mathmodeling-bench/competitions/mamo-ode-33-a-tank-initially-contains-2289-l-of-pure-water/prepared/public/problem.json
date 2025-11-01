@@ -1,0 +1,6 @@
+{
+  "id": 34,
+  "Question": "A tank initially contains \\(2289\\) L of pure water. Brine with a concentration of \\(0.26\\) kg/L is added at a rate of \\(7\\) L/min, and the well-mixed solution exits the tank at the same rate to maintain its volume. After 23 minutes, how many kilograms of salt are in the tank? Provide your answer to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

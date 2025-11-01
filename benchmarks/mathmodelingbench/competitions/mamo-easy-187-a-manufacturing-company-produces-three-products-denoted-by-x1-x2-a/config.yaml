@@ -1,0 +1,16 @@
+id: mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a
+name: Mamo Easy 187 A Manufacturing Company Produces Three Products Denoted By X1 X2 A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a/description.md
+
+dataset:
+  answers: mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a/prepared/private/answer.csv
+  sample_submission: mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-187-a-manufacturing-company-produces-three-products-denoted-by-x1-x2-a.prepare:prepare

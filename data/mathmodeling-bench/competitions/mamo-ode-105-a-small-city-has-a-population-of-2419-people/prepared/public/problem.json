@@ -1,0 +1,6 @@
+{
+  "id": 106,
+  "Question": "A small city has a population of 2419 people. A local celebrity starts a new fashion trend and initially, 1044 people adopt it. The rate at which the fashion trend spreads is proportional to the product of the number of people who have adopted it and those who haven't, with a rate constant of 0.787 per day. According to this model, how many people in the city will have adopted this fashion trend after 5 days? Provide your answer in the nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

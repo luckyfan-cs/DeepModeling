@@ -1,0 +1,16 @@
+id: mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club
+name: Mamo Complex 204 Chip Green Is The Head Groundskeeper At Birdie Valley Golf Club
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club/description.md
+
+dataset:
+  answers: mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club/prepared/private/answer.csv
+  sample_submission: mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-204-chip-green-is-the-head-groundskeeper-at-birdie-valley-golf-club.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart
+name: Mamo Easy 295 A School Board Is Planning To Allocate Teachers Among Three Depart
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart/description.md
+
+dataset:
+  answers: mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart/prepared/private/answer.csv
+  sample_submission: mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-295-a-school-board-is-planning-to-allocate-teachers-among-three-depart.prepare:prepare

@@ -1,0 +1,6 @@
+{
+  "id": 272,
+  "Question": "A 30-volt electromotive force is applied to an LR-series circuit in which the inductance is 0.1 henry and the resistance is 50 ohms. Find the current i(t) if i(0) = 0. Determine the current in A as t trend to infinite. Keepone significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

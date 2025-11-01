@@ -1,0 +1,10 @@
+# Mamo Easy 40 A Finance Manager Is Planning To Allocate Funds Between Two Investm
+
+A finance manager is planning to allocate funds between two investment options, X and Y. The investment in option $X$ cannot be less than \$10,000 and for option $Y$, it cannot be less than \$5,000. The combined investment in both options should not exceed \$5000,000 considering the 3 times return from option $X$ and 4 times return from option $Y$. Additionally, to diversify the risk, the total amount invested across both options must be at least \$20,000. Given that the cost per unit of return for investment option $X$ is \$100 and for option $Y$ is \$200, find the minimum total cost while meeting all these constraints (Note: Investment amounts are in thousands of dollars and they are integers). Provide your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

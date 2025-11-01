@@ -1,0 +1,16 @@
+id: mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in
+name: Mamo Ode 138 A Freshly Baked Loaf Of Bread At A Temperature Of 73 C Is Placed In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in/description.md
+
+dataset:
+  answers: mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in/prepared/private/answer.csv
+  sample_submission: mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-138-a-freshly-baked-loaf-of-bread-at-a-temperature-of-73-c-is-placed-in.prepare:prepare

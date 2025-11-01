@@ -1,0 +1,16 @@
+id: industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities
+name: Industry 39 The Independent Country Of Carelland Mainly Exports Four Commodities
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities/description.md
+
+dataset:
+  answers: industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities/prepared/private/answer.csv
+  sample_submission: industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-39-the-independent-country-of-carelland-mainly-exports-four-commodities.prepare:prepare

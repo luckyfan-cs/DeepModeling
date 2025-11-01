@@ -1,0 +1,16 @@
+id: mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-
+name: Mamo Ode 114 In A Small City With 4 663 Residents A New Social Media App Starts 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-/description.md
+
+dataset:
+  answers: mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-/prepared/private/answer.csv
+  sample_submission: mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-114-in-a-small-city-with-4-663-residents-a-new-social-media-app-starts-.prepare:prepare

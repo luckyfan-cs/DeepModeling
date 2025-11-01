@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-155-consider-a-spring-system-where-an-8-kg-mass-is-attached-to-a-spring",
+  "en_question": "Consider a spring system where an 8-kg mass is attached to a spring. This system is initially stretched 0.4 m beyond its natural length by a force of 32 N. Starting from the equilibrium position, the mass is released with an initial velocity of 1 m/s. Determine the mass's position relative to the spring's natural length after 3 seconds, assuming away from the spring's fixed point as the positive direction. Express the answer in meters to four significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.0196"
+}

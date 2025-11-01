@@ -1,0 +1,16 @@
+id: mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ
+name: Mamo Easy 388 A Tourism Manager Is Planning To Allocate Resources To Four Differ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ/description.md
+
+dataset:
+  answers: mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ/prepared/private/answer.csv
+  sample_submission: mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-388-a-tourism-manager-is-planning-to-allocate-resources-to-four-differ.prepare:prepare

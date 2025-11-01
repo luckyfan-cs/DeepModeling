@@ -1,0 +1,10 @@
+# Mamo Easy 320 A Shipping Company Needs To Allocate Its Vehicles Across Three Dif
+
+A shipping company needs to allocate its vehicles across three different routes: X, Y, and Z. These routes have different distances and traffic conditions, thus incurring different costs per vehicle allocated. Specifically, each vehicle assigned to route X costs $5, to route Y costs $4, and to route Z costs $6.\n\nThe total number of vehicles available for allocation is limited to 1000 due to the company's fleet size. Route X requires a minimum of 200 vehicles due to its heavy cargo volume, while Route Y needs at least 150 vehicles considering its frequent service schedule. Route Z demands at least 300 vehicles because of its long distance.\n\nGiven these conditions and aiming for whole numbers of vehicles due to practicality (you can't split a truck), what is the minimum total cost for the company in dollars by optimally allocating its fleet among the three routes (X, Y, and Z)? Please round your answer to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

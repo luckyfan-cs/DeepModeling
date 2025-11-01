@@ -1,0 +1,16 @@
+id: mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled
+name: Mamo Complex 94 Imagine A Salesperson Planning A Trip Across Four Cities Labeled
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled/description.md
+
+dataset:
+  answers: mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled/prepared/private/answer.csv
+  sample_submission: mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-94-imagine-a-salesperson-planning-a-trip-across-four-cities-labeled.prepare:prepare

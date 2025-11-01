@@ -1,0 +1,16 @@
+id: mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi
+name: Mamo Easy 110 A Sports Coach Is Planning The Training Hours For Two Groups Withi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi/description.md
+
+dataset:
+  answers: mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi/prepared/private/answer.csv
+  sample_submission: mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-110-a-sports-coach-is-planning-the-training-hours-for-two-groups-withi.prepare:prepare

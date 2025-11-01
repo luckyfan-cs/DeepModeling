@@ -1,0 +1,16 @@
+id: mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific
+name: Mamo Complex 37 Imagine You Are Going On A Fitness Journey And Have Set Specific
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific/description.md
+
+dataset:
+  answers: mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific/prepared/private/answer.csv
+  sample_submission: mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-37-imagine-you-are-going-on-a-fitness-journey-and-have-set-specific.prepare:prepare

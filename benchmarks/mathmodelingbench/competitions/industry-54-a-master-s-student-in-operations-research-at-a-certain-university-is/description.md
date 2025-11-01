@@ -1,0 +1,10 @@
+# Industry 54 A Master S Student In Operations Research At A Certain University Is
+
+A master's student in Operations Research at a certain university is required to select two courses in mathematics, two in operations research, and two in computer science from a total of seven courses: Calculus, Operations Research, Data Structures, Management Statistics, Computer Simulation, Computer Programming, and Forecasting. Some courses belong to only one category: Calculus falls under Mathematics, Computer Programming under Computer Science. However, some courses fall under multiple categories: Operations Research can be considered both Operations Research and Mathematics, Data Structures both Computer Science and Mathematics, Management Statistics both Mathematics and Operations Research, Computer Simulation both Computer Science and Operations Research, and Forecasting both Operations Research and Mathematics. Courses that fall under multiple categories can fulfill the requirement of both categories simultaneously. Additionally, some courses have prerequisites: Computer Simulation or Data Structures requires Computer Programming first, Management Statistics requires Calculus first, and Forecasting requires Management Statistics first. The question is: What is the minimum number of courses a master's student must take, and which specific courses, to meet the above requirements?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

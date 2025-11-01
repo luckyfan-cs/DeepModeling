@@ -1,0 +1,6 @@
+{
+  "id": 122,
+  "Question": "Consider a cylindrical tank with radius $9 \\mathrm{m}$ and height $15 \\mathrm{m}$, full of water. A hole is opened at the bottom of the tank with area $13.579 \\mathrm{m}^2$. The water starts to drain from the tank following Torricelli's law, which states that the rate of change of height of water in the tank is proportional to the square root of its height. Assuming gravity to be $9.81 \\mathrm{m/s}^2$, calculate the remaining height of water in the tank after 6 seconds. Answer in meters and round off to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

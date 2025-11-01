@@ -1,0 +1,6 @@
+{
+  "id": 81,
+  "Question": "A microcosm initially has a population of 50,000 and a carrying capacity of 100,000. If the natural growth rate is given by the expression \\((1/5) \\ln(3/2)\\), calculate the population after five years using the logistic growth model. Express your answer as a whole number and in 5 significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

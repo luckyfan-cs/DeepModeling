@@ -1,0 +1,16 @@
+id: mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac
+name: Mamo Easy 378 In A Human Resources Scenario A Company Needs To Allocate Staff Ac
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac/description.md
+
+dataset:
+  answers: mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac/prepared/private/answer.csv
+  sample_submission: mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-378-in-a-human-resources-scenario-a-company-needs-to-allocate-staff-ac.prepare:prepare

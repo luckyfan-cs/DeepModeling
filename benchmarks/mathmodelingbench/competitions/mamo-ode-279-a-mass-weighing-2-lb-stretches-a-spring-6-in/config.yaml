@@ -1,0 +1,16 @@
+id: mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in
+name: Mamo Ode 279 A Mass Weighing 2 Lb Stretches A Spring 6 In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in/description.md
+
+dataset:
+  answers: mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in/prepared/private/answer.csv
+  sample_submission: mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-279-a-mass-weighing-2-lb-stretches-a-spring-6-in.prepare:prepare

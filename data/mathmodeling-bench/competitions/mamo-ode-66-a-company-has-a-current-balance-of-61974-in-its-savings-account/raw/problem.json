@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-66-a-company-has-a-current-balance-of-61974-in-its-savings-account",
+  "en_question": "A company has a current balance of $61974 in its savings account. The account earns an interest rate of 10.5% per year, compounded continuously. In addition, the company makes continuous deposits into this account at a rate of $1348 per year. How much will be in the account after 4 years? Provide your answer in dollars and to six significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "101023"
+}

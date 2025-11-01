@@ -1,0 +1,20 @@
+# Industry 56 Assuming A Paper Mill Receives Three Orders For Rolls Of Paper With 
+
+Assuming a paper mill receives three orders for rolls of paper, with length and width requirements as shown in Table 1.2.
+
+Table 1.2
+
+| Order Number | Width (meters) | Length (meters) |
+| :---: | :---: | :---: |
+| 1 | 0.5 | 1000 |
+| 2 | 0.7 | 3000 |
+| 3 | 0.9 | 2000 |
+
+The mill produces rolls of paper with standard widths of 1 meter and 2 meters. Assuming the length of the rolls is unlimited and can be spliced to reach the required length, how should the rolls be cut to minimize the area of waste?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

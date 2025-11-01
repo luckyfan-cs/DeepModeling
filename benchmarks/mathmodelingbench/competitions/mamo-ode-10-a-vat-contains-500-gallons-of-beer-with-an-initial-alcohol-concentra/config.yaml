@@ -1,0 +1,16 @@
+id: mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra
+name: Mamo Ode 10 A Vat Contains 500 Gallons Of Beer With An Initial Alcohol Concentra
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra/description.md
+
+dataset:
+  answers: mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra/prepared/private/answer.csv
+  sample_submission: mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-10-a-vat-contains-500-gallons-of-beer-with-an-initial-alcohol-concentra.prepare:prepare

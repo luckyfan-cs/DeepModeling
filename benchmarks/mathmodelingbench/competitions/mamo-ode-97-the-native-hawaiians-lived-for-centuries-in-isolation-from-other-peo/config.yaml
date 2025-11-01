@@ -1,0 +1,16 @@
+id: mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo
+name: Mamo Ode 97 The Native Hawaiians Lived For Centuries In Isolation From Other Peo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo/description.md
+
+dataset:
+  answers: mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo/prepared/private/answer.csv
+  sample_submission: mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo.prepare:prepare

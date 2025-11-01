@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-",
+  "en_question": "Given a spring system with a mass of $1$ kg and a spring constant of $k = 100$, where the spring is initially released from a point $0.1$ m above its equilibrium position. For a damping constant of $c = 10$, calculate the position of the mass relative to the equilibrium position at a time $t = 0.2$ seconds, with the direction away from the spring's fixed point defined as positive. Determine the displacement and express the answer in meters to two significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.015"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c
+name: Mamo Ode 136 A Car Engine Is Initially At A Temperature Of 55 C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c/description.md
+
+dataset:
+  answers: mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c/prepared/private/answer.csv
+  sample_submission: mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-136-a-car-engine-is-initially-at-a-temperature-of-55-c.prepare:prepare

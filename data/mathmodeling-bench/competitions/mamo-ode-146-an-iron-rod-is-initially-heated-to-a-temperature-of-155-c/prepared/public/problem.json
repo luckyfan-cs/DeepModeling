@@ -1,0 +1,6 @@
+{
+  "id": 147,
+  "Question": "An iron rod is initially heated to a temperature of 155°C. It's then left in a room where the ambient temperature is constant at 35°C. After applying Newton's Law of Cooling, it's found that the rate constant \\(k\\) for the cooling process is \\(0.032 \\, \\text{min}^{-1}\\). Can you calculate the temperature of the iron rod after 20 minutes? Please provide your answer in °C and in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,20 @@
+# Industry 40 A Person Has A Fund Of 500 000 Yuan And The Following Investment Pro
+
+A person has a fund of 500,000 yuan and the following investment projects available in the next three years:
+
+(1) Investment can be made at the beginning of each year within three years, and the annual profit is 20% of the investment amount.
+
+(2) Investment is only allowed at the beginning of the first year, and can be recovered at the end of the second year, with the total principal and interest being 150% of the investment amount. However, this type of investment is limited to no more than 120,000 yuan.
+
+(3) Investment at the beginning of the second year, recoverable at the end of the second year, with the total principal and interest being 160% of the investment amount. This type of investment is limited to 150,000 yuan.
+
+(4) Investment is allowed at the beginning of the third year, recoverable in one year, with a profit of 40%, and the investment limit is 100,000 yuan.
+
+Determine an investment plan for the person that maximizes the total principal and interest by the end of the third year.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

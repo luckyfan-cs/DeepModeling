@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-139-a-frozen-chicken-at-a-temperature-of-4-c-is-placed-in-an-oven-to-th",
+  "en_question": "A frozen chicken at a temperature of -4\u00b0C is placed in an oven to thaw. The oven has a constant ambient temperature of 37\u00b0C. After 13 minutes, the temperature of the chicken has increased to 28.714\u00b0C. Using Newton's Law of Heating, calculate the temperature of the chicken after 17 minutes. Provide your answer in \u00b0C and up to three decimal places.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "31.934"
+}

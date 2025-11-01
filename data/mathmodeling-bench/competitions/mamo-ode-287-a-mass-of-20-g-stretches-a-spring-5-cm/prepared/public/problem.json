@@ -1,0 +1,6 @@
+{
+  "id": 288,
+  "Question": "A mass of 20 g stretches a spring 5 cm. Suppose that the mass is also attached to a viscous damper with a damping constant of 400 dyn · s/cm. If the mass is pulled down an additional 2 cm and then released, find its position u at any time t. Determine the distance between its position after 0.1s and equilibrium position in inch. Keep three significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

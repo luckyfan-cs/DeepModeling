@@ -1,0 +1,16 @@
+id: mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen
+name: Mamo Easy 626 A Human Resources Hr Manager Is Planning To Allocate The Departmen
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen/description.md
+
+dataset:
+  answers: mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen/prepared/private/answer.csv
+  sample_submission: mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-626-a-human-resources-hr-manager-is-planning-to-allocate-the-departmen.prepare:prepare

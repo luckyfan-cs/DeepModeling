@@ -1,0 +1,6 @@
+{
+  "id": 143,
+  "Question": "A freshly baked loaf of bread is removed from the oven at a temperature of 152°C and placed in a room with an ambient temperature of 18°C. After 17 minutes, the temperature of the bread has decreased to approximately 105.605°C. Using Newton's Law of Cooling, what would be the expected temperature of the bread after 18 minutes? Provide your answer in °C and round it to six significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

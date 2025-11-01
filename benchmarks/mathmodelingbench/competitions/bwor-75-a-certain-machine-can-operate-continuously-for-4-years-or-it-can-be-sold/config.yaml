@@ -1,0 +1,16 @@
+id: bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold
+name: Bwor 75 A Certain Machine Can Operate Continuously For 4 Years Or It Can Be Sold
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold/description.md
+
+dataset:
+  answers: bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold/prepared/private/answer.csv
+  sample_submission: bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-75-a-certain-machine-can-operate-continuously-for-4-years-or-it-can-be-sold.prepare:prepare

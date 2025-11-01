@@ -1,0 +1,10 @@
+# Mamo Easy 205 In A Healthcare Setting A Hospital Administrator Is Planning To Al
+
+In a healthcare setting, a hospital administrator is planning to allocate staffing resources among three different roles: doctors, nurses, and technicians. The objective is to minimize the total cost associated with these roles, with costs being \$10 per doctor, \$20 per nurse and \$30 per technician.\n\nThe allocation must adhere to the following constraints due to budgetary restrictions, patient needs and regulatory requirements:\n- The combined resource allocation for two times the number of doctors plus three times the number of nurses must be at least 50 units (e.g., hours of work or patients served).\n- The total number of staff across all roles cannot exceed 100 individuals.\n- The difference between the number of technicians and nurses must be at least 10 individuals due to specific operational needs.\n\nGiven that each role requires whole numbers of individuals due to practicality:\nWhat is the minimum total cost for the hospital, given an optimal allocation of staffing resources among doctors, nurses and technicians?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

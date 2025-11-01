@@ -1,0 +1,6 @@
+{
+  "id": 208,
+  "Question": "A spring system is set up with an 8.126-lb weight attached to a spring, which naturally stretches the spring 4 ft. The system encounters resistance in a medium that is 4.236 times the velocity of the weight. If at time t=0, the weight is released from a point 3.387 ft below its equilibrium position with an upward velocity of 5.047 ft/s (assuming upward from the equilibrium position as positive), calculate the displacement of the weight from its equilibrium position at t=2 seconds. Provide your answer in feet, rounded to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

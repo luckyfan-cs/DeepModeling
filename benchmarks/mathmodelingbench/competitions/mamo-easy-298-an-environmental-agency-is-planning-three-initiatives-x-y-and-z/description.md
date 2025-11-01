@@ -1,0 +1,10 @@
+# Mamo Easy 298 An Environmental Agency Is Planning Three Initiatives X Y And Z
+
+An environmental agency is planning three initiatives: $X, Y$, and $Z$. These initiatives could represent different programs such as reforestation, clean energy promotion, and waste management, respectively. The total number of resources that can be allocated to these initiatives cannot exceed 100 due to budget constraints. Moreover, the combined effort of initiative $Y$ (multiplied by 2) and initiative $Z$ must yield a minimum score of at least 50 points to meet certain environmental standards. Additionally, the sum of resources for initiative $X$ and initiative $Z$ should not exceed 80 due to logistical constraints. Each unit of resource allocated towards initiatives $X, Y$, and $Z$ incurs different costs amounting to 2 , 3 , and 1 units respectively. The agency aims to minimize the total cost while adhering to all the constraints while ensuring that all resources are in whole numbers due to their indivisible nature. What is the minimum total cost required for this scenario?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

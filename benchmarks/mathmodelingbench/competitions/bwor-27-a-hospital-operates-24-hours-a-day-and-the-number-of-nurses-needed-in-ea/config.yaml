@@ -1,0 +1,16 @@
+id: bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea
+name: Bwor 27 A Hospital Operates 24 Hours A Day And The Number Of Nurses Needed In Ea
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea/description.md
+
+dataset:
+  answers: bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea/prepared/private/answer.csv
+  sample_submission: bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-27-a-hospital-operates-24-hours-a-day-and-the-number-of-nurses-needed-in-ea.prepare:prepare

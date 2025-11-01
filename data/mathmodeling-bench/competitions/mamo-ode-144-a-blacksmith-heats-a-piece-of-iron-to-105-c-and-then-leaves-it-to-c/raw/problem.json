@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-144-a-blacksmith-heats-a-piece-of-iron-to-105-c-and-then-leaves-it-to-c",
+  "en_question": "A blacksmith heats a piece of iron to 105\u00b0C and then leaves it to cool in a room where the ambient temperature is 33\u00b0C. After 9 minutes, the temperature of the iron has decreased to approximately 49.754\u00b0C. Assuming that the cooling process follows Newton's Law of Cooling, calculate the temperature of the iron after 19 minutes. Provide your answer in \u00b0C and in five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "36.316"
+}

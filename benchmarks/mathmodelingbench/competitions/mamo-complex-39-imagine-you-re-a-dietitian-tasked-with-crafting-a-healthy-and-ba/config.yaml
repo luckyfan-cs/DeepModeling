@@ -1,0 +1,16 @@
+id: mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba
+name: Mamo Complex 39 Imagine You Re A Dietitian Tasked With Crafting A Healthy And Ba
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba/description.md
+
+dataset:
+  answers: mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba/prepared/private/answer.csv
+  sample_submission: mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-39-imagine-you-re-a-dietitian-tasked-with-crafting-a-healthy-and-ba.prepare:prepare

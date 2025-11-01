@@ -1,0 +1,16 @@
+id: mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in
+name: Mamo Ode 277 Suppose That A Mass Weighing 10 Lb Stretches A Spring 2 In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in/description.md
+
+dataset:
+  answers: mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in/prepared/private/answer.csv
+  sample_submission: mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-277-suppose-that-a-mass-weighing-10-lb-stretches-a-spring-2-in.prepare:prepare

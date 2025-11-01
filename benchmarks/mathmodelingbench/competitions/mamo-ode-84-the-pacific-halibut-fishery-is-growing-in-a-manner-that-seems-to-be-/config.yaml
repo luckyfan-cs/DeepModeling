@@ -1,0 +1,16 @@
+id: mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-
+name: Mamo Ode 84 The Pacific Halibut Fishery Is Growing In A Manner That Seems To Be 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-/description.md
+
+dataset:
+  answers: mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-/prepared/private/answer.csv
+  sample_submission: mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-84-the-pacific-halibut-fishery-is-growing-in-a-manner-that-seems-to-be-.prepare:prepare

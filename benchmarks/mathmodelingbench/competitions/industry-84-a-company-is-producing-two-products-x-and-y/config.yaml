@@ -1,0 +1,16 @@
+id: industry-84-a-company-is-producing-two-products-x-and-y
+name: Industry 84 A Company Is Producing Two Products X And Y
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-84-a-company-is-producing-two-products-x-and-y/description.md
+
+dataset:
+  answers: industry-84-a-company-is-producing-two-products-x-and-y/prepared/private/answer.csv
+  sample_submission: industry-84-a-company-is-producing-two-products-x-and-y/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-84-a-company-is-producing-two-products-x-and-y.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-84-a-company-is-producing-two-products-x-and-y.prepare:prepare

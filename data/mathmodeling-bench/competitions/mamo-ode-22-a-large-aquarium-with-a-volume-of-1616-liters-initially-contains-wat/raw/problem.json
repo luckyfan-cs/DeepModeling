@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-22-a-large-aquarium-with-a-volume-of-1616-liters-initially-contains-wat",
+  "en_question": "A large aquarium with a volume of 1616 liters initially contains water with a salt concentration of 33 grams per liter. Water with a salt concentration of 0.22 grams per liter is added to the tank at a rate of 7 liters per minute, and the well-mixed solution exits the tank at the same rate to maintain its volume constant. What will be the concentration of salt in grams per liter in the aquarium after six minutes? Please express your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "32.159"
+}

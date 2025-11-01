@@ -1,0 +1,16 @@
+id: mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc
+name: Mamo Easy 318 A Shipping Company Has Three Types Of Ships Shipa Shipb And Shipc
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc/description.md
+
+dataset:
+  answers: mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc/prepared/private/answer.csv
+  sample_submission: mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-318-a-shipping-company-has-three-types-of-ships-shipa-shipb-and-shipc.prepare:prepare

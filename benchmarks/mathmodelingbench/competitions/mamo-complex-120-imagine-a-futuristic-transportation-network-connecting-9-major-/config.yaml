@@ -1,0 +1,16 @@
+id: mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-
+name: Mamo Complex 120 Imagine A Futuristic Transportation Network Connecting 9 Major 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-/description.md
+
+dataset:
+  answers: mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-/prepared/private/answer.csv
+  sample_submission: mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-120-imagine-a-futuristic-transportation-network-connecting-9-major-.prepare:prepare

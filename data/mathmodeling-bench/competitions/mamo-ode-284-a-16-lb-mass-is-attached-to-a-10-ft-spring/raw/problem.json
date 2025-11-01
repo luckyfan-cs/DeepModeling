@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-284-a-16-lb-mass-is-attached-to-a-10-ft-spring",
+  "en_question": "A 16-lb mass is attached to a 10-ft spring. When the mass comes to rest in the equilibrium position, the spring measures 15 ft 4 in. The system is immersed in a medium that imparts a damping force equal to 5252 times the instantaneous velocity of the mass. Find the equation of motion if the mass is pushed upward from the equilibrium position with an initial upward velocity of 5 ft/sec and regard the upward as positive direction. What is the position of the mass after 10 sec in ft? Keep answer in three significant digit number.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.000470"
+}

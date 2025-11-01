@@ -1,0 +1,10 @@
+# Bwor 47 To Ensure Flight Safety The Engines On The Aircraft Must Be Compulsorily
+
+To ensure flight safety, the engines on the aircraft must be compulsorily replaced and overhauled every six months. A maintenance plant estimates that, starting from the next half-year, the engine replacement demand for a certain type of fighter aircraft over the next three years (i.e., each half-year) will be: 100, 70, 80, 120, 150, 140. When replacing an engine, it can either be replaced with a new one, or with a repaired used engine. It is known that the purchase cost of each new engine is 10 thousand yuan, while repairing used engines has two options: Fast repair: 2 thousand yuan per engine, delivered in half a year (i.e., sent in the current period, ready in the next period); Slow repair: 10,000 yuan per engine, but takes one year for delivery (i.e., sent in the current period, ready in the period after next). The plant has just received this engine replacement and repair task. It is also known that this type of fighter aircraft will be decommissioned after three years, and the engines will be scrapped after that.Question:In order to meet the maintenance demand over the next three years (six half-year periods), how many engines should be newly purchased, and how many should be sent for fast repair and slow repair in each period, so that the total maintenance cost(in thousand yuan) is minimized?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

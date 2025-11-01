@@ -1,0 +1,16 @@
+id: mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet
+name: Mamo Easy 415 A Marketing Manager Is Planning The Distribution Of The Budget Bet
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet/description.md
+
+dataset:
+  answers: mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet/prepared/private/answer.csv
+  sample_submission: mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-415-a-marketing-manager-is-planning-the-distribution-of-the-budget-bet.prepare:prepare

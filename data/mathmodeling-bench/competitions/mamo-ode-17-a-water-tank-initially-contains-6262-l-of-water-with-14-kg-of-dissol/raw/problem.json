@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-17-a-water-tank-initially-contains-6262-l-of-water-with-14-kg-of-dissol",
+  "en_question": "A water tank initially contains \\(6262\\) L of water with \\(14\\) kg of dissolved sugar. More water containing \\(0.23\\) kg/L of sugar is pumped into the tank at a rate of \\(9\\) L/min. The well-mixed solution exits the tank at the same rate to maintain its volume constant. How much sugar in kg will remain in the tank after \\(4\\) minutes? Provide your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "13.932"
+}

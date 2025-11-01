@@ -1,0 +1,16 @@
+id: mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing
+name: Mamo Ode 51 How Long In Seconds Will It Take For A 90 Kg Ice Skater Experiencing
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing/description.md
+
+dataset:
+  answers: mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing/prepared/private/answer.csv
+  sample_submission: mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-51-how-long-in-seconds-will-it-take-for-a-90-kg-ice-skater-experiencing.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma
+name: Industry 18 A Furniture Store Can Choose To Order Chairs From Three Different Ma
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma/description.md
+
+dataset:
+  answers: industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma/prepared/private/answer.csv
+  sample_submission: industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-18-a-furniture-store-can-choose-to-order-chairs-from-three-different-ma.prepare:prepare

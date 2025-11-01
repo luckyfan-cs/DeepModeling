@@ -1,0 +1,16 @@
+id: mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d
+name: Mamo Easy 355 A Retail Manager Is Planning The Allocation Of Resources To Four D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d/description.md
+
+dataset:
+  answers: mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-355-a-retail-manager-is-planning-the-allocation-of-resources-to-four-d.prepare:prepare

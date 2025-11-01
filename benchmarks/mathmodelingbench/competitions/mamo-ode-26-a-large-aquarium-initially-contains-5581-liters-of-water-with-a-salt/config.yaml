@@ -1,0 +1,16 @@
+id: mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt
+name: Mamo Ode 26 A Large Aquarium Initially Contains 5581 Liters Of Water With A Salt
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt/description.md
+
+dataset:
+  answers: mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt/prepared/private/answer.csv
+  sample_submission: mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-26-a-large-aquarium-initially-contains-5581-liters-of-water-with-a-salt.prepare:prepare

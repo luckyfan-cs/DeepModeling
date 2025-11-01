@@ -1,0 +1,10 @@
+# Mamo Easy 66 A Telecommunications Company Is Planning To Allocate Resources Betw
+
+A telecommunications company is planning to allocate resources between two projects: X and Y. The total resource allocation for both projects combined must be at least 100 units, due to the minimum requirements for effective implementation. Additionally, five times the resources allocated to project X minus twice that of project Y cannot exceed 50 units, reflecting the specific resource distribution strategy of the company. Each unit of resource allocation in projects X and Y costs \$10 and \$20 respectively, with a goal of minimizing the total cost while meeting all constraints (X,Y are integers). What is the minimum total cost required for this operation in dollars, rounded to the nearest dollar?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

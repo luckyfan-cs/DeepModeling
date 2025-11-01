@@ -1,0 +1,16 @@
+id: mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu
+name: Mamo Ode 95 In An Ecosystem A Species With An Initial Population Of 200 Individu
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu/description.md
+
+dataset:
+  answers: mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu/prepared/private/answer.csv
+  sample_submission: mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-95-in-an-ecosystem-a-species-with-an-initial-population-of-200-individu.prepare:prepare

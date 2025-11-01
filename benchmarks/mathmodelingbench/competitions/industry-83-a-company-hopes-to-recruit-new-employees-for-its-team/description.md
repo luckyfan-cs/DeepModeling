@@ -1,0 +1,34 @@
+# Industry 83 A Company Hopes To Recruit New Employees For Its Team
+
+A company hopes to recruit new employees for its team. The salary requirements for candidates A, B, C, D, and E are $8100, $20000, $21000, $3000, and $8000 respectively. They need to decide whether to hire each candidate. The team wants to minimize the total amount paid to the candidates.
+
+They hope to hire a maximum of 3 new employees.
+
+The team has a limited budget of $35,000. They need to ensure that the total payment to the selected candidates does not exceed the budget.
+
+The qualifications of the five candidates are as follows:
+Candidate A: Bachelor's degree;
+Candidate B: Master's degree;
+Candidate C: Doctoral degree;
+Candidate D: No degree;
+Candidate E: No degree.
+They will select at least one candidate with a Master's or Doctoral degree.
+
+The work experience of the five candidates is as follows:
+Candidate A: 3 years of work experience;
+Candidate B: 10 years of work experience;
+Candidate C: 4 years of work experience;
+Candidate D: 3 years of work experience;
+Candidate E: 7 years of work experience.
+They hope the total work experience of the selected candidates is no less than 12 years.
+
+Due to the equivalent professional skills of candidates A and E, the company will choose at most one from the two.
+
+They will hire at least 2 new employees.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

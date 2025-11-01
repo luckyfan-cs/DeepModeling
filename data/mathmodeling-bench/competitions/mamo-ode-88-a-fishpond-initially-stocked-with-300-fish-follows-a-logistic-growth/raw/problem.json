@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-88-a-fishpond-initially-stocked-with-300-fish-follows-a-logistic-growth",
+  "en_question": "A fishpond initially stocked with 300 fish follows a logistic growth model with an 8% natural growth rate per year and a carrying capacity of 1000 fish. Accounting for a constant decrease of 15 fish per year due to predation, fishing, and harvesting, calculate the number of fish in the pond after 10 years. Provide your answer in the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "321"
+}

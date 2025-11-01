@@ -1,0 +1,16 @@
+id: industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu
+name: Industry 33 The Current Problem Faced By The Company Is How To Use The Fewest Nu
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu/description.md
+
+dataset:
+  answers: industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu/prepared/private/answer.csv
+  sample_submission: industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-33-the-current-problem-faced-by-the-company-is-how-to-use-the-fewest-nu.prepare:prepare

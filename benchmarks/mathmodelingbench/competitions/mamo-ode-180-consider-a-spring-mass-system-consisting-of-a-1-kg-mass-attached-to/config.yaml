@@ -1,0 +1,16 @@
+id: mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to
+name: Mamo Ode 180 Consider A Spring Mass System Consisting Of A 1 Kg Mass Attached To
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to/description.md
+
+dataset:
+  answers: mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to/prepared/private/answer.csv
+  sample_submission: mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-180-consider-a-spring-mass-system-consisting-of-a-1-kg-mass-attached-to.prepare:prepare

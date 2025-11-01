@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-272-a-200-volt-electromotive-force-is-applied-to-an-rc-series-circuit-i",
+  "en_question": "A 200-volt electromotive force is applied to an RC-series circuit in which the resistance is 1000 ohms and the capacitance is 5*10^(-6) farad. Find the charge q(t) on the capacitor if i(0) = 0.4. Determine the charge in coulombs as t trend to infinite. Keep one significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.001"
+}

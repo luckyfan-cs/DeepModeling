@@ -1,0 +1,16 @@
+id: mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa
+name: Mamo Complex 6 Imagine You Re Meticulously Planning Your Weekly Meal Prep And Wa
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa/description.md
+
+dataset:
+  answers: mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa/prepared/private/answer.csv
+  sample_submission: mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-6-imagine-you-re-meticulously-planning-your-weekly-meal-prep-and-wa.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe
+name: Mamo Easy 4 A Marketing Manager Is Planning The Distribution Of The Budget Betwe
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe/description.md
+
+dataset:
+  answers: mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe/prepared/private/answer.csv
+  sample_submission: mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-4-a-marketing-manager-is-planning-the-distribution-of-the-budget-betwe.prepare:prepare

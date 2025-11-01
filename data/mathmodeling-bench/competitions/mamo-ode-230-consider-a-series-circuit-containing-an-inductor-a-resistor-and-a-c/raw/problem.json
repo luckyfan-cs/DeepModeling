@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-230-consider-a-series-circuit-containing-an-inductor-a-resistor-and-a-c",
+  "en_question": "Consider a series circuit containing an inductor, a resistor, and a capacitor. Initially, the circuit is open and the capacitor holds no charge. The moment the circuit is closed, there is no current flow. An external voltage \\(E(t) = t\\) volts is applied to the system. It's given that across each component of the circuit (the inductor, resistor and capacitor), the drop in voltage corresponds to one times the rate of change of charge on the capacitor. Compute how much charge would be on this capacitor after 1 second? Provide your answer in coulombs up to four significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.1262"
+}

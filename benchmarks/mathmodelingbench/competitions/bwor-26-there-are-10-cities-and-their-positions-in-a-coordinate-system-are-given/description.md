@@ -1,0 +1,24 @@
+# Bwor 26 There Are 10 Cities And Their Positions In A Coordinate System Are Given
+
+There are 10 cities, and their positions in a coordinate system are given in Table 14-8. Please complete the following task: Use mathematical modeling to find the shortest route that visits each city exactly once.
+
+\begin{table}[h]
+    \centering
+    \caption{City Coordinates (Table 14-8)}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c|cccccccccc}
+        \toprule
+        Coordinate & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+        \midrule
+        $x$ & 0 & 5 & 8 & 7 & 10 & 12 & 18 & 18 & 18 & 20 \\
+        $y$ & 0 & 20 & 12 & 4 & 15 & 18 & 18 & 15 & 18 & 17 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

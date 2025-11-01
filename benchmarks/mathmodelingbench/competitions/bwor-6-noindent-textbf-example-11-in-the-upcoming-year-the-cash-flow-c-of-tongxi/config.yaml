@@ -1,0 +1,16 @@
+id: bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi
+name: Bwor 6 Noindent Textbf Example 11 In The Upcoming Year The Cash Flow C Of Tongxi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi/description.md
+
+dataset:
+  answers: bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi/prepared/private/answer.csv
+  sample_submission: bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-6-noindent-textbf-example-11-in-the-upcoming-year-the-cash-flow-c-of-tongxi.prepare:prepare

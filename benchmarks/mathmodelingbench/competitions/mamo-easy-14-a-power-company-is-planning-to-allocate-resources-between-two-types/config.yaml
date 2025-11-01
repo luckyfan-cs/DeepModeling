@@ -1,0 +1,16 @@
+id: mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types
+name: Mamo Easy 14 A Power Company Is Planning To Allocate Resources Between Two Types
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types/description.md
+
+dataset:
+  answers: mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types/prepared/private/answer.csv
+  sample_submission: mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-14-a-power-company-is-planning-to-allocate-resources-between-two-types.prepare:prepare

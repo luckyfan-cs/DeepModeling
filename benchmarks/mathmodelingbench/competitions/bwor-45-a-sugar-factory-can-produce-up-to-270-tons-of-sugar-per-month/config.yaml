@@ -1,0 +1,16 @@
+id: bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month
+name: Bwor 45 A Sugar Factory Can Produce Up To 270 Tons Of Sugar Per Month
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month/description.md
+
+dataset:
+  answers: bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month/prepared/private/answer.csv
+  sample_submission: bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-45-a-sugar-factory-can-produce-up-to-270-tons-of-sugar-per-month.prepare:prepare

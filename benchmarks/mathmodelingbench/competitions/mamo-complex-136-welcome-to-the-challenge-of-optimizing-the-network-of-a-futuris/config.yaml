@@ -1,0 +1,16 @@
+id: mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris
+name: Mamo Complex 136 Welcome To The Challenge Of Optimizing The Network Of A Futuris
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris/description.md
+
+dataset:
+  answers: mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris/prepared/private/answer.csv
+  sample_submission: mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-136-welcome-to-the-challenge-of-optimizing-the-network-of-a-futuris.prepare:prepare

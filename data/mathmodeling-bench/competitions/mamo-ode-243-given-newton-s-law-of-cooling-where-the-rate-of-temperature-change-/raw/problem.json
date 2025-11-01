@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-243-given-newton-s-law-of-cooling-where-the-rate-of-temperature-change-",
+  "en_question": "Given Newton's law of cooling, where the rate of temperature change of an object is proportional to the difference between its temperature and the ambient temperature, suppose you have a cup of coffee initially at 200\u00b0F. It cools to 190\u00b0F within the first minute in a room at 70\u00b0F. Determine the temperature  in F of the coffee after 6.07 minutes. Keep four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "150.0"
+}

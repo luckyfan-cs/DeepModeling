@@ -1,0 +1,16 @@
+id: mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma
+name: Mamo Easy 560 A Tourism Board Is Planning To Allocate Its Budget Across Three Ma
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma/description.md
+
+dataset:
+  answers: mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma/prepared/private/answer.csv
+  sample_submission: mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-560-a-tourism-board-is-planning-to-allocate-its-budget-across-three-ma.prepare:prepare

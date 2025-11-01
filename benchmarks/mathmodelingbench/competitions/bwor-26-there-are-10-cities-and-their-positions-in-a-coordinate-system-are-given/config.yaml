@@ -1,0 +1,16 @@
+id: bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given
+name: Bwor 26 There Are 10 Cities And Their Positions In A Coordinate System Are Given
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given/description.md
+
+dataset:
+  answers: bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given/prepared/private/answer.csv
+  sample_submission: bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-26-there-are-10-cities-and-their-positions-in-a-coordinate-system-are-given.prepare:prepare

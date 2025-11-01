@@ -1,0 +1,16 @@
+id: industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ
+name: Industry 74 There Are Mathrm A And Mathrm B Two Products Both Requiring Two Succ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ/description.md
+
+dataset:
+  answers: industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ/prepared/private/answer.csv
+  sample_submission: industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-74-there-are-mathrm-a-and-mathrm-b-two-products-both-requiring-two-succ.prepare:prepare

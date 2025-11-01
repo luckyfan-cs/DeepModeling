@@ -1,0 +1,16 @@
+id: mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua
+name: Mamo Easy 265 A Company S Human Resources Department Needs To Allocate Its Annua
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua/description.md
+
+dataset:
+  answers: mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua/prepared/private/answer.csv
+  sample_submission: mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-265-a-company-s-human-resources-department-needs-to-allocate-its-annua.prepare:prepare

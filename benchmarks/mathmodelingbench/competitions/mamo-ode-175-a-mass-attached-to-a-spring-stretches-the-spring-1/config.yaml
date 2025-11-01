@@ -1,0 +1,16 @@
+id: mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1
+name: Mamo Ode 175 A Mass Attached To A Spring Stretches The Spring 1
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1/description.md
+
+dataset:
+  answers: mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1/prepared/private/answer.csv
+  sample_submission: mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-175-a-mass-attached-to-a-spring-stretches-the-spring-1.prepare:prepare

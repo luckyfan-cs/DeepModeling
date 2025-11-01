@@ -1,0 +1,10 @@
+# Mamo Easy 499 A Real Estate Developer Is Planning To Invest In Two Types Of Prop
+
+A real estate developer is planning to invest in two types of properties: residential (represented by $X$) and commercial (represented by $Y$). The investments must be in whole numbers due to the indivisible nature of property units. The total number of properties invested should be at least 50, considering the company's expansion goals. However, due to budget constraints and market conditions, the combined investment in twice as many residential properties as commercial cannot exceed 120 units.\n\nThe company also wants to maintain a balanced portfolio, so it requires that the number of residential properties invested minus three times the commercial properties should be at least 10. Due to market availability and company policy, a minimum investment of 20 units is required for residential properties and 10 for commercial ones.\n\nThe cost per unit of investment for residential and commercial properties is $\$5000$ and $\$3000$, respectively. The objective is to minimize the total investment cost while meeting all these constraints.\n\nWhat is the minimum total investment cost required for this scenario? Provide your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

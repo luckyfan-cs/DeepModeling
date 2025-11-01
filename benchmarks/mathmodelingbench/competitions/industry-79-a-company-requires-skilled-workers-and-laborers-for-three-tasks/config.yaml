@@ -1,0 +1,16 @@
+id: industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks
+name: Industry 79 A Company Requires Skilled Workers And Laborers For Three Tasks
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks/description.md
+
+dataset:
+  answers: industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks/prepared/private/answer.csv
+  sample_submission: industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-79-a-company-requires-skilled-workers-and-laborers-for-three-tasks.prepare:prepare

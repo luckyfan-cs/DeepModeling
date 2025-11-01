@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-247-a-certain-drug-is-being-administered-intravenously-to-a-hospital-pa",
+  "en_question": "A certain drug is being administered intravenously to a hospital patient. Fluid containing 5 mg/cm^3 of the drug enters the patient\u2019s bloodstream at a rate of 100 cm^3/h. The drug is absorbed by body tissues or otherwise leaves the bloodstream at a rate proportional to the amount present, with a rate constant of 0.4 (h)^(-1). How much of the drug  in mg is present in the bloodstream after a long time? Keep five significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "1250.0"
+}

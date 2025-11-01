@@ -1,0 +1,16 @@
+id: mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in
+name: Mamo Ode 271 A 30 Volt Electromotive Force Is Applied To An Lr Series Circuit In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in/description.md
+
+dataset:
+  answers: mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in/prepared/private/answer.csv
+  sample_submission: mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-271-a-30-volt-electromotive-force-is-applied-to-an-lr-series-circuit-in.prepare:prepare

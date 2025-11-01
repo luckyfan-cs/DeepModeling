@@ -1,0 +1,16 @@
+id: bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w
+name: Bwor 72 A Security Department Has 12 Patrol Units Responsible For Patrolling 4 W
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w/description.md
+
+dataset:
+  answers: bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w/prepared/private/answer.csv
+  sample_submission: bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-72-a-security-department-has-12-patrol-units-responsible-for-patrolling-4-w.prepare:prepare

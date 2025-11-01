@@ -1,0 +1,16 @@
+id: mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca
+name: Mamo Easy 204 In A Financial Planning Scenario An Investor Is Considering Alloca
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca/description.md
+
+dataset:
+  answers: mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca/prepared/private/answer.csv
+  sample_submission: mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-204-in-a-financial-planning-scenario-an-investor-is-considering-alloca.prepare:prepare

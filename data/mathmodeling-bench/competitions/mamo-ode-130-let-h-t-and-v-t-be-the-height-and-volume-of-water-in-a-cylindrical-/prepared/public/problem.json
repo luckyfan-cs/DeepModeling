@@ -1,0 +1,6 @@
+{
+  "id": 131,
+  "Question": "Let $h(t)$ and $V(t)$ be the height and volume of water in a cylindrical tank at time $t$. If water drains through a hole with area $A$ at the bottom of the tank, then Torricelli's Law states that the rate at which water flows from the tank is proportional to the square root of the water height. Suppose that initially, when $t=0$, there is 18 meters of water in a cylindrical tank with radius 7 meters. The hole has an area of 18.961 m$^2$. If we take acceleration due to gravity as $g=9.81 \\mathrm{m/s}^2$, find out how much would be left after 2 seconds. Answer in meters and round off to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

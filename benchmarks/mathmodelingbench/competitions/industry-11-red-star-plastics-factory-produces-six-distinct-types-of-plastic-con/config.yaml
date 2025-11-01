@@ -1,0 +1,16 @@
+id: industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con
+name: Industry 11 Red Star Plastics Factory Produces Six Distinct Types Of Plastic Con
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con/description.md
+
+dataset:
+  answers: industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con/prepared/private/answer.csv
+  sample_submission: industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-11-red-star-plastics-factory-produces-six-distinct-types-of-plastic-con.prepare:prepare

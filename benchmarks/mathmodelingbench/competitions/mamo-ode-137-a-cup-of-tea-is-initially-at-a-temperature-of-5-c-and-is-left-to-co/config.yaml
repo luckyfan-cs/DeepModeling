@@ -1,0 +1,16 @@
+id: mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co
+name: Mamo Ode 137 A Cup Of Tea Is Initially At A Temperature Of 5 C And Is Left To Co
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co/description.md
+
+dataset:
+  answers: mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co/prepared/private/answer.csv
+  sample_submission: mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-137-a-cup-of-tea-is-initially-at-a-temperature-of-5-c-and-is-left-to-co.prepare:prepare

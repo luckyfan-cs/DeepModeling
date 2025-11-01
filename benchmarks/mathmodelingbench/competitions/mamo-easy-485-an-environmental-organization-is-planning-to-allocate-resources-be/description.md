@@ -1,0 +1,10 @@
+# Mamo Easy 485 An Environmental Organization Is Planning To Allocate Resources Be
+
+An environmental organization is planning to allocate resources between two initiatives: X, focusing on renewable energy, and Y, dedicated to conservation. The total resources that can be allocated cannot exceed 100 units due to budget constraints. In order to meet the organization's mission objectives, the combined impact of these initiatives, calculated as three times the resource allocation for initiative X plus four times the resource allocation for initiative Y, must be at least 300 units. Furthermore, in order to maintain a balanced approach towards both renewable energy and conservation, the difference between resource allocations for initiative X and Y should not exceed 20 units. Given that each unit of resource assigned to initiative X has an associated cost of 5 while each unit assigned to initiative Y costs 2 and considering that resources are indivisible and thus must be allocated in whole numbers: What is the minimum total cost required for this scenario in dollars rounded to the nearest dollar?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

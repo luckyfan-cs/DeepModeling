@@ -1,0 +1,10 @@
+# Mamo Easy 318 A Shipping Company Has Three Types Of Ships Shipa Shipb And Shipc
+
+A shipping company has three types of ships: ShipA, ShipB, and ShipC. Each type of ship carries different types of cargo with varying weights and volume capacities. The total weight of cargo that needs to be shipped is at least 2000 tons, calculated as twice the number of ShipA plus thrice the number of ShipB plus four times the number of ShipC.\n\nThe total volume cannot exceed 3000 cubic meters due to port restrictions, calculated as thrice the number of ShipA plus twice the number of ShipB plus one time the number of ShipC. Additionally, due to specific cargo requirements, there must be at least 500 more units from ShipA than from ShipB.\n\nEach type of ship also has its own operational cost per unit: \$7 for each unit from ShipA, \$6 for each unit from ShipB and \$5 for each unit from ship C. Given these constraints and considering that all numbers are integers (due to indivisible nature of ships), if your goal is to minimize total operational costs while meeting all constraints:\n\nWhat would be the minimum total cost in dollars? Provide your answer rounded to nearest whole dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

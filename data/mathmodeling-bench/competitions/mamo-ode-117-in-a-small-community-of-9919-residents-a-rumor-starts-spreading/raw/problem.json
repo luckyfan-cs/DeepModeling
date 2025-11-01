@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-117-in-a-small-community-of-9919-residents-a-rumor-starts-spreading",
+  "en_question": "In a small community of 9919 residents, a rumor starts spreading. At the initial time t = 0 days, 1096 people have already heard the rumor. The rate of spread of the rumor is 0.93 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, how many people will have heard about it after 4 days? Express your answer as an integer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "9913"
+}

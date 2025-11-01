@@ -1,0 +1,10 @@
+# Mamo Easy 35 A Financial Advisor Is Assisting A Client In Allocating Investment 
+
+A financial advisor is assisting a client in allocating investment funds between two types of assets: stocks and bonds. The total amount invested in stocks and bonds needs to satisfy the following constraints: \n\n- The combined amount invested in twice the number of stocks and bonds should be at least $\$50000$, considering the client's risk tolerance and expected returns.\n\n- The difference between the amount invested in stocks and twice that of bonds cannot exceed $\$20000$, ensuring a balanced portfolio.\n\nThe cost per unit for stocks is $\$4$ while it is $\$3$ for bonds. The aim is to minimize the total cost of investment while adhering to these constraints, given that investments can only be made in whole numbers due to transaction limitations. What is the minimum total cost for this investment scenario, rounded to the nearest dollar?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

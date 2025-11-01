@@ -1,0 +1,6 @@
+{
+  "id": 171,
+  "Question": "A mass of 1 slug is attached to a spring with a constant of \\(25 / 4\\) lb/ft. The mass is initially released 1 ft above the equilibrium position with a downward velocity of 3 ft/sec, and it moves in a medium that provides a damping force equal to 3 times the velocity. Assuming no external force initially (\\(f(t) \\equiv 0\\)), model the system's behavior over time. Calculate the displacement from the equilibrium position at \\(t = 0.1\\) seconds, considering downward as the positive direction. Provide your answer in feet, rounded to four significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

@@ -1,0 +1,16 @@
+id: mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources
+name: Mamo Easy 179 An Energy Company Is Planning To Produce Power Using Three Sources
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources/description.md
+
+dataset:
+  answers: mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources/prepared/private/answer.csv
+  sample_submission: mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-179-an-energy-company-is-planning-to-produce-power-using-three-sources.prepare:prepare

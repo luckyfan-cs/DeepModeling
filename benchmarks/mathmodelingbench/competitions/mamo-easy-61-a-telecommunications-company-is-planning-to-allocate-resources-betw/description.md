@@ -1,0 +1,10 @@
+# Mamo Easy 61 A Telecommunications Company Is Planning To Allocate Resources Betw
+
+A telecommunications company is planning to allocate resources between two types of tasks: Task $X$ and Task $Y$. The allocation must be whole numbers due to the nature of the tasks. The total effort required, calculated as 5 times the resources allocated for Task X plus 10 times those for Task Y, must be at least 50 units to meet the project's objectives. On the other hand, a certain quality standard requires that no more than 36 units of combined effort, calculated as 3 times the resources for Task X plus 4 times those for Task Y, are spent. Given that each unit resource costs \$20 for task X and \$30 for task Y respectively and that the company aims to minimize cost while meeting all constraints. What is minimum total cost in dollars, rounded to nearest dollar?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

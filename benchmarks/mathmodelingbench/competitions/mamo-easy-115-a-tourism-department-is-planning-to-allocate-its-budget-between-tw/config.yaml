@@ -1,0 +1,16 @@
+id: mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw
+name: Mamo Easy 115 A Tourism Department Is Planning To Allocate Its Budget Between Tw
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw/description.md
+
+dataset:
+  answers: mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw/prepared/private/answer.csv
+  sample_submission: mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-115-a-tourism-department-is-planning-to-allocate-its-budget-between-tw.prepare:prepare

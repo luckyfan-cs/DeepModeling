@@ -1,0 +1,16 @@
+id: mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-
+name: Mamo Easy 280 A Tourism Company Needs To Allocate Resources Among Three Tourist 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-/description.md
+
+dataset:
+  answers: mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-/prepared/private/answer.csv
+  sample_submission: mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-280-a-tourism-company-needs-to-allocate-resources-among-three-tourist-.prepare:prepare

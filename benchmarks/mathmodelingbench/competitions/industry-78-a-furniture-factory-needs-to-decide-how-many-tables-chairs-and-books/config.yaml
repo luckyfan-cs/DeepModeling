@@ -1,0 +1,16 @@
+id: industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books
+name: Industry 78 A Furniture Factory Needs To Decide How Many Tables Chairs And Books
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books/description.md
+
+dataset:
+  answers: industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books/prepared/private/answer.csv
+  sample_submission: industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-78-a-furniture-factory-needs-to-decide-how-many-tables-chairs-and-books.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-231-consider-an-lrc-circuit-with-an-inductance-of-1-text-henry-a-resist",
+  "en_question": "Consider an LRC circuit with an inductance of \\(1 \\, \\text{henry}\\), a resistance of \\(2 \\, \\Omega\\), and a capacitance of \\(1\\) farad. Initially, the capacitor is uncharged and a current of 1 ampere flows through the circuit. An external voltage source provides an alternating current with voltage given by \\(6 \\sin(2t)\\) volts. What will be the charge on the capacitor after one second? Express your answer in coulombs to three decimal places.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "1.349"
+}

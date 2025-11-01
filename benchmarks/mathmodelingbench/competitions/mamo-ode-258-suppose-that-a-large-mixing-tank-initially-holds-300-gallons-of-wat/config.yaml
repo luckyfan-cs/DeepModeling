@@ -1,0 +1,16 @@
+id: mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat
+name: Mamo Ode 258 Suppose That A Large Mixing Tank Initially Holds 300 Gallons Of Wat
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat/description.md
+
+dataset:
+  answers: mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat/prepared/private/answer.csv
+  sample_submission: mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat.prepare:prepare

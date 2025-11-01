@@ -1,0 +1,50 @@
+# Mamo Complex 162 Supplytek Is A Retail Supply Company That Needs To Optimize Its
+
+SupplyTek is a retail supply company that needs to optimize its distribution network. The company has four retail stores that require supply from a choice of seven possible distribution centers. Each center comes with its own opening cost and a limit on how much it can supply. The cost of transporting goods from these centers to the retail stores varies. The objective is to meet the demand at each retail store at the minimum possible total cost, which includes the opening costs of the distribution centers and the transportation costs of the goods.
+
+Given Data:
+- Number of Potential Distribution Centers: 7
+- Number of Retail Stores Needing Supply: 4
+
+Opening Costs for Each Distribution Center (in dollars):
+- Center 1: 151,000
+- Center 2: 192,000
+- Center 3: 114,000
+- Center 4: 171,000
+- Center 5: 160,000
+- Center 6: 120,000
+- Center 7: 182,000
+
+Transportation Cost Per Unit from Each Distribution Center to Retail Stores (in dollars):
+- From Center 1: $3 to Store 1, $3 to Store 2, $5 to Store 3, $4 to Store 4
+- From Center 2: $3 to Store 1, $5 to Store 2, $2 to Store 3, $4 to Store 4
+- From Center 3: $2 to Store 1, $4 to Store 2, $5 to Store 3, $1 to Store 4
+- From Center 4: $4 to Store 1, $2 to Store 2, $5 to Store 3, $4 to Store 4
+- From Center 5: $1 to Store 1, $1 to Store 2, $3 to Store 3, $3 to Store 4
+- From Center 6: $2 to Store 1, $4 to Store 2, $4 to Store 3, $3 to Store 4
+- From Center 7: $4 to Store 1, $4 to Store 2, $1 to Store 3, $3 to Store 4
+
+Demand of Each Retail Store (in units):
+- Store 1: 884
+- Store 2: 420
+- Store 3: 566
+- Store 4: 673
+
+Supply Capacity of Each Distribution Center (in units):
+- Center 1: 1187
+- Center 2: 1400
+- Center 3: 1115
+- Center 4: 813
+- Center 5: 1041
+- Center 6: 1576
+- Center 7: 1364
+
+Question:
+What is the minimum total cost for SupplyTek to open distribution centers and transport goods to meet all retail stores' demands? The total cost should include both the opening costs of the centers and the transportation costs of supplying the stores.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

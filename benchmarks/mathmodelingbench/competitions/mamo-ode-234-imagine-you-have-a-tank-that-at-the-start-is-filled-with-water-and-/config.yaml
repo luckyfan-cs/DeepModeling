@@ -1,0 +1,16 @@
+id: mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-
+name: Mamo Ode 234 Imagine You Have A Tank That At The Start Is Filled With Water And 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-/description.md
+
+dataset:
+  answers: mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-/prepared/private/answer.csv
+  sample_submission: mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-234-imagine-you-have-a-tank-that-at-the-start-is-filled-with-water-and-.prepare:prepare

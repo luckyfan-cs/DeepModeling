@@ -1,0 +1,16 @@
+id: industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in
+name: Industry 3 A Farmer Needs To Decide How Many Cows Sheep And Chickens To Raise In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in/description.md
+
+dataset:
+  answers: industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in/prepared/private/answer.csv
+  sample_submission: industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-3-a-farmer-needs-to-decide-how-many-cows-sheep-and-chickens-to-raise-in.prepare:prepare

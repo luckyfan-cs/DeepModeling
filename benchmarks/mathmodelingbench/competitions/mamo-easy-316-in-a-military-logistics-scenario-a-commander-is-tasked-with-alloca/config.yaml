@@ -1,0 +1,16 @@
+id: mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca
+name: Mamo Easy 316 In A Military Logistics Scenario A Commander Is Tasked With Alloca
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca/description.md
+
+dataset:
+  answers: mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca/prepared/private/answer.csv
+  sample_submission: mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-316-in-a-military-logistics-scenario-a-commander-is-tasked-with-alloca.prepare:prepare

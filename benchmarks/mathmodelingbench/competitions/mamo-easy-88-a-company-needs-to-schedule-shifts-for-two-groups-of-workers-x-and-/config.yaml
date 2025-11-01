@@ -1,0 +1,16 @@
+id: mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-
+name: Mamo Easy 88 A Company Needs To Schedule Shifts For Two Groups Of Workers X And 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-/description.md
+
+dataset:
+  answers: mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-/prepared/private/answer.csv
+  sample_submission: mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-88-a-company-needs-to-schedule-shifts-for-two-groups-of-workers-x-and-.prepare:prepare

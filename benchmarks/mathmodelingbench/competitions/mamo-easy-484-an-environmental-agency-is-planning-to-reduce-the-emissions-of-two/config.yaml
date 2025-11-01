@@ -1,0 +1,16 @@
+id: mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two
+name: Mamo Easy 484 An Environmental Agency Is Planning To Reduce The Emissions Of Two
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two/description.md
+
+dataset:
+  answers: mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two/prepared/private/answer.csv
+  sample_submission: mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-484-an-environmental-agency-is-planning-to-reduce-the-emissions-of-two.prepare:prepare

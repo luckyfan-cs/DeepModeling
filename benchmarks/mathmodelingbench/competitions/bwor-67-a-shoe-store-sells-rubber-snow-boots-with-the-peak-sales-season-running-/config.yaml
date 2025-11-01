@@ -1,0 +1,16 @@
+id: bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-
+name: Bwor 67 A Shoe Store Sells Rubber Snow Boots With The Peak Sales Season Running 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-/description.md
+
+dataset:
+  answers: bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-/prepared/private/answer.csv
+  sample_submission: bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-67-a-shoe-store-sells-rubber-snow-boots-with-the-peak-sales-season-running-.prepare:prepare

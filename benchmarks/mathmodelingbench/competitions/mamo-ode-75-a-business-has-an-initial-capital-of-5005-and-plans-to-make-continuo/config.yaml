@@ -1,0 +1,16 @@
+id: mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo
+name: Mamo Ode 75 A Business Has An Initial Capital Of 5005 And Plans To Make Continuo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo/description.md
+
+dataset:
+  answers: mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo/prepared/private/answer.csv
+  sample_submission: mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-75-a-business-has-an-initial-capital-of-5005-and-plans-to-make-continuo.prepare:prepare

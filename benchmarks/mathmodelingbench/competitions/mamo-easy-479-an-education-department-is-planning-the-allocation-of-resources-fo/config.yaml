@@ -1,0 +1,16 @@
+id: mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo
+name: Mamo Easy 479 An Education Department Is Planning The Allocation Of Resources Fo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo/description.md
+
+dataset:
+  answers: mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo/prepared/private/answer.csv
+  sample_submission: mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-479-an-education-department-is-planning-the-allocation-of-resources-fo.prepare:prepare

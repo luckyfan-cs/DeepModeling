@@ -1,0 +1,7 @@
+{
+  "id": "industry-10-a-company-produces-two-types-of-small-motorcycles-where-type-a-is-en",
+  "en_question": "A company produces two types of small motorcycles, where type A is entirely manufactured by the company, and type B is assembled from imported parts. The production, assembly, and inspection time required for each unit of these two products are shown in Table 3.2.\n\nTable 3.2\n\n| Type | Process | | | Selling Price <br> (Yuan/unit) |\n| :---: | :---: | :---: | :---: | :---: |\n| | Manufacturing | Assembly | Inspection | |\n| Type A (hours/unit) | 20 | 5 | 3 | 650 |\n| Type B (hours/unit) | 0 | 7 | 6 | 725 |\n| Max production capacity per week (hours) | 120 | 80 | 40 | |\n| Production cost per hour (Yuan) | 12 | 8 | 10 | |\n\nIf the company's operational goals and targets are as follows:\n\n$p_{1}$ : The total profit per week should be at least 3000 yuan;\n\n$p_{2}$ : At least 5 units of type A motorcycles should be produced per week;\n\n$p_{3}$ : Minimize the idle time of each process as much as possible. The weight coefficients of the three processes are proportional to their hourly costs, and overtime is not allowed.\n\nTry to establish a model for this problem.",
+  "cn_question": "",
+  "difficulty": "Medium",
+  "expected_answer": "4136.0"
+}

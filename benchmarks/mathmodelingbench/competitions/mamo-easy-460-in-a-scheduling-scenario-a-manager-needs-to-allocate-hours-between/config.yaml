@@ -1,0 +1,16 @@
+id: mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between
+name: Mamo Easy 460 In A Scheduling Scenario A Manager Needs To Allocate Hours Between
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between/description.md
+
+dataset:
+  answers: mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between/prepared/private/answer.csv
+  sample_submission: mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-460-in-a-scheduling-scenario-a-manager-needs-to-allocate-hours-between.prepare:prepare

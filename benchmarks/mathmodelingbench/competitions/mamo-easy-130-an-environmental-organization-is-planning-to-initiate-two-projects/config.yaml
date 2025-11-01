@@ -1,0 +1,16 @@
+id: mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects
+name: Mamo Easy 130 An Environmental Organization Is Planning To Initiate Two Projects
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects/description.md
+
+dataset:
+  answers: mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects/prepared/private/answer.csv
+  sample_submission: mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-130-an-environmental-organization-is-planning-to-initiate-two-projects.prepare:prepare

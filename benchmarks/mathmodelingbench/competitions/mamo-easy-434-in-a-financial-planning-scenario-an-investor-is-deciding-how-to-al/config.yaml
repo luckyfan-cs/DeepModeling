@@ -1,0 +1,16 @@
+id: mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al
+name: Mamo Easy 434 In A Financial Planning Scenario An Investor Is Deciding How To Al
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al/description.md
+
+dataset:
+  answers: mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al/prepared/private/answer.csv
+  sample_submission: mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-434-in-a-financial-planning-scenario-an-investor-is-deciding-how-to-al.prepare:prepare

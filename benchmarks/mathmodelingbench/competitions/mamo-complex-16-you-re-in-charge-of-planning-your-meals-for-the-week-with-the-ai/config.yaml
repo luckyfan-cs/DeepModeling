@@ -1,0 +1,16 @@
+id: mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai
+name: Mamo Complex 16 You Re In Charge Of Planning Your Meals For The Week With The Ai
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai/description.md
+
+dataset:
+  answers: mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai/prepared/private/answer.csv
+  sample_submission: mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-16-you-re-in-charge-of-planning-your-meals-for-the-week-with-the-ai.prepare:prepare

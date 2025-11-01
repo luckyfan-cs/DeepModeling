@@ -1,0 +1,16 @@
+id: industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella
+name: Industry 72 The Li Family Has 5 Children Alice Bob Charlie Diana And Ella
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella/description.md
+
+dataset:
+  answers: industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella/prepared/private/answer.csv
+  sample_submission: industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-72-the-li-family-has-5-children-alice-bob-charlie-diana-and-ella.prepare:prepare

@@ -1,0 +1,16 @@
+id: bwor-62-there-are-two-types-of-resources
+name: Bwor 62 There Are Two Types Of Resources
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-62-there-are-two-types-of-resources/description.md
+
+dataset:
+  answers: bwor-62-there-are-two-types-of-resources/prepared/private/answer.csv
+  sample_submission: bwor-62-there-are-two-types-of-resources/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-62-there-are-two-types-of-resources.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-62-there-are-two-types-of-resources.prepare:prepare

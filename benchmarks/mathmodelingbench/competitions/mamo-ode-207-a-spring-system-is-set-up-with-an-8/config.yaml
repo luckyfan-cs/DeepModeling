@@ -1,0 +1,16 @@
+id: mamo-ode-207-a-spring-system-is-set-up-with-an-8
+name: Mamo Ode 207 A Spring System Is Set Up With An 8
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-207-a-spring-system-is-set-up-with-an-8/description.md
+
+dataset:
+  answers: mamo-ode-207-a-spring-system-is-set-up-with-an-8/prepared/private/answer.csv
+  sample_submission: mamo-ode-207-a-spring-system-is-set-up-with-an-8/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-207-a-spring-system-is-set-up-with-an-8.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-207-a-spring-system-is-set-up-with-an-8.prepare:prepare

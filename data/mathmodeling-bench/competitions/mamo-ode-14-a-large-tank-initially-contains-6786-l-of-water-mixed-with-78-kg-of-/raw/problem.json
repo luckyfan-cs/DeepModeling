@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-",
+  "en_question": "A large tank initially contains \\(6786\\) L of water mixed with \\(78\\) kg of a certain pollutant. Clean water flows into the tank at a rate of \\(9\\) L/min, and the well-mixed solution exits the tank at the same rate. The pollutant in the incoming clean water is at a concentration of \\(0.44\\) kg/L. Determine how many kilograms of pollutant are left in the tank after \\(5\\) minutes. Give your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "77.511"
+}

@@ -1,0 +1,16 @@
+id: industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura
+name: Industry 61 The Zhang Family Is Deciding To Invest In Several Different Restaura
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura/description.md
+
+dataset:
+  answers: industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura/prepared/private/answer.csv
+  sample_submission: industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-61-the-zhang-family-is-deciding-to-invest-in-several-different-restaura.prepare:prepare

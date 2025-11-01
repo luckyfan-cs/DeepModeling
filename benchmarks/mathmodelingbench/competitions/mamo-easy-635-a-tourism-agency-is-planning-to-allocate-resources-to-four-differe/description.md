@@ -1,0 +1,10 @@
+# Mamo Easy 635 A Tourism Agency Is Planning To Allocate Resources To Four Differe
+
+A tourism agency is planning to allocate resources to four different tour packages: x1, x2, x3, and x4. These packages could involve historical tours, nature explorations, cultural immersions, and adventure activities respectively. The objective is to minimize the total cost associated with these tour packages, with costs being 100 dollars for each person in package x1, 200 dollars for each person in package x2, 300 dollars for each person in package x3 and 400 dollars for each person in package x4.\n\nThe allocation must adhere to the following constraints due to budget limitations:\n- The combined number of people going on tour packages x1 and x2 cannot exceed 500.\n- The combined number of people going on tour packages x3 and x4 cannot exceed 700.\n- The sum of the number of people going on tour packages x1 and x3 should be at least 200 to maintain a balance between different types of tours.\n- Similarly, the sum of the number of people going on tour packages x2 and x4 should be at least 300 to ensure variety.\n\nGiven that all numbers involved are integers as they represent individuals taking part in these tours:\nWhat is the minimum total cost for the company, given an optimal allocation of tourists to these four tour packages within their respective bounds?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

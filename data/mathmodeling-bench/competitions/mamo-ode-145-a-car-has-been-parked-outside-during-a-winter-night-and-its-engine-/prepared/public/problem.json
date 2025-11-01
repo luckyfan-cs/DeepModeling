@@ -1,0 +1,6 @@
+{
+  "id": 146,
+  "Question": "A car has been parked outside during a winter night and its engine is at -2°C in the morning. The ambient temperature is 25°C. After starting, it takes 15 minutes for the engine to warm up to 12.807°C. According to Newton's Law of Cooling (which also applies to heating), what will be the temperature of the car engine after 20 minutes? Provide your answer in °C and in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

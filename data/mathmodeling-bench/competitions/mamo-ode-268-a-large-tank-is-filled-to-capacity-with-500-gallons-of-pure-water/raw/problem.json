@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-268-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water",
+  "en_question": "A large tank is filled to capacity with 500 gallons of pure water. Brine containing 2 pounds of salt per gallon is pumped into the tank at a rate of 5 gal/min. The wellmixed solution is pumped out at the same rate. what is the concentration c(t) in lb/gal of the salt in the tank at t = 5 min? Keep three significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.0975"
+}

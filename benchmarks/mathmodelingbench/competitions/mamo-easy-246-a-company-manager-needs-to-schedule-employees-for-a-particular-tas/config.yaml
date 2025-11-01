@@ -1,0 +1,16 @@
+id: mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas
+name: Mamo Easy 246 A Company Manager Needs To Schedule Employees For A Particular Tas
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas/description.md
+
+dataset:
+  answers: mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas/prepared/private/answer.csv
+  sample_submission: mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-246-a-company-manager-needs-to-schedule-employees-for-a-particular-tas.prepare:prepare

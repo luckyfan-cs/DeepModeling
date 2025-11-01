@@ -1,0 +1,6 @@
+{
+  "id": 27,
+  "Question": "A large aquarium initially contains \\(5581\\) liters of water with a salt concentration of \\(69\\) grams per liter. Every minute, seawater containing \\(0.36\\) kg/liter of salt is pumped into the tank at a rate of \\(10\\) liters per minute, and an equivalent amount of the mixed solution is simultaneously drained from the tank to maintain its volume. After 25 minutes, how many kilograms of salt will be in the aquarium? Please provide your answer to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

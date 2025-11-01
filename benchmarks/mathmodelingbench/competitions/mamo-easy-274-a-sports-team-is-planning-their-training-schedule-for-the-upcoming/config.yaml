@@ -1,0 +1,16 @@
+id: mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming
+name: Mamo Easy 274 A Sports Team Is Planning Their Training Schedule For The Upcoming
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming/description.md
+
+dataset:
+  answers: mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming/prepared/private/answer.csv
+  sample_submission: mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-274-a-sports-team-is-planning-their-training-schedule-for-the-upcoming.prepare:prepare

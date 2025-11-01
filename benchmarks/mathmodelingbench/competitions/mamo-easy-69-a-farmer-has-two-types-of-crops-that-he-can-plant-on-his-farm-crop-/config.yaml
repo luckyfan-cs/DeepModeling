@@ -1,0 +1,16 @@
+id: mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-
+name: Mamo Easy 69 A Farmer Has Two Types Of Crops That He Can Plant On His Farm Crop 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-/description.md
+
+dataset:
+  answers: mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-/prepared/private/answer.csv
+  sample_submission: mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-69-a-farmer-has-two-types-of-crops-that-he-can-plant-on-his-farm-crop-.prepare:prepare

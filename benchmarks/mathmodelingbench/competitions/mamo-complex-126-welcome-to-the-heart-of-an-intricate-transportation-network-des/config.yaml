@@ -1,0 +1,16 @@
+id: mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des
+name: Mamo Complex 126 Welcome To The Heart Of An Intricate Transportation Network Des
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des/description.md
+
+dataset:
+  answers: mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des/prepared/private/answer.csv
+  sample_submission: mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-126-welcome-to-the-heart-of-an-intricate-transportation-network-des.prepare:prepare

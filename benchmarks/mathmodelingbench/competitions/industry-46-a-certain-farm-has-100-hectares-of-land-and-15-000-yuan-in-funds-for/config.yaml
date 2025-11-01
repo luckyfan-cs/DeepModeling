@@ -1,0 +1,16 @@
+id: industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for
+name: Industry 46 A Certain Farm Has 100 Hectares Of Land And 15 000 Yuan In Funds For
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for/description.md
+
+dataset:
+  answers: industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for/prepared/private/answer.csv
+  sample_submission: industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-46-a-certain-farm-has-100-hectares-of-land-and-15-000-yuan-in-funds-for.prepare:prepare

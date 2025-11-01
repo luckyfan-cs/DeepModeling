@@ -1,0 +1,10 @@
+# Mamo Easy 551 In A Human Resources Planning Scenario An Hr Manager Needs To Allo
+
+In a Human Resources planning scenario, an HR manager needs to allocate employees across three departments: X, Y, and Z. The total number of employees that can be allocated is limited to 1000 due to the size of the workforce. Department X requires at least 200 more employees than department Y to maintain productivity, while department Y requires at least 100 more employees than department Z for operational efficiency. Each employee in departments X, Y, and Z costs $50, $60, and $70 per month respectively in terms of salary and benefits. Due to each department's capacity constraints, there can be a maximum of 500 employees in department X, 400 in department Y and 300 in department Z.\n\nThe company aims to minimize the total monthly cost while adhering to these staffing constraints for each department (where allocations are whole numbers due to the indivisible nature of human resources). Calculate the minimum total monthly cost required for this scenario.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,11 @@
+# Bwor 12 A Company Has Decided To Use 1000 Thousand Yuan Of A New Product Develop
+
+A company has decided to use 1000 thousand yuan of a new product development fund to invest in the development of three new products: A, B, and C. Forecasted return on investment (ROI) for each product is: Product A: 5%, Product B: 7%, Product C: 10%, Due to associated risks, the company has defined the following priority constraints: 1.At least 300 thousand yuan must be invested in Product A. 2.To diversify investment risk, no single product may receive more than 35% of the total fund. 3.At least 10% of the fund (i.e., 1 million yuan) must be reserved for emergency use.4.The objective is to maximize total profit from the investment. 
+Please formulate a model to maximize the total investment profit(in thousand yuan).
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

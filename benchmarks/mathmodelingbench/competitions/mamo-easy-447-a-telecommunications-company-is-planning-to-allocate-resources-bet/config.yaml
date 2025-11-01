@@ -1,0 +1,16 @@
+id: mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet
+name: Mamo Easy 447 A Telecommunications Company Is Planning To Allocate Resources Bet
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet/description.md
+
+dataset:
+  answers: mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet/prepared/private/answer.csv
+  sample_submission: mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-447-a-telecommunications-company-is-planning-to-allocate-resources-bet.prepare:prepare

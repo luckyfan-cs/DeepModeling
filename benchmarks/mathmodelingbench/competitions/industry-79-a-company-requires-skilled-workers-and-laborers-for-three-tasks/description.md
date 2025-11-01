@@ -1,0 +1,10 @@
+# Industry 79 A Company Requires Skilled Workers And Laborers For Three Tasks
+
+A company requires skilled workers and laborers for three tasks. The first task can be completed by one skilled worker alone, or by a group of one skilled worker and two laborers. The second task can be done by one skilled worker or one laborer alone. The third task can be completed by a group of five laborers, or by one skilled worker leading three laborers. The weekly wages for skilled workers and laborers are 100 yuan and 80 yuan respectively. They work 48 hours per week, but their actual effective working hours are 42 hours and 36 hours respectively. To complete these tasks, the company needs a total effective working time of 10,000 hours for the first task, 20,000 hours for the second task, and 30,000 hours for the third task per week. The number of workers that can be recruited is limited to a maximum of 400 skilled workers and 800 laborers. Establish a mathematical model to determine how many skilled workers and laborers should be hired in order to minimize the total wage expenditure.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

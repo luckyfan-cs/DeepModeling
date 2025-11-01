@@ -1,0 +1,16 @@
+id: mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he
+name: Mamo Easy 613 A Farmer Has Four Different Types Of Crops X1 X2 X3 And X4 That He
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he/description.md
+
+dataset:
+  answers: mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he/prepared/private/answer.csv
+  sample_submission: mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-613-a-farmer-has-four-different-types-of-crops-x1-x2-x3-and-x4-that-he.prepare:prepare

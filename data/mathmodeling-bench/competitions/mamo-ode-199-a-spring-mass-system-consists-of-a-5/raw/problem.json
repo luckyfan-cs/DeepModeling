@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-199-a-spring-mass-system-consists-of-a-5",
+  "en_question": "A spring-mass system consists of a 5.939 kg object attached to a spring with a spring constant of 1.784 N/m and subjected to damping with a damping coefficient of 3.381 Ns/m. The object is initially displaced by 1.706 m from its equilibrium position and given an initial velocity of -2.083 m/s in the opposite direction. Determine the displacement of the mass from its equilibrium position at t = 1 s, considering displacement away from the equilibrium position as positive. Provide the displacement in meters, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.013"
+}

@@ -1,0 +1,16 @@
+id: mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb
+name: Mamo Easy 364 A Farmer Is Planning To Plant Four Different Crops Wheat Corn Soyb
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb/description.md
+
+dataset:
+  answers: mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb/prepared/private/answer.csv
+  sample_submission: mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-364-a-farmer-is-planning-to-plant-four-different-crops-wheat-corn-soyb.prepare:prepare

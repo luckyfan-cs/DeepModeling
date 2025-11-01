@@ -1,0 +1,10 @@
+# Mamo Easy 543 A Manager Is Planning The Weekly Work Schedule For Three Teams X Y
+
+A manager is planning the weekly work schedule for three teams: X, Y, and Z. The total hours worked across all three teams cannot exceed 40 due to budget constraints. Additionally, team X must work at least 5 more hours than team Y to ensure enough coverage for a particular project. Similarly, team Y needs to work at least 10 more hours than team Z due to workload distribution. On the other hand, there are individual limits on each team's working hours in a week: Team X can't exceed 15 hours, Team Y can't exceed 20 hours and Team Z can't exceed 30 hours.\n\nThe fatigue scores associated with each hour of work are different for each team due to their different tasks and skill levels: it is 2 for team X, 3 for team Y and 1 for team Z. As a result of these factors, the manager aims to minimize the total fatigue score while adhering to these constraints and ensuring that all scheduled working hours are in whole numbers as partial-hour schedules aren't practical.\n\nWhat is the minimum total fatigue score achievable by optimally scheduling the teams' working hours within these constraints? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

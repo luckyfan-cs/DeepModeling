@@ -1,0 +1,16 @@
+id: mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo
+name: Mamo Complex 104 In A Vast Network Of Canals Interconnecting 9 Strategic Reservo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo/description.md
+
+dataset:
+  answers: mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo/prepared/private/answer.csv
+  sample_submission: mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-104-in-a-vast-network-of-canals-interconnecting-9-strategic-reservo.prepare:prepare

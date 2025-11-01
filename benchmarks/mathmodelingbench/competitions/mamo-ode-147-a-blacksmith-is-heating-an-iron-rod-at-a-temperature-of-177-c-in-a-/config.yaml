@@ -1,0 +1,16 @@
+id: mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-
+name: Mamo Ode 147 A Blacksmith Is Heating An Iron Rod At A Temperature Of 177 C In A 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-/description.md
+
+dataset:
+  answers: mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-/prepared/private/answer.csv
+  sample_submission: mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53
+name: Mamo Ode 37 A Tank Initially Contains 3027 L Of Water With A Concentration Of 53
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53/description.md
+
+dataset:
+  answers: mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53/prepared/private/answer.csv
+  sample_submission: mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53.prepare:prepare

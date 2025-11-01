@@ -1,0 +1,6 @@
+{
+  "id": 300,
+  "Question": "Find the charge in coulomb on the capacitor in an LRC-series circuit at t = 0.01 s when L = 0.05 h, R = 2 ohm, C = 0.01 f, E(t) = 0 V, q(0) = 5 C, and i(0) = 0 A. Keep three significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

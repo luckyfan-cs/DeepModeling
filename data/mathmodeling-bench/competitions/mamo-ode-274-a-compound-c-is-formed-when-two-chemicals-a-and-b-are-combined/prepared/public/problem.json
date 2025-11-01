@@ -1,0 +1,6 @@
+{
+  "id": 275,
+  "Question": "A compound C is formed when two chemicals A and B are combined. The resulting reaction between the two chemicals is such that for each gram of A, 4 grams of B is used, then produce 1 gram of C. It is observed that 30 grams of the compound C is formed in 10 minutes. Determine the amount of C at time t if the rate of the reaction is proportional to the amounts of A and B remaining and if initially there are 50 grams of A and 32 grams of B. How much of the compound C in gram is present if time trend to infinity. Keep three significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

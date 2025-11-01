@@ -1,0 +1,6 @@
+{
+  "id": 271,
+  "Question": "A large tank is partially filled with 100 gallons of fluit in which 10 pounds of salt is dissolved. Brine containing 1/2 pound of salt per gallon is pumped into the tank at a rate of 6 gal/min. The well-mixed solution is then pumped out at a slower rate of 4 gal/min. Find the number of pounds of salt in the tank after 30 minutes. Keep four significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

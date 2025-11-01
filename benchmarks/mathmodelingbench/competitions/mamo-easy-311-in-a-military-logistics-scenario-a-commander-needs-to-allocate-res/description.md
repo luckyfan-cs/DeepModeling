@@ -1,0 +1,10 @@
+# Mamo Easy 311 In A Military Logistics Scenario A Commander Needs To Allocate Res
+
+In a military logistics scenario, a commander needs to allocate resources between three types of units: X, Y, and Z. The total number of units that can be supported is limited to 1000 due to logistical constraints. To achieve strategic objectives, the combined strength of 2 units of X and 1 unit of Y must be at least 200. Additionally, the sum of units from group X and Z should be no less than 300. Each unit from groups X, Y, and Z requires different amounts of resources quantified as 300 ,500 , and 700 points respectively. The commander aims to minimize the total resource points allocated while adhering to these constraints and ensuring that the number of units for each group are integers. Calculate the minimum total resource points required for this operation, rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

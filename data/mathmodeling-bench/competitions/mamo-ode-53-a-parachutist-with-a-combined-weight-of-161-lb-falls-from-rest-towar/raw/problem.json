@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar",
+  "en_question": "A parachutist with a combined weight of 161 lb falls from rest towards Earth. Initially, the air resistance is proportional to the velocity (\\(V/2\\)). After 5 seconds, the parachute opens, changing the air resistance to be proportional to the square of the velocity (\\(V^2/2\\)). Calculate the velocity \\(V(t)\\) of the parachutist 10 seconds after the fall begins, which is 5 seconds after the parachute opens. Provide the answer in feet per second (ft/s) to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "17.944"
+}

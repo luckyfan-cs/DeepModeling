@@ -1,0 +1,10 @@
+# Mamo Easy 38 In A Financial Planning Scenario An Investment Manager Needs To All
+
+In a financial planning scenario, an investment manager needs to allocate funds between two investment options: X and Y. The allocations must be whole numbers due to the nature of the investments. The total amount invested in both options combined cannot exceed $100,000 due to budget constraints. Investment X requires a minimum investment of $10,000 to be viable, while for investment Y, it cannot be less than $5,000. To achieve a certain risk-return balance in the portfolio, the sum of three times the investment in option X minus the investment in option Y must be at least $20,000. Each dollar invested in options X and Y yields different returns or costs, quantified as $5000 and $4000 respectively. The manager aims to minimize the total cost while adhering to these constraints. Calculate the minimum total cost required for this scenario rounded to nearest hundred dollars.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-222-an-electrical-circuit-consists-of-a-resistor-an-inductor-and-a-capa",
+  "en_question": "An electrical circuit consists of a resistor, an inductor, and a capacitor arranged in series. The resistance of the resistor is \\(3.714 \\Omega\\), the inductance of the inductor is \\(9.502 H\\), and the capacitance of the capacitor is \\(0.48 F\\). Initially, there's a charge of \\(9 C\\) on the capacitor and an initial current flow of \\(-4.311 A\\) when no external voltage is applied to the system. Develop a function that describes how the charge on the capacitor changes over time. Calculate what would be the charge on this capacitor at \\(t=1 s\\). Assume that current flowing from positive to negative terminal is taken as positive and express your answer in coulombs, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "4.706"
+}

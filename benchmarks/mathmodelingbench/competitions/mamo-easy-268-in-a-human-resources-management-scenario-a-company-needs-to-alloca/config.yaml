@@ -1,0 +1,16 @@
+id: mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca
+name: Mamo Easy 268 In A Human Resources Management Scenario A Company Needs To Alloca
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca/description.md
+
+dataset:
+  answers: mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca/prepared/private/answer.csv
+  sample_submission: mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-268-in-a-human-resources-management-scenario-a-company-needs-to-alloca.prepare:prepare

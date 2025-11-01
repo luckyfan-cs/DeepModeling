@@ -1,0 +1,16 @@
+id: bwor-28-a-hospital-operates-24-hours-a-day
+name: Bwor 28 A Hospital Operates 24 Hours A Day
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-28-a-hospital-operates-24-hours-a-day/description.md
+
+dataset:
+  answers: bwor-28-a-hospital-operates-24-hours-a-day/prepared/private/answer.csv
+  sample_submission: bwor-28-a-hospital-operates-24-hours-a-day/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-28-a-hospital-operates-24-hours-a-day.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-28-a-hospital-operates-24-hours-a-day.prepare:prepare

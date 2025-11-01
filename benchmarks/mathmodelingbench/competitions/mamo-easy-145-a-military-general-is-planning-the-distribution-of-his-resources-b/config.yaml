@@ -1,0 +1,16 @@
+id: mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b
+name: Mamo Easy 145 A Military General Is Planning The Distribution Of His Resources B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b/description.md
+
+dataset:
+  answers: mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b/prepared/private/answer.csv
+  sample_submission: mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-145-a-military-general-is-planning-the-distribution-of-his-resources-b.prepare:prepare

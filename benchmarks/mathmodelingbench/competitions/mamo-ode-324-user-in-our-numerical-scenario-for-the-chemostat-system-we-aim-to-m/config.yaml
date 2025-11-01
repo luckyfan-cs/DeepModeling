@@ -1,0 +1,16 @@
+id: mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m
+name: Mamo Ode 324 User In Our Numerical Scenario For The Chemostat System We Aim To M
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m/description.md
+
+dataset:
+  answers: mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m/prepared/private/answer.csv
+  sample_submission: mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-324-user-in-our-numerical-scenario-for-the-chemostat-system-we-aim-to-m.prepare:prepare

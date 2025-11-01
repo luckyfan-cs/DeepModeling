@@ -1,0 +1,10 @@
+# Mamo Easy 450 A Farmer Is Planning To Plant Two Types Of Crops X And Y In His Fa
+
+A farmer is planning to plant two types of crops, X and Y, in his farm. The cost of planting crop X per acre is $\$100$ and for crop Y it is $\$50$. To ensure proper use of the land and resources, the farmer has set certain constraints:\n\n- The total usage of a specific fertilizer, which is applied at 3 units per acre for crop X and 2 units per acre for crop Y, cannot exceed 1000 units.\n- The combined acreage planted with both crops must be at least 200 acres to make efficient use of the farmland.\n- The difference between the number of acres planted with crops X and Y should not exceed 300 acres to maintain diversity.\n\nThe maximum area that can be allocated for planting crop X is 500 acres and for crop Y it's 400 acres due to soil suitability constraints. Also, the farmer can only plant an integer number of acres due to practical considerations. \n\nWhat would be the minimum total cost in dollars (rounded to nearest dollar) for planting crops while adhering to all these constraints?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

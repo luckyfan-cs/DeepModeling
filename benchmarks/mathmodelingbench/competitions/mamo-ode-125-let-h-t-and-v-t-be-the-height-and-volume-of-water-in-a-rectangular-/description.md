@@ -1,0 +1,10 @@
+# Mamo Ode 125 Let H T And V T Be The Height And Volume Of Water In A Rectangular 
+
+Let $h(t)$ and $V(t)$ be the height and volume of water in a rectangular tank at time $t$. If water drains through a hole with area $A$ at the bottom of the tank, then Torricelli's Law says that the rate at which water flows from the tank is proportional to the square root of the water height. Suppose the tank has length 9 meters, width 2 meters, and is filled to capacity initially with a volume of 216 cubic meters. The hole through which it drains has an area such that it can drain approximately 2.949 cubic meter per second under maximum head pressure. Given that we take $g=9.81 \mathrm{m} / \mathrm{s}^2$, find out how much volume of water would be left in the tank after 6 seconds? Answer in cubic meters and round off to three decimal places.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-
+name: Mamo Ode 6 A Storage Tank At An Oil Refinery Contains 10 000 L Of Gasoline With 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-/description.md
+
+dataset:
+  answers: mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-/prepared/private/answer.csv
+  sample_submission: mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-6-a-storage-tank-at-an-oil-refinery-contains-10-000-l-of-gasoline-with-.prepare:prepare

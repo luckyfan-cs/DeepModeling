@@ -1,0 +1,6 @@
+{
+  "id": 145,
+  "Question": "A blacksmith heats a piece of iron to 105°C and then leaves it to cool in a room where the ambient temperature is 33°C. After 9 minutes, the temperature of the iron has decreased to approximately 49.754°C. Assuming that the cooling process follows Newton's Law of Cooling, calculate the temperature of the iron after 19 minutes. Provide your answer in °C and in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

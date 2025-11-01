@@ -1,0 +1,6 @@
+{
+  "id": 144,
+  "Question": "A blacksmith heats an iron rod to a temperature of 72°C and then leaves it to cool in a room where the ambient temperature is constantly maintained at 10°C. After 4 minutes, the temperature of the rod has decreased to 39.112°C. Using Newton's Law of Cooling, calculate the temperature of the iron rod after 15 minutes. Provide your answer in °C and up to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,16 @@
+id: mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me
+name: Mamo Complex 34 You Re In Charge Of Crafting A Meal Plan For A Week Aiming To Me
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me/description.md
+
+dataset:
+  answers: mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me/prepared/private/answer.csv
+  sample_submission: mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-34-you-re-in-charge-of-crafting-a-meal-plan-for-a-week-aiming-to-me.prepare:prepare

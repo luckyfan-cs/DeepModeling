@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-188-a-spring-system-is-designed-with-a-100-lb-weight-that-naturally-str",
+  "en_question": "A spring system is designed with a 100-lb weight that naturally stretches the spring 4 ft. The system encounters resistance in a medium that is 3 times the velocity of the weight. Starting from a point 2.808 ft below the spring's equilibrium position and moving upward at a speed of 1.781 ft/sec. Assuming upward from the equilibrium position as the positive direction, calculate the displacement of the weight from its equilibrium position at t=4 seconds.Provide the displacement in feet, rounded to two significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.099"
+}

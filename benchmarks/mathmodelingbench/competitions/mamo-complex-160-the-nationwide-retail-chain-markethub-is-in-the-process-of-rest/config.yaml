@@ -1,0 +1,16 @@
+id: mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest
+name: Mamo Complex 160 The Nationwide Retail Chain Markethub Is In The Process Of Rest
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest/description.md
+
+dataset:
+  answers: mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest/prepared/private/answer.csv
+  sample_submission: mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-160-the-nationwide-retail-chain-markethub-is-in-the-process-of-rest.prepare:prepare

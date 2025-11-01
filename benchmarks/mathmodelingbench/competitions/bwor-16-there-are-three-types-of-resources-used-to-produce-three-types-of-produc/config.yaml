@@ -1,0 +1,16 @@
+id: bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc
+name: Bwor 16 There Are Three Types Of Resources Used To Produce Three Types Of Produc
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc/description.md
+
+dataset:
+  answers: bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc/prepared/private/answer.csv
+  sample_submission: bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-16-there-are-three-types-of-resources-used-to-produce-three-types-of-produc.prepare:prepare

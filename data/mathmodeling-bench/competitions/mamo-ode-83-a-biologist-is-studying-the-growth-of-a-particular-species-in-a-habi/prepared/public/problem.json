@@ -1,0 +1,6 @@
+{
+  "id": 84,
+  "Question": "A biologist is studying the growth of a particular species in a habitat. The habitat can support a maximum population of 6000. The biologist has observed that the growth rate of the population seems to be proportional to both the current population and the amount of available resources, which is a characteristic of certain biological growth models. If the initial population is 1000, can you help the biologist predict the population after 50 years, given that the constant of proportionality is 0.0015 per year? Keep your answer in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

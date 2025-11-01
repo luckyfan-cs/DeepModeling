@@ -1,0 +1,16 @@
+id: mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros
+name: Mamo Easy 292 An Educational Institution Is Planning To Allocate Resources Acros
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros/description.md
+
+dataset:
+  answers: mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros/prepared/private/answer.csv
+  sample_submission: mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-292-an-educational-institution-is-planning-to-allocate-resources-acros.prepare:prepare

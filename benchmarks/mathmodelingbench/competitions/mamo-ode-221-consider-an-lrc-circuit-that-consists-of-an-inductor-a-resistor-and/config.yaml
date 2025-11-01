@@ -1,0 +1,16 @@
+id: mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and
+name: Mamo Ode 221 Consider An Lrc Circuit That Consists Of An Inductor A Resistor And
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and/description.md
+
+dataset:
+  answers: mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and/prepared/private/answer.csv
+  sample_submission: mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-221-consider-an-lrc-circuit-that-consists-of-an-inductor-a-resistor-and.prepare:prepare

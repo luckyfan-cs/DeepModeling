@@ -1,0 +1,16 @@
+id: mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee
+name: Mamo Easy 122 An Educational Institute Is Planning To Distribute A Budget Betwee
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee/description.md
+
+dataset:
+  answers: mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee/prepared/private/answer.csv
+  sample_submission: mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-122-an-educational-institute-is-planning-to-distribute-a-budget-betwee.prepare:prepare

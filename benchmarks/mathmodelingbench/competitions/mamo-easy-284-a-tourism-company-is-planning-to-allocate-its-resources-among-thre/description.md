@@ -1,0 +1,10 @@
+# Mamo Easy 284 A Tourism Company Is Planning To Allocate Its Resources Among Thre
+
+A tourism company is planning to allocate its resources among three major areas: $X$, $Y$ and $Z$. These could represent different tourist destinations or services. The total resources available cannot exceed 100 units due to budget constraints. Each unit of resource allocated to area $X$, $Y$ and $Z$ incurs a cost of $\$500$, $\$300$ and $\$700$ respectively, and the company aims to minimize the total cost while meeting all the following constraints:\n\n- The combined resources for area X, Y and Z should not exceed 100 units.\n- The resources allocated for area X should be at least twice as much as that subtracted from the allocation for area Y.\n- The resources allocated for area Y should be at least twice as much as that subtracted from the allocation for area Z.\n\nFurthermore, due to certain operational requirements, each area has a minimum resource requirement: 20 units for X, 30 units for Y, and 10 units for Z. And because of practical considerations, all allocations must be in whole numbers.\n\nGiven these conditions, what would be the minimum possible total cost in dollars (rounded to the nearest dollar) if the resources are optimally allocated?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

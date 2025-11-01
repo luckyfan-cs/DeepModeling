@@ -1,0 +1,16 @@
+id: mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c
+name: Mamo Ode 29 A Large Swimming Pool With A Volume Of 9330 Cubic Meters Initially C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c/description.md
+
+dataset:
+  answers: mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c/prepared/private/answer.csv
+  sample_submission: mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c.prepare:prepare

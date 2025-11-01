@@ -1,0 +1,16 @@
+id: mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann
+name: Mamo Easy 584 A Marketing Manager Has To Distribute Resources Between Four Chann
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann/description.md
+
+dataset:
+  answers: mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann/prepared/private/answer.csv
+  sample_submission: mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-584-a-marketing-manager-has-to-distribute-resources-between-four-chann.prepare:prepare

@@ -1,0 +1,16 @@
+id: bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-
+name: Bwor 14 Jinyuan Company Produces Three Types Of Products Over A Planning Period 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-/description.md
+
+dataset:
+  answers: bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-/prepared/private/answer.csv
+  sample_submission: bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-14-jinyuan-company-produces-three-types-of-products-over-a-planning-period-.prepare:prepare

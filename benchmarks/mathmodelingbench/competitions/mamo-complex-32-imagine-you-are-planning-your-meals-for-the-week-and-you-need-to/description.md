@@ -1,0 +1,22 @@
+# Mamo Complex 32 Imagine You Are Planning Your Meals For The Week And You Need To
+
+Imagine you are planning your meals for the week, and you need to make sure you're receiving the right amount of nutrients without breaking the bank. You're considering six different food items, namely Pasta, Avocado, Chicken, Tofu, Spinach, and Cheese. Each of these foods offers a certain amount of protein, carbohydrates, and calories, and each comes with its own cost.
+
+Here's what each food offers and its cost:
+
+- Pasta: Gives you 15 grams of protein, 30 grams of carbohydrates, and 154 calories for $3.
+- Avocado: Offers 20 grams of protein, 16 grams of carbohydrates, and 111 calories for $8.
+- Chicken: Packs 15 grams of protein, 8 grams of carbohydrates, and 211 calories for $7.
+- Tofu: Delivers 19 grams of protein, 5 grams of carbohydrates, and 87 calories for only $2.
+- Spinach: Provides 19 grams of protein, 28 grams of carbohydrates, and 98 calories for $9.
+- Cheese: Contributes 12 grams of protein, 17 grams of carbohydrates, and 231 calories for $10.
+
+Your goal is to ensure that you get at least 73 grams of protein, 111 grams of carbohydrates, and 2196 calories from whatever combination of these foods you choose. The challenge is to figure out the most cost-effective way to hit all these nutritional targets with these six food options. What is the minimum cost to meet your nutritional needs?
+Note: your response should be a single answer question, asking for only the optimal value. The scenario revolves around the selection of food.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

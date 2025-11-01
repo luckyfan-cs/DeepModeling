@@ -1,0 +1,10 @@
+# Mamo Easy 240 A Construction Company Is Planning To Allocate Resources Across Th
+
+A construction company is planning to allocate resources across three types of tasks: $X$, $Y$, and $Z$. These tasks could represent different stages in a construction project, such as design ($X$), construction ($Y$), and inspection ($Z$). The total number of resource units that can be allocated across all three tasks cannot exceed 20 due to budget constraints. The combined resource units for twice the design task ($X$) and the construction task ($Y$) must be at least 5 to ensure project feasibility. Additionally, the difference in resource units between the construction task ($Y$) and the inspection task ($Z$) must be no more than 10 to maintain quality control.\n\nEach unit of resource allocated to tasks $X$, $Y$, and $Z$ costs \$100, \$200, and \$150 respectively. The company aims to minimize the total cost while adhering to these constraints. Also note that since resources are indivisible (for example personnel or machinery), they can only be assigned in whole numbers.\n\nGiven these conditions, what is the minimum total cost for this scenario? Provide your answer rounded to nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

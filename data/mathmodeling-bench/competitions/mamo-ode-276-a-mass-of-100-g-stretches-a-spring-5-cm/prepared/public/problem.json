@@ -1,0 +1,6 @@
+{
+  "id": 277,
+  "Question": "A mass of 100 g stretches a spring 5 cm. If the mass is set in motion from its equilibrium position with a downward velocity of 10 cm/s, and if there is no damping, determine the position u of the mass at any time t. Determine the distance between its poisition after 0.2283s and equilibrium position in cm. Keep one significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

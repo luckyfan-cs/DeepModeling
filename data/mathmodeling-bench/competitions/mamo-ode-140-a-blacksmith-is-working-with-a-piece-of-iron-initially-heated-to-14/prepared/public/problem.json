@@ -1,0 +1,6 @@
+{
+  "id": 141,
+  "Question": "A blacksmith is working with a piece of iron initially heated to 147°C. The blacksmith's workshop is maintained at a constant temperature of 33°C. After 8 hours, the iron has cooled down to 78.796°C. Using Newton's Law of Cooling, determine the temperature of the iron after 19 hours. Provide your answer in °C and rounded up to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-
+name: Mamo Ode 76 A Company Starts With A Loan Of 40406 And Makes Continuous Deposits 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-/description.md
+
+dataset:
+  answers: mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-/prepared/private/answer.csv
+  sample_submission: mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-76-a-company-starts-with-a-loan-of-40406-and-makes-continuous-deposits-.prepare:prepare

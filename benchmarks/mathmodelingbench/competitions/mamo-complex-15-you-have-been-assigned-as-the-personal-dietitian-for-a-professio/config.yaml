@@ -1,0 +1,16 @@
+id: mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio
+name: Mamo Complex 15 You Have Been Assigned As The Personal Dietitian For A Professio
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio/description.md
+
+dataset:
+  answers: mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio/prepared/private/answer.csv
+  sample_submission: mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-15-you-have-been-assigned-as-the-personal-dietitian-for-a-professio.prepare:prepare

@@ -1,0 +1,6 @@
+{
+  "id": 6,
+  "Question": "A tank with a capacity of 500 gallons initially has 100 gallons of fresh water. Starting at time \\(t=0\\), water with a 50% pollutant concentration is added to the tank at 2 gal/min, while a well-mixed solution is drained from the tank at 1 gal/min. Calculate the concentration of pollutants in the tank at the moment it overflows.Keep you answer to 3 significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

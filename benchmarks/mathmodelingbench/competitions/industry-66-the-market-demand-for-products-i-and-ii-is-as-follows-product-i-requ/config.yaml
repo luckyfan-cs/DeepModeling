@@ -1,0 +1,16 @@
+id: industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ
+name: Industry 66 The Market Demand For Products I And Ii Is As Follows Product I Requ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ/description.md
+
+dataset:
+  answers: industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ/prepared/private/answer.csv
+  sample_submission: industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-66-the-market-demand-for-products-i-and-ii-is-as-follows-product-i-requ.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-4-an-industrial-tank-initially-contains-1000-gallons-of-clean-water",
+  "en_question": "An industrial tank initially contains 1000 gallons of clean water. Waste water is then pumped into the tank at a rate of 1 gal/min, and a well-stirred mixture leaves the tank at the same rate, ensuring the volume stays constant. Given the dynamic process of waste water inflow and mixture outflow, calculate the concentration of waste in the tank after 100 minutes. Use the provided model to express the waste concentration as a fraction of the inflow concentration. Keep you answer to 3 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.0952"
+}

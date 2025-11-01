@@ -1,0 +1,16 @@
+id: industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d
+name: Industry 60 A Product Can Be Processed On Any One Of The Four Devices A B C Or D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d/description.md
+
+dataset:
+  answers: industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d/prepared/private/answer.csv
+  sample_submission: industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-60-a-product-can-be-processed-on-any-one-of-the-four-devices-a-b-c-or-d.prepare:prepare

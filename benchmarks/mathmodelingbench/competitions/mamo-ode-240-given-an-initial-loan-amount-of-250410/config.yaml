@@ -1,0 +1,16 @@
+id: mamo-ode-240-given-an-initial-loan-amount-of-250410
+name: Mamo Ode 240 Given An Initial Loan Amount Of 250410
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-240-given-an-initial-loan-amount-of-250410/description.md
+
+dataset:
+  answers: mamo-ode-240-given-an-initial-loan-amount-of-250410/prepared/private/answer.csv
+  sample_submission: mamo-ode-240-given-an-initial-loan-amount-of-250410/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-240-given-an-initial-loan-amount-of-250410.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-240-given-an-initial-loan-amount-of-250410.prepare:prepare

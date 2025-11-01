@@ -1,0 +1,16 @@
+id: mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon
+name: Mamo Easy 604 A Retail Manager Is Planning To Allocate The Available Budget Amon
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon/description.md
+
+dataset:
+  answers: mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon/prepared/private/answer.csv
+  sample_submission: mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-604-a-retail-manager-is-planning-to-allocate-the-available-budget-amon.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of
+name: Mamo Easy 477 A Tourism Company Needs To Allocate Resources Between Two Types Of
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of/description.md
+
+dataset:
+  answers: mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of/prepared/private/answer.csv
+  sample_submission: mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-477-a-tourism-company-needs-to-allocate-resources-between-two-types-of.prepare:prepare

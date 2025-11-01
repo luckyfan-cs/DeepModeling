@@ -1,0 +1,16 @@
+id: mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0
+name: Mamo Ode 184 A Spring Mass Damper System Is Set Up With A Mass Of 0
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0/description.md
+
+dataset:
+  answers: mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0/prepared/private/answer.csv
+  sample_submission: mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-184-a-spring-mass-damper-system-is-set-up-with-a-mass-of-0.prepare:prepare

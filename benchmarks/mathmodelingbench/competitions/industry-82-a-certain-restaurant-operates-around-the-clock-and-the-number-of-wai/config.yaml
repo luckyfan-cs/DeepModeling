@@ -1,0 +1,16 @@
+id: industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai
+name: Industry 82 A Certain Restaurant Operates Around The Clock And The Number Of Wai
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai/description.md
+
+dataset:
+  answers: industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai/prepared/private/answer.csv
+  sample_submission: industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-82-a-certain-restaurant-operates-around-the-clock-and-the-number-of-wai.prepare:prepare

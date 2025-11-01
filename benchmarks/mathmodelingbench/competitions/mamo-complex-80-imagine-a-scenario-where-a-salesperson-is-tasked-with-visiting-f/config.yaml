@@ -1,0 +1,16 @@
+id: mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f
+name: Mamo Complex 80 Imagine A Scenario Where A Salesperson Is Tasked With Visiting F
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f/description.md
+
+dataset:
+  answers: mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f/prepared/private/answer.csv
+  sample_submission: mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-80-imagine-a-scenario-where-a-salesperson-is-tasked-with-visiting-f.prepare:prepare

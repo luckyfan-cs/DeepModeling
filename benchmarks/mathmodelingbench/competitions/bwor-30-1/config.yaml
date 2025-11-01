@@ -1,0 +1,16 @@
+id: bwor-30-1
+name: Bwor 30 1
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-30-1/description.md
+
+dataset:
+  answers: bwor-30-1/prepared/private/answer.csv
+  sample_submission: bwor-30-1/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-30-1.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-30-1.prepare:prepare

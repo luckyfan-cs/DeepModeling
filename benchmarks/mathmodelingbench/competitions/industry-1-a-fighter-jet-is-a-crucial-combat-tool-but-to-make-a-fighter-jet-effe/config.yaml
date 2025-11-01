@@ -1,0 +1,16 @@
+id: industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe
+name: Industry 1 A Fighter Jet Is A Crucial Combat Tool But To Make A Fighter Jet Effe
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe/description.md
+
+dataset:
+  answers: industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe/prepared/private/answer.csv
+  sample_submission: industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-1-a-fighter-jet-is-a-crucial-combat-tool-but-to-make-a-fighter-jet-effe.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc
+name: Mamo Ode 228 Consider An Lrc Circuit Consisting Of An Inductor With An Inductanc
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc/description.md
+
+dataset:
+  answers: mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc/prepared/private/answer.csv
+  sample_submission: mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc.prepare:prepare

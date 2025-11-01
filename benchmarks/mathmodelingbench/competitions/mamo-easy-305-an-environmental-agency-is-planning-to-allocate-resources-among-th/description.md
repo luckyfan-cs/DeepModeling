@@ -1,0 +1,10 @@
+# Mamo Easy 305 An Environmental Agency Is Planning To Allocate Resources Among Th
+
+An environmental agency is planning to allocate resources among three different projects, X1, X2 and X3. These projects involve various initiatives such as reforestation, pollution control and wildlife conservation respectively. The total available resources for these projects cannot exceed 5000 units due to budget constraints. To meet certain environmental goals, the combined effort of project X1 (multiplied by 4) and project X3 (multiplied by 6) must yield a minimum effectiveness score of at least 3000 points. Additionally, the combined resource utilization of twice the resources for project X2 and thrice the half resources for project X3 should not exceed 2500 units due to logistical limitations.\n\nThe cost per unit resource for projects X1, X2 and X3 are given as 5 , 3 , and 7 units respectively. The agency aims to minimize the total cost while adhering to all constraints considering that all resource allocations should be in whole numbers due to indivisible nature of resources.\n\nCalculate the minimum total cost required for this scenario in units rounded to nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

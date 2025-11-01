@@ -1,0 +1,16 @@
+id: mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa
+name: Mamo Complex 170 In The Bustling World Of Retail A Company Named Retailopt Is Fa
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa/description.md
+
+dataset:
+  answers: mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa/prepared/private/answer.csv
+  sample_submission: mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-170-in-the-bustling-world-of-retail-a-company-named-retailopt-is-fa.prepare:prepare

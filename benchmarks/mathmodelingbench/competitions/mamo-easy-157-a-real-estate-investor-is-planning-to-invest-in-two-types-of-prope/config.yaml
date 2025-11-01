@@ -1,0 +1,16 @@
+id: mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope
+name: Mamo Easy 157 A Real Estate Investor Is Planning To Invest In Two Types Of Prope
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope/description.md
+
+dataset:
+  answers: mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope/prepared/private/answer.csv
+  sample_submission: mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-157-a-real-estate-investor-is-planning-to-invest-in-two-types-of-prope.prepare:prepare

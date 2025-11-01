@@ -1,0 +1,6 @@
+{
+  "id": 28,
+  "Question": "A tank initially contains \\(1376\\) L of water with \\(18\\) kg of sugar dissolved in it. Sugar syrup containing \\(0.26\\) kg/L of sugar is pumped into the tank at a rate of \\(9\\) L/min, and the well-mixed solution exits the tank at the same rate to maintain its volume. How many kilograms of sugar are left in the tank after one and a half hours (92 minutes)? Provide your answer to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

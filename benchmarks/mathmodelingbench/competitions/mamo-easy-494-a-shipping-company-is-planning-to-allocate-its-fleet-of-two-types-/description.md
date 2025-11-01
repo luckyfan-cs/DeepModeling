@@ -1,0 +1,10 @@
+# Mamo Easy 494 A Shipping Company Is Planning To Allocate Its Fleet Of Two Types 
+
+A shipping company is planning to allocate its fleet of two types of ships: X and Y, for an upcoming operation. The total number of ships available is limited to 1000 due to the current capacity constraints. To meet the demands of their clients, the combined capacity of twice the amount provided by ship type X and that provided by ship type Y should be at least 800 units. Additionally, the difference between the capacity offered by ship type X and half of that offered by ship type Y should not exceed 200 units.\n\nEach unit from ship type X costs \$8, while each unit from ship type Y costs \$15. The company aims to minimize their total operational cost while adhering to these constraints, and ensuring that both allocations are integers due to the indivisible nature of ships.\n\nWhat is the minimum total operational cost in dollars for this operation? Provide your answer rounded to the nearest whole dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

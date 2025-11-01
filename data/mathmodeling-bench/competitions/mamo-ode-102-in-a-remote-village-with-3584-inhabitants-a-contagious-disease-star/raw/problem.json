@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-102-in-a-remote-village-with-3584-inhabitants-a-contagious-disease-star",
+  "en_question": "In a remote village with 3584 inhabitants, a contagious disease starts spreading. At the initial time t = 0 days, 1217 people have already been infected by the disease. The rate of spread of the disease is 0.052 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have been infected and the numbers who have not yet been infected, can you determine how many people in total will be infected after 9 days? Provide your answer as a whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "3582"
+}

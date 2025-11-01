@@ -1,0 +1,6 @@
+{
+  "id": 140,
+  "Question": "A frozen chicken at a temperature of -4°C is placed in an oven to thaw. The oven has a constant ambient temperature of 37°C. After 13 minutes, the temperature of the chicken has increased to 28.714°C. Using Newton's Law of Heating, calculate the temperature of the chicken after 17 minutes. Provide your answer in °C and up to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

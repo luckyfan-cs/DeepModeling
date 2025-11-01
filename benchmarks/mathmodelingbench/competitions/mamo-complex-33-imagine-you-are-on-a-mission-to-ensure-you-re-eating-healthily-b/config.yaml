@@ -1,0 +1,16 @@
+id: mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b
+name: Mamo Complex 33 Imagine You Are On A Mission To Ensure You Re Eating Healthily B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b/description.md
+
+dataset:
+  answers: mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b/prepared/private/answer.csv
+  sample_submission: mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-33-imagine-you-are-on-a-mission-to-ensure-you-re-eating-healthily-b.prepare:prepare

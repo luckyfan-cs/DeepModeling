@@ -1,0 +1,6 @@
+{
+  "id": 142,
+  "Question": "A blacksmith heats a piece of iron to 111°C and then leaves it in a room at a constant temperature of 23°C. After 14 minutes, the temperature of the iron is measured again and found to be 41.603°C. If the cooling process follows Newton's Law of Cooling, calculate the temperature of the iron after 20 minutes. Provide your answer in °C and in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

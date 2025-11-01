@@ -1,0 +1,10 @@
+# Mamo Easy 69 A Farmer Has Two Types Of Crops That He Can Plant On His Farm Crop 
+
+A farmer has two types of crops that he can plant on his farm: crop $X$ and crop $Y$. Each type of crop requires different amounts of resources and yields different returns. Specifically, each unit of crop $X$ costs 5 units to plant and each unit of crop $Y$ costs 10 units. The farmer wants to minimize the total cost while adhering to certain constraints due to resource availability and market demand.\n\nFirstly, the combined yield from twice the amount of crop X plus the amount of crop Y must be at least 200 units. This could reflect a minimum production quota imposed by a contract with a buyer or cooperative.\n\nSecondly, the sum of the amount of crop X plus three times the amount of crop Y cannot exceed 150 units. This might represent limitations in available labor or equipment for harvesting and processing these crops.\n\nConsidering these constraints and aiming for whole numbers due to practical reasons (e.g., it's not possible to grow fractional amounts of crops), what is the minimum total cost for planting both crops (X, Y)? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

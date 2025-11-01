@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at",
+  "en_question": "A cancerous tumor initially contains \\(10^4\\) cells and is increasing at a rate of \\(20\\%\\) per unit time, following the Gompertzian growth model with a retarding constant \\(\\alpha\\) of \\(0.02\\). Calculate the limiting number of cells in the tumor, using the provided growth rate and retarding constant. Keep you answer to 6 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "220264658"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-241-a-recent-college-graduate-borrows-150-000-at-an-interest-rate-of-6-",
+  "en_question": "A recent college graduate borrows $150,000 at an interest rate of 6% to purchase a condominium. The buyer plans to make payments at a varying monthly rate described by the formula 800 + 10t, where t is the number of months since the loan was made. Given that the buyer continues this payment schedule for a duration, determine the remaining loan balance in $ after 146.54 months. Keep two significant digit number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.084"
+}

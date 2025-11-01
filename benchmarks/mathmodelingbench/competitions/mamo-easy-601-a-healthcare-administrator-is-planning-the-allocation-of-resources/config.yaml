@@ -1,0 +1,16 @@
+id: mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources
+name: Mamo Easy 601 A Healthcare Administrator Is Planning The Allocation Of Resources
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources/description.md
+
+dataset:
+  answers: mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources/prepared/private/answer.csv
+  sample_submission: mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-601-a-healthcare-administrator-is-planning-the-allocation-of-resources.prepare:prepare

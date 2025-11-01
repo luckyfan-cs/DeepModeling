@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-99-a-news-item-is-heard-on-the-late-news-by-5-of-the-100-people-in-a-sm",
+  "en_question": "A news item is heard on the late news by 5 of the 100 people in a small community. According to a model where the rate of spread is proportional (proportional rate is 1.558 per day) to the product of the numbers of the population who have heard the news and the numbers who have not, how many have heard the news after 3 days?  Provide your answer in the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "85"
+}

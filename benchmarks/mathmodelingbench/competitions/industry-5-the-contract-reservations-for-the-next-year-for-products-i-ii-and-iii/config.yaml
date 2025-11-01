@@ -1,0 +1,16 @@
+id: industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii
+name: Industry 5 The Contract Reservations For The Next Year For Products I Ii And Iii
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii/description.md
+
+dataset:
+  answers: industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii/prepared/private/answer.csv
+  sample_submission: industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-5-the-contract-reservations-for-the-next-year-for-products-i-ii-and-iii.prepare:prepare

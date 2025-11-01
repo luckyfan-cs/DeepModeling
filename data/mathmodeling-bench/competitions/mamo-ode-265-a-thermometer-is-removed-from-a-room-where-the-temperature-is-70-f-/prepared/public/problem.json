@@ -1,0 +1,6 @@
+{
+  "id": 266,
+  "Question": "A thermometer is removed from a room where the temperature is 70° F and is taken outside, where the air temperature is 10° F. After one-half minute the thermometer reads 50° F. What is the reading of the thermometer in F at t = 1 min? Keep four significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

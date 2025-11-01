@@ -1,0 +1,16 @@
+id: mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four
+name: Mamo Easy 406 A Shipping Company Is Planning The Allocation Of Cargo Across Four
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four/description.md
+
+dataset:
+  answers: mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four/prepared/private/answer.csv
+  sample_submission: mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-406-a-shipping-company-is-planning-the-allocation-of-cargo-across-four.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet
+name: Mamo Easy 29 A Transportation Company Is Planning The Allocation Of Vehicles Bet
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet/description.md
+
+dataset:
+  answers: mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet/prepared/private/answer.csv
+  sample_submission: mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-29-a-transportation-company-is-planning-the-allocation-of-vehicles-bet.prepare:prepare

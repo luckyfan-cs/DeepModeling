@@ -1,0 +1,16 @@
+id: mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe
+name: Mamo Easy 84 A Project Manager Is Planning The Allocation Of Working Hours Betwe
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe/description.md
+
+dataset:
+  answers: mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe/prepared/private/answer.csv
+  sample_submission: mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-84-a-project-manager-is-planning-the-allocation-of-working-hours-betwe.prepare:prepare

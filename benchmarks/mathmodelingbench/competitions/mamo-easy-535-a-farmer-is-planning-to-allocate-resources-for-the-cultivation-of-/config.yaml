@@ -1,0 +1,16 @@
+id: mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-
+name: Mamo Easy 535 A Farmer Is Planning To Allocate Resources For The Cultivation Of 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-/description.md
+
+dataset:
+  answers: mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-/prepared/private/answer.csv
+  sample_submission: mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-535-a-farmer-is-planning-to-allocate-resources-for-the-cultivation-of-.prepare:prepare

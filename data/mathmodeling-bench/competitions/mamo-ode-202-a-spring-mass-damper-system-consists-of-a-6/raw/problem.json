@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-202-a-spring-mass-damper-system-consists-of-a-6",
+  "en_question": "A spring-mass-damper system consists of a 6.813 kg mass attached to the lower end of a spring suspended from the ceiling, with the spring having a constant of 9.808 N/m, and the system's resistance equal to 6.559 times the instantaneous velocity in m/s. If at time t=0, the weight is released from 0.702 m below its equilibrium position with an upward velocity of 1.781 m/s (considering upward from the equilibrium position as positive), solve for the displacement from the equilibrium position at t=4 seconds. Provide your answer in meters, rounded to two significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.15"
+}

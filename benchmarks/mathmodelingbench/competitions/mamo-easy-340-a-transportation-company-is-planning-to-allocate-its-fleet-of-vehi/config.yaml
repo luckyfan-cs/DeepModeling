@@ -1,0 +1,16 @@
+id: mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi
+name: Mamo Easy 340 A Transportation Company Is Planning To Allocate Its Fleet Of Vehi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi/description.md
+
+dataset:
+  answers: mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi/prepared/private/answer.csv
+  sample_submission: mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-340-a-transportation-company-is-planning-to-allocate-its-fleet-of-vehi.prepare:prepare

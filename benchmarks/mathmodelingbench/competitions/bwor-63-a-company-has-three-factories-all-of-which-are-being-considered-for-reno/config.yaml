@@ -1,0 +1,16 @@
+id: bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno
+name: Bwor 63 A Company Has Three Factories All Of Which Are Being Considered For Reno
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno/description.md
+
+dataset:
+  answers: bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno/prepared/private/answer.csv
+  sample_submission: bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-63-a-company-has-three-factories-all-of-which-are-being-considered-for-reno.prepare:prepare

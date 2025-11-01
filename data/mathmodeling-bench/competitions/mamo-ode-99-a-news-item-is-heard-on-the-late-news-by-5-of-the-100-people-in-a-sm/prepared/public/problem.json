@@ -1,0 +1,6 @@
+{
+  "id": 100,
+  "Question": "A news item is heard on the late news by 5 of the 100 people in a small community. According to a model where the rate of spread is proportional (proportional rate is 1.558 per day) to the product of the numbers of the population who have heard the news and the numbers who have not, how many have heard the news after 3 days?  Provide your answer in the nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

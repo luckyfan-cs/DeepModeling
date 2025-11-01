@@ -1,0 +1,16 @@
+id: mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t
+name: Mamo Easy 222 A Retail Store Manager Needs To Allocate The Available Space For T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t/description.md
+
+dataset:
+  answers: mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t/prepared/private/answer.csv
+  sample_submission: mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-222-a-retail-store-manager-needs-to-allocate-the-available-space-for-t.prepare:prepare

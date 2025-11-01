@@ -1,0 +1,16 @@
+id: industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a
+name: Industry 50 The Number Of Nurses Required In Each Time Period Over 24 Hours At A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a/description.md
+
+dataset:
+  answers: industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a/prepared/private/answer.csv
+  sample_submission: industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-50-the-number-of-nurses-required-in-each-time-period-over-24-hours-at-a.prepare:prepare

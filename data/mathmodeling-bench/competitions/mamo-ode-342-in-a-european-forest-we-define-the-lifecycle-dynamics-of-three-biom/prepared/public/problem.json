@@ -1,0 +1,6 @@
+{
+  "id": 343,
+  "Question": "In a European forest, we define the lifecycle dynamics of three biomass types—living trees (10000 units), dead trees (0 units), and humus (0 units)—with specific decay and conversion rates to quantify their interactions over time. These parameters a = 5 for living trees' decay, b = 5, which is related to the rate at which living trees contribute to dead trees; c=3 for dead trees' conversion rate to humus, and e=1 for humus decay—illustrate the forest's complex biomass flux, inviting exploration of how these dynamics influence humus evolution over a century. Find the  biomass decayed into humus after 8 years. Keep two significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "system_equation"
+}

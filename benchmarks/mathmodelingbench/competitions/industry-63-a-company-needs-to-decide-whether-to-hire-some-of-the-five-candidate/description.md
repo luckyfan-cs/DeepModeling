@@ -1,0 +1,32 @@
+# Industry 63 A Company Needs To Decide Whether To Hire Some Of The Five Candidate
+
+A company needs to decide whether to hire some of the five candidates to join their R&D team. The salary requirements for candidates F, G, H, I, and J are $12,000, $15,000, $18,000, $5,000, and $10,000 respectively. The company wants to minimize the total amount paid to candidates without exceeding the budget.
+
+The company's budget is $40,000 and they wish to hire a maximum of 4 new employees.
+
+The skill levels of the candidates are as follows:
+Candidate F: Level 2
+Candidate G: Level 3
+Candidate H: Level 4
+Candidate I: Level 1
+Candidate J: Level 2
+
+The company needs to ensure that the total skill level of the hired employees is at least 8.
+
+The project management experience years of each candidate are as follows:
+Candidate F: 1 year
+Candidate G: 2 years
+Candidate H: 2 years
+Candidate I: 5 years
+Candidate J: 4 years
+
+They hope the total project management experience of the team is at least 8 years.
+
+Due to the similar technical background of candidates G and J, the company can choose at most one of them.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

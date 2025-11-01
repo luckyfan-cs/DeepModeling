@@ -1,0 +1,16 @@
+# Mamo Complex 95 Consider A Courier Company That Delivers Packages To Four Distin
+
+Consider a courier company that delivers packages to four distinct locations, labeled as E, F, G, and H. The courier can begin their delivery route from any of these locations, but they need to ensure that each location is visited exactly once before returning to the starting point. Their objective is to minimize the total delivery cost, which might be based on factors like distance, fuel consumption, or delivery time. 
+Here is a brief rundown of the delivery costs between the locations:
+The cost to deliver a package from Location E to F is 62 units, to G is 51 units, and to H is 50 units.
+From Location F, it costs 62 units to deliver to E, 42 units to G, and 69 units to H.
+For delivery from Location G, the costs are 51 units to E, 42 units to F, and 11 units to H.
+Lastly, from Location H, the delivery costs are 50 units to E, 69 units to F, and 11 units to G.
+What is the minimum total delivery cost for the courier to visit each location exactly once and return to the starting point?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

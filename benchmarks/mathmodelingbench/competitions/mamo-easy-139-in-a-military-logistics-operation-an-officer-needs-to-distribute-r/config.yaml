@@ -1,0 +1,16 @@
+id: mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r
+name: Mamo Easy 139 In A Military Logistics Operation An Officer Needs To Distribute R
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r/description.md
+
+dataset:
+  answers: mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r/prepared/private/answer.csv
+  sample_submission: mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-139-in-a-military-logistics-operation-an-officer-needs-to-distribute-r.prepare:prepare

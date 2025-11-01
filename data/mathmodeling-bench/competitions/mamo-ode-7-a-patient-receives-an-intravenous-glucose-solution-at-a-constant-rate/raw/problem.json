@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-7-a-patient-receives-an-intravenous-glucose-solution-at-a-constant-rate",
+  "en_question": "A patient receives an intravenous glucose solution at a constant rate, and as glucose enters the bloodstream, it's simultaneously converted to other substances and removed at a rate proportional to its current concentration. Given an initial concentration of glucose in the bloodstream of \\(2\\) mg/L at time \\(t=0\\), a constant infusion rate \\(r=5\\) mg/L/min, and a conversion/removal rate constant \\(k=0.1\\) /min, calculate the glucose concentration in the bloodstream after \\(10\\) minutes. Provide the answer in mg/L to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "32.342"
+}

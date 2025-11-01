@@ -1,0 +1,16 @@
+id: mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-
+name: Mamo Easy 442 A Retail Store Manager Is Planning To Allocate The Budget Between 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-/description.md
+
+dataset:
+  answers: mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-/prepared/private/answer.csv
+  sample_submission: mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-442-a-retail-store-manager-is-planning-to-allocate-the-budget-between-.prepare:prepare

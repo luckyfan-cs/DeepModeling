@@ -1,0 +1,16 @@
+id: industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr
+name: Industry 97 A Company Uses Steel And Aluminum As Raw Materials To Produce Two Pr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr/description.md
+
+dataset:
+  answers: industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr/prepared/private/answer.csv
+  sample_submission: industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-97-a-company-uses-steel-and-aluminum-as-raw-materials-to-produce-two-pr.prepare:prepare

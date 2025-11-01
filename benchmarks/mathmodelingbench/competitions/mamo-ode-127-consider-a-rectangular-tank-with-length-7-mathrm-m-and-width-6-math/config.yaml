@@ -1,0 +1,16 @@
+id: mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math
+name: Mamo Ode 127 Consider A Rectangular Tank With Length 7 Mathrm M And Width 6 Math
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math/description.md
+
+dataset:
+  answers: mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math/prepared/private/answer.csv
+  sample_submission: mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-127-consider-a-rectangular-tank-with-length-7-mathrm-m-and-width-6-math.prepare:prepare

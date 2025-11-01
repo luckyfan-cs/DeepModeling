@@ -1,0 +1,16 @@
+id: mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol
+name: Mamo Ode 12 Five Grams Of A Chemical Is Dissolved In 100 Liters Of Alcohol
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol/description.md
+
+dataset:
+  answers: mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol/prepared/private/answer.csv
+  sample_submission: mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-12-five-grams-of-a-chemical-is-dissolved-in-100-liters-of-alcohol.prepare:prepare

@@ -1,0 +1,16 @@
+id: bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t
+name: Bwor 5 A Factory Produces Three Types Of Products I Ii And Iii All Of Which Go T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t/description.md
+
+dataset:
+  answers: bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t/prepared/private/answer.csv
+  sample_submission: bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-5-a-factory-produces-three-types-of-products-i-ii-and-iii-all-of-which-go-t.prepare:prepare

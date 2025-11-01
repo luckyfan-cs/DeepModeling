@@ -1,0 +1,10 @@
+# Mamo Easy 329 A Marketing Department Is Planning To Allocate Its Budget Across F
+
+A marketing department is planning to allocate its budget across four different promotional activities: x1, x2, x3, and x4. These activities could involve digital advertising, traditional media advertising, influencer marketing, and event sponsorships respectively. The objective is to minimize the total cost associated with these activities, with costs being 2 units for activity x1, 3 units for activity x2, 5 units for activity x3 and 4 units for activity x4.\n\nThe allocation must adhere to the following constraints due to strategic considerations and resource limitations:- The combined budget allocation for activities x1 and x2 cannot exceed $100.- Twice the budget allocated to activity x1 plus the budget allocated to activity x3 must be at least $150.- The budget allocation for activity x2 minus thrice that of activity x4 must not exceed $50.- The difference between budgets allocated to activities X3 and X4 should be at least $20.\n\nGiven these conditions along with the requirement that all allocations must be in whole numbers (due to indivisible nature of resources), each project also has specific bounds on resource allocation. What is the minimum total cost (in dollars) for this marketing campaign given optimal allocations?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

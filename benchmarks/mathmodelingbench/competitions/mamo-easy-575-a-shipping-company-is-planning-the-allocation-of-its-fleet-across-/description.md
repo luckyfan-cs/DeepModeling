@@ -1,0 +1,10 @@
+# Mamo Easy 575 A Shipping Company Is Planning The Allocation Of Its Fleet Across 
+
+A shipping company is planning the allocation of its fleet across three different routes: X, Y, and Z. The total number of ships that can be allocated across all routes is limited to 1000 due to fleet size limitations. To meet certain service obligations, the combined allocation of twice as many ships on route X and those on route Y should be at least 500. In addition, the difference in ship allocations between route Y and Z must not exceed 300 to maintain a balance in services provided.\n\nEach ship allocated to a route incurs different operational costs depending on the specific characteristics of each route: Route X costs 2 units per ship, Route Y costs 3 units per ship, and Route Z costs 4 units per ship. The company aims to minimize these operational costs while adhering to all mentioned constraints. Given that allocations must be whole numbers due to the indivisible nature of ships, what is the minimum total operational cost for this scenario? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

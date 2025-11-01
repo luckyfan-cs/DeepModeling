@@ -1,0 +1,16 @@
+id: mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n
+name: Mamo Ode 288 A Spring Is Stretched 10 Cm By A Force Of 3 N
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n/description.md
+
+dataset:
+  answers: mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n/prepared/private/answer.csv
+  sample_submission: mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-288-a-spring-is-stretched-10-cm-by-a-force-of-3-n.prepare:prepare

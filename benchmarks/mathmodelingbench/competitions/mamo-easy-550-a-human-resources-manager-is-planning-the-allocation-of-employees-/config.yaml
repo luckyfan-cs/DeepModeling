@@ -1,0 +1,16 @@
+id: mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-
+name: Mamo Easy 550 A Human Resources Manager Is Planning The Allocation Of Employees 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-/description.md
+
+dataset:
+  answers: mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-/prepared/private/answer.csv
+  sample_submission: mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-550-a-human-resources-manager-is-planning-the-allocation-of-employees-.prepare:prepare

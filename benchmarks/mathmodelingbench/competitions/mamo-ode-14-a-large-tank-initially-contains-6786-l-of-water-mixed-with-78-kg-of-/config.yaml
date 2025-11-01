@@ -1,0 +1,16 @@
+id: mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-
+name: Mamo Ode 14 A Large Tank Initially Contains 6786 L Of Water Mixed With 78 Kg Of 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-/description.md
+
+dataset:
+  answers: mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-/prepared/private/answer.csv
+  sample_submission: mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-14-a-large-tank-initially-contains-6786-l-of-water-mixed-with-78-kg-of-.prepare:prepare

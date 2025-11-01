@@ -1,0 +1,16 @@
+id: mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty
+name: Mamo Easy 116 A Tourism Company Is Planning To Allocate Resources Between Two Ty
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty/description.md
+
+dataset:
+  answers: mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty/prepared/private/answer.csv
+  sample_submission: mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-116-a-tourism-company-is-planning-to-allocate-resources-between-two-ty.prepare:prepare

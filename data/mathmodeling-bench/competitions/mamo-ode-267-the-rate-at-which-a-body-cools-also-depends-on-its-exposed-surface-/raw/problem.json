@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-267-the-rate-at-which-a-body-cools-also-depends-on-its-exposed-surface-",
+  "en_question": "The rate at which a body cools also depends on its exposed surface area S. T_m is a constant. Suppose that two cups A and B are filled with coffee at the same time. Initially, the temperature of the coffee is 150\u00b0 F. The exposed surface area of the coffee in cup B is twice the surface area of the coffee in cup A. After 30 min the temperature of the coffee in cup A is 100\u00b0 F. If T_m  70\u00b0 F, then what is the temperature of the coffee in F in cup B after 30 min? Keep four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "81.25"
+}

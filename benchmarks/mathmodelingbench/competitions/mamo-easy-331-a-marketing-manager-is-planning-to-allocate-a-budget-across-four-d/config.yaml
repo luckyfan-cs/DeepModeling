@@ -1,0 +1,16 @@
+id: mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d
+name: Mamo Easy 331 A Marketing Manager Is Planning To Allocate A Budget Across Four D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d/description.md
+
+dataset:
+  answers: mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-331-a-marketing-manager-is-planning-to-allocate-a-budget-across-four-d.prepare:prepare

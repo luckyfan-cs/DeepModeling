@@ -1,0 +1,16 @@
+id: mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d
+name: Mamo Easy 252 A Supply Chain Manager Needs To Distribute Resources Among Three D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d/description.md
+
+dataset:
+  answers: mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-252-a-supply-chain-manager-needs-to-distribute-resources-among-three-d.prepare:prepare

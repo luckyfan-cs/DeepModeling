@@ -1,0 +1,10 @@
+# Mamo Easy 7 A Marketing Manager Is Planning The Distribution Of Resources Betwee
+
+A marketing manager is planning the distribution of resources between two different marketing strategies, X and Y. The total resources available for both strategies combined cannot exceed 5000 units due to budget constraints. To meet the company's reach and frequency objectives, the combined effort from these strategies must yield a minimum effectiveness score calculated as twice the resources allocated to strategy X plus thrice those allocated to strategy Y, with a minimum threshold of 10000 points. Each unit of resource in strategy X and Y has associated costs of 10 and 20 units respectively. The manager aims to minimize the total cost while meeting all these requirements (X,Y are integers). What is the minimum total cost in units, rounded to the nearest whole number?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

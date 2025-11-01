@@ -1,0 +1,16 @@
+id: mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-
+name: Mamo Ode 86 In A Lake Initially Stocked With 400 Fish The Population Tripled In 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-/description.md
+
+dataset:
+  answers: mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-/prepared/private/answer.csv
+  sample_submission: mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-86-in-a-lake-initially-stocked-with-400-fish-the-population-tripled-in-.prepare:prepare

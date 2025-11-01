@@ -1,0 +1,16 @@
+id: mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-
+name: Mamo Easy 50 A Hospital Is Planning To Allocate Staff Resources Between Doctors 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-/description.md
+
+dataset:
+  answers: mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-/prepared/private/answer.csv
+  sample_submission: mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-50-a-hospital-is-planning-to-allocate-staff-resources-between-doctors-.prepare:prepare

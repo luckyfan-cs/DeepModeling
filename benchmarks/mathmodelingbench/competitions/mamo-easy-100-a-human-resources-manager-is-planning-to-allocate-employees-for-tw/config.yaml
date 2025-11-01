@@ -1,0 +1,16 @@
+id: mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw
+name: Mamo Easy 100 A Human Resources Manager Is Planning To Allocate Employees For Tw
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw/description.md
+
+dataset:
+  answers: mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw/prepared/private/answer.csv
+  sample_submission: mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-100-a-human-resources-manager-is-planning-to-allocate-employees-for-tw.prepare:prepare

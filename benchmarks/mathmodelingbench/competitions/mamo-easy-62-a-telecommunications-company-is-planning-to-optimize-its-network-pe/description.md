@@ -1,0 +1,10 @@
+# Mamo Easy 62 A Telecommunications Company Is Planning To Optimize Its Network Pe
+
+A telecommunications company is planning to optimize its network performance by allocating resources to improve bandwidth and reduce latency. Both of these parameters are integers due to the nature of the equipment involved. Each unit increase in bandwidth requires 5 units of resources, while each unit decrease in latency requires 10 units of resources. The company has two constraints on their allocation strategy: firstly, the combined effect from twice the improvement in bandwidth plus the reduction in latency should be at least 200 units to meet minimum service quality standards; secondly, three times the improvement in bandwidth plus the reduction in latency cannot exceed 500 units due to resource limitations. Given these conditions and aiming for whole numbers of improvements due to practical constraints, what is the minimum total resource cost for optimizing network performance?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d
+name: Mamo Easy 462 In A Supply Chain Optimization Scenario A Company Is Planning To D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d/description.md
+
+dataset:
+  answers: mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-462-in-a-supply-chain-optimization-scenario-a-company-is-planning-to-d.prepare:prepare

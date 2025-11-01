@@ -1,0 +1,7 @@
+{
+  "id": "industry-70-consider-assigning-n-2-factories-to-n-locations",
+  "en_question": "Consider assigning $n=2$ factories to $n$ locations. The transportation volume between factory $i$ and factory $j$ is $d_{ij}$, and the unit transportation cost from location $p$ to location $q$ is $c_{pq}$. The specific values are shown in the following table: Table 1.1\n\n|        | Transportation volume to Location 1 | Transportation volume to Location 2 | Transportation cost to Location 1 | Transportation cost to Location 2 |\n| :----: | :---------------------------------: | :---------------------------------: | :-------------------------------: | :-------------------------------: |\n| Factory 1 | 10 | 20 | 5 | 8 |\n| Factory 2 | 30 | 40 | 6 | 7 |\n\nIn order to minimize the total transportation cost, formulate this problem as an integer model.",
+  "cn_question": "",
+  "difficulty": "Medium",
+  "expected_answer": "330"
+}

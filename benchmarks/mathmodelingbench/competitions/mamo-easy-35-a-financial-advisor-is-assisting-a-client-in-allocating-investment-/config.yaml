@@ -1,0 +1,16 @@
+id: mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-
+name: Mamo Easy 35 A Financial Advisor Is Assisting A Client In Allocating Investment 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-/description.md
+
+dataset:
+  answers: mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-/prepared/private/answer.csv
+  sample_submission: mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-35-a-financial-advisor-is-assisting-a-client-in-allocating-investment-.prepare:prepare

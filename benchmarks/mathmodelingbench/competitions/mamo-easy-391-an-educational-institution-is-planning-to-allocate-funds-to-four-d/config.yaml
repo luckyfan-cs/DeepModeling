@@ -1,0 +1,16 @@
+id: mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d
+name: Mamo Easy 391 An Educational Institution Is Planning To Allocate Funds To Four D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d/description.md
+
+dataset:
+  answers: mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-391-an-educational-institution-is-planning-to-allocate-funds-to-four-d.prepare:prepare

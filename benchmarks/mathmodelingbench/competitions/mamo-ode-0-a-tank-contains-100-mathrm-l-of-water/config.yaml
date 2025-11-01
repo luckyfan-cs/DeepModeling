@@ -1,0 +1,16 @@
+id: mamo-ode-0-a-tank-contains-100-mathrm-l-of-water
+name: Mamo Ode 0 A Tank Contains 100 Mathrm L Of Water
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-0-a-tank-contains-100-mathrm-l-of-water/description.md
+
+dataset:
+  answers: mamo-ode-0-a-tank-contains-100-mathrm-l-of-water/prepared/private/answer.csv
+  sample_submission: mamo-ode-0-a-tank-contains-100-mathrm-l-of-water/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-0-a-tank-contains-100-mathrm-l-of-water.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-0-a-tank-contains-100-mathrm-l-of-water.prepare:prepare

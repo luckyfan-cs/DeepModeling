@@ -1,0 +1,16 @@
+id: mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-
+name: Mamo Ode 21 A Large Room With A Volume Of 1800 M 3 Initially Contains 76 Carbon 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-/description.md
+
+dataset:
+  answers: mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-/prepared/private/answer.csv
+  sample_submission: mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-21-a-large-room-with-a-volume-of-1800-m-3-initially-contains-76-carbon-.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate
+name: Mamo Easy 336 In An Energy Management Scenario A Country Is Planning To Generate
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate/description.md
+
+dataset:
+  answers: mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate/prepared/private/answer.csv
+  sample_submission: mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-336-in-an-energy-management-scenario-a-country-is-planning-to-generate.prepare:prepare

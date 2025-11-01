@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-219-consider-a-circuit-with-an-inductor-resistor-and-capacitor-connecte",
+  "en_question": "Consider a circuit with an inductor, resistor, and capacitor connected in series. The inductance is \\(1.784\\) henry, the resistance is \\(4.569\\) ohms, and the capacitance is \\(0.232\\) farads. Initially, there are \\(7.0\\) coulombs of charge on the capacitor and the current flowing through the circuit is \\(-4.545\\) amperes (the negative sign indicates that the current flows from lower potential to higher potential). Develop a function to describe how the charge on the capacitor changes over time if no external voltage source is applied to this circuit system. Determine how much charge will be left on the capacitor after \\(8\\) seconds have passed since closing the circuit. Your answer should be expressed in coulombs and rounded to one significant figure.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0"
+}

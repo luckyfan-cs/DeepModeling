@@ -1,0 +1,16 @@
+id: mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio
+name: Mamo Complex 188 Consider The Following Table Of Food And Corresponding Nutritio
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio/description.md
+
+dataset:
+  answers: mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio/prepared/private/answer.csv
+  sample_submission: mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-188-consider-the-following-table-of-food-and-corresponding-nutritio.prepare:prepare

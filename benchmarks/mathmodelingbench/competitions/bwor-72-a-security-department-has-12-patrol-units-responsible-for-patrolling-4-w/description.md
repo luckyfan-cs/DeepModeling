@@ -1,0 +1,15 @@
+# Bwor 72 A Security Department Has 12 Patrol Units Responsible For Patrolling 4 W
+
+A security department has 12 patrol units responsible for patrolling 4 warehouses. According to regulations, 2 to 4 patrol units can be assigned to each warehouse.Due to the differences in the number of patrol units assigned, the expected number of accidents per year for each warehouse varies, as shown in Table 7-11. Question: Use dynamic programming to determine how many patrol units should be assigned to each warehouse in order to minimize the total expected number of accidents.  
+
+  Table 7-11  
+
+
+  <html><body><table><tr><td>Patrol Units \ Warehouse </td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>2</td><td>18</td><td>38</td><td>14</td><td>34</td></tr><tr><td>3</td><td>16</td><td>36</td><td>12</td><td>31</td></tr><tr><td>4</td><td>12</td><td>30</td><td>11</td><td>25</td></tr></table></body></html>
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

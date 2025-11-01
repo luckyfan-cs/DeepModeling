@@ -1,0 +1,6 @@
+{
+  "id": 91,
+  "Question": "Consider a colony of bacteria growing in a lab dish with a carrying capacity of 500 bacteria. The bacteria have a growth rate of 2% per year. If the initial population is 40 bacteria, determine the number of bacteria in the colony after 10 years. Round your answer to the nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

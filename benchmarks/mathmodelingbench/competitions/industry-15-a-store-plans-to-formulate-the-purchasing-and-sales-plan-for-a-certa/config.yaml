@@ -1,0 +1,16 @@
+id: industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa
+name: Industry 15 A Store Plans To Formulate The Purchasing And Sales Plan For A Certa
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa/description.md
+
+dataset:
+  answers: industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa/prepared/private/answer.csv
+  sample_submission: industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-15-a-store-plans-to-formulate-the-purchasing-and-sales-plan-for-a-certa.prepare:prepare

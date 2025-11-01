@@ -1,0 +1,16 @@
+id: mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-
+name: Mamo Ode 90 Consider A Colony Of Bacteria Growing In A Lab Dish With A Carrying 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-/description.md
+
+dataset:
+  answers: mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-/prepared/private/answer.csv
+  sample_submission: mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-90-consider-a-colony-of-bacteria-growing-in-a-lab-dish-with-a-carrying-.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-182-in-a-simple-series-circuit-with-an-inductor-of-1-henry-a-capacitor-",
+  "en_question": "In a simple series circuit with an inductor of \\(1\\) henry, a capacitor of \\(10^{-6}\\) farads, and a resistor of \\(1000 \\mathrm{ohms}\\), initially, the capacitor has no charge. A \\(12\\) volt battery is connected, and the circuit is closed at \\(t=0\\). Determine the charge on the capacitor \\(1\\) second after the circuit is closed, considering the direction of charge accumulation as positive. Calculate the charge in coulombs, rounded to two significant figures",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "1.2e-5"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868
+name: Mamo Ode 68 A Small Business Starts With An Initial Capital Of 63 868
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868/description.md
+
+dataset:
+  answers: mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868/prepared/private/answer.csv
+  sample_submission: mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-68-a-small-business-starts-with-an-initial-capital-of-63-868.prepare:prepare

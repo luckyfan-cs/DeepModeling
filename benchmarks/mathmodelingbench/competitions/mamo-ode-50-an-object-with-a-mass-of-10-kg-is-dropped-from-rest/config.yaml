@@ -1,0 +1,16 @@
+id: mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest
+name: Mamo Ode 50 An Object With A Mass Of 10 Kg Is Dropped From Rest
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest/description.md
+
+dataset:
+  answers: mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest/prepared/private/answer.csv
+  sample_submission: mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l
+name: Mamo Ode 150 A Piece Of Hot Iron Is Initially At A Temperature Of 170 C And Is L
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l/description.md
+
+dataset:
+  answers: mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l/prepared/private/answer.csv
+  sample_submission: mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-150-a-piece-of-hot-iron-is-initially-at-a-temperature-of-170-c-and-is-l.prepare:prepare

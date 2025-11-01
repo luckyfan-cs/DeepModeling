@@ -1,0 +1,16 @@
+id: industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m
+name: Industry 29 Suppose A Certain Animal Needs At Least 700 Mathrm G Of Protein 30 M
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m/description.md
+
+dataset:
+  answers: industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m/prepared/private/answer.csv
+  sample_submission: industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-29-suppose-a-certain-animal-needs-at-least-700-mathrm-g-of-protein-30-m.prepare:prepare

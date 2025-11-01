@@ -1,0 +1,16 @@
+id: mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled
+name: Mamo Complex 92 Consider A Delivery Company That Operates In Six Cities Labelled
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled/description.md
+
+dataset:
+  answers: mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled/prepared/private/answer.csv
+  sample_submission: mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-92-consider-a-delivery-company-that-operates-in-six-cities-labelled.prepare:prepare

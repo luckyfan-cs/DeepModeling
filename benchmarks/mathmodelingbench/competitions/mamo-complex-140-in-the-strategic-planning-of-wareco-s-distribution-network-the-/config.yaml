@@ -1,0 +1,16 @@
+id: mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-
+name: Mamo Complex 140 In The Strategic Planning Of Wareco S Distribution Network The 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-/description.md
+
+dataset:
+  answers: mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-/prepared/private/answer.csv
+  sample_submission: mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-140-in-the-strategic-planning-of-wareco-s-distribution-network-the-.prepare:prepare

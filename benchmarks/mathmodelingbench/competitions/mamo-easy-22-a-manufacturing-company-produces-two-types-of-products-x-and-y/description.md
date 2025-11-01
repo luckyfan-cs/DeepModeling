@@ -1,0 +1,10 @@
+# Mamo Easy 22 A Manufacturing Company Produces Two Types Of Products X And Y
+
+A manufacturing company produces two types of products, X and Y. The production costs are \$50 per unit for product X and \$60 per unit for product Y. The company has the following constraints due to its production capacity and demand requirements:\n\n- The total number of units produced for product X and twice the units of product Y cannot exceed 500.\n- To meet minimum demand requirements, three times the units of product X plus the units of product Y must be at least 200.\n- In order to maintain a balanced inventory, the difference in production numbers between products X and Y should not exceed 100.\n\nGiven that both products can only be produced in whole numbers due to their physical nature, what is the minimum total cost (in dollars) for producing these products while meeting all these constraints? Provide your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,10 @@
+# Mamo Easy 238 In An Agricultural Scenario A Farmer Is Planning To Allocate His L
+
+In an agricultural scenario, a farmer is planning to allocate his limited resources among three types of crops: $X$, $Y$, and $Z$. The total amount of resources that can be allocated cannot exceed 5000 units due to the limitations in manpower, land area, and equipment. Additionally, he has the following constraints for crop cultivation:- The resources allocated to crop X should be at least three times more than those allocated to crop Y. This could be due to higher yield or market demand for crop X.- The resources allocated to crop Z should be at least twice as much as those allocated to crop Y. This might be because of longer growing seasons or more intensive care required for crop Z.Each unit of resource allocation has different costs associated with it depending on the type of the crops: $\$100$ for each unit allocated to crop $X$, $\$200$ for each unit allocated to crop $Y$, and $\$150$ for each unit allocated to crop $Z$. Given these conditions and aiming for whole numbers of resource allocation due to practicalities, what would be the minimum cost in dollars that the farmer needs in order to meet all these requirements? Provide your answer rounded down to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

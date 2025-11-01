@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-92-a-city-s-population-is-increasing-at-a-rate-of-11-per-year",
+  "en_question": "A city's population is increasing at a rate of 11% per year. However, the city also faces an annual loss of 1000 individuals due to emigration. Starting from a population of 10,000, calculate the city's population size after 5 years. Provide your answer to the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "10667"
+}

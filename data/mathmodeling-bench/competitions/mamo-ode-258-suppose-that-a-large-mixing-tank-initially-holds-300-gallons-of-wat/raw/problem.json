@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-258-suppose-that-a-large-mixing-tank-initially-holds-300-gallons-of-wat",
+  "en_question": "Suppose that a large mixing tank initially holds 300 gallons of water in which 50 pounds of salt have been dissolved. Pure water is pumped into the tank at a rate of 3 gal/min, and when the solution is well stirred, it is then pumped out at the same rate. Determine that the amount of the salt in pounds at first. Keep three significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "50.0"
+}

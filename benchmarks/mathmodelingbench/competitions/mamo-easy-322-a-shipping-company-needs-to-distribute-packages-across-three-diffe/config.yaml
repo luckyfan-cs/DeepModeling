@@ -1,0 +1,16 @@
+id: mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe
+name: Mamo Easy 322 A Shipping Company Needs To Distribute Packages Across Three Diffe
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe/description.md
+
+dataset:
+  answers: mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe/prepared/private/answer.csv
+  sample_submission: mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-322-a-shipping-company-needs-to-distribute-packages-across-three-diffe.prepare:prepare

@@ -1,0 +1,6 @@
+{
+  "en_question": "\n  A company plans to establish 4 sales outlets in three different regions. According to estimates from the market forecasting department, the monthly profit from setting different numbers of sales outlets in each region is shown in Table 7-2. Question: How should the company allocate the sales outlets across the three regions in order to maximize the total monthly profit? What is the maximum profit?  \n\n  Table 7-2  \n\n\n  <html><body><table><tr><td>Region \\ Sales Outlets</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>1</td><td>0</td><td>16</td><td>25</td><td>30</td><td>32</td></tr><tr><td>2</td><td>0</td><td>12</td><td>17</td><td>21</td><td>22</td></tr><tr><td>3</td><td>0</td><td>10</td><td>14</td><td>16</td><td>17</td></tr></table></body></html>  \n",
+  "cn_question": "\n  7.10某公司打算在三个不同的地区设置4个销售点,根据市场预测部门估计,在不同的地区设置不同数量的销售店,每月可得到的利润如表7-2所示。试问在各个地区应如何设置销售点，才能使每月获得的总利润最大？其值是多少？  \n\n  表7-2  \n\n\n  <html><body><table><tr><td>地区\\销售店</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>1</td><td>0</td><td>16</td><td>25</td><td>30</td><td>32</td></tr><tr><td>2</td><td>0</td><td>12</td><td>17</td><td>21</td><td>22</td></tr><tr><td>3</td><td>0</td><td>10</td><td>14</td><td>16</td><td>17</td></tr></table></body></html>  \n",
+  "difficulty": "Medium",
+  "id": 61
+}

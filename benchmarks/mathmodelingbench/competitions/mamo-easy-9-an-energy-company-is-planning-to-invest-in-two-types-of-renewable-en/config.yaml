@@ -1,0 +1,16 @@
+id: mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en
+name: Mamo Easy 9 An Energy Company Is Planning To Invest In Two Types Of Renewable En
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en/description.md
+
+dataset:
+  answers: mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en/prepared/private/answer.csv
+  sample_submission: mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-9-an-energy-company-is-planning-to-invest-in-two-types-of-renewable-en.prepare:prepare

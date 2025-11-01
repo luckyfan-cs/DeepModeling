@@ -1,0 +1,10 @@
+# Mamo Easy 252 A Supply Chain Manager Needs To Distribute Resources Among Three D
+
+A supply chain manager needs to distribute resources among three different stages of production: $X$, $Y$, and $Z$. These stages could represent raw material procurement, manufacturing, and distribution respectively. The total resource allocation between the procurement ($X$) and manufacturing ($Y$) cannot exceed 1000 units due to budget constraints. To ensure adequate output, the combined resources allocated for manufacturing ($Y$) and distribution ($Z$) must be at least 500 units. Also, the difference in resource allocation between procurement ($X$) and distribution ($Z$) should not exceed 200 units to maintain a balanced flow of goods through the supply chain.\n\nEach unit of resource allocated to stages $X$, $Y$, and $Z$ incurs costs of 4, 3, and 2 units respectively. The manager aims to minimize these costs while meeting all requirements. Given that all allocations must be whole numbers due to practical considerations:\n\nWhat is the minimum total cost in terms of resource units required for this operation? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and
+name: Industry 85 Healthy Pet Foods Company Produces Two Types Of Dog Food Meaties And
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and/description.md
+
+dataset:
+  answers: industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and/prepared/private/answer.csv
+  sample_submission: industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-85-healthy-pet-foods-company-produces-two-types-of-dog-food-meaties-and.prepare:prepare

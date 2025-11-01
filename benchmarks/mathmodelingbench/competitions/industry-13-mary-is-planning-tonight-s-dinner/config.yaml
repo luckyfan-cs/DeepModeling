@@ -1,0 +1,16 @@
+id: industry-13-mary-is-planning-tonight-s-dinner
+name: Industry 13 Mary Is Planning Tonight S Dinner
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-13-mary-is-planning-tonight-s-dinner/description.md
+
+dataset:
+  answers: industry-13-mary-is-planning-tonight-s-dinner/prepared/private/answer.csv
+  sample_submission: industry-13-mary-is-planning-tonight-s-dinner/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-13-mary-is-planning-tonight-s-dinner.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-13-mary-is-planning-tonight-s-dinner.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-
+name: Industry 56 Assuming A Paper Mill Receives Three Orders For Rolls Of Paper With 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-/description.md
+
+dataset:
+  answers: industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-/prepared/private/answer.csv
+  sample_submission: industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-56-assuming-a-paper-mill-receives-three-orders-for-rolls-of-paper-with-.prepare:prepare

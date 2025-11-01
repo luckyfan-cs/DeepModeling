@@ -1,0 +1,10 @@
+# Mamo Ode 194 A Spring Mass System Is Designed With A 1
+
+A spring-mass system is designed with a 1.44 lb weight that naturally stretches the spring by 2 inches. The system encounters resistance in a medium that is equivalent to \(4.933 \times \sqrt{g}\) times the velocity of the weight, where g is the acceleration due to gravity in ft/sec\(^2\). If at time t=0, the weight is released from 1.531 inches below its equilibrium position and moving upward at a speed of 0.801 inches/sec, calculate the displacement of the weight from its equilibrium position at t=3 seconds considering upward as positive direction. Provide your answer in inches rounded to three significant figures.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

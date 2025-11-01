@@ -1,0 +1,16 @@
+id: mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e
+name: Mamo Complex 111 Welcome To The Virtual Challenge Of Constructing A Futuristic E
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e/description.md
+
+dataset:
+  answers: mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e/prepared/private/answer.csv
+  sample_submission: mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-111-welcome-to-the-virtual-challenge-of-constructing-a-futuristic-e.prepare:prepare

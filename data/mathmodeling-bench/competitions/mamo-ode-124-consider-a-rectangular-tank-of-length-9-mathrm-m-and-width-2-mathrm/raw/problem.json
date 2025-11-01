@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-124-consider-a-rectangular-tank-of-length-9-mathrm-m-and-width-2-mathrm",
+  "en_question": "Consider a rectangular tank of length $9 \\mathrm{m}$ and width $2 \\mathrm{m}$. If water drains from the tank through a circular hole with an area of $2.949 \\mathrm{m}^2$ at the bottom, then by applying Torricelli's Law we know that the rate at which water flows from the tank is proportional to the square root of the water height. Suppose initially, at time $t=0$, the height of water in the tank is $12 \\mathrm{m}$. Given that gravity is taken as $g=9.81 \\mathrm{m/s}^2$, find out what will be the height of water in this tank after 6 seconds? Provide your answer in meters and to three significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "1.656"
+}

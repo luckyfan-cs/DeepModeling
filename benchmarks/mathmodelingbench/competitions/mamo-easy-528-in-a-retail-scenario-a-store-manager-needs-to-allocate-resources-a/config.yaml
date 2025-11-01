@@ -1,0 +1,16 @@
+id: mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a
+name: Mamo Easy 528 In A Retail Scenario A Store Manager Needs To Allocate Resources A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a/description.md
+
+dataset:
+  answers: mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a/prepared/private/answer.csv
+  sample_submission: mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-528-in-a-retail-scenario-a-store-manager-needs-to-allocate-resources-a.prepare:prepare

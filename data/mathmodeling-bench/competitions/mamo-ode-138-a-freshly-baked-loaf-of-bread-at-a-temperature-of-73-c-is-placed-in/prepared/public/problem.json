@@ -1,0 +1,6 @@
+{
+  "id": 139,
+  "Question": "A freshly baked loaf of bread at a temperature of 73°C is placed in a room where the ambient temperature is constant at 27°C. After 5 minutes, the temperature of the bread has decreased to approximately 62.83°C. Using Newton's Law of Cooling, calculate the estimated temperature of the bread after 11 minutes. Provide your answer in °C and to two decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

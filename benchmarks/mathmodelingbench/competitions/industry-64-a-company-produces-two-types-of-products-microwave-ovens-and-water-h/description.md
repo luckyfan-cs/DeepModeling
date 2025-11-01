@@ -1,0 +1,18 @@
+# Industry 64 A Company Produces Two Types Of Products Microwave Ovens And Water H
+
+A company produces two types of products: microwave ovens and water heaters, which are manufactured in both workshops A and B. It is known that apart from the purchased parts, the production of one microwave oven requires 2 hours of processing in workshop A and 1 hour of assembly in workshop B. The production of one water heater requires 1 hour of processing in workshop A and 3 hours of assembly in workshop B. After production, both products need inspection, sales, and other procedures. The inspection and sales cost for each microwave oven is 30 yuan, and for each water heater is 50 yuan. Workshop A has 250 hours of available production time per month, with each hour costing 80 yuan; workshop B has 150 hours of available production time per month, with each hour costing 20 yuan. It is estimated that an average of 80 microwave ovens and 50 water heaters can be sold per month next year. Based on these actual conditions, the company has established the following monthly plan constraints:
+
+1. Inspection and sales costs should not exceed 5500 yuan per month;
+2. At least 80 microwave ovens should be sold per month;
+3. The production hours of both workshops A and B should be fully utilized;
+4. Overtime in workshop A should not exceed 20 hours;
+5. At least 50 water heaters should be sold per month.
+
+Try to determine the monthly production plan for the company.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

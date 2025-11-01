@@ -1,0 +1,16 @@
+id: industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3
+name: Industry 21 A Company Plans To Produce 3 Types Of Products A 1 A 2 A 3
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3/description.md
+
+dataset:
+  answers: industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3/prepared/private/answer.csv
+  sample_submission: industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-21-a-company-plans-to-produce-3-types-of-products-a-1-a-2-a-3.prepare:prepare

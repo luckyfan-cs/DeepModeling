@@ -1,0 +1,19 @@
+# Mamo Complex 37 Imagine You Are Going On A Fitness Journey And Have Set Specific
+
+Imagine you are going on a fitness journey and have set specific nutritional goals for your daily intake. You aim to consume 74 grams of protein, 166 grams of carbohydrates, and 2210 calories each day. To achieve this, you've found four food items that you can incorporate into your meals: Chicken, Rice, Beans, and Avocados. Each of these foods has its own cost and provides a specific amount of protein, carbohydrates, and calories.
+
+Here's what each food offers:
+
+- Chicken: Costs $4 and provides 14 grams of protein, 7 grams of carbohydrates, and 208 calories.
+- Rice: Costs $4 and provides 5 grams of protein, 13 grams of carbohydrates, and 140 calories.
+- Beans: Costs $2 and are quite nutritious, providing 9 grams of protein, 26 grams of carbohydrates, and 280 calories.
+- Avocado: Costs $4 and offers 10 grams of protein, 14 grams of carbohydrates, and 199 calories.
+
+Your challenge is to figure out the least expensive way to satisfy your protein, carbohydrate, and calorie goals using only these four foods. So the question is, what is the minimum cost required to meet your daily nutritional needs? Please, your response should be a single numerical answer representing the optimal cost value.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

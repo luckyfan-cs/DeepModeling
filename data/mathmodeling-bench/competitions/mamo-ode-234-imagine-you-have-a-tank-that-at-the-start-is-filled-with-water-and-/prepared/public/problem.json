@@ -1,0 +1,6 @@
+{
+  "id": 235,
+  "Question": "Imagine you have a tank that, at the start, is filled with water and salt. Initially, there are Q_0 pounds of salt dissolved in 100 gallons of water. This setup is constantly being fed with new water that also contains salt---every gallon of this incoming water adds a quarter-pound (1/4 lb) of salt to the mix. The fresh water flows into the tank at a constant speed, let's call this speed r gallons per minute, and at the same time, an equal amount of the salty water mixture is leaving the tank to keep the total volume of water in the tank unchanged at 100 gallons. You're looking to figure out the amount of salt in the tank at any given moment, referred to as Q(t), and you're also curious about the salt amount that the tank will stabilize on if you wait long enough, which we will call Q_L. Now, suppose the water flows in at a rate of r = 3 gallons per minute, and initially, the tank has twice the amount of salt compared to what it will eventually stabilize at (Q_0 = 2*Q_L). Given that you wait for 130.4 minutes, determine the amount of salt in the tank, in pound, at that moment. Keep three significant digits in the answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

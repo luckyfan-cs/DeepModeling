@@ -1,0 +1,16 @@
+id: mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ
+name: Mamo Easy 219 A Retail Store Manager Needs To Stock Up Three Categories Of Produ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ/description.md
+
+dataset:
+  answers: mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ/prepared/private/answer.csv
+  sample_submission: mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-219-a-retail-store-manager-needs-to-stock-up-three-categories-of-produ.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease
+name: Industry 81 Changjiang Comprehensive Shopping Mall Has 5000 M Of Space For Lease
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease/description.md
+
+dataset:
+  answers: industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease/prepared/private/answer.csv
+  sample_submission: industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-81-changjiang-comprehensive-shopping-mall-has-5000-m-of-space-for-lease.prepare:prepare

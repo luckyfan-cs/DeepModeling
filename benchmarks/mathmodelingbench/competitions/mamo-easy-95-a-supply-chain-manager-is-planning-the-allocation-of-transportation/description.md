@@ -1,0 +1,10 @@
+# Mamo Easy 95 A Supply Chain Manager Is Planning The Allocation Of Transportation
+
+A supply chain manager is planning the allocation of transportation resources between two distribution centers, X and Y. The total available resources cannot exceed 1000 units due to budget constraints. To ensure adequate service levels across the entire network, the combined capacity of twice the allocation for center X plus the allocation for center Y must be at least 500 units. Each unit of resource allocated to centers X and Y has associated costs of $5 and $7 respectively, reflecting factors such as distance, traffic conditions, or local labor rates. Given that allocations are in whole numbers due to the indivisible nature of transportation resources (e.g., trucks or pallets), what is the minimum total cost in dollars for this supply chain configuration under these constraints? Please provide your answer rounded to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

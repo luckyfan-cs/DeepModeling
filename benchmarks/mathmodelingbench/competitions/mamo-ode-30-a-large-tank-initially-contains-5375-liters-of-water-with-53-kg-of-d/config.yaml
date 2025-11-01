@@ -1,0 +1,16 @@
+id: mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d
+name: Mamo Ode 30 A Large Tank Initially Contains 5375 Liters Of Water With 53 Kg Of D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d/description.md
+
+dataset:
+  answers: mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d/prepared/private/answer.csv
+  sample_submission: mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d.prepare:prepare

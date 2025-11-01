@@ -1,0 +1,16 @@
+id: mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving
+name: Mamo Ode 52 Calculate In Meters The Distance A 90 Kg Ice Skater Initially Moving
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving/description.md
+
+dataset:
+  answers: mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving/prepared/private/answer.csv
+  sample_submission: mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving.prepare:prepare

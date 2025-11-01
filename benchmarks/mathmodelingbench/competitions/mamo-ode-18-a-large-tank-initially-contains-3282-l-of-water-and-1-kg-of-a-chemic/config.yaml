@@ -1,0 +1,16 @@
+id: mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic
+name: Mamo Ode 18 A Large Tank Initially Contains 3282 L Of Water And 1 Kg Of A Chemic
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic/description.md
+
+dataset:
+  answers: mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic/prepared/private/answer.csv
+  sample_submission: mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-18-a-large-tank-initially-contains-3282-l-of-water-and-1-kg-of-a-chemic.prepare:prepare

@@ -1,0 +1,10 @@
+# Mamo Easy 536 A Farmer Is Planning The Cultivation Of Three Crops Wheat Corn And
+
+A farmer is planning the cultivation of three crops: Wheat, Corn, and Soybean. The objective is to minimize the total cost associated with these crops, with costs being 10, 20, and 30 units per acre for Wheat, Corn, and Soybean respectively. \n\nThe allocation of acres must adhere to the following constraints due to various factors such as available land, crop rotation practices and market demands:\n- The combined acreage for Wheat and Corn cannot exceed 1000 acres.\n- The combined acreage for Corn and Soybean should not exceed 1500 acres.\n- The sum of acreage for Wheat and Soybean must be at least 500 acres.\n- There should be at least 200 more acres dedicated to Wheat than Corn.\n\nGiven that each crop requires a whole number of acres (due to practical considerations), each crop has specific bounds on their respective allocations based on farm capacity. What would be the minimum total cost in terms of unit cost per acre for the farmer's optimal allocation strategy rounded off to the nearest whole number?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

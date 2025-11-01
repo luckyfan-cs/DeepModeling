@@ -1,0 +1,6 @@
+{
+  "id": 303,
+  "Question": "Find the charge on the capacitor in an LRC-series circuit when L = 0.5 h, R = 10 V, C = 0.01 f, E(t) = 150 V, q(0) = 1 C, and i(0) = 0 A. What is the charge in coulomb on the capacitor after a long time? Keep two significant digit number in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

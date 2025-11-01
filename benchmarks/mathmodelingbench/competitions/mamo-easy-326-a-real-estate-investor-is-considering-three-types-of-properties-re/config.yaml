@@ -1,0 +1,16 @@
+id: mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re
+name: Mamo Easy 326 A Real Estate Investor Is Considering Three Types Of Properties Re
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re/description.md
+
+dataset:
+  answers: mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re/prepared/private/answer.csv
+  sample_submission: mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-326-a-real-estate-investor-is-considering-three-types-of-properties-re.prepare:prepare

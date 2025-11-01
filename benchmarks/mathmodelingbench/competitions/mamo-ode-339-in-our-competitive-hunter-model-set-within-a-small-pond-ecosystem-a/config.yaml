@@ -1,0 +1,16 @@
+id: mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a
+name: Mamo Ode 339 In Our Competitive Hunter Model Set Within A Small Pond Ecosystem A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a/description.md
+
+dataset:
+  answers: mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a/prepared/private/answer.csv
+  sample_submission: mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-339-in-our-competitive-hunter-model-set-within-a-small-pond-ecosystem-a.prepare:prepare

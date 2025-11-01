@@ -1,0 +1,10 @@
+# Mamo Easy 70 A Farmer Is Planning To Plant Two Crops X And Y In His Field
+
+A farmer is planning to plant two crops, $X$ and $Y$, in his field. The planting must be done in whole numbers due to the nature of the crop units. Each unit of crop $X$ requires 5 units of water and each unit of crop $Y$ requires 3 units of water. The total amount of water available is limited to 100 units. To ensure a balanced harvest, the combined yield from twice the units of crop $X$ and once the unit of crop $Y$ should be at least 30.\n\nThe cost associated with each unit for crops X and Y are 4 and 2 respectively, and the farmer aims to minimize this total cost while adhering to these constraints.\n\nCalculate the minimum total cost for this agricultural scenario, rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

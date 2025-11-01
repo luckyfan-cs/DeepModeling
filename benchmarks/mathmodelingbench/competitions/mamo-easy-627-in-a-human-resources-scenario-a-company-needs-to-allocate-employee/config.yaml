@@ -1,0 +1,16 @@
+id: mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee
+name: Mamo Easy 627 In A Human Resources Scenario A Company Needs To Allocate Employee
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee/description.md
+
+dataset:
+  answers: mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee/prepared/private/answer.csv
+  sample_submission: mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-627-in-a-human-resources-scenario-a-company-needs-to-allocate-employee.prepare:prepare

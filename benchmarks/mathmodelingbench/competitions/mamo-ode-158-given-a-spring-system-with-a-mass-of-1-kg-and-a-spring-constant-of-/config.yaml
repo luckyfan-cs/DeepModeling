@@ -1,0 +1,16 @@
+id: mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-
+name: Mamo Ode 158 Given A Spring System With A Mass Of 1 Kg And A Spring Constant Of 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-/description.md
+
+dataset:
+  answers: mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-/prepared/private/answer.csv
+  sample_submission: mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-158-given-a-spring-system-with-a-mass-of-1-kg-and-a-spring-constant-of-.prepare:prepare

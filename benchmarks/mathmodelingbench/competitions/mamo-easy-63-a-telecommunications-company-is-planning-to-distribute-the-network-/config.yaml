@@ -1,0 +1,16 @@
+id: mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-
+name: Mamo Easy 63 A Telecommunications Company Is Planning To Distribute The Network 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-/description.md
+
+dataset:
+  answers: mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-/prepared/private/answer.csv
+  sample_submission: mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-63-a-telecommunications-company-is-planning-to-distribute-the-network-.prepare:prepare

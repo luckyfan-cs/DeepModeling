@@ -1,0 +1,10 @@
+# Mamo Easy 310 In A Military Operation A Commander Needs To Allocate Resources Be
+
+In a military operation, a commander needs to allocate resources between three types of units: $X$, $Y$, and $Z$. The total number of units that can be supported is limited to 100 due to logistical constraints. To achieve the mission objective, the combined strength of 5 units of X and 3 units of Y must be at least 50. Additionally, the difference in numbers between unit Z and unit Y must not exceed 30 to maintain operational balance.\n\nEach unit of X, Y, and Z requires 500, 600, and 700 support points respectively. The commander aims to minimize the total support points allocated while adhering to these constraints. Given that the allocations for X, Y, and Z are integers due to the nature of the units:\n\nWhat is the minimum total support points required for this operation? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

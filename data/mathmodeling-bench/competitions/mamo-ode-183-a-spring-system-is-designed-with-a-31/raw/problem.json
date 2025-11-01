@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-183-a-spring-system-is-designed-with-a-31",
+  "en_question": "A spring system is designed with a 31.51-lb weight that naturally stretches the spring 1.784 ft. The system encounters resistance in a medium that is approximately 2.262 times the velocity of the weight (in lb/sec). Starting from a point 1.706 ft above the spring's equilibrium position and moving downward at a speed of 2.083 ft/sec, calculate the displacement of the weight from its equilibrium position at t=1 seconds. Assuming upward from the equilibrium position as the positive direction, provide your answer in feet, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.013"
+}

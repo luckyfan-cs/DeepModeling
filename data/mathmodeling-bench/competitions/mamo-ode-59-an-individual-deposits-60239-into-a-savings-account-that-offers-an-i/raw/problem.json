@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-59-an-individual-deposits-60239-into-a-savings-account-that-offers-an-i",
+  "en_question": "An individual deposits $60239 into a savings account that offers an interest rate of 10.9% per year, compounded continuously. However, they also make continuous withdrawals at a rate of $7557 per year. How much money will remain in the account after 7 years? Provide your answer in dollars and to eight significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "49832.211"
+}

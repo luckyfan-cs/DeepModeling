@@ -1,0 +1,16 @@
+id: bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-
+name: Bwor 2 Hongyin Company Has Committed To Providing The Following Loan Amounts At 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-/description.md
+
+dataset:
+  answers: bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-/prepared/private/answer.csv
+  sample_submission: bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-2-hongyin-company-has-committed-to-providing-the-following-loan-amounts-at-.prepare:prepare

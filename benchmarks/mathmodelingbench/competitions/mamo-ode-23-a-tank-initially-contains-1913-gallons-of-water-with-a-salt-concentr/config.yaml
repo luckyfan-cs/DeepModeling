@@ -1,0 +1,16 @@
+id: mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr
+name: Mamo Ode 23 A Tank Initially Contains 1913 Gallons Of Water With A Salt Concentr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr/description.md
+
+dataset:
+  answers: mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr/prepared/private/answer.csv
+  sample_submission: mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-23-a-tank-initially-contains-1913-gallons-of-water-with-a-salt-concentr.prepare:prepare

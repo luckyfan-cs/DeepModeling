@@ -1,0 +1,16 @@
+id: mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d
+name: Mamo Easy 220 A Retail Company Is Planning To Allocate Its Budget Across Three D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d/description.md
+
+dataset:
+  answers: mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-220-a-retail-company-is-planning-to-allocate-its-budget-across-three-d.prepare:prepare

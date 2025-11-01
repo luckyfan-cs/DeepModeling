@@ -1,0 +1,16 @@
+id: mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre
+name: Mamo Easy 221 A Retail Manager Is Planning The Distribution Of Budget Among Thre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre/description.md
+
+dataset:
+  answers: mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre/prepared/private/answer.csv
+  sample_submission: mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-221-a-retail-manager-is-planning-the-distribution-of-budget-among-thre.prepare:prepare

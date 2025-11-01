@@ -1,0 +1,16 @@
+id: mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar
+name: Mamo Ode 53 A Parachutist With A Combined Weight Of 161 Lb Falls From Rest Towar
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar/description.md
+
+dataset:
+  answers: mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar/prepared/private/answer.csv
+  sample_submission: mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-53-a-parachutist-with-a-combined-weight-of-161-lb-falls-from-rest-towar.prepare:prepare

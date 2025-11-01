@@ -1,0 +1,10 @@
+# Mamo Easy 388 A Tourism Manager Is Planning To Allocate Resources To Four Differ
+
+A tourism manager is planning to allocate resources to four different tourism spots: x1, x2, x3, and x4. These spots could involve natural parks, museums, historical sites and beach resorts respectively. The objective is to minimize the total cost associated with these spots, with costs being \$50, \$100, \$200 and \$300 for each visitor for x1, x2, x3 and x4 respectively.\n\nThe allocation must adhere to the following constraints due to budget limitations:- The combined number of visitors for spots x1 and spot x2 cannot exceed 500.- The combined number of visitors for spot x2 and spot x3 must be at least 300.- The difference in number of visitors between spot x3 and spot x4 must not exceed 100.- The difference in number of visitors between spot x4 and spot X1 must be at least 50.\n\nGiven that each tourist location has specific bounds on visitor numbers (x1:0-500,x2:0-400,x3:0-600,x4:0-700) due to capacity restrictions or regulations. Given that all values are integers as we cannot have fractional visitor numbers:\nWhat is the minimum total cost for the company in dollars given optimal allocation of tourists to the four locations within specified bounds? Please round your answer to the nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

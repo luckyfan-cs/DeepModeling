@@ -1,0 +1,10 @@
+# Mamo Ode 170 A Mass Of 1 Slug Is Attached To A Spring With A Constant Of 25 4 Lb
+
+A mass of 1 slug is attached to a spring with a constant of \(25 / 4\) lb/ft. The mass is initially released 1 ft above the equilibrium position with a downward velocity of 3 ft/sec, and it moves in a medium that provides a damping force equal to 3 times the velocity. Assuming no external force initially (\(f(t) \equiv 0\)), model the system's behavior over time. Calculate the displacement from the equilibrium position at \(t = 0.1\) seconds, considering downward as the positive direction. Provide your answer in feet, rounded to four significant figures.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

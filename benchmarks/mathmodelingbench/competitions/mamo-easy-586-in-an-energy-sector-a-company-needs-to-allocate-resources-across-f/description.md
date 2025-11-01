@@ -1,0 +1,10 @@
+# Mamo Easy 586 In An Energy Sector A Company Needs To Allocate Resources Across F
+
+In an energy sector, a company needs to allocate resources across four different projects: X1, X2, X3 and X4. These projects could represent investments in renewable energies, nuclear power plants, fossil fuels and research & development respectively. The cost associated with each unit of investment in the projects are $\$50$, $\$60$, $\$70$ and $\$80$. Due to budget constraints:\n- The total investment in project X1 and project X2 cannot exceed 500 units.\n- The total investment in project X3 and project X4 cannot exceed 600 units.\nMoreover:\n- The investment difference between project (X3) and the combined investment of project (X1 + X2) should be at least 100 units. This might be due to environmental regulations or corporate social responsibility goals.\n- Project (X4) must receive at least 50 more units of investment than project (X2). Perhaps because it is a strategic initiative or has higher potential returns.\nThe company aims to minimize the total cost while adhering to these constraints. Given that all investments must be whole numbers due to the indivisible nature of resources being allocated within specific bounds for each project:\nWhat would be the minimum possible total cost in dollars, rounded off to nearest dollar?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

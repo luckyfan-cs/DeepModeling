@@ -1,0 +1,16 @@
+id: industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4
+name: Industry 48 A Factory Needs To Rent A Warehouse To Store Materials In The Next 4
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4/description.md
+
+dataset:
+  answers: industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4/prepared/private/answer.csv
+  sample_submission: industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-48-a-factory-needs-to-rent-a-warehouse-to-store-materials-in-the-next-4.prepare:prepare

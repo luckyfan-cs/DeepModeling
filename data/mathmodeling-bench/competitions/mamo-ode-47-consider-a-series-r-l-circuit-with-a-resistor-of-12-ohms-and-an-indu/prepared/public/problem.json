@@ -1,0 +1,6 @@
+{
+  "id": 48,
+  "Question": "Consider a series R-L circuit with a resistor of 12 Ohms and an inductor of 4 H. Instead of a constant voltage source, this circuit is connected to a generator that produces a variable voltage described by \\(E(t) = 60 \\sin(30t)\\) volts. If the initial current is zero when the switch is closed at \\(t=0\\), calculate the value of the current \\(I(t)\\) in the circuit at \\(t = 0.1\\) seconds (in A). Keep 3 significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

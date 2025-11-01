@@ -1,0 +1,16 @@
+id: mamo-ode-311-consider-three-ponds-connected-by-streams
+name: Mamo Ode 311 Consider Three Ponds Connected By Streams
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-311-consider-three-ponds-connected-by-streams/description.md
+
+dataset:
+  answers: mamo-ode-311-consider-three-ponds-connected-by-streams/prepared/private/answer.csv
+  sample_submission: mamo-ode-311-consider-three-ponds-connected-by-streams/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-311-consider-three-ponds-connected-by-streams.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-311-consider-three-ponds-connected-by-streams.prepare:prepare

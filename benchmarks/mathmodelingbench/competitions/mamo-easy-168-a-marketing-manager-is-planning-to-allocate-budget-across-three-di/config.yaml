@@ -1,0 +1,16 @@
+id: mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di
+name: Mamo Easy 168 A Marketing Manager Is Planning To Allocate Budget Across Three Di
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di/description.md
+
+dataset:
+  answers: mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di/prepared/private/answer.csv
+  sample_submission: mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-168-a-marketing-manager-is-planning-to-allocate-budget-across-three-di.prepare:prepare

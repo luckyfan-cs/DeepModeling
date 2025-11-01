@@ -1,0 +1,16 @@
+id: mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec
+name: Mamo Easy 486 An Environmental Agency Is Planning Two Projects Project X For Rec
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec/description.md
+
+dataset:
+  answers: mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec/prepared/private/answer.csv
+  sample_submission: mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-486-an-environmental-agency-is-planning-two-projects-project-x-for-rec.prepare:prepare

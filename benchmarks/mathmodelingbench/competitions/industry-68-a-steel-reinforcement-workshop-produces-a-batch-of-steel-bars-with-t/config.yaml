@@ -1,0 +1,16 @@
+id: industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t
+name: Industry 68 A Steel Reinforcement Workshop Produces A Batch Of Steel Bars With T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t/description.md
+
+dataset:
+  answers: industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t/prepared/private/answer.csv
+  sample_submission: industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-68-a-steel-reinforcement-workshop-produces-a-batch-of-steel-bars-with-t.prepare:prepare

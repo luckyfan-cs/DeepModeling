@@ -1,0 +1,6 @@
+{
+  "en_question": "\n\n5.19 A certain product can be processed on any one of four machines: A, B, C, or D. The setup cost, unit production cost, and maximum production capacity for each machine are shown in Table 5-7.The factory needs to produce 2,000 units of the product.Question: How should production be allocated among the machines to minimize the total cost? Formulate the mathematical model.  \n\nTable 5-7  \n\n\n<html><body><table><tr><td>Machine</td><td>Setup Cost (Yuan)</td><td>Unit Cost (Yuan/unit)</td><td>Max Capacity (units)</td></tr><tr><td>A</td><td>1000</td><td>20</td><td>900</td></tr><tr><td>B</td><td>920</td><td>24</td><td>1 000</td></tr><tr><td>C</td><td>800</td><td>16</td><td>1 200</td></tr><tr><td>D</td><td>700</td><td>28</td><td>1 600</td></tr></table></body></html> \n\n",
+  "cn_question": "\n\n5.19一种产品可分别在A,B,C,D四种设备的任一种上加工。已知每种设备启用时的准备结束费用，生产上述产品时的单件成本以及每种设备的最大加工能力如表5-7所示。如需生产该产品2000件，如何使总的费用最少？试建立数学模型。  \n\n表5-7  \n\n\n<html><body><table><tr><td>设备</td><td>准备结束费/元</td><td>生产成本/（元/件）</td><td>最大加工能力/件</td></tr><tr><td>A</td><td>1000</td><td>20</td><td>900</td></tr><tr><td>B</td><td>920</td><td>24</td><td>1 000</td></tr><tr><td>C</td><td>800</td><td>16</td><td>1 200</td></tr><tr><td>D</td><td>700</td><td>28</td><td>1 600</td></tr></table></body></html> \n\n",
+  "difficulty": "Medium",
+  "id": 51
+}

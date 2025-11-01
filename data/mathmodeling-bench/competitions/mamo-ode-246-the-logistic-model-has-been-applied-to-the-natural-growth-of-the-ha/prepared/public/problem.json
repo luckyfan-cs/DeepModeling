@@ -1,0 +1,6 @@
+{
+  "id": 247,
+  "Question": "The logistic model has been applied to the natural growth of the halibut population in certain areas of the Pacific Ocean. Let y, measured in kilograms, be the total mass, or biomass, of the halibut population at time t. The parameters in the logistic equation are estimated to have the values r = 0.71/year and K = 80.5 * 10^6 kg. If the initial biomass is y_0 = 0.25K, calculate the biomass of the halibut population as a multiple of K after 3.09 years. Note: The answer should include only a numerical value that represents the multiple of K after 3.09 years. Keep two significant digit in answer.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

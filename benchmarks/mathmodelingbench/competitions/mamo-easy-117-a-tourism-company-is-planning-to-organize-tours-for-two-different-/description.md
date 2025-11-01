@@ -1,0 +1,10 @@
+# Mamo Easy 117 A Tourism Company Is Planning To Organize Tours For Two Different 
+
+A tourism company is planning to organize tours for two different types of groups, $X$ and $Y$. The total number of groups that can be accommodated in a week is limited to 20 due to logistical constraints. To ensure a diverse offering, the combined number of twice the groups of type $X$ and groups of type $Y$ must be at least 10. Furthermore, the difference between the numbers of group $X$ and group $Y$ should not exceed 5 to maintain balance in their operations.\n\nEach tour for group type $X$ costs \$100 while each tour for group type $Y$ costs \$50. The company aims to minimize the total cost while adhering to these constraints and ensuring that the number of tours for both types are integers.\n\nThe maximum limit on tours for group X is 15 and for Y is 10 per week due to operational limitations.\n\nGiven these conditions, what is the minimum total cost required for organizing these tours in a week? Provide your answer rounded to nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

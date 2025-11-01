@@ -1,0 +1,16 @@
+id: mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos
+name: Mamo Easy 589 A Manufacturing Company Is Planning To Minimize Its Production Cos
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos/description.md
+
+dataset:
+  answers: mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos/prepared/private/answer.csv
+  sample_submission: mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-589-a-manufacturing-company-is-planning-to-minimize-its-production-cos.prepare:prepare

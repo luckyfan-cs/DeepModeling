@@ -1,0 +1,6 @@
+{
+  "en_question": "\n\n  A machine tool has 5 hours of available working time per day. Producing one unit of Product A or Product B each requires 1 hour. The costs per unit are 4 yuan for A and 3 yuan for B. The selling prices of each product depend linearly on their respective output quantities, as follows: \n\n  $$\n  \\begin{array}{l}{p_{1}\\,=\\,12-x_{1}}\\\\ {p_{2}\\,=\\,13-2x_{2}}\\end{array}\n  $$  \n\n where $x_{1} and x_{2}$ represent the quantities produced of Product A and Product B, respectively. Question: If the machine must operate 5 hours per day, how many units of A and B should be produced to maximize total profit? \n\n",
+  "cn_question": "\n\n  7.21设某台机床每天可用工时为 $5\\,\\textrm{h}$ ,生产每单位产品A或B都需要 $1\\,\\mathrm{~h~}$ ,其成本分别为4元和3元。已知各种单位产品的售价与该产品的产量具有如下线性关系：  \n\n  $$\n  \\begin{array}{l}{p_{1}\\,=\\,12-x_{1}}\\\\ {p_{2}\\,=\\,13-2x_{2}}\\end{array}\n  $$  \n\n  其中 $x_{1},x_{2}$ 分别为产品 A,B的产量。问如果要求机床每天必须工作 $5\\,\\textrm{h}$ ，产品 $\\mathrm{A}$ 和B各应生产多少,才能使总的利润最大?\n\n",
+  "difficulty": "Medium",
+  "id": 70
+}

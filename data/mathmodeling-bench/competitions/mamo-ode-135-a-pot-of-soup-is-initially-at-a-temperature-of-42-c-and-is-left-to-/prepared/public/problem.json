@@ -1,0 +1,6 @@
+{
+  "id": 136,
+  "Question": "A pot of soup is initially at a temperature of 42°C and is left to cool in a room with a constant ambient temperature of 7°C. After 11 minutes, the temperature of the soup has decreased to approximately 31.079°C. By applying Newton's Law of Cooling, calculate the temperature of the soup after 20 minutes. Provide your answer in °C and in five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

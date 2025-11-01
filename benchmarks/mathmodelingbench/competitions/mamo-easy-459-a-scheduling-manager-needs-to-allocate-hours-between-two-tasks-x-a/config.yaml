@@ -1,0 +1,16 @@
+id: mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a
+name: Mamo Easy 459 A Scheduling Manager Needs To Allocate Hours Between Two Tasks X A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a/description.md
+
+dataset:
+  answers: mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a/prepared/private/answer.csv
+  sample_submission: mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-459-a-scheduling-manager-needs-to-allocate-hours-between-two-tasks-x-a.prepare:prepare

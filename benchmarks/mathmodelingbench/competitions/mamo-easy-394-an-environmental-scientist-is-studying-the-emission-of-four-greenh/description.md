@@ -1,0 +1,10 @@
+# Mamo Easy 394 An Environmental Scientist Is Studying The Emission Of Four Greenh
+
+An environmental scientist is studying the emission of four greenhouse gases: Carbon Dioxide (CO2), Methane (CH4), Nitrous Oxide (N2O), and Chlorofluorocarbons (CFC). Each gas has a different global warming potential, quantified as 4, 3, 5, and 7 units for CO2, CH4, N2O, and CFC respectively. The scientist wants to simulate a scenario that minimizes the total global warming potential while adhering to the following constraints related to their emission levels in tons:- The combined emissions of CO2 and CH4 minus twice the emissions of N2O and CFC cannot exceed 1000 tons.- Three times the emissions of CO2 minus the emissions of CH4 plus those of N2O should be less than or equal to 800 tons.- The emissions of CO2 minus those of CH4 and N2O must be at least 200 tons.- The total emissions from all four gases cannot exceed 1500 tons.Assuming that each unit represents one tonne of gas emission and only whole numbers are acceptable due to measurement precision:What is the minimum total global warming potential under these conditions?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

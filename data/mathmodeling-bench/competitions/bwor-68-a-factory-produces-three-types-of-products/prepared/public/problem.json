@@ -1,0 +1,6 @@
+{
+  "en_question": "\n\n  A factory produces three types of products. The weight and profit of each product are shown in Table 7-8. These products are to be shipped to the market for sale, and the total transportation capacity cannot exceed 10 tons.  \n\n  Table 7-8  \n\n\n  <html><body><table><tr><td>Product Type</td><td>Weight (t/piece)</td><td>Profit (yuan/piece)</td></tr><tr><td>1</td><td>2</td><td>100</td></tr><tr><td>2</td><td>3</td><td>140</td></tr><tr><td>3</td><td>4</td><td>180</td></tr></table></body></html>  \n\n",
+  "cn_question": "\n\n  7.19某工厂生产三种产品，各种产品重量与利润关系如表7-8所示。现将此三种产品运往市场出售，运输能力总重量不超过 $10\\,\\mathfrak{t}$ 。问如何安排运输使总利润最大？  \n\n  表7-8  \n\n\n  <html><body><table><tr><td>种类</td><td>重量/(t/件）</td><td>利润 /(元/件)</td></tr><tr><td>1</td><td>2</td><td>100</td></tr><tr><td>2</td><td>3</td><td>140</td></tr><tr><td>3</td><td>4</td><td>180</td></tr></table></body></html>  \n\n",
+  "difficulty": "Medium",
+  "id": 68
+}

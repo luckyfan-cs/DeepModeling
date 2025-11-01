@@ -1,0 +1,16 @@
+id: industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats
+name: Industry 8 Haus Toys Can Manufacture And Sell Toy Trucks Toy Airplanes Toy Boats
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats/description.md
+
+dataset:
+  answers: industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats/prepared/private/answer.csv
+  sample_submission: industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-8-haus-toys-can-manufacture-and-sell-toy-trucks-toy-airplanes-toy-boats.prepare:prepare

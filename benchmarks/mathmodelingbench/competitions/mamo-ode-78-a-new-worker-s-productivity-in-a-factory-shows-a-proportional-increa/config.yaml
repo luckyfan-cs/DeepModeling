@@ -1,0 +1,16 @@
+id: mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa
+name: Mamo Ode 78 A New Worker S Productivity In A Factory Shows A Proportional Increa
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa/description.md
+
+dataset:
+  answers: mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa/prepared/private/answer.csv
+  sample_submission: mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa.prepare:prepare

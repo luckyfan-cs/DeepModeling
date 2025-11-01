@@ -1,0 +1,10 @@
+# Mamo Easy 276 A Sports Coach Is Planning The Weekly Training Schedule For Three 
+
+A sports coach is planning the weekly training schedule for three types of exercises: $X$, $Y$, and $Z$. These could represent cardio, strength, and flexibility training respectively. The total hours dedicated to all three types of exercises combined cannot exceed 30 due to time constraints. To maintain a balanced workout routine, the hours spent on cardio ($X$) must be at least 5 more than those spent on strength training ($Y$). Similarly, the difference in hours between flexibility training ($Z$) and cardio should not exceed 10.\n\nEach hour of exercise has an associated fatigue score: 10 for cardio, 15 for strength training, and 20 for flexibility exercises. The coach aims to minimize the total fatigue score while adhering to these constraints and ensuring that the number of hours for each type of exercise are integers due to scheduling practicalities.\n\nWhat is the minimum total fatigue score possible given these conditions? Provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

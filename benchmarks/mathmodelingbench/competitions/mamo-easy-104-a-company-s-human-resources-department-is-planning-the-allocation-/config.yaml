@@ -1,0 +1,16 @@
+id: mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-
+name: Mamo Easy 104 A Company S Human Resources Department Is Planning The Allocation 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-/description.md
+
+dataset:
+  answers: mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-/prepared/private/answer.csv
+  sample_submission: mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-104-a-company-s-human-resources-department-is-planning-the-allocation-.prepare:prepare

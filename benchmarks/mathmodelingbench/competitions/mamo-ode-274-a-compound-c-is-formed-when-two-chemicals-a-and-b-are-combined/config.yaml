@@ -1,0 +1,16 @@
+id: mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined
+name: Mamo Ode 274 A Compound C Is Formed When Two Chemicals A And B Are Combined
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined/description.md
+
+dataset:
+  answers: mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined/prepared/private/answer.csv
+  sample_submission: mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-274-a-compound-c-is-formed-when-two-chemicals-a-and-b-are-combined.prepare:prepare

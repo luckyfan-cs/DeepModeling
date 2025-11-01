@@ -1,0 +1,16 @@
+id: industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a
+name: Industry 42 A Production Base Needs To Extract Raw Materials From Warehouses A A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a/description.md
+
+dataset:
+  answers: industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a/prepared/private/answer.csv
+  sample_submission: industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-42-a-production-base-needs-to-extract-raw-materials-from-warehouses-a-a.prepare:prepare

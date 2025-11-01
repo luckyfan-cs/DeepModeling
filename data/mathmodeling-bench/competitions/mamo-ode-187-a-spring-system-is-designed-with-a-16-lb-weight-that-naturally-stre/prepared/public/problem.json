@@ -1,0 +1,6 @@
+{
+  "id": 188,
+  "Question": "A spring system is designed with a 16-lb weight that naturally stretches the spring 2 ft. The system encounters resistance in a medium that is 1.5 times the velocity of the weight. Starting from a point 2 ft above the spring's equilibrium position and moving downward at a speed of 3 ft/sec. Assuming upward from the equilibrium position as the positive direction, calculate the displacement of the weight from its equilibrium position at t=3 seconds.Provide the displacement in feet, rounded to three significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

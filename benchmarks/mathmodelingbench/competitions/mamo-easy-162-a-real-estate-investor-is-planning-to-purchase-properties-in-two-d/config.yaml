@@ -1,0 +1,16 @@
+id: mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d
+name: Mamo Easy 162 A Real Estate Investor Is Planning To Purchase Properties In Two D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d/description.md
+
+dataset:
+  answers: mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d/prepared/private/answer.csv
+  sample_submission: mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-162-a-real-estate-investor-is-planning-to-purchase-properties-in-two-d.prepare:prepare

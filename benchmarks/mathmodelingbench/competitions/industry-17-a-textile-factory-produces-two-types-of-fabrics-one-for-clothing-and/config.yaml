@@ -1,0 +1,16 @@
+id: industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and
+name: Industry 17 A Textile Factory Produces Two Types Of Fabrics One For Clothing And
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and/description.md
+
+dataset:
+  answers: industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and/prepared/private/answer.csv
+  sample_submission: industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-17-a-textile-factory-produces-two-types-of-fabrics-one-for-clothing-and.prepare:prepare

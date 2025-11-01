@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-39-a-large-tank-initially-contains-9521-gallons-of-a-solution-with-a-co",
+  "en_question": "A large tank initially contains \\(9521\\) gallons of a solution with a concentration of \\(16\\%\\) sugar. A syrup with a sugar concentration of \\(5\\%\\) is added to the tank at a rate of \\(7\\) gallons per minute, while the well-mixed solution exits the tank at the same rate to maintain its volume. What will be the percentage concentration of sugar in the tank after \\(82\\) minutes? Please provide your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "15.067"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con
+name: Mamo Ode 56 An Investor Deposits 8000 Into An Account That Pays 6 Compounded Con
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con/description.md
+
+dataset:
+  answers: mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con/prepared/private/answer.csv
+  sample_submission: mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-56-an-investor-deposits-8000-into-an-account-that-pays-6-compounded-con.prepare:prepare

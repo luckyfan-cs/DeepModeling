@@ -1,0 +1,6 @@
+{
+  "id": 67,
+  "Question": "A company has a current balance of $61974 in its savings account. The account earns an interest rate of 10.5% per year, compounded continuously. In addition, the company makes continuous deposits into this account at a rate of $1348 per year. How much will be in the account after 4 years? Provide your answer in dollars and to six significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

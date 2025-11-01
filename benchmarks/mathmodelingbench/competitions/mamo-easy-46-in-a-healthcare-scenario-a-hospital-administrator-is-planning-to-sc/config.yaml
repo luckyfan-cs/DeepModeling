@@ -1,0 +1,16 @@
+id: mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc
+name: Mamo Easy 46 In A Healthcare Scenario A Hospital Administrator Is Planning To Sc
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc/description.md
+
+dataset:
+  answers: mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc/prepared/private/answer.csv
+  sample_submission: mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-46-in-a-healthcare-scenario-a-hospital-administrator-is-planning-to-sc.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm
+name: Mamo Ode 286 A Mass Of 20 G Stretches A Spring 5 Cm
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm/description.md
+
+dataset:
+  answers: mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm/prepared/private/answer.csv
+  sample_submission: mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-286-a-mass-of-20-g-stretches-a-spring-5-cm.prepare:prepare

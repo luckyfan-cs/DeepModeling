@@ -1,0 +1,16 @@
+id: mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola
+name: Mamo Ode 256 Consider The Spreading Of A Highly Communicable Disease On An Isola
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola/description.md
+
+dataset:
+  answers: mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola/prepared/private/answer.csv
+  sample_submission: mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-256-consider-the-spreading-of-a-highly-communicable-disease-on-an-isola.prepare:prepare

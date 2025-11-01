@@ -1,0 +1,16 @@
+id: industry-91-a-school-is-preparing-a-trip-for-400-students
+name: Industry 91 A School Is Preparing A Trip For 400 Students
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-91-a-school-is-preparing-a-trip-for-400-students/description.md
+
+dataset:
+  answers: industry-91-a-school-is-preparing-a-trip-for-400-students/prepared/private/answer.csv
+  sample_submission: industry-91-a-school-is-preparing-a-trip-for-400-students/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-91-a-school-is-preparing-a-trip-for-400-students.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-91-a-school-is-preparing-a-trip-for-400-students.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-197-a-10",
+  "en_question": "A 10.25-lb weight is attached to a spring and suspended from the ceiling, with the spring having a constant of approximately 4.732 lb/ft. The system experiences resistance equal to about 7.001 times the instantaneous velocity due to air friction. At time t=0, the weight is released from approximately 0.163 ft below its equilibrium position (considered as negative displacement) with an upward velocity of about 6.055 ft/s (considered as positive velocity). Compute for the vertical displacement from the equilibrium position at t=7 seconds in feet, rounding off your answer to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.007"
+}

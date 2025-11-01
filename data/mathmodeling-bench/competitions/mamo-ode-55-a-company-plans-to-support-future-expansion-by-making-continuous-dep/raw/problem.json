@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-55-a-company-plans-to-support-future-expansion-by-making-continuous-dep",
+  "en_question": "A company plans to support future expansion by making continuous deposits into a savings account at a rate of $50,000 per year, starting with no initial deposit. The account earns an interest rate of 10% per year, compounded continuously. Calculate the amount of money int the account after 5 years. Provide your answer in dollars and to seven significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "324360.6"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini
+name: Mamo Ode 126 Consider A Cylindrical Tank With A Radius Of 7 Mathrm M That Is Ini
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini/description.md
+
+dataset:
+  answers: mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini/prepared/private/answer.csv
+  sample_submission: mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini.prepare:prepare

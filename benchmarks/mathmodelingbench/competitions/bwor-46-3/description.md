@@ -1,0 +1,17 @@
+# Bwor 46 3
+
+3.16 A shipyard has a contract to deliver three identical large cargo ships at the end of each of the next three years. The production capacity and normal production costs over the three years are shown in Table 3-20.  
+
+ Table 3-20  
+
+
+<html><body><table><tr><td>Year</td><td>Ships under normal production</td><td>Ships under overtime production</td><td>Cost per ship (normal) (thousand yuan)</td></tr><tr><td>Year 1</td><td>2</td><td>3</td><td>500</td></tr><tr><td>Year 2</td><td>4</td><td>2</td><td>600</td></tr><tr><td>Year 3</td><td>1</td><td>3</td><td>550</td></tr></table></body></html>  
+
+ It is known that under overtime production, the cost per ship is 70 thousand yuan higher than under normal production. Additionally, if a ship is produced but not delivered in the same year, each year of delay results in an additional maintenance and storage loss of 40 thousand yuan per ship. At the time of contract signing, the shipyard already has two undelivered ships in stock. The shipyard also wishes to have one spare ship in storage at the end of the third year after fulfilling the contract deliveries. Question: How should the shipyard arrange its production plan to meet the above requirements while minimizing total cost(in thousand yuan)?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

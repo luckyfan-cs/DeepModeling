@@ -1,0 +1,16 @@
+id: mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building
+name: Mamo Ode 98 Suppose A Rumor Starts Among 3 People In A Certain Office Building
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building/description.md
+
+dataset:
+  answers: mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building/prepared/private/answer.csv
+  sample_submission: mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building.prepare:prepare

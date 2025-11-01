@@ -1,0 +1,7 @@
+{
+  "id": "mamo-complex-3-imagine-you-are-tasked-with-planning-a-nutritious-and-cost-effect",
+  "en_question": "Imagine you are tasked with planning a nutritious and cost-effective meal plan for the day, ensuring that you meet specific nutritional targets. You have a selection of six different food items, each with unique nutritional values and costs. Your goal is to meet the daily dietary requirements for protein, carbohydrates, and calories without overspending.\n\nHere's a breakdown of the food items available:\n\n- Food_1: Costs $4, provides 17 grams of protein, 8 grams of carbohydrates, and 237 calories.\n- Food_2: Costs $2, provides 4 grams of protein, 24 grams of carbohydrates, and 213 calories.\n- Food_3: Costs $6, provides 7 grams of protein, 27 grams of carbohydrates, and 133 calories.\n- Food_4: Costs $2, provides 14 grams of protein, 16 grams of carbohydrates, and 118 calories.\n- Food_5: Costs $6, provides 13 grams of protein, 1 gram of carbohydrates, and 136 calories.\n- Food_6: Costs $8, provides 1 gram of protein, 13 grams of carbohydrates, and 225 calories.\n\nThe dietary requirements you need to meet are at least 76 grams of protein, 173 grams of carbohydrates, and 1751 calories for the day.\n\nWhat is the minimum cost required to meet these nutritional needs using any combination of these food items?",
+  "cn_question": "",
+  "difficulty": "complex_lp",
+  "expected_answer": "22.0"
+}

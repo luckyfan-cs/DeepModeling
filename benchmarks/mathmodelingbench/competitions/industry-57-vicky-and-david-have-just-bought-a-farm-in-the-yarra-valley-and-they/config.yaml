@@ -1,0 +1,16 @@
+id: industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they
+name: Industry 57 Vicky And David Have Just Bought A Farm In The Yarra Valley And They
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they/description.md
+
+dataset:
+  answers: industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they/prepared/private/answer.csv
+  sample_submission: industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-57-vicky-and-david-have-just-bought-a-farm-in-the-yarra-valley-and-they.prepare:prepare

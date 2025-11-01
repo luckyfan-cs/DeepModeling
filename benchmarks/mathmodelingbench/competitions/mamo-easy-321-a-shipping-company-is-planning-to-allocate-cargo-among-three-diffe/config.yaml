@@ -1,0 +1,16 @@
+id: mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe
+name: Mamo Easy 321 A Shipping Company Is Planning To Allocate Cargo Among Three Diffe
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe/description.md
+
+dataset:
+  answers: mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe/prepared/private/answer.csv
+  sample_submission: mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-321-a-shipping-company-is-planning-to-allocate-cargo-among-three-diffe.prepare:prepare

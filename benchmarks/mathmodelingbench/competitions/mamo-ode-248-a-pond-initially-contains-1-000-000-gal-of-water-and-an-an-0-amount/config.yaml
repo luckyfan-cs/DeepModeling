@@ -1,0 +1,16 @@
+id: mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount
+name: Mamo Ode 248 A Pond Initially Contains 1 000 000 Gal Of Water And An An 0 Amount
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount/description.md
+
+dataset:
+  answers: mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount/prepared/private/answer.csv
+  sample_submission: mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-248-a-pond-initially-contains-1-000-000-gal-of-water-and-an-an-0-amount.prepare:prepare

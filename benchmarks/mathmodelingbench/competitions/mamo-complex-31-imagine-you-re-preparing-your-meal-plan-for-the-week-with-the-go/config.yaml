@@ -1,0 +1,16 @@
+id: mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go
+name: Mamo Complex 31 Imagine You Re Preparing Your Meal Plan For The Week With The Go
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go/description.md
+
+dataset:
+  answers: mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go/prepared/private/answer.csv
+  sample_submission: mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-31-imagine-you-re-preparing-your-meal-plan-for-the-week-with-the-go.prepare:prepare

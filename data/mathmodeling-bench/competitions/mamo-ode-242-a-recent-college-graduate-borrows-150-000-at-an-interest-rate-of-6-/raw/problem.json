@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-242-a-recent-college-graduate-borrows-150-000-at-an-interest-rate-of-6-",
+  "en_question": "A recent college graduate borrows $150,000 at an interest rate of 6% to purchase a condominium. Anticipating steady salary increases, the buyer expects to make payments at a monthly rate of 800 + 10t, where t is the number of months since the loan was made. Assuming the same payment schedule, how large a loan with $ could be paid off in exactly 20 years? Keep seven significant digit number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "246758.0"
+}

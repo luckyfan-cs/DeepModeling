@@ -1,0 +1,16 @@
+id: mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a
+name: Mamo Complex 156 In The Scenario Presented Supplychain Solutions Is Faced With A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a/description.md
+
+dataset:
+  answers: mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a/prepared/private/answer.csv
+  sample_submission: mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-156-in-the-scenario-presented-supplychain-solutions-is-faced-with-a.prepare:prepare

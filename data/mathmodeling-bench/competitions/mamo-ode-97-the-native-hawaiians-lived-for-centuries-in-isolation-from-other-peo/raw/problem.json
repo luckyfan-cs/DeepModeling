@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-97-the-native-hawaiians-lived-for-centuries-in-isolation-from-other-peo",
+  "en_question": "The native Hawaiians lived for centuries in isolation from other peoples. When foreigners finally came to the islands they brought with them diseases such as measles, whooping cough, and smallpox, which decimated the population. Suppose such an island has a native population of 5000, and a sailor from a visiting ship introduces measles, which has an infection rate of $k=0.25$. According to a model where the rate of spread is proportional to the product of the numbers of the population who have been infected and the numbers who have not, how many are uninfected after 30 days? Provide your answer in the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "3672"
+}

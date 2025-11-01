@@ -1,0 +1,16 @@
+id: industry-83-a-company-hopes-to-recruit-new-employees-for-its-team
+name: Industry 83 A Company Hopes To Recruit New Employees For Its Team
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-83-a-company-hopes-to-recruit-new-employees-for-its-team/description.md
+
+dataset:
+  answers: industry-83-a-company-hopes-to-recruit-new-employees-for-its-team/prepared/private/answer.csv
+  sample_submission: industry-83-a-company-hopes-to-recruit-new-employees-for-its-team/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-83-a-company-hopes-to-recruit-new-employees-for-its-team.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-83-a-company-hopes-to-recruit-new-employees-for-its-team.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv
+name: Mamo Ode 13 A Tank Initially Contains 453 L Of Water With 65 Kg Of Sugar Dissolv
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv/description.md
+
+dataset:
+  answers: mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv/prepared/private/answer.csv
+  sample_submission: mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-13-a-tank-initially-contains-453-l-of-water-with-65-kg-of-sugar-dissolv.prepare:prepare

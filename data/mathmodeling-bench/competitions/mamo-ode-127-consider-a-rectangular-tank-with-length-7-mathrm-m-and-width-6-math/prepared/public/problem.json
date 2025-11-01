@@ -1,0 +1,6 @@
+{
+  "id": 128,
+  "Question": "Consider a rectangular tank with length $7 \\mathrm{m}$ and width $6 \\mathrm{m}$. The tank is filled with a liquid to a height of $32 \\mathrm{m}$. A square hole of side length $1.5 \\mathrm{m}$ at the bottom of the tank allows the liquid to drain out. Using Torricelli's law, which states that the speed of efflux is proportional to the square root of the height of fluid above the outlet, find out how much liquid remains in terms of height after 2 seconds. Assume acceleration due to gravity as $9.81 \\mathrm{ms^{-2}}$. Give your answer in meters and up to five significant figures.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

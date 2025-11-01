@@ -1,0 +1,6 @@
+{
+  "id": 209,
+  "Question": "A spring-mass system consists of a spring with a natural length that is stretched 1.531 ft by a weight of 5.76 lb. The damping constant of the medium in which the system operates is \\(4.933 \\mathrm{lb}-\\mathrm{sec} / \\mathrm{ft}\\). The weight is released from its position with an initial velocity of -0.801 ft/sec (upwards). Formulate the problem to determine the mass's displacement over time and find out where the mass will be at t=3 seconds relative to its equilibrium position, considering upward from the equilibrium position as positive direction. Provide your answer in feet, rounded to three decimal places.",
+  "Category": "ordinary_differential_equation",
+  "Type": "second_order_equation"
+}

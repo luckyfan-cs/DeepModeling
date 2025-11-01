@@ -1,0 +1,16 @@
+id: industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-
+name: Industry 27 Someone Has A Fund Of 300 000 Yuan And Has The Following Investment 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-/description.md
+
+dataset:
+  answers: industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-/prepared/private/answer.csv
+  sample_submission: industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.industry-27-someone-has-a-fund-of-300-000-yuan-and-has-the-following-investment-.prepare:prepare

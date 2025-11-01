@@ -1,0 +1,16 @@
+id: mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water
+name: Mamo Ode 269 A Large Tank Is Filled To Capacity With 500 Gallons Of Pure Water
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water/description.md
+
+dataset:
+  answers: mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water/prepared/private/answer.csv
+  sample_submission: mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-269-a-large-tank-is-filled-to-capacity-with-500-gallons-of-pure-water.prepare:prepare

@@ -1,0 +1,12 @@
+# Bwor 28 A Hospital Operates 24 Hours A Day
+
+A hospital operates 24 hours a day. The number of nurses required during each 4-hour shift is:$2\!:\!00\!\sim\!6\!:\!00\!\longrightarrow\!10$ nurses, $6\!:\!00\!\sim$ 10:00\!\longrightarrow\!15$ nurses, $10:00\!\sim\!14:00\!\longrightarrow\!25$ nurses, $14:00\!\sim\!18\!:\!00\!\longrightarrow\!20$ nurses, $18\,;00\!\sim\!22\!:\!00\!\longrightarrow\!18$ nurses, $22\!:\!00\!\sim\!2\!:\!00\!-\!\!\!-\!12$ nurses. Nurses work in 6 shifts, each starting at: $2:00\,,6:00\,,10:00\,,14:00\,,18:00\,,22:00$ and each nurse works 8 consecutive hours. 
+
+Now there’s a new scenario: The hospital can hire both full-time and temporary (contract) nurses. Both types work the same 8-hour shifts. Wages: Full-time nurse = ¥10/hour. Contract nurse = ¥15/hour. Task:Should the hospital hire contract nurses? If so, how many should be hired in each shift to minimize total labor cost, while still satisfying the required nurse coverage?
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

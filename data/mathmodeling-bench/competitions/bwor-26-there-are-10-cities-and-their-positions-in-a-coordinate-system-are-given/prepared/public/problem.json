@@ -1,0 +1,6 @@
+{
+  "en_question": "There are 10 cities, and their positions in a coordinate system are given in Table 14-8. Please complete the following task: Use mathematical modeling to find the shortest route that visits each city exactly once.\n\n\\begin{table}[h]\n    \\centering\n    \\caption{City Coordinates (Table 14-8)}\n    \\renewcommand{\\arraystretch}{1.2}\n    \\begin{tabular}{c|cccccccccc}\n        \\toprule\n        Coordinate & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\\\\n        \\midrule\n        $x$ & 0 & 5 & 8 & 7 & 10 & 12 & 18 & 18 & 18 & 20 \\\\\n        $y$ & 0 & 20 & 12 & 4 & 15 & 18 & 18 & 15 & 18 & 17 \\\\\n        \\bottomrule\n    \\end{tabular}\n\\end{table}\n",
+  "cn_question": "有 10 个城市，它们在坐标系中的位置如表 14-8 所示，试完成以下工作：\n\\begin{enumerate}\n    \\item 用数学建模求出经过每个城市一次且仅一次的一条最短线路；\n\\end{enumerate}\n\n\\begin{table}[h]\n    \\centering\n    \\caption{城市坐标（表 14-8）}\n    \\renewcommand{\\arraystretch}{1.2}\n    \\begin{tabular}{c|cccccccccc}\n        \\toprule\n        坐标 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\\\\n        \\midrule\n        $x$ & 0 & 5 & 8 & 7 & 10 & 12 & 18 & 18 & 18 & 20 \\\\\n        $y$ & 0 & 20 & 12 & 4 & 15 & 18 & 18 & 15 & 18 & 17 \\\\\n        \\bottomrule\n    \\end{tabular}\n\\end{table}\n",
+  "difficulty": "Medium",
+  "id": 26
+}

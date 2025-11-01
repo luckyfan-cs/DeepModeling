@@ -1,0 +1,10 @@
+# Mamo Easy 548 A Supply Chain Manager Is Planning The Allocation Of Resources Acr
+
+A supply chain manager is planning the allocation of resources across three major areas: raw material procurement, labor, and transportation. The aim is to minimize total costs while meeting several constraints due to operational and strategic considerations. Each unit of raw material, labor, and transportation incurs costs of 5, 4, and 6 units respectively. The following conditions need to be satisfied:\n\n- The amount of raw materials should exceed twice the amount of labor by at least 500 units.\n- The combined quantity of labor and transportation cannot exceed 1000 units.\n- There must always be 200 more units in raw materials than there are in transportation.\n\nGiven these conditions, along with the requirement that all allocations are integers due to practical limitations (e.g., it's impossible to have half a worker or transport half a unit of raw material), what is the minimum total cost for the company when optimally allocating resources? Please provide your answer rounded to the nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

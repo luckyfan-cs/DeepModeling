@@ -1,0 +1,16 @@
+id: mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t
+name: Mamo Easy 572 A Military Operation Requires The Allocation Of Resources Across T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t/description.md
+
+dataset:
+  answers: mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t/prepared/private/answer.csv
+  sample_submission: mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-572-a-military-operation-requires-the-allocation-of-resources-across-t.prepare:prepare

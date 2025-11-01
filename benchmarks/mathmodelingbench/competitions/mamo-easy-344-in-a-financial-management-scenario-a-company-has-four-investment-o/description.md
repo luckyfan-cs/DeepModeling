@@ -1,0 +1,10 @@
+# Mamo Easy 344 In A Financial Management Scenario A Company Has Four Investment O
+
+In a financial management scenario, a company has four investment opportunities: $X1$, $X2$, $X3$, and $X4$. These could represent investments in different sectors or assets. The company aims to minimize the total investment cost while meeting certain constraints.\n\nThe combined investment in assets $X1$ and $X2$ cannot exceed 1000 units due to budget limitations. Furthermore, the combined return from these two investments, calculated as 5% of the investment in asset $X1$ and 7% of the investment in asset $X2$, must be at least 50 units to ensure profitability.\n\nSimilarly, the combined investment in assets $X3$ and $X4$ is capped at 500 units due to budget constraints. However, the net loss from these investments, calculated as -3% of the investment in asset X3 and -4% of the investment in asset X4, should not exceed -20 units to manage risk.\n\nEach unit of investment for assets X1, X2, X3, and X4 costs 10 ,15 ,20 ,and 25 units respectively. Given that all investments are integers due to minimum denomination restrictions:\nWhat is the minimum total cost required for this financial management scenario? Provide your answer rounded to nearest whole number.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@profit[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,6 @@
+{
+  "id": 112,
+  "Question": "In a city with 6918 inhabitants, a viral video starts spreading. At the initial time t = 0 days, 3282 people have already watched the video. The rate of spread of the video is 0.378 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have watched the video and the numbers who have not, can you determine how many people in total will have watched this viral video after 5 days? Provide your answer in nearest whole number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

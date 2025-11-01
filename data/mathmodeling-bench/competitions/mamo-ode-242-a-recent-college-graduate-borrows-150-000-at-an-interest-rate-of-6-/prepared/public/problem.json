@@ -1,0 +1,6 @@
+{
+  "id": 243,
+  "Question": " A recent college graduate borrows $150,000 at an interest rate of 6% to purchase a condominium. Anticipating steady salary increases, the buyer expects to make payments at a monthly rate of 800 + 10t, where t is the number of months since the loan was made. Assuming the same payment schedule, how large a loan with $ could be paid off in exactly 20 years? Keep seven significant digit number.",
+  "Category": "ordinary_differential_equation",
+  "Type": "first_order_equation"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-30-a-large-tank-initially-contains-5375-liters-of-water-with-53-kg-of-d",
+  "en_question": "A large tank initially contains 5375 liters of water with 53 kg of dissolved sugar. Fresh water is introduced into the tank at a rate of 10 liters per minute, while a sugar solution containing 0.27 kg/liter is also added at the same rate. The well-mixed solution exits the tank at the same combined rate to maintain its volume constant. Determine the amount of sugar in kilograms remaining in the tank after 64 minutes, ensuring your answer has five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "209.96"
+}

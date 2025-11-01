@@ -1,0 +1,10 @@
+# Mamo Ode 338 In Our Competitive Hunter Model Set Within A Small Pond Ecosystem A
+
+In our Competitive Hunter Model set within a small pond ecosystem aiming to explore the coexistence of trout (x(t)) and bass (y(t)), let's assign specific numerical values to the parameters governing their population dynamics. Suppose the intrinsic growth rate of trout, a, is 1.2 per year, reflecting a favorable environment that supports a rapid increase in trout population in the absence of bass. The competition impact factor of bass on trout, b, is set to 0.004 per bass per year, indicating that each bass has a modest negative effect on trout population growth due to competition or predation. For bass, the intrinsic growth rate, m, is 0.9 per year, suggesting a slightly less favorable but still supportive environment for bass growth compared to trout. The effect of trout on bass growth, n, is 0.002 per trout per year, showing that trout have a smaller impact on limiting bass population growth. Initially, the pond is stocked with 100 trout (x_0 = 100) and 50 bass (y_0 = 50), providing a starting point to study the dynamics of their populations over time. These values allow us to simulate how trout and bass interact within the pond, considering their competition for resources and the potential for coexistence. Find the number of bass after 2 years. Keep three significant digit number in answer.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

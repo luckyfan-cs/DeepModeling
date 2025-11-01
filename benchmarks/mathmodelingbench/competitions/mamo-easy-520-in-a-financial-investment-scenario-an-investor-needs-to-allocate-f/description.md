@@ -1,0 +1,10 @@
+# Mamo Easy 520 In A Financial Investment Scenario An Investor Needs To Allocate F
+
+In a financial investment scenario, an investor needs to allocate funds across three different investments: x1, x2, and x3. These investments could represent shares in different companies or different types of financial instruments. The total investment across all three cannot exceed \$10000 due to the investor's budget constraints. Each unit of investment in options x1, x2, and x3 incurs costs of \$500, \$400, and \$300 respectively. \n\nThe allocation must adhere to the following constraints:\n- Half of the funds invested in option x1 minus a quarter of the funds invested in option x2 should be at least \$2000. This could reflect a certain risk-return trade-off.\n- The difference between the funds allocated to option x3 and those allocated to option x1 should not exceed \$500. This constraint might be imposed to maintain some balance between these two investments.\n\nGiven these conditions and aiming for whole numbers in dollar amounts (due to indivisibility of monetary units), what is the minimum total cost for the investor given optimal allocation of funds among these three options? Please provide your answer rounded off to nearest dollar.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@cost[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

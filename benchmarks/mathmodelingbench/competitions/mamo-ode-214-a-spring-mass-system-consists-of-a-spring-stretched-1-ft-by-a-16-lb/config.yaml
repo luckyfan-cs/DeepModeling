@@ -1,0 +1,16 @@
+id: mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb
+name: Mamo Ode 214 A Spring Mass System Consists Of A Spring Stretched 1 Ft By A 16 Lb
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb/description.md
+
+dataset:
+  answers: mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb/prepared/private/answer.csv
+  sample_submission: mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-214-a-spring-mass-system-consists-of-a-spring-stretched-1-ft-by-a-16-lb.prepare:prepare

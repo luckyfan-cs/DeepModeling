@@ -1,0 +1,16 @@
+id: mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-
+name: Mamo Easy 42 In A Healthcare Setting A Hospital Administrator Needs To Allocate 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-/description.md
+
+dataset:
+  answers: mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-/prepared/private/answer.csv
+  sample_submission: mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-42-in-a-healthcare-setting-a-hospital-administrator-needs-to-allocate-.prepare:prepare

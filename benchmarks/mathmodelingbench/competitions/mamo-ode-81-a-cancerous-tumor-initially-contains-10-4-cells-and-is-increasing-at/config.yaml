@@ -1,0 +1,16 @@
+id: mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at
+name: Mamo Ode 81 A Cancerous Tumor Initially Contains 10 4 Cells And Is Increasing At
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at/description.md
+
+dataset:
+  answers: mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at/prepared/private/answer.csv
+  sample_submission: mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-81-a-cancerous-tumor-initially-contains-10-4-cells-and-is-increasing-at.prepare:prepare

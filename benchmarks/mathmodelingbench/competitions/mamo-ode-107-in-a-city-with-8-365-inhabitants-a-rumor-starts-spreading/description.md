@@ -1,0 +1,10 @@
+# Mamo Ode 107 In A City With 8 365 Inhabitants A Rumor Starts Spreading
+
+In a city with 8,365 inhabitants, a rumor starts spreading. At the initial time t = 0 days, 3,362 people have already heard the rumor. The rate of spread of the rumor is 0.504 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, can you determine how many people in total will have heard about it after 9 days? Provide your answer in whole numbers.
+
+### Submission Format
+- Provide a single row with `id` and `answer` columns.
+- The answer must use the template `@value[value]`, where `value` is the numeric solution rounded as appropriate.
+
+### Evaluation
+- Submissions are evaluated using an exact-match checker with a small tolerance (±1e-2) on the reported value.

@@ -1,0 +1,16 @@
+id: mamo-ode-200-a-spring-mass-system-is-designed-with-a-7
+name: Mamo Ode 200 A Spring Mass System Is Designed With A 7
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-200-a-spring-mass-system-is-designed-with-a-7/description.md
+
+dataset:
+  answers: mamo-ode-200-a-spring-mass-system-is-designed-with-a-7/prepared/private/answer.csv
+  sample_submission: mamo-ode-200-a-spring-mass-system-is-designed-with-a-7/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-200-a-spring-mass-system-is-designed-with-a-7.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-200-a-spring-mass-system-is-designed-with-a-7.prepare:prepare

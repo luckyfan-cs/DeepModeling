@@ -1,0 +1,16 @@
+id: mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o
+name: Mamo Ode 40 A Tank Initially Contains 765 Liters Of Water With A Concentration O
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o/description.md
+
+dataset:
+  answers: mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o/prepared/private/answer.csv
+  sample_submission: mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o.prepare:prepare
