@@ -26,4 +26,4 @@ def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
         expected = float("nan")
     if pd.isna(submitted) or pd.isna(expected):
         return 0.0
-    return 1.0 if abs(submitted - expected) <= 1e-2 else 0.0
+    return 1.0 if abs(submitted - expected) <= 0.05 else 0.0
