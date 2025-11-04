@@ -1,0 +1,16 @@
+id: industry-4
+name: Industry 4 Mary Is Planning Her Dinner Tonight
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-4/description.md
+
+dataset:
+  answers: industry-4/prepared/private/answer.csv
+  sample_submission: industry-4/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-4.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-4.prepare:prepare

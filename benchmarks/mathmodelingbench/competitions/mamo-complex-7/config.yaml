@@ -1,0 +1,16 @@
+id: mamo-complex-7
+name: Mamo Complex 7 Imagine You Re A Nutrition Enthusiast Planning Your Daily Meals W
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-7/description.md
+
+dataset:
+  answers: mamo-complex-7/prepared/private/answer.csv
+  sample_submission: mamo-complex-7/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-7.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-7.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-26
+name: Industry 26 A Factory Produces Three Types Of Products I Ii And Iii
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-26/description.md
+
+dataset:
+  answers: industry-26/prepared/private/answer.csv
+  sample_submission: industry-26/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-26.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-26.prepare:prepare

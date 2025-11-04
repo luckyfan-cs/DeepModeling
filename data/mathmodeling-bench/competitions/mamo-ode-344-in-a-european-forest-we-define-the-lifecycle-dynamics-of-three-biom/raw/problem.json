@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-344-in-a-european-forest-we-define-the-lifecycle-dynamics-of-three-biom",
-  "en_question": "In a European forest, we define the lifecycle dynamics of three biomass types\u2014living trees (10000 units), dead trees (0 units), and humus (0 units)\u2014with specific decay and conversion rates to quantify their interactions over time. These parameters a = 5 for living trees' decay, b = 5, which is related to the rate at which living trees contribute to dead trees; c=3 for dead trees' conversion rate to humus, and e=1 for humus decay\u2014illustrate the forest's complex biomass flux, inviting exploration of how these dynamics influence humus evolution over a century. Find the biomass of the dead trees after 3 years. Keep two significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "system_equation",
-  "expected_answer": "3.1"
-}

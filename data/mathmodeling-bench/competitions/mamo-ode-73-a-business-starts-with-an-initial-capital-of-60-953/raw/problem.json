@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-73-a-business-starts-with-an-initial-capital-of-60-953",
-  "en_question": "A business starts with an initial capital of $60,953. The company's earnings follow a model where the rate of change of its capital is 37.7% of its current capital plus an additional constant income of $1,589 per year. How much capital will the company have after 7 years? Provide your answer in dollars and to one decimal place.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "908082.8"
-}

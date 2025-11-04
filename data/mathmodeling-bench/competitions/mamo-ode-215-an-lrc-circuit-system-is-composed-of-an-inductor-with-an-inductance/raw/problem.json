@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-215-an-lrc-circuit-system-is-composed-of-an-inductor-with-an-inductance",
-  "en_question": "An LRC circuit system is composed of an inductor with an inductance of 4.938 Henry, a resistor with resistance of 6.328 Ohm and a capacitor with capacitance of 0.145 Farad. The initial charge on the capacitor is 6 coulombs and the initial current flowing through the circuit is 0.12 Amperes when there is no external voltage applied to the system. Find out how much charge will be left on the capacitor after 1 second passes since the initiation of the current flow. Provide your answer in coulombs, rounded to three decimal places.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "3.495"
-}

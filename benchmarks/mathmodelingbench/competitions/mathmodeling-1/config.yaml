@@ -1,0 +1,16 @@
+id: mathmodeling-1
+name: MathModeling Task 1 - Feed Selection Optimization
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mathmodeling-1/description.md
+
+dataset:
+  answers: mathmodeling-1/prepared/private/answer.csv
+  sample_submission: mathmodeling-1/prepared/public/sample_submission.csv
+
+grader:
+  name: linear_program_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mathmodeling-1.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mathmodeling-1.prepare:prepare

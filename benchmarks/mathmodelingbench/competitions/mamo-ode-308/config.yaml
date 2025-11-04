@@ -1,0 +1,16 @@
+id: mamo-ode-308
+name: Mamo Ode 308 A Two Tank System Engaged In Fluid Exchange Each Labeled As Tank A 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-308/description.md
+
+dataset:
+  answers: mamo-ode-308/prepared/private/answer.csv
+  sample_submission: mamo-ode-308/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-308.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-308.prepare:prepare

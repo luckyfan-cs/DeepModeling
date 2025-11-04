@@ -1,0 +1,16 @@
+id: mamo-ode-131
+name: Mamo Ode 131 Let H T Be The Height Of Water In A Rectangular Tank At Time T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-131/description.md
+
+dataset:
+  answers: mamo-ode-131/prepared/private/answer.csv
+  sample_submission: mamo-ode-131/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-131.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-131.prepare:prepare

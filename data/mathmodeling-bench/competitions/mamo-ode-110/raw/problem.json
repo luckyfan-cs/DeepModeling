@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-110",
+  "en_question": "In a city with 9296 inhabitants, a new trend starts spreading. At the initial time t = 0 days, 2710 people have already followed the trend. The rate of spread of the trend is proportional to the product of the numbers of the population who have followed and those who haven't with a proportionality constant of 0.062 per day. Can you determine how many people in total will have followed this trend after 8 days? Provide your answer in nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "9295"
+}

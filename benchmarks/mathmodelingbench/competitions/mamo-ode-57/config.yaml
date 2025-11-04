@@ -1,0 +1,16 @@
+id: mamo-ode-57
+name: Mamo Ode 57 A Retirement Savings Account Contains 300 000 And Earns 5 Interest C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-57/description.md
+
+dataset:
+  answers: mamo-ode-57/prepared/private/answer.csv
+  sample_submission: mamo-ode-57/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-57.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-57.prepare:prepare

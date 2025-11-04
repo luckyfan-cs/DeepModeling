@@ -1,0 +1,16 @@
+id: bwor-68
+name: Bwor 68 A Factory Produces Three Types Of Products
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-68/description.md
+
+dataset:
+  answers: bwor-68/prepared/private/answer.csv
+  sample_submission: bwor-68/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-68.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-68.prepare:prepare

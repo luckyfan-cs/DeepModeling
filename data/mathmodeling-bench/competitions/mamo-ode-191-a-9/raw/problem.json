@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-191-a-9",
-  "en_question": "A 9.673 lb weight attached to a spring is initially displaced by -3.98 ft from its equilibrium position and released with an initial velocity of 4.546 ft/s. The system has a damping constant of 9.494 lb-sec/ft and the spring constant is 8.025 lb/ft. Assuming upward from the equilibrium position as the positive direction, determine the displacement of the weight from its equilibrium position at t=4 seconds, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.592"
-}

@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-54-carrie-mattaini-invests-2000-with-quickbucks-banking-which-offers-an",
-  "en_question": "Carrie Mattaini invests $2000 with Quickbucks Banking, which offers an annual return of 5% but charges a yearly service fee of $50. Using a model that incorporates these conditions into a first-order differential equation, calculate the amount of money in Carrie's account after 1 year. Provide the answer in dollars. Keep 6 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "2051.27"
-}

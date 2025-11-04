@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-283",
+  "en_question": "A series circuit has a capacitor of 0.25 * 10^(-6) F, a resistor of 5 * 10^3 ohms , and an inductor of 1 H. The initial charge on the capacitor is zero. If a 12-volt battery is connected to the circuit and the circuit is closed at t = 0, determine the limiting charge as t \u2192 \u221e. Keep answer in one significant digit number..",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.000003"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "bwor-73",
+  "en_question": "large-scale exam has 50,000 participants, and based on their scores, the answer sheets are marked with A, B, C, D, or E, from highest to lowest. According to historical data from similar exams, the percentage distribution of these five grades is: A: 10%, B: 25%, C: 30%, D: 20%, E: 15%. If a computer is used to sort the answer sheets by recognizing one grade at a time (i.e., each scan can only detect one specific grade), Question: What order of sorting should be used to minimize the total sorting workload?",
+  "cn_question": "8.15\u67d0\u9879\u5927\u578b\u8003\u8bd5\u6709 50 000\u4eba\u53c2\u52a0,\u6309\u5f97\u5206\u9ad8\u4f4e\u5728\u8bd5\u5377\u4e0a\u5206\u522b\u6807\u8bb0 A\u3001B\u3001C\u3001D\u3001E\u3002\u6309\u5386\u5e74\u540c\u7c7b\u8003\u8bd5\u6210\u7ee9\uff0c\u8fd95\u6863\u6210\u7ee9\u7684\u5f97\u5206\u6bd4\u4f8b\u4e3a $10\\,\\%\\,,25\\,\\%\\,,30\\,\\%\\,,20\\,\\%\\,,15\\,\\%$ \u3002\u82e5\u7528\u8ba1\u7b97\u673a\u6309\u5f97\u5206\u6807\u8bb0\u5c065\u6863\u8bd5\u5377\u5206\u68c0\uff08\u8ba1\u7b97\u673a\u6bcf\u6b21\u53ea\u80fd\u8bc6\u522b\u4e00\u4e2a\u6807\u8bb0)\u3002\u95ee\u5e94\u6309\u4ec0\u4e48\u987a\u5e8f\uff0c\u4f7f\u5206\u68c0\u7684\u603b\u5de5\u4f5c\u91cf\u4e3a\u6700\u5c0f\uff1f",
+  "difficulty": "Medium",
+  "expected_answer": "2.5"
+}

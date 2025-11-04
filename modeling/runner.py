@@ -63,6 +63,7 @@ class ModelingRunner:
         self.handler_classes = TASK_HANDLER_CLASSES
         self.benchmark = None
         self.run_records: List[Dict[str, Any]] = []
+        self._task_run_index: Dict[str, List[Dict[str, Any]]] = {}
 
         logger.info("ModelingRunner is ready to evaluate tasks.")
 
@@ -360,12 +361,151 @@ class ModelingRunner:
             "task_id": task.task_id,
             "metadata_path": str(metadata_file),
             "workspace_dir": metadata["workspace_dir"],
+            "run_name": metadata["run_name"],
             "summary": metadata["summary"],
             "timeline": metadata["timeline"],
             "parameters": metadata["parameters"],
-            "detail_files": metadata.get("detail_files"),
+            "detail_files": metadata.get("detail_files") or {},
+            "task_context": metadata["task_context"],
         }
         self.run_records.append(record_entry)
+        self._task_run_index.setdefault(task.task_id, []).append(record_entry)
+
+    def record_grade_report(
+        self,
+        *,
+        task_id: str,
+        submission_path: Optional[str],
+        report: Any,
+        error_message: Optional[str] = None
+    ) -> None:
+        """
+        Persist benchmark grading output under the task workspace telemetry directory.
+        """
+        run_entry = self._find_run_record(task_id=task_id, submission_path=submission_path)
+        if not run_entry:
+            logger.warning("No run record found for task '%s'; skipping grade telemetry.", task_id)
+            return
+
+        workspace_dir_str = run_entry.get("workspace_dir")
+        if not workspace_dir_str:
+            logger.warning("Run record for task '%s' is missing workspace_dir; skipping grade telemetry.", task_id)
+            return
+
+        workspace_dir = Path(workspace_dir_str)
+        telemetry_dir = workspace_dir / "artifacts" / "telemetry"
+        try:
+            telemetry_dir.mkdir(parents=True, exist_ok=True)
+        except Exception as exc:
+            logger.error("Failed to ensure telemetry directory for task '%s': %s", task_id, exc)
+            return
+
+        report_dict = self._coerce_report_dict(report)
+        grade_record = {
+            "task_id": task_id,
+            "run_name": run_entry.get("run_name"),
+            "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+            "submission_path": submission_path,
+            "error_message": error_message,
+            "report": report_dict,
+        }
+
+        grade_rel_path = Path("telemetry") / "grade_reports.jsonl"
+        grade_abs_path = telemetry_dir / "grade_reports.jsonl"
+        try:
+            with open(grade_abs_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(grade_record, ensure_ascii=False) + "\n")
+        except Exception as exc:
+            logger.error("Failed to append grade telemetry for task '%s': %s", task_id, exc)
+            return
+
+        run_entry.setdefault("detail_files", {})
+        run_entry["detail_files"]["grade_reports"] = f"artifacts/{grade_rel_path}"
+        run_entry["grade_report"] = grade_record
+
+        metadata_path = run_entry.get("metadata_path")
+        if metadata_path:
+            self._update_metadata_with_grade(
+                metadata_path=Path(metadata_path),
+                grade_record=grade_record,
+                grade_rel_path=str(grade_rel_path)
+            )
+
+    def _find_run_record(
+        self,
+        *,
+        task_id: str,
+        submission_path: Optional[str]
+    ) -> Optional[Dict[str, Any]]:
+        candidates = self._task_run_index.get(task_id, [])
+        if not candidates:
+            return None
+
+        if submission_path:
+            submission_path_obj = Path(submission_path)
+            try:
+                submission_norm = submission_path_obj.resolve(strict=False)
+            except Exception:
+                submission_norm = submission_path_obj.absolute()
+
+            for entry in reversed(candidates):
+                expected_path = (entry.get("task_context") or {}).get("expected_output_path")
+                if not expected_path:
+                    continue
+                expected_obj = Path(expected_path)
+                try:
+                    expected_norm = expected_obj.resolve(strict=False)
+                except Exception:
+                    expected_norm = expected_obj.absolute()
+                if expected_norm == submission_norm:
+                    return entry
+
+        return candidates[-1]
+
+    @staticmethod
+    def _coerce_report_dict(report: Any) -> Dict[str, Any]:
+        if hasattr(report, "to_dict") and callable(report.to_dict):
+            try:
+                return report.to_dict()
+            except Exception:
+                pass
+        if isinstance(report, dict):
+            return report
+        if hasattr(report, "__dict__"):
+            try:
+                return dict(report.__dict__)
+            except Exception:
+                return {"value": str(report)}
+        return {"value": str(report)}
+
+    def _update_metadata_with_grade(
+        self,
+        *,
+        metadata_path: Path,
+        grade_record: Dict[str, Any],
+        grade_rel_path: str
+    ) -> None:
+        try:
+            with open(metadata_path, "r", encoding="utf-8") as f:
+                metadata = json.load(f)
+        except Exception as exc:
+            logger.warning("Unable to read metadata for grade update (%s): %s", metadata_path, exc)
+            return
+
+        metadata.setdefault("detail_files", {})
+        metadata["detail_files"]["grade_reports"] = f"artifacts/{grade_rel_path}"
+        metadata["grading"] = {
+            "timestamp_utc": grade_record["timestamp_utc"],
+            "submission_path": grade_record["submission_path"],
+            "error_message": grade_record["error_message"],
+            "report": grade_record["report"],
+        }
+
+        try:
+            with open(metadata_path, "w", encoding="utf-8") as f:
+                json.dump(metadata, f, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            logger.warning("Failed to update metadata with grade info (%s): %s", metadata_path, exc)
 
     def _write_jsonl(self, workspace_service, relative_path: str, records: List[Dict[str, Any]]) -> None:
         """Write newline-delimited JSON records to an artifacts sub-path."""

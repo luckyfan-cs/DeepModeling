@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-118",
+  "en_question": "In a small city with 4511 inhabitants, a rumor starts spreading. At the initial time t = 0 days, 79 people have already heard the rumor. The rate of spread of the rumor is 0.249 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, can you determine how many people in total will have heard the rumor after 8 days? Express your answer as an integer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4510"
+}

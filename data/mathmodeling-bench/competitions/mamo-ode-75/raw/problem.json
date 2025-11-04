@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-75",
+  "en_question": "A business has an initial capital of $5005 and plans to make continuous deposits into a savings account at a rate of $539 per year. The account earns an interest rate of 52.2% per year, compounded continuously. Calculate the amount of money in the account after 6 years. Provide your answer in dollars and to nine significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "137347.101"
+}

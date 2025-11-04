@@ -1,0 +1,16 @@
+id: industry-35
+name: Industry 35 The Vehicle Routing Problem Vrp Was First Proposed By Dantzig And Ra
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-35/description.md
+
+dataset:
+  answers: industry-35/prepared/private/answer.csv
+  sample_submission: industry-35/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-35.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-35.prepare:prepare

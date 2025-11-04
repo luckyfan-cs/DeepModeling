@@ -1,0 +1,16 @@
+id: industry-3
+name: Industry 3 A Farmer Needs To Decide How Many Cows Sheep And Chickens To Raise In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-3/description.md
+
+dataset:
+  answers: industry-3/prepared/private/answer.csv
+  sample_submission: industry-3/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-3.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-3.prepare:prepare

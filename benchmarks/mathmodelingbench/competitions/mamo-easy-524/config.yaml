@@ -1,0 +1,16 @@
+id: mamo-easy-524
+name: Mamo Easy 524 In A Healthcare Setting A Hospital Administrator Is Planning The A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-524/description.md
+
+dataset:
+  answers: mamo-easy-524/prepared/private/answer.csv
+  sample_submission: mamo-easy-524/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-524.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-524.prepare:prepare

@@ -1,0 +1,16 @@
+id: bwor-15
+name: Bwor 15 Factories A 1 And A 2 Produce A Certain Type Of Material
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-15/description.md
+
+dataset:
+  answers: bwor-15/prepared/private/answer.csv
+  sample_submission: bwor-15/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-15.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-15.prepare:prepare

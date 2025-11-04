@@ -1,0 +1,16 @@
+id: mamo-easy-620
+name: Mamo Easy 620 A Scheduler In A Manufacturing Company Is Planning To Allocate Hou
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-620/description.md
+
+dataset:
+  answers: mamo-easy-620/prepared/private/answer.csv
+  sample_submission: mamo-easy-620/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-620.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-620.prepare:prepare

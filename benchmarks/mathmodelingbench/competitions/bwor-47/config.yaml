@@ -1,0 +1,16 @@
+id: bwor-47
+name: Bwor 47 To Ensure Flight Safety The Engines On The Aircraft Must Be Compulsorily
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-47/description.md
+
+dataset:
+  answers: bwor-47/prepared/private/answer.csv
+  sample_submission: bwor-47/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-47.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-47.prepare:prepare

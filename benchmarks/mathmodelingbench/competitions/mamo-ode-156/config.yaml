@@ -1,0 +1,16 @@
+id: mamo-ode-156
+name: Mamo Ode 156 Given A Spring System With A Mass Of 2 Kg And A Damping Constant Of
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-156/description.md
+
+dataset:
+  answers: mamo-ode-156/prepared/private/answer.csv
+  sample_submission: mamo-ode-156/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-156.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-156.prepare:prepare

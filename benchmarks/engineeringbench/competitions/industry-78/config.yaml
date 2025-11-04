@@ -1,0 +1,16 @@
+id: industry-78
+name: Industry 78 A Furniture Factory Needs To Decide How Many Tables Chairs And Books
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-78/description.md
+
+dataset:
+  answers: industry-78/prepared/private/answer.csv
+  sample_submission: industry-78/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-78.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-78.prepare:prepare

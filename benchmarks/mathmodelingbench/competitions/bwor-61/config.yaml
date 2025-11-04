@@ -1,0 +1,16 @@
+id: bwor-61
+name: Bwor 61 A Company Plans To Establish 4 Sales Outlets In Three Different Regions
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-61/description.md
+
+dataset:
+  answers: bwor-61/prepared/private/answer.csv
+  sample_submission: bwor-61/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-61.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-61.prepare:prepare

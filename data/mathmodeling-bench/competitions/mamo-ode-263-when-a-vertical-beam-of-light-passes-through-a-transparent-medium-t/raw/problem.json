@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-263-when-a-vertical-beam-of-light-passes-through-a-transparent-medium-t",
-  "en_question": "When a vertical beam of light passes through a transparent medium, the rate at which its intensity I decreases is proportional to I(t), where t represents the thickness of the medium (in feet). In clear seawater, the intensity 3 feet below the surface is 25% of the initial intensity I_0 of the incident beam. What is the intensity of the beam 15 feet below the surface? The answer is one number multiple I_0, but only show me the mutiples. Keep two significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "0.00098"
-}

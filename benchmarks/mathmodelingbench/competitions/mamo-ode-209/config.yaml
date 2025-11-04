@@ -1,0 +1,16 @@
+id: mamo-ode-209
+name: Mamo Ode 209 Consider A Spring Mass Damper System Where An Object Of Mass 6
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-209/description.md
+
+dataset:
+  answers: mamo-ode-209/prepared/private/answer.csv
+  sample_submission: mamo-ode-209/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-209.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-209.prepare:prepare

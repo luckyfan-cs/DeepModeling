@@ -1,0 +1,16 @@
+id: bwor-72
+name: Bwor 72 A Security Department Has 12 Patrol Units Responsible For Patrolling 4 W
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-72/description.md
+
+dataset:
+  answers: bwor-72/prepared/private/answer.csv
+  sample_submission: bwor-72/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-72.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-72.prepare:prepare

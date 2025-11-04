@@ -1,0 +1,16 @@
+id: industry-74
+name: Industry 74 There Are Mathrm A And Mathrm B Two Products Both Requiring Two Succ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-74/description.md
+
+dataset:
+  answers: industry-74/prepared/private/answer.csv
+  sample_submission: industry-74/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-74.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-74.prepare:prepare

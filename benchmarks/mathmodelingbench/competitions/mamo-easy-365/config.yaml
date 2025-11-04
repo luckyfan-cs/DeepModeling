@@ -1,0 +1,16 @@
+id: mamo-easy-365
+name: Mamo Easy 365 A Farmer Is Planning His Crop Rotation For The Next Growing Season
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-365/description.md
+
+dataset:
+  answers: mamo-easy-365/prepared/private/answer.csv
+  sample_submission: mamo-easy-365/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-365.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-365.prepare:prepare

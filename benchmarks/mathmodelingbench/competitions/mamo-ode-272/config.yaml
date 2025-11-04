@@ -1,0 +1,16 @@
+id: mamo-ode-272
+name: Mamo Ode 272 A 200 Volt Electromotive Force Is Applied To An Rc Series Circuit I
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-272/description.md
+
+dataset:
+  answers: mamo-ode-272/prepared/private/answer.csv
+  sample_submission: mamo-ode-272/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-272.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-272.prepare:prepare

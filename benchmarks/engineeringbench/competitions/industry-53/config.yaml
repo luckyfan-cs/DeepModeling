@@ -1,0 +1,16 @@
+id: industry-53
+name: Industry 53 Given That A Certain Factory Plans To Produce Three Types Of Product
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-53/description.md
+
+dataset:
+  answers: industry-53/prepared/private/answer.csv
+  sample_submission: industry-53/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-53.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-53.prepare:prepare

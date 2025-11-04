@@ -1,0 +1,16 @@
+id: mamo-easy-357
+name: Mamo Easy 357 A Retail Manager Is Planning The Inventory For Four Different Type
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-357/description.md
+
+dataset:
+  answers: mamo-easy-357/prepared/private/answer.csv
+  sample_submission: mamo-easy-357/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-357.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-357.prepare:prepare

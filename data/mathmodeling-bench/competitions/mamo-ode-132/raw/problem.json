@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-132",
+  "en_question": "A certain substance decays exponentially, with its quantity halving every 2 years. Given that you start with a 10 lb sample of this substance, calculate the remaining quantity after \\( \\frac{2 \\ln 5}{\\ln 2} \\) years. Express your answer in pounds to two significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "2.0"
+}

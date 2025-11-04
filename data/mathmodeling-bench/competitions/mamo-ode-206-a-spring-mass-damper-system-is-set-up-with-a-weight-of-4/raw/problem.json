@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-206-a-spring-mass-damper-system-is-set-up-with-a-weight-of-4",
-  "en_question": "A spring-mass-damper system is set up with a weight of 4.451 lb, a damping constant of 7.136 lb-s/ft and a spring constant of 2.064 lb/ft. The weight is initially pulled up by 6.95 ft above its equilibrium position and then released with an initial downward velocity of 6.048 ft/s (downward direction considered positive). Determine the displacement from the equilibrium position at t=5 seconds in feet, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "-0.447"
-}

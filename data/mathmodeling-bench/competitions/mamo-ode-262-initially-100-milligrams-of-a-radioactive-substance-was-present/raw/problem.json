@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-262-initially-100-milligrams-of-a-radioactive-substance-was-present",
-  "en_question": "Initially 100 milligrams of a radioactive substance was present. After 6 hours the mass had decreased by 3%. If the rate of decay is proportional to the amount of the substance present at time t, find the amount remaining in mg after 24 hours. Keep three significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "88.5"
-}

@@ -1,0 +1,16 @@
+id: mamo-easy-219
+name: Mamo Easy 219 A Retail Store Manager Needs To Stock Up Three Categories Of Produ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-219/description.md
+
+dataset:
+  answers: mamo-easy-219/prepared/private/answer.csv
+  sample_submission: mamo-easy-219/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-219.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-219.prepare:prepare

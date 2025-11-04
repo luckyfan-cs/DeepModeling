@@ -1,0 +1,16 @@
+id: sciencebench-075-topic-modeling-lda
+name: "ScienceBench - topic_modeling_LDA.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-075-topic-modeling-lda/description.md
+
+dataset:
+  answers: sciencebench-075-topic-modeling-lda/prepared/private/answer.csv
+  sample_submission: sciencebench-075-topic-modeling-lda/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-075-topic-modeling-lda.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-075-topic-modeling-lda.prepare:prepare

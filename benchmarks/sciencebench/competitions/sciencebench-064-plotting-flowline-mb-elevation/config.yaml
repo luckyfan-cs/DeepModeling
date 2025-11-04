@@ -1,0 +1,16 @@
+id: sciencebench-064-plotting-flowline-mb-elevation
+name: "ScienceBench - plotting_flowline_mb_elevation.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-064-plotting-flowline-mb-elevation/description.md
+
+dataset:
+  answers: sciencebench-064-plotting-flowline-mb-elevation/prepared/private/answer.csv
+  sample_submission: sciencebench-064-plotting-flowline-mb-elevation/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-064-plotting-flowline-mb-elevation.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-064-plotting-flowline-mb-elevation.prepare:prepare

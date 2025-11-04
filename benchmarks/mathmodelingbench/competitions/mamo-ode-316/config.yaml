@@ -1,0 +1,16 @@
+id: mamo-ode-316
+name: Mamo Ode 316 Let Brine Tanks A B C Be Given Of Volumes In M 3 20 40 60 Respectiv
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-316/description.md
+
+dataset:
+  answers: mamo-ode-316/prepared/private/answer.csv
+  sample_submission: mamo-ode-316/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-316.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-316.prepare:prepare

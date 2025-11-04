@@ -1,0 +1,16 @@
+id: mamo-easy-232
+name: Mamo Easy 232 An Agricultural Manager Needs To Allocate Resources Across Three A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-232/description.md
+
+dataset:
+  answers: mamo-easy-232/prepared/private/answer.csv
+  sample_submission: mamo-easy-232/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-232.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-232.prepare:prepare

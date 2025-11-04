@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-156",
+  "en_question": "Given a spring system with a mass of $2$ kg and a damping constant of $14$, it requires a force of $6$ N to maintain a stretch of $0.5$ m beyond its natural length. If the spring is initially stretched to $1$ m beyond its natural length and released with zero initial velocity, calculate the mass's position relative to the spring's natural length at a time $t = 3$ seconds, with the direction away from the spring's fixed point defined as positive. Provide the answer in meters, rounded to four significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.0597"
+}

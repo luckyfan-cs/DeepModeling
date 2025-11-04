@@ -1,0 +1,16 @@
+id: industry-87
+name: Industry 87 A Company Uses Two Machines Machine 1 And Machine 2 To Produce Two T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-87/description.md
+
+dataset:
+  answers: industry-87/prepared/private/answer.csv
+  sample_submission: industry-87/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-87.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-87.prepare:prepare

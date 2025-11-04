@@ -1,0 +1,16 @@
+id: mamo-easy-224
+name: Mamo Easy 224 A Telecommunications Company Is Planning To Allocate Resources Bet
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-224/description.md
+
+dataset:
+  answers: mamo-easy-224/prepared/private/answer.csv
+  sample_submission: mamo-easy-224/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-224.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-224.prepare:prepare

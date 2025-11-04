@@ -1,0 +1,16 @@
+id: bwor-24
+name: Bwor 24 Table 14 6 Gives The Processing Times For 12 Jobs On Machines A And B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-24/description.md
+
+dataset:
+  answers: bwor-24/prepared/private/answer.csv
+  sample_submission: bwor-24/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-24.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-24.prepare:prepare

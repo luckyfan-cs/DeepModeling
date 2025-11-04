@@ -1,0 +1,16 @@
+id: sciencebench-065-plotting-surface-mass
+name: "ScienceBench - plotting_surface_mass.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-065-plotting-surface-mass/description.md
+
+dataset:
+  answers: sciencebench-065-plotting-surface-mass/prepared/private/answer.csv
+  sample_submission: sciencebench-065-plotting-surface-mass/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-065-plotting-surface-mass.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-065-plotting-surface-mass.prepare:prepare

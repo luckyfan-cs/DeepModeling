@@ -1,0 +1,16 @@
+id: industry-98
+name: Industry 98 An Electronic System Is Composed Of 3 Types Of Components
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-98/description.md
+
+dataset:
+  answers: industry-98/prepared/private/answer.csv
+  sample_submission: industry-98/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-98.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-98.prepare:prepare

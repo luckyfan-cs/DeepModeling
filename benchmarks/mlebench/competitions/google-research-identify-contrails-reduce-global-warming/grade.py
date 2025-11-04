@@ -1,7 +1,7 @@
 import numpy as np
 from pandas import DataFrame
 
-from .competitions.utils import rle_decode
+from .utils import rle_decode
 from .grade_helpers import InvalidSubmissionError
 from .metrics import dice_coefficient
 

@@ -1,0 +1,16 @@
+id: mamo-complex-18
+name: Mamo Complex 18 Imagine You Re A Student Living On A Tight Budget But You Re Com
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-18/description.md
+
+dataset:
+  answers: mamo-complex-18/prepared/private/answer.csv
+  sample_submission: mamo-complex-18/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-18.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-18.prepare:prepare

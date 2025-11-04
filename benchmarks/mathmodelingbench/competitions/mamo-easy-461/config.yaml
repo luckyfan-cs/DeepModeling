@@ -1,0 +1,16 @@
+id: mamo-easy-461
+name: Mamo Easy 461 In A Supply Chain Management Scenario A Company Needs To Allocate 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-461/description.md
+
+dataset:
+  answers: mamo-easy-461/prepared/private/answer.csv
+  sample_submission: mamo-easy-461/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-461.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-461.prepare:prepare

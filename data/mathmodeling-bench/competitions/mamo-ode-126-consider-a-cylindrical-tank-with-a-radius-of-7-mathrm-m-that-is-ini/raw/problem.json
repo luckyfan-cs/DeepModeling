@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-126-consider-a-cylindrical-tank-with-a-radius-of-7-mathrm-m-that-is-ini",
-  "en_question": "Consider a cylindrical tank with a radius of $7 \\mathrm{m}$ that is initially filled with water to a height of $32 \\mathrm{m}$. There is a small hole at the bottom of the tank through which water drains. The area of this hole is $17.061 \\mathrm{m^2}$. According to Torricelli's Law, the rate at which water flows from the tank is proportional to the square root of the height of the water in the tank. Assuming an acceleration due to gravity of $9.81 \\mathrm{m/s^2}$, find out what will be the height of water left in the tank after 9 seconds? Please provide your answer in meters and round it off to three decimal places.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "11.889"
-}

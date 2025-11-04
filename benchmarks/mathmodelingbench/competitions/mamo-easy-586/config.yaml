@@ -1,0 +1,16 @@
+id: mamo-easy-586
+name: Mamo Easy 586 In An Energy Sector A Company Needs To Allocate Resources Across F
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-586/description.md
+
+dataset:
+  answers: mamo-easy-586/prepared/private/answer.csv
+  sample_submission: mamo-easy-586/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-586.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-586.prepare:prepare

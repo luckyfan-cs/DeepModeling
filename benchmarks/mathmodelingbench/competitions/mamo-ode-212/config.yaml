@@ -1,0 +1,16 @@
+id: mamo-ode-212
+name: Mamo Ode 212 Consider A Spring Mass Damper System Where A Mass Is Attached To Th
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-212/description.md
+
+dataset:
+  answers: mamo-ode-212/prepared/private/answer.csv
+  sample_submission: mamo-ode-212/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-212.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-212.prepare:prepare

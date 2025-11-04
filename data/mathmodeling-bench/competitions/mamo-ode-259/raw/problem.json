@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-259",
+  "en_question": "A culture initially has P_0 number of bacteria. At t = 1 h the number of bacteria is measured to be 3/2P_0. If the rate of growth is proportional to the number of bacteria P(t) present at time t, Determine how many times the bacteria will be at the beginning after ln3/0.4055 hours, and keep the answer only in multiples. Keep two significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "3.0"
+}

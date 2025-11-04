@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-280-a-mass-weighing-2-lb-stretches-a-spring-6-in",
-  "en_question": "A mass weighing 2 lb stretches a spring 6 in. If the mass is pulled down an additional 3 in and then released, and if there is no damping. Determine the distance between its position after 0.01s and equilibrium position in inch. The positive direction is defined as the direction downward. Keep three significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "2.99"
-}

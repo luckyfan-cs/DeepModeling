@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-51",
+  "en_question": "How long in seconds will it take for a 90-kg ice skater, experiencing a resistance force proportional to their velocity with a proportionality constant of 5 kg/s, to reduce their velocity from 3.3 m/s to 0.3 m/s? Keep 2 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "43"
+}

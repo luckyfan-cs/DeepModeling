@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-98-suppose-a-rumor-starts-among-3-people-in-a-certain-office-building",
-  "en_question": "Suppose a rumor starts among 3 people in a certain office building. That is, $y_0=3$. Suppose 500 people work in the building. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, and the rate of spread of rumor is 1.456 per day. How many people will have heard the rumor in 5 days? Provide your answer in the nearest whole number.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "449"
-}

@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-1-suppose-glucose-is-infused-into-a-patient-s-bloodstream-at-a-constant",
-  "en_question": "Suppose glucose is infused into a patient's bloodstream at a constant rate of 5 grams per minute. At the same time, glucose is removed from the bloodstream at a rate proportional to the amount of glucose present, with a proportionality constant of 0.1 per minute. Find the value of G as t approaches infinity(in  grams). Keep 2 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "50"
-}

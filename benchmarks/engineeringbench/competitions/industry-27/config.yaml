@@ -1,0 +1,16 @@
+id: industry-27
+name: Industry 27 Someone Has A Fund Of 300 000 Yuan And Has The Following Investment 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-27/description.md
+
+dataset:
+  answers: industry-27/prepared/private/answer.csv
+  sample_submission: industry-27/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-27.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-27.prepare:prepare

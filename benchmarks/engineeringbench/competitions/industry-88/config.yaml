@@ -1,0 +1,16 @@
+id: industry-88
+name: Industry 88 A Company Produces Product A And Product B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-88/description.md
+
+dataset:
+  answers: industry-88/prepared/private/answer.csv
+  sample_submission: industry-88/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-88.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-88.prepare:prepare

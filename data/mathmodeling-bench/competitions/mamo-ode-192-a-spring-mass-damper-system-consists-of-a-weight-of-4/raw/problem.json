@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-192-a-spring-mass-damper-system-consists-of-a-weight-of-4",
-  "en_question": "A spring-mass-damper system consists of a weight of 4.451 lbs attached to a spring with a stiffness constant of 2.064 lbs/ft. The system is immersed in a medium that creates damping proportional to the velocity, with a damping constant of 7.136 lb-sec/ft. At time t=0, the weight is pulled up 6.95 ft from its equilibrium position and released with an initial upward velocity of 6.048 ft/sec. Assuming upward as positive direction, calculate the displacement from its equilibrium position at t=5 seconds? Provide your answer in feet, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "-0.447"
-}

@@ -1,0 +1,16 @@
+id: mamo-easy-249
+name: Mamo Easy 249 A Manager Is Planning The Schedule For Three Types Of Tasks X Y An
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-249/description.md
+
+dataset:
+  answers: mamo-easy-249/prepared/private/answer.csv
+  sample_submission: mamo-easy-249/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-249.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-249.prepare:prepare

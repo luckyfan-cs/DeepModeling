@@ -1,0 +1,16 @@
+id: mamo-ode-106
+name: Mamo Ode 106 In A Small Town With 5623 Inhabitants A Rumor Starts Spreading
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-106/description.md
+
+dataset:
+  answers: mamo-ode-106/prepared/private/answer.csv
+  sample_submission: mamo-ode-106/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-106.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-106.prepare:prepare

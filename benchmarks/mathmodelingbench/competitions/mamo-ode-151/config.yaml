@@ -1,0 +1,16 @@
+id: mamo-ode-151
+name: Mamo Ode 151 A Freshly Baked Loaf Of Bread Is Removed From The Oven At A Tempera
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-151/description.md
+
+dataset:
+  answers: mamo-ode-151/prepared/private/answer.csv
+  sample_submission: mamo-ode-151/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-151.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-151.prepare:prepare

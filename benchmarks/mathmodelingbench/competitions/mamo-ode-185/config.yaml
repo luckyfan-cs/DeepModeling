@@ -1,0 +1,16 @@
+id: mamo-ode-185
+name: Mamo Ode 185 Consider A Mass Spring Damper System Where A Weight Of 64
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-185/description.md
+
+dataset:
+  answers: mamo-ode-185/prepared/private/answer.csv
+  sample_submission: mamo-ode-185/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-185.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-185.prepare:prepare

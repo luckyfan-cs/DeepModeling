@@ -1,0 +1,16 @@
+id: mamo-easy-496
+name: Mamo Easy 496 A Shipping Company Is Deciding On How To Allocate Their Transporta
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-496/description.md
+
+dataset:
+  answers: mamo-easy-496/prepared/private/answer.csv
+  sample_submission: mamo-easy-496/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-496.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-496.prepare:prepare

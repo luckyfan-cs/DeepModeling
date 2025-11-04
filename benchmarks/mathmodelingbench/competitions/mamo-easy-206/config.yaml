@@ -1,0 +1,16 @@
+id: mamo-easy-206
+name: Mamo Easy 206 In A Healthcare Scenario A Hospital Manager Is Planning To Allocat
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-206/description.md
+
+dataset:
+  answers: mamo-easy-206/prepared/private/answer.csv
+  sample_submission: mamo-easy-206/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-206.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-206.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-86
+name: Mamo Easy 86 A Manager Is Planning The Work Schedule For Two Teams X And Y
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-86/description.md
+
+dataset:
+  answers: mamo-easy-86/prepared/private/answer.csv
+  sample_submission: mamo-easy-86/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-86.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-86.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-19",
+  "en_question": "A large aquarium with a volume of \\(3693\\) L initially contains water with \\(19\\) kg of dissolved salt. A brine solution with a salt concentration of \\(0.08\\) kg/L is pumped into the tank at a rate of \\(9\\) L/min. At the same time, the well-mixed solution in the tank is drained at an equal rate to maintain its volume constant. How many kilograms of salt are present in the tank after 3 minutes? Provide your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "18.867"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-273",
+  "en_question": "Suppose a student carrying a flu virus returns to an isolated college campus of 1000 students. If it is assumed that the rate at which the virus spreads is proportional not only to the number x of infected students but also to the number of students not infected, determine the number of infected students after 6 days if it is further observed that after 4 days x(4) = 50. Keep four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "276.0"
+}

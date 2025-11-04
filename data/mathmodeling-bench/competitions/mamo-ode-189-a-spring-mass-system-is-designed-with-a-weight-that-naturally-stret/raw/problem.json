@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-189-a-spring-mass-system-is-designed-with-a-weight-that-naturally-stret",
-  "en_question": "A spring-mass system is designed with a weight that naturally stretches the spring 1 meter. The system experiences resistance in a medium equivalent to 3.957 m/s. Starting from a point 0.614 meters below the spring's equilibrium position and moving upward at an initial speed, calculate the displacement of the weight from its equilibrium position at t=4 seconds. Assuming upward from the equilibrium position as the positive direction, provide the displacement in meters, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "-0.208"
-}

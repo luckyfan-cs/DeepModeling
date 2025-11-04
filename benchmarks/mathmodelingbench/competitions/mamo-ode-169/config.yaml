@@ -1,0 +1,16 @@
+id: mamo-ode-169
+name: Mamo Ode 169 In An Electrical Circuit Consisting Of A 2 Henry Inductor A 12 Ohm 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-169/description.md
+
+dataset:
+  answers: mamo-ode-169/prepared/private/answer.csv
+  sample_submission: mamo-ode-169/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-169.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-169.prepare:prepare

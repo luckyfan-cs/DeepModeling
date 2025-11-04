@@ -1,0 +1,16 @@
+id: mamo-easy-577
+name: Mamo Easy 577 A Shipping Company Needs To Allocate Its Fleet Of Trucks Across Th
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-577/description.md
+
+dataset:
+  answers: mamo-easy-577/prepared/private/answer.csv
+  sample_submission: mamo-easy-577/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-577.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-577.prepare:prepare

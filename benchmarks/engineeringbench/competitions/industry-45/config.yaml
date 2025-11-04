@@ -1,0 +1,16 @@
+id: industry-45
+name: Industry 45 A University Computer Lab Hires 4 Undergraduates Designated 1 2 3 An
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-45/description.md
+
+dataset:
+  answers: industry-45/prepared/private/answer.csv
+  sample_submission: industry-45/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-45.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-45.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-4
+name: Mamo Ode 4 An Industrial Tank Initially Contains 1000 Gallons Of Clean Water
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-4/description.md
+
+dataset:
+  answers: mamo-ode-4/prepared/private/answer.csv
+  sample_submission: mamo-ode-4/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-4.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-4.prepare:prepare

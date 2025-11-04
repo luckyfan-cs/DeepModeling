@@ -1,0 +1,16 @@
+id: bwor-79
+name: Bwor 79 A Factory Has 4 Grinding Machines 2 Upright Drills 3 Horizontal Drills 1
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-79/description.md
+
+dataset:
+  answers: bwor-79/prepared/private/answer.csv
+  sample_submission: bwor-79/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-79.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-79.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-281",
+  "en_question": "A mass weighing 3 lb stretches a spring 3 in. If the mass is pushed upward, contracting the spring a distance of 1 in, and then set in motion with a downward velocity of 2 ft/s and regard the initial velocity as the positive direction, and if there is no damping. Determine the distance between its position after 0.1s and equilibrium position in inch. Keep three significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "1.49"
+}

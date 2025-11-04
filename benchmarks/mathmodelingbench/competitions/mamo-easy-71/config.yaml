@@ -1,0 +1,16 @@
+id: mamo-easy-71
+name: Mamo Easy 71 A Farmer Has A Field Of 100 Acres On Which He Can Grow Wheat And Co
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-71/description.md
+
+dataset:
+  answers: mamo-easy-71/prepared/private/answer.csv
+  sample_submission: mamo-easy-71/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-71.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-71.prepare:prepare

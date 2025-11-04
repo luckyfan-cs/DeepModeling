@@ -1,0 +1,16 @@
+id: industry-60
+name: Industry 60 A Product Can Be Processed On Any One Of The Four Devices A B C Or D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-60/description.md
+
+dataset:
+  answers: industry-60/prepared/private/answer.csv
+  sample_submission: industry-60/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-60.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-60.prepare:prepare

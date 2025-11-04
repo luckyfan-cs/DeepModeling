@@ -1,0 +1,16 @@
+id: mamo-easy-504
+name: Mamo Easy 504 A Marketing Manager Is Planning To Distribute A Budget Between Thr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-504/description.md
+
+dataset:
+  answers: mamo-easy-504/prepared/private/answer.csv
+  sample_submission: mamo-easy-504/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-504.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-504.prepare:prepare

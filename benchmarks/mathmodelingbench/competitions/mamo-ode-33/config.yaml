@@ -1,0 +1,16 @@
+id: mamo-ode-33
+name: Mamo Ode 33 A Tank Initially Contains 2289 L Of Pure Water
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-33/description.md
+
+dataset:
+  answers: mamo-ode-33/prepared/private/answer.csv
+  sample_submission: mamo-ode-33/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-33.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-33.prepare:prepare

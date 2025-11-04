@@ -1,0 +1,16 @@
+id: mamo-ode-263
+name: Mamo Ode 263 When A Vertical Beam Of Light Passes Through A Transparent Medium T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-263/description.md
+
+dataset:
+  answers: mamo-ode-263/prepared/private/answer.csv
+  sample_submission: mamo-ode-263/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-263.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-263.prepare:prepare

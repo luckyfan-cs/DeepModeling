@@ -1,0 +1,16 @@
+id: bwor-4
+name: Bwor 4 A Cargo Ship Has Three Compartments Front Middle And Rear
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-4/description.md
+
+dataset:
+  answers: bwor-4/prepared/private/answer.csv
+  sample_submission: bwor-4/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-4.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-4.prepare:prepare

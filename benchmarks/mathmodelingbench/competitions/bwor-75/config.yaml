@@ -1,0 +1,16 @@
+id: bwor-75
+name: Bwor 75 A Certain Machine Can Operate Continuously For 4 Years Or It Can Be Sold
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-75/description.md
+
+dataset:
+  answers: bwor-75/prepared/private/answer.csv
+  sample_submission: bwor-75/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-75.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-75.prepare:prepare

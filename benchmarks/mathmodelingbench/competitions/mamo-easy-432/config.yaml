@@ -1,0 +1,16 @@
+id: mamo-easy-432
+name: Mamo Easy 432 A Financial Manager Needs To Allocate Funds Between Two Investment
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-432/description.md
+
+dataset:
+  answers: mamo-easy-432/prepared/private/answer.csv
+  sample_submission: mamo-easy-432/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-432.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-432.prepare:prepare

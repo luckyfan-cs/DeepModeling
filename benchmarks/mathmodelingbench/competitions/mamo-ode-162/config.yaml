@@ -1,0 +1,16 @@
+id: mamo-ode-162
+name: Mamo Ode 162 In A Series Circuit With A Resistor Of R 20 Omega An Inductor Of L 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-162/description.md
+
+dataset:
+  answers: mamo-ode-162/prepared/private/answer.csv
+  sample_submission: mamo-ode-162/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-162.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-162.prepare:prepare

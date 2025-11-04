@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-240-given-an-initial-loan-amount-of-250410",
-  "en_question": "Given an initial loan amount of $250410.33, a 30-year mortgage term, and a continuous compound interest rate of 6%, calculate the remaining loan balance in $ after 30 years if the homeowner makes continuous payments of $1500 per month. Keep two significant digit in answer.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "-0.021"
-}

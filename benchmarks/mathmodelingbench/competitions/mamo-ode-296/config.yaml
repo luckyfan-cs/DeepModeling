@@ -1,0 +1,16 @@
+id: mamo-ode-296
+name: Mamo Ode 296 A Force Of 400 Newtons Stretches A Spring 2 Meters
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-296/description.md
+
+dataset:
+  answers: mamo-ode-296/prepared/private/answer.csv
+  sample_submission: mamo-ode-296/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-296.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-296.prepare:prepare

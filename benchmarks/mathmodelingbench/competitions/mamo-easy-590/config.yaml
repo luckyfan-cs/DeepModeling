@@ -1,0 +1,16 @@
+id: mamo-easy-590
+name: Mamo Easy 590 A Manufacturing Company Is Planning To Allocate Resources Between 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-590/description.md
+
+dataset:
+  answers: mamo-easy-590/prepared/private/answer.csv
+  sample_submission: mamo-easy-590/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-590.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-590.prepare:prepare

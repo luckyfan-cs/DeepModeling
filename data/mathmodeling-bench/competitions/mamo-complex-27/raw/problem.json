@@ -1,0 +1,7 @@
+{
+  "id": "mamo-complex-27",
+  "en_question": "Imagine you're on a mission to plan your meals to meet specific dietary needs for the day, but you also want to keep your spending within limits. You have four types of food items on your list: Chicken, Rice, Broccoli, and Eggs. Each of these foods has its own nutritional value in terms of protein, carbohydrates, and calories, and also comes at a different price.\n\nHere's a quick overview of what each food item offers and how much they cost:\n\n- Chicken: Provides 17 grams of protein, 6 grams of carbohydrates, and 94 calories for $7.\n- Rice: Offers 20 grams of protein, 13 grams of carbohydrates, and 74 calories for $10.\n- Broccoli: Comes with 3 grams of protein, a high 25 grams of carbohydrates, and 73 calories for $9.\n- Eggs: Are a budget-friendly option providing 18 grams of protein, 20 grams of carbohydrates, and 119 calories for only $2.\n\nYou need to ensure that your daily intake should consist of at least 84 grams of protein, 117 grams of carbohydrates, and 1554 calories. Your task is to figure out the most cost-effective way to meet these nutritional targets with the available food options. So, what is the minimal cost you need to incur to satisfy your dietary requirements? Remember, your response should indicate the optimal cost value, under the scenario of food selection.",
+  "cn_question": "",
+  "difficulty": "complex_lp",
+  "expected_answer": "28.0"
+}

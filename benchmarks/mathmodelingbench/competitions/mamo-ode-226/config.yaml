@@ -1,0 +1,16 @@
+id: mamo-ode-226
+name: Mamo Ode 226 In An Electrical Circuit With A Capacitor Inductor And Resistor Arr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-226/description.md
+
+dataset:
+  answers: mamo-ode-226/prepared/private/answer.csv
+  sample_submission: mamo-ode-226/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-226.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-226.prepare:prepare

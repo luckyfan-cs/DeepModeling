@@ -1,0 +1,16 @@
+id: sciencebench-082-dendrogram
+name: "ScienceBench - dendrogram.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-082-dendrogram/description.md
+
+dataset:
+  answers: sciencebench-082-dendrogram/prepared/private/answer.csv
+  sample_submission: sciencebench-082-dendrogram/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-082-dendrogram.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-082-dendrogram.prepare:prepare

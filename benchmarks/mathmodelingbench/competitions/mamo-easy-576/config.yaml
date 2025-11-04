@@ -1,0 +1,16 @@
+id: mamo-easy-576
+name: Mamo Easy 576 A Shipping Company Has Three Warehouses X Y And Z For Which It Nee
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-576/description.md
+
+dataset:
+  answers: mamo-easy-576/prepared/private/answer.csv
+  sample_submission: mamo-easy-576/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-576.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-576.prepare:prepare

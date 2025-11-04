@@ -1,0 +1,16 @@
+id: industry-55
+name: Industry 55 A Trading Company Specializes In The Wholesale Business Of Certain G
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-55/description.md
+
+dataset:
+  answers: industry-55/prepared/private/answer.csv
+  sample_submission: industry-55/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-55.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-55.prepare:prepare

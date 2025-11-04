@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-120-let-h-t-and-v-t-be-the-height-and-volume-of-water-in-a-tank-at-time",
-  "en_question": "Let $h(t)$ and $V(t)$ be the height and volume of water in a tank at time $t$. If water drains through a hole with area $a$ at the bottom of the tank, then Torricelli's Law says that $\\frac{d V}{d t}=-a \\sqrt{2 g h}$ where $g$ is the acceleration due to gravity. So the rate at which water flows from the tank is proportional to the square root of the water height. Suppose the tank is cylindrical with height $6 \\mathrm{ft}$ and radius $2 \\mathrm{ft}$ and the hole is circular with radius $1 \\mathrm{inch}$. If we take $g=32 \\mathrm{ft} / \\mathrm{s}^2$, find the height of the water at time 100s, assuming the tank is full at time $t=0$. Answer in ft and in three significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "3.08"
-}

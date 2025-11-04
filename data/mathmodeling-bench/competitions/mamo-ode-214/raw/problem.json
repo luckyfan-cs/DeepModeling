@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-214",
+  "en_question": "A spring-mass system consists of a spring stretched 1 ft by a 16-lb weight, immersed in a medium with a damping constant of \\(1 \\mathrm{lb}-\\mathrm{sec} / \\mathrm{ft}\\), and subjected to an external force \\(f(t)=4 e^t (\\cos t - \\sin t)\\) (in pounds). If the mass is released from its equilibrium position with an initial upward velocity of \\(1 \\mathrm{ft} / \\mathrm{sec}\\), formulate the problem to determine the mass's position over time. Calculate the mass's position at \\(t = 1\\) seconds, considering upward from the equilibrium position as positive. Provide the position in feet, rounded to four significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.1890"
+}

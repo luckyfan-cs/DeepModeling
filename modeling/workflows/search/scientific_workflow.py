@@ -2,6 +2,7 @@
 
 import logging
 import json
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional, Any, List
 
@@ -53,6 +54,8 @@ class ScientificWorkflow(ModelingWorkflow):
 
         # Store conversation history
         self.conversation: List[Dict[str, str]] = []
+        # Collect review telemetry for each experiment iteration
+        self.experiment_reviews: List[Dict[str, Any]] = []
 
     async def _evaluate_with_review(
         self,
@@ -158,7 +161,7 @@ class ScientificWorkflow(ModelingWorkflow):
 
         workflow_completed = False
 
-        async def handle_review_completion(executed_code: Optional[str]) -> bool:
+        async def handle_review_completion(executed_code: Optional[str], iteration_index: int) -> bool:
             nonlocal assistant_response, workflow_completed
 
             review = await self._evaluate_with_review(
@@ -169,6 +172,14 @@ class ScientificWorkflow(ModelingWorkflow):
             )
             if not review:
                 return False
+
+            self._record_experiment_review(
+                iteration=iteration_index,
+                experiment_code=executed_code,
+                observation=observation,
+                review=review
+            )
+            self._mark_latest_review(finalized=False)
 
             if review.is_buggy:
                 logger.info("Reviewer flagged issues; continuing iterations for improvements.")
@@ -216,9 +227,10 @@ class ScientificWorkflow(ModelingWorkflow):
             assistant_response += f"\n<Observation>\n{observation}\n</Observation>\n"
             assistant_response += final_response
             workflow_completed = True
+            self._mark_latest_review(finalized=True)
             return True
 
-        await handle_review_completion(experiment_code)
+        await handle_review_completion(experiment_code, iteration_index=1)
 
         if not workflow_completed:
             # Subsequent iterations
@@ -256,7 +268,7 @@ class ScientificWorkflow(ModelingWorkflow):
                         observation = summarize_repetitive_logs(raw_observation)
                         observation = truncate_output(observation)
 
-                        await handle_review_completion(experiment_code)
+                        await handle_review_completion(experiment_code, iteration_index=i)
                         if workflow_completed:
                             break
                     else:
@@ -271,6 +283,7 @@ class ScientificWorkflow(ModelingWorkflow):
 
         # Save conversation
         await self._save_conversation()
+        await self._save_experiment_review_log()
 
         logger.info("Scientific discovery workflow completed")
 
@@ -298,3 +311,41 @@ class ScientificWorkflow(ModelingWorkflow):
                 f.write("\n\n" + "="*80 + "\n\n")
 
         logger.info(f"Saved readable summary to {readable_file}")
+
+    def _record_experiment_review(
+        self,
+        *,
+        iteration: int,
+        experiment_code: Optional[str],
+        observation: str,
+        review: ReviewResult
+    ) -> None:
+        """Record a structured review entry for telemetry."""
+        record = {
+            "iteration": iteration,
+            "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+            "experiment_code": experiment_code,
+            "observation": observation,
+            "review": review.model_dump(mode="json"),
+        }
+        self.experiment_reviews.append(record)
+
+    def _mark_latest_review(self, **fields: Any) -> None:
+        """Annotate the most recent review record with additional metadata."""
+        if not self.experiment_reviews:
+            return
+        self.experiment_reviews[-1].update(fields)
+
+    async def _save_experiment_review_log(self) -> None:
+        """Persist experiment review telemetry as JSONL in the artifacts directory."""
+        if not self.workspace_service or not self.experiment_reviews:
+            return
+
+        telemetry_rel_path = "telemetry/experiment_reviews.jsonl"
+        content = "\n".join(json.dumps(record, ensure_ascii=False) for record in self.experiment_reviews)
+        if content:
+            content += "\n"
+
+        self.workspace_service.write_file(content, "artifacts", telemetry_rel_path)
+        telemetry_abs_path = self.workspace_service.get_path("artifacts") / telemetry_rel_path
+        logger.info(f"Saved experiment review telemetry to {telemetry_abs_path}")

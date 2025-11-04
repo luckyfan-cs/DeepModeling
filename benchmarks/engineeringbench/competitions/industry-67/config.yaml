@@ -1,0 +1,16 @@
+id: industry-67
+name: Industry 67 There Are Two Coal Yards A And B Each Receiving No Less Than 80 Tons
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-67/description.md
+
+dataset:
+  answers: industry-67/prepared/private/answer.csv
+  sample_submission: industry-67/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-67.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-67.prepare:prepare

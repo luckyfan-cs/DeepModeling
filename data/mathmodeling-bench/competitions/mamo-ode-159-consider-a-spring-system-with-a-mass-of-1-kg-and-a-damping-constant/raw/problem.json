@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-159-consider-a-spring-system-with-a-mass-of-1-kg-and-a-damping-constant",
-  "en_question": "Consider a spring system with a mass of $1$ kg and a damping constant of $c = 10$, starting from its equilibrium position and initially moving with a velocity of $1$ m/s. For a spring constant of $k = 10$, calculate the mass's position relative to the equilibrium position at a time $t = 3$ seconds, with the direction away from the spring's fixed point defined as positive.. The position function describes the mass's motion under the given conditions. Provide the answer in meters, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.00439"
-}

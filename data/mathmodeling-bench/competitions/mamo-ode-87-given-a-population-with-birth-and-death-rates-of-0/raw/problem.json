@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-87-given-a-population-with-birth-and-death-rates-of-0",
-  "en_question": "Given a population with birth and death rates of 0.11 and 0.05 per year, respectively, and an emigration rate of 50 individuals per year, calculate the population size after 10 years starting from an initial population of 1000 individuals. Round your answer to the nearest whole number.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "1137"
-}

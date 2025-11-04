@@ -1,0 +1,16 @@
+id: sciencebench-086-plot-tec
+name: "ScienceBench - plot_TEC.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-086-plot-tec/description.md
+
+dataset:
+  answers: sciencebench-086-plot-tec/prepared/private/answer.csv
+  sample_submission: sciencebench-086-plot-tec/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-086-plot-tec.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-086-plot-tec.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-606
+name: Mamo Easy 606 A Retail Store Manager Is Planning To Allocate Resources Across Fo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-606/description.md
+
+dataset:
+  answers: mamo-easy-606/prepared/private/answer.csv
+  sample_submission: mamo-easy-606/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-606.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-606.prepare:prepare

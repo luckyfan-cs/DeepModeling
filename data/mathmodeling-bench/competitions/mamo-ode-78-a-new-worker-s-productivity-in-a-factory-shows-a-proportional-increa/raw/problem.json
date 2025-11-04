@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-78-a-new-worker-s-productivity-in-a-factory-shows-a-proportional-increa",
-  "en_question": "A new worker's productivity in a factory shows a proportional increase with time due to gaining experience, yet the rate of increase diminishes as the worker's output approaches the factory's maximum daily production limit of 150 items. Initially, the worker manages to produce 15 items on the first day. Given this proportional relationship between productivity growth and the nearing of a production cap, calculate the total output of the worker after 10 days. Assume the increase in production is consistent with the worker's adaptation to the job. Round your answer to the nearest whole number to indicate the total items produced.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "100"
-}

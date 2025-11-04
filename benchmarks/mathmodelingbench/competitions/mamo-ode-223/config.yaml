@@ -1,0 +1,16 @@
+id: mamo-ode-223
+name: Mamo Ode 223 An Electrical Circuit Is Composed Of An Inductor A Resistor And A C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-223/description.md
+
+dataset:
+  answers: mamo-ode-223/prepared/private/answer.csv
+  sample_submission: mamo-ode-223/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-223.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-223.prepare:prepare

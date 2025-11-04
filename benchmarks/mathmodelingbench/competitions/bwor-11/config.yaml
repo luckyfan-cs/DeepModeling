@@ -1,0 +1,16 @@
+id: bwor-11
+name: Bwor 11 Noindent Textbf 4
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-11/description.md
+
+dataset:
+  answers: bwor-11/prepared/private/answer.csv
+  sample_submission: bwor-11/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-11.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-11.prepare:prepare

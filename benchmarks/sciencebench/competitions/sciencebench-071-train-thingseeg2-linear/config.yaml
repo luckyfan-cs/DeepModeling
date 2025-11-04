@@ -1,0 +1,16 @@
+id: sciencebench-071-train-thingseeg2-linear
+name: "ScienceBench - train_thingseeg2_linear.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-071-train-thingseeg2-linear/description.md
+
+dataset:
+  answers: sciencebench-071-train-thingseeg2-linear/prepared/private/answer.csv
+  sample_submission: sciencebench-071-train-thingseeg2-linear/prepared/public/sample_submission.csv
+
+grader:
+  name: exact_match
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-071-train-thingseeg2-linear.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-071-train-thingseeg2-linear.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-29
+name: Industry 29 Suppose A Certain Animal Needs At Least 700 Mathrm G Of Protein 30 M
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-29/description.md
+
+dataset:
+  answers: industry-29/prepared/private/answer.csv
+  sample_submission: industry-29/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-29.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-29.prepare:prepare

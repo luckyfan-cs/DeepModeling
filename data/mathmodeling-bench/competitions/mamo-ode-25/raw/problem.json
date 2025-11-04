@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-25",
+  "en_question": "A pool initially contains \\(422\\) gallons of water with a concentration of \\(29\\%\\) sugar. Fresh water, which contains \\(37\\%\\) sugar, is pumped into the pool at a rate of \\(7\\) gallons per minute. The well-mixed solution is drained from the pool at the same rate to keep the volume constant. Calculate the percentage concentration of sugar in the pool after \\(6\\) minutes. Express your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "29.758"
+}

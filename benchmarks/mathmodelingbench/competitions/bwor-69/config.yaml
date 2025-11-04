@@ -1,0 +1,16 @@
+id: bwor-69
+name: Bwor 69 There Is A Truck Available For Transporting Cargo And There Are 4 Types 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-69/description.md
+
+dataset:
+  answers: bwor-69/prepared/private/answer.csv
+  sample_submission: bwor-69/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-69.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-69.prepare:prepare

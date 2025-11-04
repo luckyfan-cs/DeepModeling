@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-251",
+  "en_question": "We consider a falling object of mass m = 10 kg and drag coefficient y = 2 kg/s. Suppose this object is dropped from a height of 300 m. Find its velocity in m/s after 10.48s. Keep three significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "43.0"
+}

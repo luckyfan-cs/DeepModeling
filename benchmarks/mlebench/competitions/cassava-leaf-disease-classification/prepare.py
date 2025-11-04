@@ -4,7 +4,7 @@ from pathlib import Path
 from sklearn.model_selection import train_test_split
 from tqdm.auto import tqdm
 
-from .competitions.utils import get_ids_from_tf_records
+from .utils import get_ids_from_tf_records
 from .utils import read_csv
 
 

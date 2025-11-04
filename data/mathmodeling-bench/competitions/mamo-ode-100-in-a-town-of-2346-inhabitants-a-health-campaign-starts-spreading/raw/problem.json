@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-100-in-a-town-of-2346-inhabitants-a-health-campaign-starts-spreading",
-  "en_question": "In a town of 2346 inhabitants, a health campaign starts spreading. At the initial time t = 0 days, 1142 people have already heard about the campaign. The rate of spread of the campaign is 0.797 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard about it and the numbers who have not, can you determine how many people in town will have heard about this health campaign after 5 days? Provide your answer in nearest whole number.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "2346"
-}

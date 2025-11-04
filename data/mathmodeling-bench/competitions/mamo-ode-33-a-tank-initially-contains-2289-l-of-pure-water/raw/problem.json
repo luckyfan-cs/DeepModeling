@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-33-a-tank-initially-contains-2289-l-of-pure-water",
-  "en_question": "A tank initially contains \\(2289\\) L of pure water. Brine with a concentration of \\(0.26\\) kg/L is added at a rate of \\(7\\) L/min, and the well-mixed solution exits the tank at the same rate to maintain its volume. After 23 minutes, how many kilograms of salt are in the tank? Provide your answer to three significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "40.4"
-}

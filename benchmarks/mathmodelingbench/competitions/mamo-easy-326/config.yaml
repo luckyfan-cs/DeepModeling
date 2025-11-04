@@ -1,0 +1,16 @@
+id: mamo-easy-326
+name: Mamo Easy 326 A Real Estate Investor Is Considering Three Types Of Properties Re
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-326/description.md
+
+dataset:
+  answers: mamo-easy-326/prepared/private/answer.csv
+  sample_submission: mamo-easy-326/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-326.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-326.prepare:prepare

@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-72-an-investor-deposits-70573-into-an-account-that-pays-12",
-  "en_question": "An investor deposits $70573 into an account that pays 12.1% compounded continuously and then begins to withdraw from the account continuously at a rate of $2816 per year. How much will be left in the account after 4 years? Provide your answer in dollars and to nine significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "100019.863"
-}

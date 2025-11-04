@@ -1,0 +1,16 @@
+id: mamo-ode-166
+name: Mamo Ode 166 An 18 Inch Spring Stretches 6 Inches Under A 20 Lb Weight
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-166/description.md
+
+dataset:
+  answers: mamo-ode-166/prepared/private/answer.csv
+  sample_submission: mamo-ode-166/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-166.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-166.prepare:prepare

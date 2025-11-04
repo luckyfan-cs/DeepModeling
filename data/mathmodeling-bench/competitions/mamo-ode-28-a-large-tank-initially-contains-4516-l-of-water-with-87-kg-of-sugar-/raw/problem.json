@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-28-a-large-tank-initially-contains-4516-l-of-water-with-87-kg-of-sugar-",
-  "en_question": "A large tank initially contains \\(4516\\) L of water with \\(87\\) kg of sugar dissolved in it. Fresh water, without any sugar, is pumped into the tank at a rate of \\(8\\) L/min. At the same time, the well-mixed solution is drained from the tank at an equal rate to maintain a constant volume. Sugar is also added to the tank at a constant rate of \\(0.23\\) kg/min. Determine how much sugar (in kg) will be in the tank after \\(24\\) hours? Give your answer to five significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "126.49"
-}

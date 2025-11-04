@@ -1,0 +1,16 @@
+id: mamo-easy-217
+name: Mamo Easy 217 A Retail Manager Is Planning The Allocation Of Budget Between Thre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-217/description.md
+
+dataset:
+  answers: mamo-easy-217/prepared/private/answer.csv
+  sample_submission: mamo-easy-217/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-217.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-217.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-76",
+  "en_question": "A company starts with a loan of $40406 and makes continuous deposits into an account at a rate of $9850 per year. The interest rate is 12.8% per year, compounded continuously. Calculate the amount of money in the account after 9 years. Provide your answer in dollars and to nine significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "294431.659"
+}

@@ -1,0 +1,16 @@
+id: bwor-66
+name: Bwor 66 A Factory Plans To Produce Product A Continuously Over 3 Months With Pro
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-66/description.md
+
+dataset:
+  answers: bwor-66/prepared/private/answer.csv
+  sample_submission: bwor-66/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-66.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-66.prepare:prepare

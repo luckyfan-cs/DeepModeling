@@ -1,0 +1,16 @@
+id: mamo-easy-350
+name: Mamo Easy 350 In A Healthcare Management Scenario A Hospital Needs To Allocate R
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-350/description.md
+
+dataset:
+  answers: mamo-easy-350/prepared/private/answer.csv
+  sample_submission: mamo-easy-350/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-350.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-350.prepare:prepare

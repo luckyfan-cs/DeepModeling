@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-36-a-large-room-with-a-volume-of-2187-m-3-initially-contains-clean-air",
-  "en_question": "A large room with a volume of \\(2187\\) m^3 initially contains clean air. Smoke, which has a concentration of \\(0.24\\%\\) by volume, is introduced into the room at a rate of \\(7\\) m^3/min and the mixed air leaves the room at the same rate. What will be the percentage by volume of smoke in the room after 28 minutes? Express your answer to two significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "2.1"
-}

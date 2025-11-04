@@ -1,0 +1,16 @@
+id: mamo-ode-171
+name: Mamo Ode 171 An Lrc Circuit Includes An Inductance Of 1 5 Henry A Resistance Of 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-171/description.md
+
+dataset:
+  answers: mamo-ode-171/prepared/private/answer.csv
+  sample_submission: mamo-ode-171/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-171.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-171.prepare:prepare

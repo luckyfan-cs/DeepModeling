@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-50-an-object-with-a-mass-of-10-kg-is-dropped-from-rest",
-  "en_question": "An object with a mass of 10 kg is dropped from rest. We assume that the air resistance is proportional to the speed of the object, with a proportionality constant of 0.5 kg/s. The acceleration due to gravity is 9.8 m/s\u00b2. What is the limiting velocity of the object as time approaches infinity? (in m/s) Keep 3 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "196"
-}

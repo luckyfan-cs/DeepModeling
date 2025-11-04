@@ -1,0 +1,16 @@
+id: mamo-easy-264
+name: Mamo Easy 264 In A Human Resources Allocation Scenario A Company Needs To Alloca
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-264/description.md
+
+dataset:
+  answers: mamo-easy-264/prepared/private/answer.csv
+  sample_submission: mamo-easy-264/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-264.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-264.prepare:prepare

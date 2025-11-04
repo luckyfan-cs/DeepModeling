@@ -1,0 +1,7 @@
+{
+  "id": "bwor-70",
+  "en_question": "A machine tool has 5 hours of available working time per day. Producing one unit of Product A or Product B each requires 1 hour. The costs per unit are 4 yuan for A and 3 yuan for B. The selling prices of each product depend linearly on their respective output quantities, as follows: \n\n  $$\n  \\begin{array}{l}{p_{1}\\,=\\,12-x_{1}}\\\\ {p_{2}\\,=\\,13-2x_{2}}\\end{array}\n  $$  \n\n where $x_{1} and x_{2}$ represent the quantities produced of Product A and Product B, respectively. Question: If the machine must operate 5 hours per day, how many units of A and B should be produced to maximize total profit?",
+  "cn_question": "7.21\u8bbe\u67d0\u53f0\u673a\u5e8a\u6bcf\u5929\u53ef\u7528\u5de5\u65f6\u4e3a $5\\,\\textrm{h}$ ,\u751f\u4ea7\u6bcf\u5355\u4f4d\u4ea7\u54c1A\u6216B\u90fd\u9700\u8981 $1\\,\\mathrm{~h~}$ ,\u5176\u6210\u672c\u5206\u522b\u4e3a4\u5143\u548c3\u5143\u3002\u5df2\u77e5\u5404\u79cd\u5355\u4f4d\u4ea7\u54c1\u7684\u552e\u4ef7\u4e0e\u8be5\u4ea7\u54c1\u7684\u4ea7\u91cf\u5177\u6709\u5982\u4e0b\u7ebf\u6027\u5173\u7cfb\uff1a  \n\n  $$\n  \\begin{array}{l}{p_{1}\\,=\\,12-x_{1}}\\\\ {p_{2}\\,=\\,13-2x_{2}}\\end{array}\n  $$  \n\n  \u5176\u4e2d $x_{1},x_{2}$ \u5206\u522b\u4e3a\u4ea7\u54c1 A,B\u7684\u4ea7\u91cf\u3002\u95ee\u5982\u679c\u8981\u6c42\u673a\u5e8a\u6bcf\u5929\u5fc5\u987b\u5de5\u4f5c $5\\,\\textrm{h}$ \uff0c\u4ea7\u54c1 $\\mathrm{A}$ \u548cB\u5404\u5e94\u751f\u4ea7\u591a\u5c11,\u624d\u80fd\u4f7f\u603b\u7684\u5229\u6da6\u6700\u5927?",
+  "difficulty": "Medium",
+  "expected_answer": "27.0"
+}

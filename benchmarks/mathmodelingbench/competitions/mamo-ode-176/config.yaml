@@ -1,0 +1,16 @@
+id: mamo-ode-176
+name: Mamo Ode 176 A Spring System Featuring An 8 Lb Weight That Stretches The Spring 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-176/description.md
+
+dataset:
+  answers: mamo-ode-176/prepared/private/answer.csv
+  sample_submission: mamo-ode-176/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-176.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-176.prepare:prepare

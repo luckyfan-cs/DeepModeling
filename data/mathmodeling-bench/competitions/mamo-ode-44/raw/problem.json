@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-44",
+  "en_question": "A bustling city has a population of 10,000 people. The population grows naturally at a rate of 2% per year, but the city also experiences a yearly outflow of people moving out, which can be modeled by the function f(t) = -t, where t is the number of years since the current year. What is the population of the city after 2 year, rounded to the nearest whole number? Keep 5 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "10406"
+}

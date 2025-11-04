@@ -1,0 +1,16 @@
+id: bwor-46
+name: Bwor 46 3
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-46/description.md
+
+dataset:
+  answers: bwor-46/prepared/private/answer.csv
+  sample_submission: bwor-46/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-46.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-46.prepare:prepare

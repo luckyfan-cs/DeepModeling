@@ -1,0 +1,16 @@
+id: industry-10
+name: Industry 10 A Company Produces Two Types Of Small Motorcycles Where Type A Is En
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-10/description.md
+
+dataset:
+  answers: industry-10/prepared/private/answer.csv
+  sample_submission: industry-10/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-10.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-10.prepare:prepare

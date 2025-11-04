@@ -1,0 +1,16 @@
+id: mamo-ode-28
+name: Mamo Ode 28 A Large Tank Initially Contains 4516 L Of Water With 87 Kg Of Sugar 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-28/description.md
+
+dataset:
+  answers: mamo-ode-28/prepared/private/answer.csv
+  sample_submission: mamo-ode-28/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-28.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-28.prepare:prepare

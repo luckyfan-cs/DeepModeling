@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-149",
+  "en_question": "A blacksmith heats a piece of iron to 123\u00b0C and then leaves it to cool in an environment that is kept at a constant temperature of 42\u00b0C. The cooling process follows Newton's Law of Cooling, with a rate constant \\(k\\) of \\(0.1 \\, \\text{min}^{-1}\\). Calculate the temperature of the iron after 12 minutes. Provide your answer in \u00b0C and in three significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "66.397"
+}

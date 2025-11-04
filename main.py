@@ -24,7 +24,9 @@ from modeling.runner import ModelingRunner, WORKFLOW_FACTORIES
 # --- Benchmark Class Imports ---
 from modeling.benchmark.benchmark import BaseBenchmark
 from modeling.benchmark.mle import MLEBenchmark
+from modeling.benchmark.engineering import EngineeringBenchmark
 from modeling.benchmark.mathmodeling import MathModelingBenchmark
+from modeling.benchmark.sciencebench import ScienceBenchmark
 # from benchmarks.humaneval import HumanEvalBenchmark # Future additions can be easily added
 
 # load .env file
@@ -45,6 +47,8 @@ logger = logging.getLogger(__name__)
 BENCHMARK_CLASSES = {
     "mle": MLEBenchmark,
     "mathmodeling": MathModelingBenchmark,
+    "engineeringbench": EngineeringBenchmark,
+    "sciencebench": ScienceBenchmark,
     # "humaneval": HumanEvalBenchmark,
 }
 
@@ -378,7 +382,7 @@ async def main():
     runner.benchmark = benchmark
     eval_function = runner.get_eval_function()
     logger.info(f"Starting benchmark '{args.benchmark}' with workflow '{config.workflow.name}'...")
-    await benchmark.run_evaluation(eval_fn=eval_function)
+    await benchmark.run_evaluation(eval_fn=eval_function, runner=runner)
 
     # --- 5. Present results ---
     summary_table, totals_table = _build_benchmark_summary(

@@ -1,0 +1,16 @@
+id: mamo-easy-543
+name: Mamo Easy 543 A Manager Is Planning The Weekly Work Schedule For Three Teams X Y
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-543/description.md
+
+dataset:
+  answers: mamo-easy-543/prepared/private/answer.csv
+  sample_submission: mamo-easy-543/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-543.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-543.prepare:prepare

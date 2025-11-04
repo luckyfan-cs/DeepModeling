@@ -1,0 +1,16 @@
+id: mamo-easy-371
+name: Mamo Easy 371 In A Hospital The Manager Is Trying To Optimize The Scheduling Of 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-371/description.md
+
+dataset:
+  answers: mamo-easy-371/prepared/private/answer.csv
+  sample_submission: mamo-easy-371/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-371.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-371.prepare:prepare

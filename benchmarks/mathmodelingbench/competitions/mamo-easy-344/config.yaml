@@ -1,0 +1,16 @@
+id: mamo-easy-344
+name: Mamo Easy 344 In A Financial Management Scenario A Company Has Four Investment O
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-344/description.md
+
+dataset:
+  answers: mamo-easy-344/prepared/private/answer.csv
+  sample_submission: mamo-easy-344/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-344.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-344.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-61",
+  "en_question": "A business makes continuous deposits into a savings account at a rate of $4558 per month, starting with an initial deposit of $90700. The account earns an interest rate of 35.6% per year, compounded continuously. Calculate the amount of money in the account after 8 years. Provide your answer in dollars and to ten significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "1772965.212"
+}

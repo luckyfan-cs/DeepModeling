@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-37-a-tank-initially-contains-3027-l-of-water-with-a-concentration-of-53",
-  "en_question": "A tank initially contains \\(3027\\) L of water with a concentration of \\(53\\) mg/L of a certain pollutant. Clean water with a concentration of \\(0.42\\) mg/L of the same pollutant is pumped into the tank at a rate of \\(6\\) L/min, and the well-mixed solution is drained from the tank at the same rate to maintain its volume. Determine the concentration in mg/L of the pollutant in the tank after \\(35\\) minutes. Give your answer to five significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "49.476"
-}

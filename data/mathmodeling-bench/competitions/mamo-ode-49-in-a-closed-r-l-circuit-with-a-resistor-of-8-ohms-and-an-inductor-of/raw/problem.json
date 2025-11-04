@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-49-in-a-closed-r-l-circuit-with-a-resistor-of-8-ohms-and-an-inductor-of",
-  "en_question": "In a closed R-L circuit with a resistor of 8 Ohms and an inductor of 2 Henries, how many seconds after the switch is closed will it take the current to reach half of its steady-state value? Keep 3 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "0.173"
-}

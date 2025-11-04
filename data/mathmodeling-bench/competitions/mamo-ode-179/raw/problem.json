@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-179",
+  "en_question": "A spring-mass system consists of a 1 kg mass attached to a spring with a spring constant of \\(2 \\mathrm{N} / \\mathrm{m}\\) and is immersed in a viscous medium with a damping constant of \\(3 \\mathrm{N} \\cdot \\mathrm{s} / \\mathrm{m}\\). Initially, the mass is positioned \\(1/2\\) meter below its equilibrium position and released at time \\(t=0\\). Determine the movement of the mass at a given time \\(t\\), considering downward from the equilibrium position as positive. Calculate the position of the mass at \\(t = 1\\) second, and provide your answer in meters, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.300"
+}

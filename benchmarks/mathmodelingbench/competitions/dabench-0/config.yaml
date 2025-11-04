@@ -1,0 +1,16 @@
+id: dabench-0
+name: DABench Task 0 - Calculate Mean Fare
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/dabench-0/description.md
+
+dataset:
+  answers: dabench-0/prepared/private/answer.csv
+  sample_submission: dabench-0/prepared/public/sample_submission.csv
+
+grader:
+  name: exact_match
+  grade_fn: benchmarks.mathmodelingbench.competitions.dabench-0.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.dabench-0.prepare:prepare

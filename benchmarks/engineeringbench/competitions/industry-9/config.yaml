@@ -1,0 +1,16 @@
+id: industry-9
+name: Industry 9 A Convenience Supermarket Is Planning To Open Several Chain Stores In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-9/description.md
+
+dataset:
+  answers: industry-9/prepared/private/answer.csv
+  sample_submission: industry-9/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-9.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-9.prepare:prepare

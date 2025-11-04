@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-287-a-mass-of-20-g-stretches-a-spring-5-cm",
-  "en_question": "A mass of 20 g stretches a spring 5 cm. Suppose that the mass is also attached to a viscous damper with a damping constant of 400 dyn \u00b7 s/cm. If the mass is pulled down an additional 2 cm and then released, find its position u at any time t. Determine the distance between its position after 0.1s and equilibrium position in inch. Keep three significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.161"
-}

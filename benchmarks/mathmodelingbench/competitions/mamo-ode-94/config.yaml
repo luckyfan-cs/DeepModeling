@@ -1,0 +1,16 @@
+id: mamo-ode-94
+name: Mamo Ode 94 In A Closed Habitat A Small Population Of A Rare Species Starts With
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-94/description.md
+
+dataset:
+  answers: mamo-ode-94/prepared/private/answer.csv
+  sample_submission: mamo-ode-94/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-94.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-94.prepare:prepare

@@ -1,0 +1,16 @@
+id: sciencebench-036-eeg-processing-vis1
+name: "ScienceBench - eeg_processing_vis1.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-036-eeg-processing-vis1/description.md
+
+dataset:
+  answers: sciencebench-036-eeg-processing-vis1/prepared/private/answer.csv
+  sample_submission: sciencebench-036-eeg-processing-vis1/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-036-eeg-processing-vis1.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-036-eeg-processing-vis1.prepare:prepare

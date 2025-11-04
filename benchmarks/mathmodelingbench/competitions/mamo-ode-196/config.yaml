@@ -1,0 +1,16 @@
+id: mamo-ode-196
+name: Mamo Ode 196 A Spring System Is Constructed With A 3 Lb Weight That Naturally St
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-196/description.md
+
+dataset:
+  answers: mamo-ode-196/prepared/private/answer.csv
+  sample_submission: mamo-ode-196/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-196.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-196.prepare:prepare

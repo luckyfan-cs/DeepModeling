@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-34",
+  "en_question": "A tank initially contains \\(5182\\) L of pure water. A solution with a salt concentration of \\(0.16\\) kg/L is then added at a rate of \\(10\\) L/min, while the well-mixed solution exits the tank at the same rate to maintain its volume. What will be the mass (in kilograms) of salt in the tank after \\(57\\) minutes? Provide your answer to three significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "86.4"
+}

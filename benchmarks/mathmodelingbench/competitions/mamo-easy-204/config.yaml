@@ -1,0 +1,16 @@
+id: mamo-easy-204
+name: Mamo Easy 204 In A Financial Planning Scenario An Investor Is Considering Alloca
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-204/description.md
+
+dataset:
+  answers: mamo-easy-204/prepared/private/answer.csv
+  sample_submission: mamo-easy-204/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-204.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-204.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-70
+name: Industry 70 Consider Assigning N 2 Factories To N Locations
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-70/description.md
+
+dataset:
+  answers: industry-70/prepared/private/answer.csv
+  sample_submission: industry-70/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-70.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-70.prepare:prepare

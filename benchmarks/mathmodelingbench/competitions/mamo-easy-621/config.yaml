@@ -1,0 +1,16 @@
+id: mamo-easy-621
+name: Mamo Easy 621 A Supply Chain Manager Needs To Plan The Allocation Of Resources A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-621/description.md
+
+dataset:
+  answers: mamo-easy-621/prepared/private/answer.csv
+  sample_submission: mamo-easy-621/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-621.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-621.prepare:prepare

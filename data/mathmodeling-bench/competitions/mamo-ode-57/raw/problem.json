@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-57",
+  "en_question": "A retirement savings account contains $300,000 and earns 5% interest compounded continuously. The retiree makes continuous withdrawals of $20,000 per year. How much will be left in the account after 10 years? Provide your answer in dollars and to seven significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "235127.9"
+}

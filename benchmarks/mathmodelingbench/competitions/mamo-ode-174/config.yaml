@@ -1,0 +1,16 @@
+id: mamo-ode-174
+name: Mamo Ode 174 A Spring System Featuring A 10 Kg Mass Connected To A Spring With A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-174/description.md
+
+dataset:
+  answers: mamo-ode-174/prepared/private/answer.csv
+  sample_submission: mamo-ode-174/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-174.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-174.prepare:prepare

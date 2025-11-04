@@ -1,0 +1,16 @@
+id: industry-68
+name: Industry 68 A Steel Reinforcement Workshop Produces A Batch Of Steel Bars With T
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-68/description.md
+
+dataset:
+  answers: industry-68/prepared/private/answer.csv
+  sample_submission: industry-68/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-68.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-68.prepare:prepare

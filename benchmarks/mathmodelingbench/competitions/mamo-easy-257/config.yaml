@@ -1,0 +1,16 @@
+id: mamo-easy-257
+name: Mamo Easy 257 A Supply Chain Manager Is Planning The Allocation Of Resources Acr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-257/description.md
+
+dataset:
+  answers: mamo-easy-257/prepared/private/answer.csv
+  sample_submission: mamo-easy-257/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-257.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-257.prepare:prepare

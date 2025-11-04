@@ -2,7 +2,7 @@ import numpy as np
 from pandas import DataFrame
 from sklearn.metrics import log_loss
 
-from .competitions.utils import one_hot_dfs_to_log_loss_inputs
+from .utils import one_hot_dfs_to_log_loss_inputs
 from .grade_helpers import InvalidSubmissionError
 
 from .dogs import DOGS_LIST

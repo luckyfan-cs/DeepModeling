@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-302-find-the-charge-on-the-capacitor-in-an-lrc-series-circuit-when-l-0",
-  "en_question": "Find the charge on the capacitor in an LRC-series circuit when L = 0.5 h, R = 10 V, C = 0.01 f, E(t) = 150 V, q(0) = 1 C, and i(0) = 0 A. What is the charge in coulomb on the capacitor after a long time? Keep two significant digit number in answer.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "1.5"
-}

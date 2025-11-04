@@ -1,0 +1,16 @@
+id: sciencebench-032-coral-sponge
+name: "ScienceBench - coral_sponge.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-032-coral-sponge/description.md
+
+dataset:
+  answers: sciencebench-032-coral-sponge/prepared/private/answer.csv
+  sample_submission: sciencebench-032-coral-sponge/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-032-coral-sponge.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-032-coral-sponge.prepare:prepare

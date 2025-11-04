@@ -1,0 +1,16 @@
+id: mamo-ode-110
+name: Mamo Ode 110 In A City With 9296 Inhabitants A New Trend Starts Spreading
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-110/description.md
+
+dataset:
+  answers: mamo-ode-110/prepared/private/answer.csv
+  sample_submission: mamo-ode-110/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-110.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-110.prepare:prepare

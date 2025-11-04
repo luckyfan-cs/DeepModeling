@@ -1,0 +1,16 @@
+id: mamo-ode-10
+name: Mamo Ode 10 A Vat Contains 500 Gallons Of Beer With An Initial Alcohol Concentra
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-10/description.md
+
+dataset:
+  answers: mamo-ode-10/prepared/private/answer.csv
+  sample_submission: mamo-ode-10/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-10.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-10.prepare:prepare

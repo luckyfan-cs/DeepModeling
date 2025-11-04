@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-9-in-a-room-with-a-volume-of-180-m-3-the-air-initially-contains-0",
-  "en_question": "In a room with a volume of \\(180\\) m^3, the air initially contains \\(0.15\\%\\) carbon dioxide. Air with \\(0.05\\%\\) carbon dioxide is introduced at \\(2\\) m^3/min, and mixed air exits at the same rate. Calculate the percentage of carbon dioxide in the room after \\(20\\) minutes. Provide the numerical value of the carbon dioxide percentage in the room to four significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "0.1301"
-}

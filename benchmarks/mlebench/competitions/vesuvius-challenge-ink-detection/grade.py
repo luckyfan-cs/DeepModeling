@@ -3,7 +3,7 @@ import pandas as pd
 from pandas import DataFrame, Series
 from sklearn.metrics import fbeta_score
 
-from .competitions.utils import rle_decode
+from .utils import rle_decode
 from .grade_helpers import InvalidSubmissionError
 
 

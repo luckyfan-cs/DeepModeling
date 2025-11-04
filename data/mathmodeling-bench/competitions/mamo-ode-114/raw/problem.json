@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-114",
+  "en_question": "In a small city with 4,663 residents, a new social media app starts spreading. At the initial time t = 0 days, 682 people have already downloaded the app. The rate of spread of the app is 0.142 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have downloaded the app and the numbers who have not, can you determine how many people in total will have downloaded this app after 8 days? Provide your answer in whole numbers.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4663"
+}

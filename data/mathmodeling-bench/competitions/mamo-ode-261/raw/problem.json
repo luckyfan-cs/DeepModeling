@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-261",
+  "en_question": "The population of a town grows at a rate proportional to the population present at time t. The initial population of 500 increases by 15% in 10 years. What will be the population in 30 years? Keep in four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "760.4"
+}

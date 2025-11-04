@@ -1,0 +1,16 @@
+id: bwor-23
+name: Bwor 23 Table Ref Table14 1 Lists The Processing Times A J In Minutes And B J In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-23/description.md
+
+dataset:
+  answers: bwor-23/prepared/private/answer.csv
+  sample_submission: bwor-23/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-23.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-23.prepare:prepare

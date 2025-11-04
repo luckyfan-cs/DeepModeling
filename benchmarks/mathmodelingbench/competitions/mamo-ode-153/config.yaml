@@ -1,0 +1,16 @@
+id: mamo-ode-153
+name: Mamo Ode 153 A Freshly Baked Pie At A Temperature Of 86 C Is Left To Cool In A R
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-153/description.md
+
+dataset:
+  answers: mamo-ode-153/prepared/private/answer.csv
+  sample_submission: mamo-ode-153/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-153.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-153.prepare:prepare

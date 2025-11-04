@@ -1,0 +1,16 @@
+id: mamo-ode-141
+name: Mamo Ode 141 A Blacksmith Heats A Piece Of Iron To 111 C And Then Leaves It In A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-141/description.md
+
+dataset:
+  answers: mamo-ode-141/prepared/private/answer.csv
+  sample_submission: mamo-ode-141/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-141.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-141.prepare:prepare

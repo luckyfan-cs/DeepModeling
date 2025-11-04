@@ -1,0 +1,16 @@
+id: bwor-32
+name: Bwor 32 1
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-32/description.md
+
+dataset:
+  answers: bwor-32/prepared/private/answer.csv
+  sample_submission: bwor-32/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-32.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-32.prepare:prepare

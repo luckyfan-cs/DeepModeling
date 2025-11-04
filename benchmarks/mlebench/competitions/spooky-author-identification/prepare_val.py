@@ -2,7 +2,7 @@ from pathlib import Path
 
 from sklearn.model_selection import train_test_split
 
-from .competitions.utils import df_to_one_hot
+from .utils import df_to_one_hot
 from .utils import extract, read_csv
 
 from .classes import CLASSES

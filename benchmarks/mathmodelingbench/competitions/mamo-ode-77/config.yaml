@@ -1,0 +1,16 @@
+id: mamo-ode-77
+name: Mamo Ode 77 An Investor Deposits 60376 Into An Account That Earns 22
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-77/description.md
+
+dataset:
+  answers: mamo-ode-77/prepared/private/answer.csv
+  sample_submission: mamo-ode-77/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-77.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-77.prepare:prepare

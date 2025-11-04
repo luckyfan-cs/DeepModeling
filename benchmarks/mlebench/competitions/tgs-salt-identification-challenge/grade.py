@@ -2,7 +2,7 @@ import numpy as np
 from numpy import ndarray
 from pandas import DataFrame
 
-from .competitions.utils import rle_decode
+from .utils import rle_decode
 from .grade_helpers import InvalidSubmissionError
 
 IMG_HEIGHT = 101

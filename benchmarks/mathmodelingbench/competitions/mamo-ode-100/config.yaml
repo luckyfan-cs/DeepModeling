@@ -1,0 +1,16 @@
+id: mamo-ode-100
+name: Mamo Ode 100 In A Town Of 2346 Inhabitants A Health Campaign Starts Spreading
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-100/description.md
+
+dataset:
+  answers: mamo-ode-100/prepared/private/answer.csv
+  sample_submission: mamo-ode-100/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-100.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-100.prepare:prepare

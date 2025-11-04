@@ -1,0 +1,16 @@
+id: mamo-ode-332
+name: Mamo Ode 332 Consider A Vessel Of Water Containing A Radioactive Isotope To Be U
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-332/description.md
+
+dataset:
+  answers: mamo-ode-332/prepared/private/answer.csv
+  sample_submission: mamo-ode-332/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-332.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-332.prepare:prepare

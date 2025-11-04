@@ -1,0 +1,16 @@
+id: bwor-10
+name: Bwor 10 Noindent Textbf 3
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-10/description.md
+
+dataset:
+  answers: bwor-10/prepared/private/answer.csv
+  sample_submission: bwor-10/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-10.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-10.prepare:prepare

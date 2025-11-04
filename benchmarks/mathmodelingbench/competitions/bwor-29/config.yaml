@@ -1,0 +1,16 @@
+id: bwor-29
+name: Bwor 29 A Trading Company Specializes In The Wholesale Of A Certain Type Of Grai
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-29/description.md
+
+dataset:
+  answers: bwor-29/prepared/private/answer.csv
+  sample_submission: bwor-29/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-29.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-29.prepare:prepare

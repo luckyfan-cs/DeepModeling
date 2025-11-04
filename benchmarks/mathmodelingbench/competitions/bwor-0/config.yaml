@@ -1,0 +1,16 @@
+id: bwor-0
+name: Bwor 0 A Candy Factory Uses Raw Materials A B And C To Produce Three Different B
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-0/description.md
+
+dataset:
+  answers: bwor-0/prepared/private/answer.csv
+  sample_submission: bwor-0/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-0.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-0.prepare:prepare

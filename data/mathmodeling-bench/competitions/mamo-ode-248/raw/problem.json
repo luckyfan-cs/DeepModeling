@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-248",
+  "en_question": "A pond initially contains 1,000,000 gal of water and an an 0 amount of an undesirable chemical. Water containing 0.01 g of this chemical per gallon flows into the pond at a rate of 300 gal/h. The mixture flows out at the same rate, so the amount of water in the pond remains constant. Assume that the chemical is uniformly distributed throughout the pond.  How much of the chemical in g will be in the pond after a very long time? Keep six significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "10000.0"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-170
+name: Mamo Ode 170 A Mass Of 1 Slug Is Attached To A Spring With A Constant Of 25 4 Lb
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-170/description.md
+
+dataset:
+  answers: mamo-ode-170/prepared/private/answer.csv
+  sample_submission: mamo-ode-170/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-170.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-170.prepare:prepare

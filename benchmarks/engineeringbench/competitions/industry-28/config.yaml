@@ -1,0 +1,16 @@
+id: industry-28
+name: Industry 28 Jieli Company Needs To Recruit Three Types Of Professionals To Work 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-28/description.md
+
+dataset:
+  answers: industry-28/prepared/private/answer.csv
+  sample_submission: industry-28/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-28.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-28.prepare:prepare

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-96",
+  "en_question": "In a small town with 1,000 inhabitants, a rumor starts spreading. At the initial time t = 0 days, 80 people have already heard the rumor. The rate of spread of the rumor is 0.4 per day. According to a model where the rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, can you determine the numbers of the town's population that will have heard the rumor after 10 days? Express your answer as a numbers of the total population. Keep your answer to three significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.826"
+}

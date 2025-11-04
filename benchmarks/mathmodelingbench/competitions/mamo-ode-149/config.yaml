@@ -1,0 +1,16 @@
+id: mamo-ode-149
+name: Mamo Ode 149 A Blacksmith Heats A Piece Of Iron To 123 C And Then Leaves It To C
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-149/description.md
+
+dataset:
+  answers: mamo-ode-149/prepared/private/answer.csv
+  sample_submission: mamo-ode-149/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-149.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-149.prepare:prepare

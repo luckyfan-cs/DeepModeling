@@ -1,0 +1,16 @@
+id: mamo-ode-306
+name: Mamo Ode 306 Consider The Two Interconnected Tanks
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-306/description.md
+
+dataset:
+  answers: mamo-ode-306/prepared/private/answer.csv
+  sample_submission: mamo-ode-306/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-306.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-306.prepare:prepare

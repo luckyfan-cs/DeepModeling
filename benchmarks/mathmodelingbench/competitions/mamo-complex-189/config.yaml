@@ -1,0 +1,16 @@
+id: mamo-complex-189
+name: Mamo Complex 189 There Are Four Nodes Connected By Directed Edges
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-189/description.md
+
+dataset:
+  answers: mamo-complex-189/prepared/private/answer.csv
+  sample_submission: mamo-complex-189/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-189.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-189.prepare:prepare

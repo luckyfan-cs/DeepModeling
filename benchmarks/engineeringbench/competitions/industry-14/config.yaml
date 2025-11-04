@@ -1,0 +1,16 @@
+id: industry-14
+name: Industry 14 A Certain Factory Needs To Use A Special Tool Over N Planning Stages
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-14/description.md
+
+dataset:
+  answers: industry-14/prepared/private/answer.csv
+  sample_submission: industry-14/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-14.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-14.prepare:prepare

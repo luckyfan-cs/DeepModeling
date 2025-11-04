@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-71",
+  "en_question": "A company starts with an initial capital of $44,961. The company's capital grows at a continuous rate of 42% per year and the company also receives continuous external funding at a rate of $1,262 per year. How much will be the total capital of the company after 10 years? Provide your answer in dollars and to ten significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "3195655.915"
+}

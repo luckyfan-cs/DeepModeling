@@ -1,0 +1,16 @@
+id: mamo-complex-76
+name: Mamo Complex 76 Consider A Delivery Company That Needs To Deliver Packages To Fi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-76/description.md
+
+dataset:
+  answers: mamo-complex-76/prepared/private/answer.csv
+  sample_submission: mamo-complex-76/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-76.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-76.prepare:prepare

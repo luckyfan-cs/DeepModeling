@@ -1,0 +1,16 @@
+id: mamo-easy-150
+name: Mamo Easy 150 A Shipping Company Has Two Types Of Cargo X And Y That Need To Be 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-150/description.md
+
+dataset:
+  answers: mamo-easy-150/prepared/private/answer.csv
+  sample_submission: mamo-easy-150/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-150.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-150.prepare:prepare

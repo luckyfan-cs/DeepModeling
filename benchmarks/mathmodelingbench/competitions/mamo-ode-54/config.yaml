@@ -1,0 +1,16 @@
+id: mamo-ode-54
+name: Mamo Ode 54 Carrie Mattaini Invests 2000 With Quickbucks Banking Which Offers An
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-54/description.md
+
+dataset:
+  answers: mamo-ode-54/prepared/private/answer.csv
+  sample_submission: mamo-ode-54/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-54.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-54.prepare:prepare

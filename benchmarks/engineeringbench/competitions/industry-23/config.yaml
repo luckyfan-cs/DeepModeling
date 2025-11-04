@@ -1,0 +1,16 @@
+id: industry-23
+name: Industry 23 A Manufacturing Company Needs To Transport 1800 Units Of Product Fro
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-23/description.md
+
+dataset:
+  answers: industry-23/prepared/private/answer.csv
+  sample_submission: industry-23/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-23.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-23.prepare:prepare

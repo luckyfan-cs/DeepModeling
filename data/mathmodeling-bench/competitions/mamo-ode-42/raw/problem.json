@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-42",
+  "en_question": "The Hodgkin-Huxley model for excitable nerve cells uses a differential equation of the form dy/dt = \u03b1(1-y) - \u03b2y, where y is a variable between 0 and 1 related to potassium channel activation, sodium channel activation, or sodium channel inactivation in the cells, and \u03b1 and \u03b2 are rate constants. Consider a specific scenario where \u03b1 = 0.2 and \u03b2 = 0.1, and the initial condition y(0) = 0.5. What is the limit of the solution as t goes to infinity? Keep 3 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "0.667"
+}

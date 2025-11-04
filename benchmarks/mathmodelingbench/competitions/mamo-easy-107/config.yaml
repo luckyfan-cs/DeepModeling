@@ -1,0 +1,16 @@
+id: mamo-easy-107
+name: Mamo Easy 107 In A Sports Coaching Scenario A Coach Needs To Allocate Training H
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-107/description.md
+
+dataset:
+  answers: mamo-easy-107/prepared/private/answer.csv
+  sample_submission: mamo-easy-107/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-107.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-107.prepare:prepare

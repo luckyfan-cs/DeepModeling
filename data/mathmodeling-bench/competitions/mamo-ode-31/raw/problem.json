@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-31",
+  "en_question": "A large tank initially contains \\(1317\\) L of water with a concentration of \\(28\\) kg/L of a certain pollutant. Fresh water enters the tank at a rate of \\(2\\) L/min and carries with it the pollutant at a concentration of \\(0.4\\) kg/L, while the well-mixed solution exits the tank at the same rate. Determine the amount in kilograms of pollutant remaining in the tank after \\(36\\) minutes. Express your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "54.537"
+}

@@ -1,0 +1,16 @@
+id: mamo-ode-133
+name: Mamo Ode 133 In An Elementary Chemical Reaction Where Single Molecules Of Two Re
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-133/description.md
+
+dataset:
+  answers: mamo-ode-133/prepared/private/answer.csv
+  sample_submission: mamo-ode-133/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-133.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-133.prepare:prepare

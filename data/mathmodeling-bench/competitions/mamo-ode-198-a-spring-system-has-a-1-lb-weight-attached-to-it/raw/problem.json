@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-198-a-spring-system-has-a-1-lb-weight-attached-to-it",
-  "en_question": "A spring system has a 1-lb weight attached to it. The weight is initially released from rest at the equilibrium position, but an external force \\(f(t)=e^{2t}\\) starts acting on it immediately. After one second, calculate the displacement of the weight from its equilibrium position. Use feet as your unit of measurement and round your answer to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "35.1"
-}

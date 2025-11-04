@@ -1,0 +1,16 @@
+id: mamo-easy-555
+name: Mamo Easy 555 In A Sports Training Scenario A Coach Needs To Allocate Weekly Tra
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-555/description.md
+
+dataset:
+  answers: mamo-easy-555/prepared/private/answer.csv
+  sample_submission: mamo-easy-555/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-555.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-555.prepare:prepare

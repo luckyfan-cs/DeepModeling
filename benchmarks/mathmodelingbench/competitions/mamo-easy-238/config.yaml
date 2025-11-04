@@ -1,0 +1,16 @@
+id: mamo-easy-238
+name: Mamo Easy 238 In An Agricultural Scenario A Farmer Is Planning To Allocate His L
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-238/description.md
+
+dataset:
+  answers: mamo-easy-238/prepared/private/answer.csv
+  sample_submission: mamo-easy-238/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-238.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-238.prepare:prepare

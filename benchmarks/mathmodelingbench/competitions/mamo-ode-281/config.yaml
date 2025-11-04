@@ -1,0 +1,16 @@
+id: mamo-ode-281
+name: Mamo Ode 281 A Mass Weighing 3 Lb Stretches A Spring 3 In
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-281/description.md
+
+dataset:
+  answers: mamo-ode-281/prepared/private/answer.csv
+  sample_submission: mamo-ode-281/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-281.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-281.prepare:prepare

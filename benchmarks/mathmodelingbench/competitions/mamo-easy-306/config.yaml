@@ -1,0 +1,16 @@
+id: mamo-easy-306
+name: Mamo Easy 306 An Environmental Agency Is Planning To Allocate Funds Between Thre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-306/description.md
+
+dataset:
+  answers: mamo-easy-306/prepared/private/answer.csv
+  sample_submission: mamo-easy-306/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-306.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-306.prepare:prepare

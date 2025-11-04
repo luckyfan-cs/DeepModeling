@@ -3,7 +3,7 @@ from pandas import DataFrame
 from scipy.spatial.distance import directed_hausdorff
 from tqdm.auto import tqdm
 
-from .competitions.utils import rles_to_masks
+from .utils import rles_to_masks
 from .grade_helpers import InvalidSubmissionError
 from .metrics import dice_coefficient
 

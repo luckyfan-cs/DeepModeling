@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-288",
+  "en_question": "A spring is stretched 10 cm by a force of 3 N. A mass of 2 kg is hung from the spring and is also attached to a viscous damper that exerts a force of 3 N when the velocity of the mass is 5 m/s. If the mass is pulled down 5 cm below its equilibrium position and given an initial downward velocity of 10 cm/s and regard the initial velocity as the positive direction, determine its position u at any time t. Determine the distance between its position after 0.1s and equilibrium position in inch. Keep four significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "2.202"
+}

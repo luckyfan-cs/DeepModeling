@@ -1,0 +1,16 @@
+id: mamo-easy-113
+name: Mamo Easy 113 In A Sports Training Camp There Are Two Types Of Training Drills D
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-113/description.md
+
+dataset:
+  answers: mamo-easy-113/prepared/private/answer.csv
+  sample_submission: mamo-easy-113/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-113.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-113.prepare:prepare

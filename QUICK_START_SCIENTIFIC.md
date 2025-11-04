@@ -34,12 +34,12 @@ python main.py --workflow scientific --benchmark mle \
 python main.py --workflow scientific --benchmark mathmodeling \
     --llm-model gpt-4o-mini \
     --data-dir /path/to/mathmodeling-bench \
-    --task mathmodeling-0-candy-profit
+    --task mathmodeling-0
 
 python main.py --workflow scientific --benchmark mathmodeling \
     --llm-model gpt-4o-mini \
     --data-dir /path/to/mathmodeling-bench \
-    --task mathmodeling-1-feed-optimization
+    --task mathmodeling-1
 ```
 
 **💡 Tip: External Data Storage**
@@ -51,7 +51,7 @@ If your dataset is large, you can store it on external storage:
 python main.py --workflow scientific --benchmark mathmodeling \
     --llm-model gpt-4o-mini \
     --data-dir /mnt/external_drive/mathmodeling-data \
-    --task bwor-11-noindent-textbf-4
+    --task bwor-11
 
 # Registry (small metadata files) stays in project
 # Data (large files) can be anywhere you specify via --data-dir

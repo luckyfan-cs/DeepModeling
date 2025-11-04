@@ -1,0 +1,16 @@
+id: mamo-easy-175
+name: Mamo Easy 175 An Energy Company Is Planning To Allocate Resources Across Three P
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-175/description.md
+
+dataset:
+  answers: mamo-easy-175/prepared/private/answer.csv
+  sample_submission: mamo-easy-175/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-175.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-175.prepare:prepare

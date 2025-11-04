@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-264",
+  "en_question": "When interest is compounded continuously, the amount of money increases at a rate proportional to the amount S present at time t, that is, dS/dt = rS, where r is the annual rate of interest. Find the amount of money in $ accrued at the end of 5 years when $5000 is deposited in a savings account drawing 5.75 % annual interest compounded continuously. Keep six significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "6665.45"
+}

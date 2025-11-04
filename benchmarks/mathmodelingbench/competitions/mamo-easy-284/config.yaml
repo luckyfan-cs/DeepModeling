@@ -1,0 +1,16 @@
+id: mamo-easy-284
+name: Mamo Easy 284 A Tourism Company Is Planning To Allocate Its Resources Among Thre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-284/description.md
+
+dataset:
+  answers: mamo-easy-284/prepared/private/answer.csv
+  sample_submission: mamo-easy-284/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-284.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-284.prepare:prepare

@@ -1,0 +1,16 @@
+id: bwor-17
+name: Bwor 17 A Commercial Company Plans To Open 5 New Stores And Has Decided To Assig
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-17/description.md
+
+dataset:
+  answers: bwor-17/prepared/private/answer.csv
+  sample_submission: bwor-17/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-17.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-17.prepare:prepare

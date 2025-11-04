@@ -5,11 +5,18 @@ import uuid
 import yaml
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, List, Tuple, Optional, Dict
+from typing import Any, Callable, List, Tuple, Optional, Dict, TYPE_CHECKING
 import pandas as pd
 import logging
+import sys
 
 from modeling.benchmark.benchmark import BaseBenchmark
+
+# Add benchmarks directory to sys.path so mlebench can be imported directly
+# (competition configs use "mlebench.*" not "benchmarks.mlebench.*")
+_BENCHMARKS_DIR = Path(__file__).resolve().parent.parent.parent / "benchmarks"
+if str(_BENCHMARKS_DIR) not in sys.path:
+    sys.path.insert(0, str(_BENCHMARKS_DIR))
 
 # --- mlebench related imports ---
 from benchmarks.mlebench.data import is_dataset_prepared
@@ -22,6 +29,9 @@ from benchmarks.mlebench.registry import registry as DEFAULT_MLE_REGISTRY
 from modeling.models.task import TaskDefinition
 
 logger = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from modeling.runner import ModelingRunner
 
 
 class MLEBenchmark(BaseBenchmark):
@@ -172,7 +182,12 @@ class MLEBenchmark(BaseBenchmark):
         logger.error(f"Error for {competition_id}: {error_msg}")
         return report
 
-    async def evaluate_problem(self, problem: dict, eval_fn: Callable) -> Tuple[Tuple, CompetitionReport, Optional[str]]:
+    async def evaluate_problem(
+        self,
+        problem: dict,
+        eval_fn: Callable,
+        runner: Optional["ModelingRunner"] = None
+    ) -> Tuple[Tuple, CompetitionReport, Optional[str]]:
         """
         Evaluates a single MLEBench competition.
         """
@@ -252,4 +267,18 @@ class MLEBenchmark(BaseBenchmark):
             report.score, cost, report.gold_medal, report.silver_medal, report.bronze_medal,
             report.above_median, report.submission_exists, report.valid_submission, error_message,
          )
+        if runner:
+            try:
+                runner.record_grade_report(
+                    task_id=competition_id,
+                    submission_path=str(report.submission_path),
+                    report=report,
+                    error_message=error_message
+                )
+            except Exception as exc:
+                logger.warning(
+                    "Failed to record grade telemetry for '%s': %s",
+                    competition_id,
+                    exc
+                )
         return csv_tuple, report, error_message

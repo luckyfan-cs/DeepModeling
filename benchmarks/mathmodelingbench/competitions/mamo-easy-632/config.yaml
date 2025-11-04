@@ -1,0 +1,16 @@
+id: mamo-easy-632
+name: Mamo Easy 632 A Sports Coach Needs To Allocate Time For Four Different Training 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-632/description.md
+
+dataset:
+  answers: mamo-easy-632/prepared/private/answer.csv
+  sample_submission: mamo-easy-632/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-632.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-632.prepare:prepare

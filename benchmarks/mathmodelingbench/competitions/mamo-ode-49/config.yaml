@@ -1,0 +1,16 @@
+id: mamo-ode-49
+name: Mamo Ode 49 In A Closed R L Circuit With A Resistor Of 8 Ohms And An Inductor Of
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-49/description.md
+
+dataset:
+  answers: mamo-ode-49/prepared/private/answer.csv
+  sample_submission: mamo-ode-49/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-49.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-49.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-239
+name: Mamo Ode 239 Imagine You Have A Tank That S Filled With 100 Gallons Of Water And
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-239/description.md
+
+dataset:
+  answers: mamo-ode-239/prepared/private/answer.csv
+  sample_submission: mamo-ode-239/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-239.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-239.prepare:prepare

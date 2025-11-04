@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-221",
+  "en_question": "Consider an LRC circuit that consists of an inductor, a resistor, and a capacitor connected in series. The values of the inductance, resistance, and reciprocal capacitance are \\(6.759\\) henries, \\(6.458 \\Omega\\), and \\(1/0.739 F^{-1}\\) respectively. At time zero, the charge on the capacitor is \\(3.0 C\\) and the current flowing through the circuit is \\(-3.945 A\\). What would be the charge on the capacitor at time \\(t = 5s\\)? Assume that an increase in current from negative to positive terminal signifies a positive direction. Provide your answer rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.915"
+}

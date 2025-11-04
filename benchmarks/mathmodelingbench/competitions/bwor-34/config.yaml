@@ -1,0 +1,16 @@
+id: bwor-34
+name: Bwor 34 A Fleet Of Strategic Bombers Is Ordered To Destroy An Enemy Military Tar
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-34/description.md
+
+dataset:
+  answers: bwor-34/prepared/private/answer.csv
+  sample_submission: bwor-34/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-34.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-34.prepare:prepare

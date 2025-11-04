@@ -1,0 +1,16 @@
+id: mamo-easy-387
+name: Mamo Easy 387 A Tourism Company Plans To Launch Four New Tour Packages X1 X2 X3 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-387/description.md
+
+dataset:
+  answers: mamo-easy-387/prepared/private/answer.csv
+  sample_submission: mamo-easy-387/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-387.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-387.prepare:prepare

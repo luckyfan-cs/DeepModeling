@@ -1,0 +1,16 @@
+id: mamo-ode-109
+name: Mamo Ode 109 A City With A Population Of 7583 Is Undergoing An Outbreak Of A Con
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-109/description.md
+
+dataset:
+  answers: mamo-ode-109/prepared/private/answer.csv
+  sample_submission: mamo-ode-109/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-109.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-109.prepare:prepare

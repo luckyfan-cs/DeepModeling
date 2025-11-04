@@ -1,0 +1,16 @@
+id: sciencebench-060-nvc-accuracies
+name: "ScienceBench - nvc_accuracies.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-060-nvc-accuracies/description.md
+
+dataset:
+  answers: sciencebench-060-nvc-accuracies/prepared/private/answer.csv
+  sample_submission: sciencebench-060-nvc-accuracies/prepared/public/sample_submission.csv
+
+grader:
+  name: rmse
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-060-nvc-accuracies.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-060-nvc-accuracies.prepare:prepare

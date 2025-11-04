@@ -1,0 +1,16 @@
+id: industry-73
+name: Industry 73 A Project Includes The Following 7 Activities With Their Durations I
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-73/description.md
+
+dataset:
+  answers: industry-73/prepared/private/answer.csv
+  sample_submission: industry-73/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-73.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-73.prepare:prepare

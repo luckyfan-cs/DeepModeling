@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm.auto import tqdm
 
-from .competitions.utils import get_ids_from_tf_records
+from .utils import get_ids_from_tf_records
 from .utils import get_logger
 
 logger = get_logger(__name__)

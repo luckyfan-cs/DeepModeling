@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-228-consider-an-lrc-circuit-consisting-of-an-inductor-with-an-inductanc",
-  "en_question": "Consider an LRC circuit consisting of an inductor with an inductance of 1.542 Henry, a resistor with resistance of 9.027 ohms, and a capacitor with capacitance of 0.134 farads. Initially, the capacitor is charged to 2.0 coulombs and the current flow through the circuit is 25.081 amperes when no external voltage source is applied to it. Find out how much charge remains on the capacitor after t=6 seconds assuming that increase in charge is considered as positive direction. Express your answer in coulombs rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.023"
-}

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-327",
+  "en_question": "In our numerical scenario for the chemostat system, we aim to model the dynamics of a limited nutrient and a population of microorganisms within a controlled environment. The system is characterized by a dilution rate of 0.1 per hour for both the nutrient and the organisms, indicating that 10% of the vessel's content is replaced each hour. The nutrient is added to the system at a concentration rate of 0.002 g/L/hour, while the consumption rate coefficient is set at 1 g/L/hour. The microorganisms exhibit a maximum growth rate of 0.6 per hour, with a half-saturation constant of 0.01 g/L, indicating their efficiency in utilizing the nutrient for growth. Initially, the concentration of the limited nutrient in the vessel is 0.1 g/L, and the concentration of organisms starts at 0.01 g/L. Find the concentration of organisms in g/L after 15h. Keep three significant digit number in answer.",
+  "cn_question": "",
+  "difficulty": "system_equation",
+  "expected_answer": "0.0260"
+}

@@ -1,0 +1,16 @@
+id: mamo-easy-51
+name: Mamo Easy 51 A Retail Store Manager Is Planning To Stock Up Two Types Of Product
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-51/description.md
+
+dataset:
+  answers: mamo-easy-51/prepared/private/answer.csv
+  sample_submission: mamo-easy-51/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-51.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-51.prepare:prepare

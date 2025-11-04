@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-151-a-freshly-baked-loaf-of-bread-is-removed-from-the-oven-at-a-tempera",
-  "en_question": "A freshly baked loaf of bread is removed from the oven at a temperature of 109\u00b0C and placed in a room with an ambient temperature of 42\u00b0C. The rate constant \\(k\\) for the cooling process, according to Newton's Law of Cooling, is found to be \\(0.06 \\, \\text{min}^{-1}\\). Calculate the temperature of the loaf after 7 minutes. Provide your answer in \u00b0C and up to three decimal places.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "86.022"
-}

@@ -1,0 +1,16 @@
+id: industry-71
+name: Industry 71 The Li Family Plans To Invest Their Retirement Fund In Commercial Re
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-71/description.md
+
+dataset:
+  answers: industry-71/prepared/private/answer.csv
+  sample_submission: industry-71/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-71.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-71.prepare:prepare

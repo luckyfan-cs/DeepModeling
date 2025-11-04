@@ -1,0 +1,16 @@
+id: mamo-ode-195
+name: Mamo Ode 195 A Spring Mass System Consists Of A Spring Stretched 4 Ft By A 16 Lb
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-195/description.md
+
+dataset:
+  answers: mamo-ode-195/prepared/private/answer.csv
+  sample_submission: mamo-ode-195/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-195.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-195.prepare:prepare

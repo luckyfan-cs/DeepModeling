@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-162-in-a-series-circuit-with-a-resistor-of-r-20-omega-an-inductor-of-l-",
-  "en_question": "In a series circuit with a resistor of $R=20 \\Omega$, an inductor of $L=1 \\mathrm{H}$, a capacitor of $C=0.002 \\mathrm{F}$, and initially connected to a battery that has been replaced by a generator producing a varying voltage of $E(t)=12 \\sin 10 t$, and with initial conditions where both the charge and current start at 0, calculate the charge on the capacitor at time $t=0.1$ seconds. Provide the calculated charge in Coulombs, rounded to five significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.00987"
-}

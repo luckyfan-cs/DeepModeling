@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-131-let-h-t-be-the-height-of-water-in-a-rectangular-tank-at-time-t",
-  "en_question": "Let $h(t)$ be the height of water in a rectangular tank at time $t$. If water drains through a hole with area $A$ at the bottom of the tank, then Torricelli's Law says that the rate at which water flows from the tank is proportional to the square root of the water height. Suppose the tank is rectangular with length $5 \\mathrm{m}$ and width $3 \\mathrm{m}$ and depth $18 \\mathrm{m}$. The hole has an area of $1.185 \\mathrm{m}^2$. If we take $g=9.81 \\mathrm{m/s}^2$, find the height of the water at time 4s, assuming the tank is full at time $t=0$. Answer in meters and up to three decimal places.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "12.553"
-}

@@ -1,0 +1,16 @@
+id: mamo-easy-469
+name: Mamo Easy 469 A Sports Coach Is Planning To Allocate Training Hours Between Two 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-469/description.md
+
+dataset:
+  answers: mamo-easy-469/prepared/private/answer.csv
+  sample_submission: mamo-easy-469/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-469.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-469.prepare:prepare

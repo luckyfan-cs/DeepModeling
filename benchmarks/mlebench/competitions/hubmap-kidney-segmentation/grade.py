@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from tqdm.auto import tqdm
 
-from .competitions.utils import rles_to_masks
+from .utils import rles_to_masks
 from .grade_helpers import InvalidSubmissionError
 from .metrics import dice_coefficient
 

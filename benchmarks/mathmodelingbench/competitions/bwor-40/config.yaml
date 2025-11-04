@@ -1,0 +1,16 @@
+id: bwor-40
+name: Bwor 40 3
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-40/description.md
+
+dataset:
+  answers: bwor-40/prepared/private/answer.csv
+  sample_submission: bwor-40/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-40.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-40.prepare:prepare

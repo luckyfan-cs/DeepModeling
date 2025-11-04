@@ -1,0 +1,16 @@
+id: mamo-easy-297
+name: Mamo Easy 297 A School Is Planning To Allocate Resources Including Teachers Clas
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-297/description.md
+
+dataset:
+  answers: mamo-easy-297/prepared/private/answer.csv
+  sample_submission: mamo-easy-297/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-297.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-297.prepare:prepare

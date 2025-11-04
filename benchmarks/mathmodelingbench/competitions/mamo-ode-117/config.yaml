@@ -1,0 +1,16 @@
+id: mamo-ode-117
+name: Mamo Ode 117 In A Small Community Of 9919 Residents A Rumor Starts Spreading
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-117/description.md
+
+dataset:
+  answers: mamo-ode-117/prepared/private/answer.csv
+  sample_submission: mamo-ode-117/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-117.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-117.prepare:prepare

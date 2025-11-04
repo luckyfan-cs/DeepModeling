@@ -1,0 +1,16 @@
+id: mamo-complex-65
+name: Mamo Complex 65 In A Scenario Involving A Traveling Salesperson There Are Six Ci
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-65/description.md
+
+dataset:
+  answers: mamo-complex-65/prepared/private/answer.csv
+  sample_submission: mamo-complex-65/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-65.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-65.prepare:prepare

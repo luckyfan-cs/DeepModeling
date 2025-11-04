@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-147-a-blacksmith-is-heating-an-iron-rod-at-a-temperature-of-177-c-in-a-",
-  "en_question": "A blacksmith is heating an iron rod at a temperature of 177\u00b0C in a furnace. The rod is then taken out and left to cool in the environment with a constant ambient temperature of 36\u00b0C. According to Newton's Law of Cooling, the rate constant \\(k\\) for the cooling process is found to be \\(0.127 \\, \\text{min}^{-1}\\). Determine the temperature of the iron rod after 20 minutes. Provide your answer in \u00b0C and rounded off to two decimal places.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "47.12"
-}

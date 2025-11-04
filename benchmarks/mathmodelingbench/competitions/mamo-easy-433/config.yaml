@@ -1,0 +1,16 @@
+id: mamo-easy-433
+name: Mamo Easy 433 A Finance Manager Is Planning To Allocate A Budget Between Two Typ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-433/description.md
+
+dataset:
+  answers: mamo-easy-433/prepared/private/answer.csv
+  sample_submission: mamo-easy-433/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-433.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-433.prepare:prepare

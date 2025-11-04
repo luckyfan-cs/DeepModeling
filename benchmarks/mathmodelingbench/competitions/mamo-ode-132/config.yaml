@@ -1,0 +1,16 @@
+id: mamo-ode-132
+name: Mamo Ode 132 A Certain Substance Decays Exponentially With Its Quantity Halving 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-132/description.md
+
+dataset:
+  answers: mamo-ode-132/prepared/private/answer.csv
+  sample_submission: mamo-ode-132/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-132.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-132.prepare:prepare

@@ -1,0 +1,16 @@
+id: industry-0
+name: Industry 0 A Factory Produces Two Types Of Food I And Ii And Currently Has 50 Sk
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-0/description.md
+
+dataset:
+  answers: industry-0/prepared/private/answer.csv
+  sample_submission: industry-0/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-0.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-0.prepare:prepare

@@ -259,7 +259,7 @@ OPENAI_API_BASE=https://api.openai.com/v1
 python main.py --workflow scientific --benchmark mathmodeling \
   --data-dir ./data/mathmodeling-bench \
   --llm-model gpt-4o-mini \
-  --task bwor-0-a-candy-factory-uses-raw-materials-a-b-and-c-to-produce-three-different-b
+  --task bwor-0
 
 # Multiple tasks (Batch Evaluation)
 python main.py --workflow scientific --benchmark mathmodeling \
@@ -289,7 +289,7 @@ python main.py --workflow scientific --benchmark mle \
 python main.py --workflow scientific --benchmark mathmodeling \
   --data-dir /mnt/external_drive/mathmodeling-data \
   --llm-model gpt-4o-mini \
-  --task bwor-11-noindent-textbf-4
+  --task bwor-11
 
 # Data science on external storage
 python main.py --workflow scientific --benchmark mle \
@@ -585,8 +585,8 @@ Edit `config.yaml` to configure benchmarks:
 ```yaml
 # Mathematical Modeling Benchmarks
 mathmodeling_competitions:
-  - bwor-0-a-candy-factory-uses-raw-materials-a-b-and-c-to-produce-three-different-b
-  - industry-5-production-scheduling
+  - bwor-0
+  - industry-5
   - mamo-easy-10-resource-allocation
   # Add more competitions...
 

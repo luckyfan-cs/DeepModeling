@@ -2,7 +2,7 @@ import uuid
 import yaml
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple, TYPE_CHECKING
 import logging
 
 from modeling.benchmark.benchmark import BaseBenchmark
@@ -18,6 +18,9 @@ from benchmarks.mathmodelingbench import registry as DEFAULT_REGISTRY
 from modeling.models.task import TaskDefinition
 
 logger = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from modeling.runner import ModelingRunner
 
 
 class MathModelingBenchmark(BaseBenchmark):
@@ -58,19 +61,19 @@ class MathModelingBenchmark(BaseBenchmark):
 
             if not config_path.exists():
                 logger.warning("Config file not found at %s, using default configuration", config_path)
-                return {"competitions": ["dabench-0-mean-fare"]}
+                return {"competitions": ["dabench-0"]}
 
             with open(config_path, "r", encoding="utf-8") as f:
                 raw_config = yaml.safe_load(f) or {}
 
             competitions = raw_config.get(
                 "mathmodeling_competitions",
-                raw_config.get("competitions", ["dabench-0-mean-fare"])
+                raw_config.get("competitions", ["dabench-0"])
             )
             return {"competitions": competitions}
         except Exception as exc:
             logger.error("Error loading config file: %s, using default configuration", exc)
-            return {"competitions": ["dabench-0-mean-fare"]}
+            return {"competitions": ["dabench-0"]}
 
     def _load_problems(self) -> List[Dict[str, Any]]:
         logger.info("Discovering prepared competitions in %s...", self.data_dir)
@@ -140,7 +143,8 @@ class MathModelingBenchmark(BaseBenchmark):
     async def evaluate_problem(
         self,
         problem: dict,
-        eval_fn: Callable
+        eval_fn: Callable,
+        runner: Optional["ModelingRunner"] = None
     ) -> Tuple[Tuple, CompetitionReport, Optional[str]]:
         competition_id = problem.get("competition_id")
         if not competition_id:
@@ -226,6 +230,20 @@ class MathModelingBenchmark(BaseBenchmark):
             report.valid_submission,
             error_message,
         )
+        if runner:
+            try:
+                runner.record_grade_report(
+                    task_id=competition_id,
+                    submission_path=str(report.submission_path),
+                    report=report,
+                    error_message=error_message,
+                )
+            except Exception as exc:
+                logger.warning(
+                    "Failed to record grade telemetry for '%s': %s",
+                    competition_id,
+                    exc,
+                )
         return csv_tuple, report, error_message
 
     def get_result_columns(self) -> List[str]:

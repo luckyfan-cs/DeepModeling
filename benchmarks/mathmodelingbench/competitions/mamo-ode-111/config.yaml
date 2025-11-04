@@ -1,0 +1,16 @@
+id: mamo-ode-111
+name: Mamo Ode 111 In A City With 6918 Inhabitants A Viral Video Starts Spreading
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-111/description.md
+
+dataset:
+  answers: mamo-ode-111/prepared/private/answer.csv
+  sample_submission: mamo-ode-111/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-111.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-111.prepare:prepare

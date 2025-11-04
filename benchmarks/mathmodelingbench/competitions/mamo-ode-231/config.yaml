@@ -1,0 +1,16 @@
+id: mamo-ode-231
+name: Mamo Ode 231 Consider An Lrc Circuit With An Inductance Of 1 Text Henry A Resist
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-231/description.md
+
+dataset:
+  answers: mamo-ode-231/prepared/private/answer.csv
+  sample_submission: mamo-ode-231/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-231.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-231.prepare:prepare

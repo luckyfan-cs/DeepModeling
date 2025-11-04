@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-16",
+  "en_question": "A large aquarium with a volume of \\(8258\\) liters initially contains \\(23\\) kg of dissolved salt. Water containing \\(0.38\\) kg/liter of salt flows into the tank at a rate of \\(1\\) L/min, and the well-mixed solution exits the tank at the same rate. Determine the amount of salt in kg remaining in the tank after \\(2\\) minutes, ensuring your answer is presented to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "22.995"
+}

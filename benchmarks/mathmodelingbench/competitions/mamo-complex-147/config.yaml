@@ -1,0 +1,16 @@
+id: mamo-complex-147
+name: Mamo Complex 147 Logichain Solutions Is In The Process Of Refining Its Logistics
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-147/description.md
+
+dataset:
+  answers: mamo-complex-147/prepared/private/answer.csv
+  sample_submission: mamo-complex-147/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-147.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-147.prepare:prepare

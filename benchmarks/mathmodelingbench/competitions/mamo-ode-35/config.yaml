@@ -1,0 +1,16 @@
+id: mamo-ode-35
+name: Mamo Ode 35 A Room With A Volume Of 8110 M 3 Initially Contains No Smoke
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-35/description.md
+
+dataset:
+  answers: mamo-ode-35/prepared/private/answer.csv
+  sample_submission: mamo-ode-35/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-35.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-35.prepare:prepare

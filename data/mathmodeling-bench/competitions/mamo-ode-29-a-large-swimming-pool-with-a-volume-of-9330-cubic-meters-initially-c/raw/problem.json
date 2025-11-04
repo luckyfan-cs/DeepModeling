@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-29-a-large-swimming-pool-with-a-volume-of-9330-cubic-meters-initially-c",
-  "en_question": "A large swimming pool with a volume of \\(9330\\) cubic meters initially contains \\(10\\) kilograms of chlorine. To maintain cleanliness, fresh water containing \\(0.18\\) kg/m^3 of chlorine is pumped into the pool at a rate of \\(2\\) m^3/min. The well-mixed water is drained out at the same rate to keep the volume constant. What will be the amount of chlorine in kilograms remaining in the pool after \\(30\\) minutes? Express your answer to four significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "20.70"
-}

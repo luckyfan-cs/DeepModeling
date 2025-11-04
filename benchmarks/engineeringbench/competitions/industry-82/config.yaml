@@ -1,0 +1,16 @@
+id: industry-82
+name: Industry 82 A Certain Restaurant Operates Around The Clock And The Number Of Wai
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-82/description.md
+
+dataset:
+  answers: industry-82/prepared/private/answer.csv
+  sample_submission: industry-82/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-82.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-82.prepare:prepare

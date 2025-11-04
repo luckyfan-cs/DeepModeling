@@ -1,0 +1,16 @@
+id: mamo-ode-219
+name: Mamo Ode 219 Consider A Circuit With An Inductor Resistor And Capacitor Connecte
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-219/description.md
+
+dataset:
+  answers: mamo-ode-219/prepared/private/answer.csv
+  sample_submission: mamo-ode-219/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-219.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-219.prepare:prepare

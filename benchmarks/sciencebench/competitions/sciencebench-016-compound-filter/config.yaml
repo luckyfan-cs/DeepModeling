@@ -1,0 +1,16 @@
+id: sciencebench-016-compound-filter
+name: "ScienceBench - compound_filter.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-016-compound-filter/description.md
+
+dataset:
+  answers: sciencebench-016-compound-filter/prepared/private/answer.csv
+  sample_submission: sciencebench-016-compound-filter/prepared/public/sample_submission.csv
+
+grader:
+  name: rmse
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-016-compound-filter.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-016-compound-filter.prepare:prepare

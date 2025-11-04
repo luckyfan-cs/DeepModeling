@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-10",
+  "en_question": "A vat contains 500 gallons of beer with an initial alcohol concentration of \\(4\\%\\) by volume. Beer with an alcohol concentration of \\(6\\%\\) is added to the vat at a rate of \\(5\\) gal/min, while the mixture is removed at the same rate, ensuring a constant volume in the vat. Calculate the percentage of alcohol in the vat after an hour. Provide your answer as a percentage to four significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4.902"
+}

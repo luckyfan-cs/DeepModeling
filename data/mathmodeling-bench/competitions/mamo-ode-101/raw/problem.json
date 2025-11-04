@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-101",
+  "en_question": "In a community of 1240 people, a health campaign starts with 492 individuals already aware of it. The rate at which the information spreads is proportional to the product of the numbers of the population who are aware and those who are not, with a proportionality constant of 0.816 per day. According to this model, how many individuals in the community will be aware of the health campaign after 8 days? Provide your answer as an integer.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "1240"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-60",
+  "en_question": "A company has an initial investment fund of $96,682. The company plans to make continuous deposits into the fund at a rate of $8,303 per year. The fund earns an interest rate of 3.1% per year, compounded continuously. Calculate the amount in the fund after 9 years. Provide your answer in dollars and to nine significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "213987.441"
+}

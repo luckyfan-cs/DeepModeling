@@ -1,0 +1,16 @@
+id: mamo-easy-429
+name: Mamo Easy 429 A Transportation Company Is Planning To Allocate Its Resources Bet
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-429/description.md
+
+dataset:
+  answers: mamo-easy-429/prepared/private/answer.csv
+  sample_submission: mamo-easy-429/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-429.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-429.prepare:prepare

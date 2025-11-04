@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-40-a-tank-initially-contains-765-liters-of-water-with-a-concentration-o",
-  "en_question": "A tank initially contains \\(765\\) liters of water with a concentration of \\(17\\%\\) sugar. A syrup with a sugar concentration of \\(11\\%\\) is added to the tank at a rate of \\(5\\) liters per minute, and the well-mixed solution is drained from the tank at the same rate to maintain its volume. What will be the percentage of sugar in the solution after 9 minutes? Please give your answer to five significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "16.035"
-}

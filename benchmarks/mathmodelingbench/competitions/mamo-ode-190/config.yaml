@@ -1,0 +1,16 @@
+id: mamo-ode-190
+name: Mamo Ode 190 A Spring System Is Designed With A 20 Lb Weight That Naturally Stre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-190/description.md
+
+dataset:
+  answers: mamo-ode-190/prepared/private/answer.csv
+  sample_submission: mamo-ode-190/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-190.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-190.prepare:prepare

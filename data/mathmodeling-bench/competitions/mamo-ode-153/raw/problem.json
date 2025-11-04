@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-153",
+  "en_question": "A freshly baked pie at a temperature of 86\u00b0C is left to cool in a room where the ambient temperature is constant at 38\u00b0C. The rate constant \\(k\\) for the cooling process, according to Newton's Law of Cooling, is found to be \\(0.146 \\, \\text{min}^{-1}\\). Calculate the temperature of the pie after 19 minutes. Provide your answer in \u00b0C and rounded to three decimal places.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "40.996"
+}

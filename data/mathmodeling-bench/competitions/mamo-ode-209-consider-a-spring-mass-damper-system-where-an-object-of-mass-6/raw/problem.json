@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-209-consider-a-spring-mass-damper-system-where-an-object-of-mass-6",
-  "en_question": "Consider a spring-mass-damper system where an object of mass 6.112 lbs is attached to a spring with a constant of 9.502 lb/ft, and the damper has a damping constant of 7.279 lb-sec/ft. At time t=0, the object is released from a position that is 2.467 ft above its equilibrium position (assuming upward direction as positive), and it's moving downward at an initial velocity of 6.692 ft/sec. What will be the displacement of the object from its equilibrium position at t=2 seconds? Provide your answer in feet, rounded to three significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.158"
-}

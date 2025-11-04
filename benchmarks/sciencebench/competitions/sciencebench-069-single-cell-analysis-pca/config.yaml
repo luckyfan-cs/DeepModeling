@@ -1,0 +1,16 @@
+id: sciencebench-069-single-cell-analysis-pca
+name: "ScienceBench - single_cell_analysis_pca.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-069-single-cell-analysis-pca/description.md
+
+dataset:
+  answers: sciencebench-069-single-cell-analysis-pca/prepared/private/answer.csv
+  sample_submission: sciencebench-069-single-cell-analysis-pca/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-069-single-cell-analysis-pca.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-069-single-cell-analysis-pca.prepare:prepare

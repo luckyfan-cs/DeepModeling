@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-119-a-small-town-has-a-population-of-1596-people",
-  "en_question": "A small town has a population of 1596 people. A rumor starts spreading among 477 people initially. The rate of spread is proportional to the product of the numbers of the population who have heard the rumor and the numbers who have not, with a proportionality constant of 0.142 per day. How many people in the town will have heard the rumor after 10 days? Provide your answer in the nearest whole number.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "1596"
-}

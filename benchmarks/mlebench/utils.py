@@ -1,5 +1,6 @@
 import difflib
 import importlib
+import importlib.util
 import json
 import logging
 import os
@@ -261,9 +262,98 @@ def import_fn(fn_import_string: str) -> Callable:
     `potentially.nested.module_name:fn_name`.
 
     Basically equivalent to `from potentially.nested.module_name import fn_name`.
+
+    Handles module paths with hyphens by loading from file path directly.
     """
     module_name, fn_name = fn_import_string.split(":")
-    module = importlib.import_module(module_name)
+
+    # Check if module name contains hyphens (invalid for Python module names)
+    if '-' in module_name:
+        # Convert module path to file path
+        # e.g., "mlebench.competitions.aptos2019-blindness-detection.prepare"
+        # -> "mlebench/competitions/aptos2019-blindness-detection/prepare.py"
+        module_path_parts = module_name.split('.')
+
+        # Find the mlebench directory
+        mlebench_dir = get_module_dir()
+
+        # Build file path from module_dir and path parts (skip 'mlebench' as we already have it)
+        file_path = mlebench_dir
+        for part in module_path_parts[1:]:  # Skip 'mlebench' prefix
+            file_path = file_path / part
+        file_path = file_path.with_suffix('.py')
+
+        # First, ensure parent packages are loaded (mlebench, mlebench.competitions)
+        # This is needed for relative imports to work
+        parent_module_name = '.'.join(module_path_parts[:-1])
+
+        # Load mlebench.competitions if not loaded
+        competitions_module_name = 'mlebench.competitions'
+        if competitions_module_name not in sys.modules:
+            importlib.import_module(competitions_module_name)
+
+        # Create fake parent package for the competition directory if needed
+        # e.g., for "mlebench.competitions.aptos2019-blindness-detection.prepare"
+        # create "mlebench.competitions.aptos2019-blindness-detection"
+        if parent_module_name and parent_module_name not in sys.modules:
+            import types
+            fake_parent = types.ModuleType(parent_module_name)
+            fake_parent.__path__ = [str(file_path.parent)]
+            fake_parent.__package__ = parent_module_name
+            fake_parent.__file__ = str(file_path.parent / '__init__.py')
+
+            # Make competitions.utils available to this fake package
+            # so that "from .utils import X" works in prepare.py/grade.py
+            # First ensure mlebench.competitions.utils is loaded
+            comp_real_utils_name = 'mlebench.competitions.utils'
+            if comp_real_utils_name not in sys.modules:
+                try:
+                    importlib.import_module(comp_real_utils_name)
+                except Exception as e:
+                    logger.warning(f"Failed to import {comp_real_utils_name}: {e}")
+
+            # Now create a reference to it in the fake parent
+            if comp_real_utils_name in sys.modules:
+                fake_parent.utils = sys.modules[comp_real_utils_name]
+
+                # Also make it available as a submodule of the fake parent
+                fake_utils_name = f"{parent_module_name}.utils"
+                sys.modules[fake_utils_name] = sys.modules[comp_real_utils_name]
+
+            # Also make grade_helpers available (another commonly imported module)
+            comp_real_grade_helpers_name = 'mlebench.grade_helpers'
+            if comp_real_grade_helpers_name in sys.modules:
+                fake_parent.grade_helpers = sys.modules[comp_real_grade_helpers_name]
+                fake_grade_helpers_name = f"{parent_module_name}.grade_helpers"
+                sys.modules[fake_grade_helpers_name] = sys.modules[comp_real_grade_helpers_name]
+            else:
+                try:
+                    importlib.import_module(comp_real_grade_helpers_name)
+                    if comp_real_grade_helpers_name in sys.modules:
+                        fake_parent.grade_helpers = sys.modules[comp_real_grade_helpers_name]
+                        fake_grade_helpers_name = f"{parent_module_name}.grade_helpers"
+                        sys.modules[fake_grade_helpers_name] = sys.modules[comp_real_grade_helpers_name]
+                except Exception as e:
+                    logger.warning(f"Failed to import {comp_real_grade_helpers_name}: {e}")
+
+            sys.modules[parent_module_name] = fake_parent
+
+        # Load module from file path
+        spec = importlib.util.spec_from_file_location(module_name, file_path,
+                                                        submodule_search_locations=[str(file_path.parent)])
+        if spec is None or spec.loader is None:
+            raise ImportError(f"Cannot load module from {file_path}")
+        module = importlib.util.module_from_spec(spec)
+
+        # Set __package__ to enable relative imports
+        module.__package__ = parent_module_name
+
+        sys.modules[module_name] = module  # Cache it
+        spec.loader.exec_module(module)
+    else:
+        # Standard import for valid module names
+        module = importlib.import_module(module_name)
+
     fn = getattr(module, fn_name)
     return fn
 

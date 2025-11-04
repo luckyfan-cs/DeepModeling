@@ -1,0 +1,16 @@
+id: industry-49
+name: Industry 49 A Store Has Formulated A Purchase And Sales Plan For A Certain Produ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-49/description.md
+
+dataset:
+  answers: industry-49/prepared/private/answer.csv
+  sample_submission: industry-49/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-49.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-49.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-easy-218
+name: Mamo Easy 218 A Retail Manager Is Planning To Order Three Types Of Products For 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-218/description.md
+
+dataset:
+  answers: mamo-easy-218/prepared/private/answer.csv
+  sample_submission: mamo-easy-218/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-218.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-218.prepare:prepare

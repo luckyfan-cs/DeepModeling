@@ -1,0 +1,16 @@
+id: industry-72
+name: Industry 72 The Li Family Has 5 Children Alice Bob Charlie Diana And Ella
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-72/description.md
+
+dataset:
+  answers: industry-72/prepared/private/answer.csv
+  sample_submission: industry-72/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-72.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-72.prepare:prepare

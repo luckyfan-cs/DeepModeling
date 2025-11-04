@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-137",
+  "en_question": "A cup of tea is initially at a temperature of 5\u00b0C and is left to cool in a room with a constant ambient temperature of 2\u00b0C. After 3 hours, the temperature of the tea has decreased to 4.929\u00b0C. Using Newton's Law of Cooling, calculate the temperature of the tea after 5 hours. Provide your answer in \u00b0C and keep three decimal places.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4.882"
+}

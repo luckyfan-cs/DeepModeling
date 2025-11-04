@@ -1,0 +1,16 @@
+id: mamo-ode-160
+name: Mamo Ode 160 In A Series Circuit Comprising A Resistor Of R 20 Omega An Inductor
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-160/description.md
+
+dataset:
+  answers: mamo-ode-160/prepared/private/answer.csv
+  sample_submission: mamo-ode-160/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-160.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-160.prepare:prepare

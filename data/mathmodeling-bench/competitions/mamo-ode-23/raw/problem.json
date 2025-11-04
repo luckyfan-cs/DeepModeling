@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-23",
+  "en_question": "A tank initially contains \\(1913\\) gallons of water with a salt concentration of \\(80\\) grams per gallon. Water containing a salt concentration of \\(0.28\\) grams per gallon is pumped into the tank at a rate of \\(6\\) gallons per minute, and the well-mixed solution is pumped out at the same rate to maintain the volume. What will be the concentration of salt in grams per gallon in the tank after \\(7\\) minutes? Provide your answer to five significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "78.269"
+}

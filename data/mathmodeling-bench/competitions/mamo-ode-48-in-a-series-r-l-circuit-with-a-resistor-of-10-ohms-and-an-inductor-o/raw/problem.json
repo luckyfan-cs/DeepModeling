@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-48-in-a-series-r-l-circuit-with-a-resistor-of-10-ohms-and-an-inductor-o",
-  "en_question": "In a series R-L circuit with a resistor of 10 Ohms and an inductor of 2 H, a battery supplies a constant voltage of 40 V. If the initial current is zero when the circuit is completed, calculate the value of the current in the circuit at 0.1 seconds (in A). Keep 4 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "1.574"
-}

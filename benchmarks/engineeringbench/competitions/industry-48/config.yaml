@@ -1,0 +1,16 @@
+id: industry-48
+name: Industry 48 A Factory Needs To Rent A Warehouse To Store Materials In The Next 4
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-48/description.md
+
+dataset:
+  answers: industry-48/prepared/private/answer.csv
+  sample_submission: industry-48/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-48.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-48.prepare:prepare

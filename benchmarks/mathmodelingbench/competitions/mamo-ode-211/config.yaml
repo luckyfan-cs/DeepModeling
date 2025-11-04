@@ -1,0 +1,16 @@
+id: mamo-ode-211
+name: Mamo Ode 211 A Spring Mass System Consists Of A Spring Stretched By A 1
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-211/description.md
+
+dataset:
+  answers: mamo-ode-211/prepared/private/answer.csv
+  sample_submission: mamo-ode-211/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-211.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-211.prepare:prepare

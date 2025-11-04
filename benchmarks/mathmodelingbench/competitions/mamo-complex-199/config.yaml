@@ -1,0 +1,16 @@
+id: mamo-complex-199
+name: Mamo Complex 199 A Graph With 10 Vertices And A Series Of Edges Connecting Them
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-199/description.md
+
+dataset:
+  answers: mamo-complex-199/prepared/private/answer.csv
+  sample_submission: mamo-complex-199/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-199.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-199.prepare:prepare

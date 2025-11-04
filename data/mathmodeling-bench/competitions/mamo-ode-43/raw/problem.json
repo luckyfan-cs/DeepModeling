@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-43",
+  "en_question": "A remote island has a population of 10,000 people. The population grows naturally at a rate of 2% per year. In addition to this natural growth, the number of people coming to the island as immigrants can be modeled by the function f(t) = e^t, where t is the number of years since the current year. What is the population of the island after 2 year, rounded to the nearest whole number? Keep 5 significant figures.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "10415"
+}

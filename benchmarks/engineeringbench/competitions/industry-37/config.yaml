@@ -1,0 +1,16 @@
+id: industry-37
+name: Industry 37 There Are Three Different Products To Be Processed On Three Machine 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-37/description.md
+
+dataset:
+  answers: industry-37/prepared/private/answer.csv
+  sample_submission: industry-37/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-37.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-37.prepare:prepare

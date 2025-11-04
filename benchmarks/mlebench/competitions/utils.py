@@ -5,8 +5,13 @@ import pandas as pd
 from numpy import ndarray
 from scipy.special import softmax
 
-from .grade_helpers import InvalidSubmissionError
-from .utils import get_logger
+from ..grade_helpers import InvalidSubmissionError
+from ..utils import get_logger, read_csv, load_yaml
+
+# Re-export commonly used functions from parent utils for convenience
+# Many competition prepare.py files incorrectly use "from .utils import read_csv"
+# when they should use "from ..utils import read_csv"
+__all__ = ['read_csv', 'load_yaml', 'get_logger', 'InvalidSubmissionError']
 
 logger = get_logger(__name__)
 

@@ -1,0 +1,16 @@
+id: mamo-easy-502
+name: Mamo Easy 502 A Real Estate Developer Is Planning To Invest In Two Types Of Prop
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-502/description.md
+
+dataset:
+  answers: mamo-easy-502/prepared/private/answer.csv
+  sample_submission: mamo-easy-502/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-502.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-502.prepare:prepare

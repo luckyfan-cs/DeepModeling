@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-205",
+  "en_question": "A spring-mass-damper system is designed with a 9.673-lb weight attached to a coil spring. The damping constant of the system is 9.494 lb-ft/s and the spring constant is 8.025 lb/ft. At time t=0, the weight is released from a height of 3.98 ft above its equilibrium position with an upward velocity of 4.546 ft/s (considering upward as positive). Model this physical situation with an initial value problem and solve for the displacement from the equilibrium position at t=4 seconds. Provide your answer in feet, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-0.592"
+}

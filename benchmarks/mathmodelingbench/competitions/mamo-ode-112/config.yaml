@@ -1,0 +1,16 @@
+id: mamo-ode-112
+name: Mamo Ode 112 In A Community Of 4670 People A New Social Media App Starts Gaining
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-112/description.md
+
+dataset:
+  answers: mamo-ode-112/prepared/private/answer.csv
+  sample_submission: mamo-ode-112/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-112.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-112.prepare:prepare

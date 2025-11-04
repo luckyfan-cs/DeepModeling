@@ -1,0 +1,16 @@
+id: mamo-easy-234
+name: Mamo Easy 234 A Farmer Has A Piece Of Land Where He Can Grow Corn Wheat And Soyb
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-234/description.md
+
+dataset:
+  answers: mamo-easy-234/prepared/private/answer.csv
+  sample_submission: mamo-easy-234/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-234.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-234.prepare:prepare

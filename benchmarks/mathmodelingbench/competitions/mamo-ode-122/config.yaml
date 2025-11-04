@@ -1,0 +1,16 @@
+id: mamo-ode-122
+name: Mamo Ode 122 Consider A Rectangular Tank With Length 6 Mathrm M And Width 10 Mat
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-122/description.md
+
+dataset:
+  answers: mamo-ode-122/prepared/private/answer.csv
+  sample_submission: mamo-ode-122/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-122.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-122.prepare:prepare

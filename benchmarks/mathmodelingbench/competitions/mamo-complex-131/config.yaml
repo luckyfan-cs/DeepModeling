@@ -1,0 +1,16 @@
+id: mamo-complex-131
+name: Mamo Complex 131 Consider A Complex Railway Network Connecting 7 Major Cities Fr
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-131/description.md
+
+dataset:
+  answers: mamo-complex-131/prepared/private/answer.csv
+  sample_submission: mamo-complex-131/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-131.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-131.prepare:prepare

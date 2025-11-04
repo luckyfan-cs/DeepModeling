@@ -1,0 +1,16 @@
+id: mamo-easy-453
+name: Mamo Easy 453 An Agricultural Manager Is Planning The Allocation Of Resources Be
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-453/description.md
+
+dataset:
+  answers: mamo-easy-453/prepared/private/answer.csv
+  sample_submission: mamo-easy-453/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-453.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-453.prepare:prepare

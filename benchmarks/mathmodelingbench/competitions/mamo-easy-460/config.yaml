@@ -1,0 +1,16 @@
+id: mamo-easy-460
+name: Mamo Easy 460 In A Scheduling Scenario A Manager Needs To Allocate Hours Between
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-460/description.md
+
+dataset:
+  answers: mamo-easy-460/prepared/private/answer.csv
+  sample_submission: mamo-easy-460/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-460.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-460.prepare:prepare

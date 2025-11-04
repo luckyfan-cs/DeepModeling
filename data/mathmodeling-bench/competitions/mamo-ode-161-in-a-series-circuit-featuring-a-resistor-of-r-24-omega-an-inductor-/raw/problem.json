@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-161-in-a-series-circuit-featuring-a-resistor-of-r-24-omega-an-inductor-",
-  "en_question": "In a series circuit featuring a resistor of $R=24 \\Omega$, an inductor of $L=2 \\mathrm{H}$, a capacitor of $C=0.005 \\mathrm{F}$, and powered by a $12-\\mathrm{V}$ battery, with an initial charge on the capacitor of $Q=0.001 \\mathrm{C}$ and an initial current of 0, determine the current through the circuit at time $t=0.05$ seconds. The function that describes the current's time evolution in this circuit setting is based on the circuit's electrical properties. Calculate the current's value in Amperes, rounded to four significant figures.",
-  "cn_question": "",
-  "difficulty": "second_order_equation",
-  "expected_answer": "0.2128"
-}

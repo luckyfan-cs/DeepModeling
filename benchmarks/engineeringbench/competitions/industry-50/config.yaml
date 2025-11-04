@@ -1,0 +1,16 @@
+id: industry-50
+name: Industry 50 The Number Of Nurses Required In Each Time Period Over 24 Hours At A
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-50/description.md
+
+dataset:
+  answers: industry-50/prepared/private/answer.csv
+  sample_submission: industry-50/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-50.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-50.prepare:prepare

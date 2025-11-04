@@ -1,0 +1,16 @@
+id: industry-7
+name: Industry 7 Now We Need To Determine 4 Out Of 5 Workers To Complete One Of The Fo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-7/description.md
+
+dataset:
+  answers: industry-7/prepared/private/answer.csv
+  sample_submission: industry-7/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-7.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-7.prepare:prepare

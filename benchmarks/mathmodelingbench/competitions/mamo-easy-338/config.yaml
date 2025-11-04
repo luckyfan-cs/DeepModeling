@@ -1,0 +1,16 @@
+id: mamo-easy-338
+name: Mamo Easy 338 A Manufacturing Company Is Planning To Produce Four Types Of Produ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-338/description.md
+
+dataset:
+  answers: mamo-easy-338/prepared/private/answer.csv
+  sample_submission: mamo-easy-338/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-338.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-338.prepare:prepare

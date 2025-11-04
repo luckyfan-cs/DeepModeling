@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-184",
+  "en_question": "A spring-mass-damper system is set up with a mass of 0.134 kg, a damping constant of 7.968 Ns/m, and a spring constant of 1.182 N/m. The system is initially stretched by pulling the mass 6.792 m below its equilibrium position and then released with an initial upward velocity of 3.997 m/s (considering upward as positive). Determine the displacement from the equilibrium position at t=3 seconds after release in meters, rounded to four significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "-1.966"
+}

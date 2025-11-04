@@ -1,0 +1,16 @@
+id: mamo-ode-86
+name: Mamo Ode 86 In A Lake Initially Stocked With 400 Fish The Population Tripled In 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-86/description.md
+
+dataset:
+  answers: mamo-ode-86/prepared/private/answer.csv
+  sample_submission: mamo-ode-86/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-86.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-86.prepare:prepare

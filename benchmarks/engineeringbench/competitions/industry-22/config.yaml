@@ -1,0 +1,16 @@
+id: industry-22
+name: Industry 22 Hongdou Clothing Factory Uses Three Special Equipment To Produce Shi
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-22/description.md
+
+dataset:
+  answers: industry-22/prepared/private/answer.csv
+  sample_submission: industry-22/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-22.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-22.prepare:prepare

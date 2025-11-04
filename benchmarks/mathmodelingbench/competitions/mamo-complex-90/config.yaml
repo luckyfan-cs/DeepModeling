@@ -1,0 +1,16 @@
+id: mamo-complex-90
+name: Mamo Complex 90 Imagine A Courier Company That Needs To Deliver Packages To Five
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-complex-90/description.md
+
+dataset:
+  answers: mamo-complex-90/prepared/private/answer.csv
+  sample_submission: mamo-complex-90/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-complex-90.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-complex-90.prepare:prepare

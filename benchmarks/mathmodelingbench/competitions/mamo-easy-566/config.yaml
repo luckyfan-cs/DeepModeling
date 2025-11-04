@@ -1,0 +1,16 @@
+id: mamo-easy-566
+name: Mamo Easy 566 An Environmental Agency Is Planning To Allocate Resources For Thre
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-566/description.md
+
+dataset:
+  answers: mamo-easy-566/prepared/private/answer.csv
+  sample_submission: mamo-easy-566/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-566.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-566.prepare:prepare

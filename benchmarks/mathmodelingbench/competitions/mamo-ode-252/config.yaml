@@ -1,0 +1,16 @@
+id: mamo-ode-252
+name: Mamo Ode 252 Your Swimming Pool Containing 60 000 Gal Of Water Has Been Contamin
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-252/description.md
+
+dataset:
+  answers: mamo-ode-252/prepared/private/answer.csv
+  sample_submission: mamo-ode-252/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-252.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-252.prepare:prepare

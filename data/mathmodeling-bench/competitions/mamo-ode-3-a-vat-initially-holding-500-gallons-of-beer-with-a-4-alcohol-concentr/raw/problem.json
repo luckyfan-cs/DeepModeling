@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-3-a-vat-initially-holding-500-gallons-of-beer-with-a-4-alcohol-concentr",
-  "en_question": "A vat initially holding 500 gallons of beer with a 4% alcohol concentration by volume is topped up with beer that has a 6% alcohol concentration. This new mixture is added at a rate of 5 gallons per minute, and the vat is simultaneously emptied at the same rate to maintain its volume. What will be the percentage of alcohol by volume in the vat after one hour of this process? Express your answer to two significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "4.9"
-}

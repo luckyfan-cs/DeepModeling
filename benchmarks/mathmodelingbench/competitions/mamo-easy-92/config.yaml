@@ -1,0 +1,16 @@
+id: mamo-easy-92
+name: Mamo Easy 92 A Supply Chain Manager Needs To Decide The Quantity Of Two Products
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-92/description.md
+
+dataset:
+  answers: mamo-easy-92/prepared/private/answer.csv
+  sample_submission: mamo-easy-92/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-92.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-92.prepare:prepare

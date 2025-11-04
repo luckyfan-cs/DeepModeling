@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
-from .competitions.utils import get_logger, rle_encode
+from .utils import get_logger, rle_encode
 
 logger = get_logger(__name__)
 

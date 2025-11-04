@@ -1,0 +1,16 @@
+id: mamo-ode-323
+name: Mamo Ode 323 In Our Numerical Scenario For The Chemostat System We Aim To Model 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-323/description.md
+
+dataset:
+  answers: mamo-ode-323/prepared/private/answer.csv
+  sample_submission: mamo-ode-323/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-323.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-323.prepare:prepare

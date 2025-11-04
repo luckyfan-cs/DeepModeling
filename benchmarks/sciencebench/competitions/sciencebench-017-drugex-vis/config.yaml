@@ -1,0 +1,16 @@
+id: sciencebench-017-drugex-vis
+name: "ScienceBench - drugex_vis.py"
+competition_type: code
+awards_medals: false
+prizes: null
+description: benchmarks/sciencebench/competitions/sciencebench-017-drugex-vis/description.md
+
+dataset:
+  answers: sciencebench-017-drugex-vis/prepared/private/answer.csv
+  sample_submission: sciencebench-017-drugex-vis/prepared/public/sample_submission.csv
+
+grader:
+  name: image_similarity
+  grade_fn: benchmarks.sciencebench.competitions.sciencebench-017-drugex-vis.grade:grade
+
+preparer: benchmarks.sciencebench.competitions.sciencebench-017-drugex-vis.prepare:prepare

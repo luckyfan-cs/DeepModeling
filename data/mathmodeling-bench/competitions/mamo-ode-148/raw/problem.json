@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-148",
+  "en_question": "A freshly baked loaf of bread at a temperature of 200\u00b0C is left to cool in a room with a constant ambient temperature of 19\u00b0C. The rate constant \\(k\\) for the cooling process, according to Newton's Law of Cooling, is found to be \\(0.034 \\, \\text{min}^{-1}\\). Calculate the temperature of the loaf after 8 minutes. Provide your answer in \u00b0C and rounded up to three decimal places.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "156.896"
+}

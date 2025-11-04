@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-213",
+  "en_question": "Consider a spring-mass system where a mass is attached to a light, elastic string of natural length \\(h\\). Suppose that the other end of the string is fixed at some point on the vertical line through the equilibrium position of the mass. If we ignore any damping and external forces, and if we denote by \\(y(t)\\) the elongation or compression of the spring (that is, \\(h + y(t)\\) represents the length of the spring at time \\(t\\)), then Newton's Second Law gives us an equation for \\(y(t)\\) as \\(\\frac{d^2 y}{d x^2} + y = e^{2 x}\\). Given that initially (\\(x=0\\)) we have compressed our spring such that it was shortened by 5 units (\\(y(0)=0\\)) and released it with an initial velocity equal to \\(\\frac{2}{5}\\), find out how much will be our spring compressed or elongated from its equilibrium position after 1 second? Provide your answer rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "1.370"
+}

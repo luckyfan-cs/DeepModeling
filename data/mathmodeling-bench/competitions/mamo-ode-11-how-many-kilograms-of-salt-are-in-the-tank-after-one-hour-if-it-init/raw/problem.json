@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-11-how-many-kilograms-of-salt-are-in-the-tank-after-one-hour-if-it-init",
-  "en_question": "How many kilograms of salt are in the tank after one hour if it initially contained 1000 L of pure water, and brine with 0.05 kg of salt per liter was added at a rate of 5 L/min, while brine with 0.04 kg of salt per liter was added at a rate of 10 L/min, and the solution was kept thoroughly mixed and drained from the tank at a rate of 15 L/min? Give your answer in kilograms to five significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "25.715"
-}

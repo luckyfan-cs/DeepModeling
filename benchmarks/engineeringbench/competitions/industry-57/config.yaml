@@ -1,0 +1,16 @@
+id: industry-57
+name: Industry 57 Vicky And David Have Just Bought A Farm In The Yarra Valley And They
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-57/description.md
+
+dataset:
+  answers: industry-57/prepared/private/answer.csv
+  sample_submission: industry-57/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-57.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-57.prepare:prepare

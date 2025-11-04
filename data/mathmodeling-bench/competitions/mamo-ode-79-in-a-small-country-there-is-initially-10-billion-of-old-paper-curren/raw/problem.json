@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-79-in-a-small-country-there-is-initially-10-billion-of-old-paper-curren",
-  "en_question": "In a small country, there is initially \\(\\$10\\) billion of old paper currency in circulation. To modernize, the government introduces a new currency by having banks replace old bills with new ones as they are deposited. With \\(\\$50\\) million of old currency being replaced daily, and assuming no initial new currency in circulation (\\(x(0) = 0\\)). Calculate the amount of new currency in circulation after \\(100\\) days. Express your answer in billions of dollars to two significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "5.00"
-}

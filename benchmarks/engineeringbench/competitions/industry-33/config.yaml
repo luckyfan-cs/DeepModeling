@@ -1,0 +1,16 @@
+id: industry-33
+name: Industry 33 The Current Problem Faced By The Company Is How To Use The Fewest Nu
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-33/description.md
+
+dataset:
+  answers: industry-33/prepared/private/answer.csv
+  sample_submission: industry-33/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.engineeringbench.competitions.industry-33.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-33.prepare:prepare

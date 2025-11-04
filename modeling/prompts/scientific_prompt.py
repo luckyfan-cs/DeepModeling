@@ -68,11 +68,18 @@ The final experiment produced:
 
 Now provide:
 <Inference>
-Final analysis of the observation
+Deliver a rigorous synthesis that references the most important observations, highlights decisive evidence, and notes any remaining uncertainties or open questions.
 </Inference>
 
 <Conclusion>
-Synthesize all findings and answer the original question
+Create a comprehensive research report that stays grounded in the experiments and observations. Use the following section headings (each 2–3 sentences when possible):
+Objective & Context:
+Experimental Approach:
+Key Results & Evidence:
+Interpretation & Implications:
+Limitations & Sources of Error:
+Recommended Next Steps:
+Final Verdict:
 </Conclusion>"""
 
 

@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-122-consider-a-rectangular-tank-with-length-6-mathrm-m-and-width-10-mat",
-  "en_question": "Consider a rectangular tank with length $6 \\mathrm{m}$ and width $10 \\mathrm{m}$. The tank is initially filled to a height of $15 \\mathrm{m}$. Water drains from the tank through a square hole with side length $\\sqrt{5.773} \\mathrm{m}$ at the bottom of the tank. Using Torricelli's Law, which states that the rate at which water flows from the tank is proportional to the square root of the water height, find out how much water (in meters) remains in the tank after 5 seconds? Use $g=9.81 \\mathrm{m/s^2}$ for gravity and round your answer to three decimal places.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "7.885"
-}

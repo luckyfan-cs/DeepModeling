@@ -1,0 +1,16 @@
+id: mamo-easy-411
+name: Mamo Easy 411 A Real Estate Developer Is Planning To Allocate Investments Across
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-411/description.md
+
+dataset:
+  answers: mamo-easy-411/prepared/private/answer.csv
+  sample_submission: mamo-easy-411/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-411.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-411.prepare:prepare

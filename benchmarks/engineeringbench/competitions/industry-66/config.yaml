@@ -1,0 +1,16 @@
+id: industry-66
+name: Industry 66 The Market Demand For Products I And Ii Is As Follows Product I Requ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-66/description.md
+
+dataset:
+  answers: industry-66/prepared/private/answer.csv
+  sample_submission: industry-66/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-66.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-66.prepare:prepare

@@ -1,0 +1,16 @@
+id: mamo-ode-125
+name: Mamo Ode 125 Let H T And V T Be The Height And Volume Of Water In A Rectangular 
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-125/description.md
+
+dataset:
+  answers: mamo-ode-125/prepared/private/answer.csv
+  sample_submission: mamo-ode-125/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-125.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-125.prepare:prepare

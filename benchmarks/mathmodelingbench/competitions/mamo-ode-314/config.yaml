@@ -1,0 +1,16 @@
+id: mamo-ode-314
+name: Mamo Ode 314 Consider A Typical Home With Attic Basement And Insulated Main Floo
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-ode-314/description.md
+
+dataset:
+  answers: mamo-ode-314/prepared/private/answer.csv
+  sample_submission: mamo-ode-314/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-ode-314.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-ode-314.prepare:prepare

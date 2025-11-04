@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
-from .competitions.utils import prepare_for_auroc_metric
+from .utils import prepare_for_auroc_metric
 from .grade_helpers import InvalidSubmissionError
 
 from .classes import CLASSES

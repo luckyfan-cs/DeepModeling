@@ -1,0 +1,16 @@
+id: industry-90
+name: Industry 90 A Company Produces Two Products A And B With A Profit Of 3 And 5 Per
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-90/description.md
+
+dataset:
+  answers: industry-90/prepared/private/answer.csv
+  sample_submission: industry-90/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-90.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-90.prepare:prepare

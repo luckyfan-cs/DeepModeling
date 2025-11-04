@@ -1,7 +1,0 @@
-{
-  "id": "bwor-68-a-factory-produces-three-types-of-products",
-  "en_question": "A factory produces three types of products. The weight and profit of each product are shown in Table 7-8. These products are to be shipped to the market for sale, and the total transportation capacity cannot exceed 10 tons.  \n\n  Table 7-8  \n\n\n  <html><body><table><tr><td>Product Type</td><td>Weight (t/piece)</td><td>Profit (yuan/piece)</td></tr><tr><td>1</td><td>2</td><td>100</td></tr><tr><td>2</td><td>3</td><td>140</td></tr><tr><td>3</td><td>4</td><td>180</td></tr></table></body></html>",
-  "cn_question": "7.19\u67d0\u5de5\u5382\u751f\u4ea7\u4e09\u79cd\u4ea7\u54c1\uff0c\u5404\u79cd\u4ea7\u54c1\u91cd\u91cf\u4e0e\u5229\u6da6\u5173\u7cfb\u5982\u88687-8\u6240\u793a\u3002\u73b0\u5c06\u6b64\u4e09\u79cd\u4ea7\u54c1\u8fd0\u5f80\u5e02\u573a\u51fa\u552e\uff0c\u8fd0\u8f93\u80fd\u529b\u603b\u91cd\u91cf\u4e0d\u8d85\u8fc7 $10\\,\\mathfrak{t}$ \u3002\u95ee\u5982\u4f55\u5b89\u6392\u8fd0\u8f93\u4f7f\u603b\u5229\u6da6\u6700\u5927\uff1f  \n\n  \u88687-8  \n\n\n  <html><body><table><tr><td>\u79cd\u7c7b</td><td>\u91cd\u91cf/(t/\u4ef6\uff09</td><td>\u5229\u6da6 /(\u5143/\u4ef6)</td></tr><tr><td>1</td><td>2</td><td>100</td></tr><tr><td>2</td><td>3</td><td>140</td></tr><tr><td>3</td><td>4</td><td>180</td></tr></table></body></html>",
-  "difficulty": "Medium",
-  "expected_answer": "500.0"
-}

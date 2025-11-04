@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-112",
+  "en_question": "In a community of 4670 people, a new social media app starts gaining popularity. Initially, 364 people have already downloaded the app. The rate at which the app is being downloaded is 0.49 per day. According to a model where the rate of downloads is proportional to the product of the numbers of the population who have downloaded and those who have not yet done so, how many people will have downloaded this app after 5 days? Provide your answer in the nearest whole number.",
+  "cn_question": "",
+  "difficulty": "first_order_equation",
+  "expected_answer": "4669"
+}

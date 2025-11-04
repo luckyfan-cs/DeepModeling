@@ -1,0 +1,16 @@
+id: bwor-63
+name: Bwor 63 A Company Has Three Factories All Of Which Are Being Considered For Reno
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-63/description.md
+
+dataset:
+  answers: bwor-63/prepared/private/answer.csv
+  sample_submission: bwor-63/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-63.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-63.prepare:prepare

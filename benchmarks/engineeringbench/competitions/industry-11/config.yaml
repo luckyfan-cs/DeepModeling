@@ -1,0 +1,16 @@
+id: industry-11
+name: Industry 11 Red Star Plastics Factory Produces Six Distinct Types Of Plastic Con
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-11/description.md
+
+dataset:
+  answers: industry-11/prepared/private/answer.csv
+  sample_submission: industry-11/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.engineeringbench.competitions.industry-11.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-11.prepare:prepare

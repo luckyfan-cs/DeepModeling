@@ -1,0 +1,16 @@
+id: bwor-60
+name: Bwor 60 A Company Goes To A University To Recruit One Graduating Student Majorin
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/bwor-60/description.md
+
+dataset:
+  answers: bwor-60/prepared/private/answer.csv
+  sample_submission: bwor-60/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_value
+  grade_fn: benchmarks.mathmodelingbench.competitions.bwor-60.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.bwor-60.prepare:prepare

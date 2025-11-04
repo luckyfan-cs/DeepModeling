@@ -1,0 +1,16 @@
+id: industry-58
+name: Industry 58 A Candy Factory Uses Raw Materials A B And C To Process Three Differ
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/engineeringbench/competitions/industry-58/description.md
+
+dataset:
+  answers: industry-58/prepared/private/answer.csv
+  sample_submission: industry-58/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_profit
+  grade_fn: benchmarks.engineeringbench.competitions.industry-58.grade:grade
+
+preparer: benchmarks.engineeringbench.competitions.industry-58.prepare:prepare

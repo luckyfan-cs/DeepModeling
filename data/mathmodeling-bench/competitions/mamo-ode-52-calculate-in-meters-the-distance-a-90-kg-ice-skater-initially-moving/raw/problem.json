@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-52-calculate-in-meters-the-distance-a-90-kg-ice-skater-initially-moving",
-  "en_question": "Calculate in meters the distance a 90-kg ice skater, initially moving at 3.3 m/s and coasting to a stop with a resistance force proportional to their velocity (proportionality constant 5 kg/s), will coast before coming to a complete stop. Keep 3 significant figures.",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "59.4"
-}

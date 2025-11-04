@@ -1,7 +1,0 @@
-{
-  "id": "mamo-ode-239-imagine-you-have-a-tank-that-s-filled-with-100-gallons-of-water-and",
-  "en_question": "Imagine you have a tank that's filled with 100 gallons of water and mixed with 50 ounces of salt. This tank receives a continuous flow of water at a rate of 2 gallons per minute, and this incoming water carries a unique characteristic\u2014it contains a varying amount of salt. Specifically, the concentration of salt in the incoming water changes over time, following the pattern given by 1/4(1 + (1/2)*sin(t)) ounces of salt per gallon, where t represents time in minutes. To maintain a constant volume in the tank, an equal amount of the mixed solution inside the tank\u2014comprising water and dissolved salt\u2014is allowed to flow out at the same rate. Over time, as this process continues, the amount of salt in the tank doesn't just steadily increase or decrease; instead, it exhibits an oscillatory behavior, swinging back and forth around a certain constant level. Your task is to find out something about this intriguing oscillation: What is the constant level around which the salt amount oscillates as time goes on? Keep three siginificant digit in answer",
-  "cn_question": "",
-  "difficulty": "first_order_equation",
-  "expected_answer": "25.0"
-}

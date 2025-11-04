@@ -1,0 +1,7 @@
+{
+  "id": "mamo-ode-181",
+  "en_question": "A spring-mass-dashpot system consists of a mass of \\(1\\) kg, a spring constant of \\(2\\) N/m, and a damping coefficient of \\(2\\) Ns/m, hanging in equilibrium. At time \\(t=0\\), it is subjected to an external force \\(F(t) = \\pi - t\\) N acting over a time interval of \\(\\pi\\) seconds. Determine the position of the mass at any time \\(t\\), considering upward from the equilibrium position as positive. Calculate the position of the mass at \\(t = 2\\) seconds, and provide your answer in meters, rounded to three significant figures.",
+  "cn_question": "",
+  "difficulty": "second_order_equation",
+  "expected_answer": "0.994"
+}

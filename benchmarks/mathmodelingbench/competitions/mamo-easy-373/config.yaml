@@ -1,0 +1,16 @@
+id: mamo-easy-373
+name: Mamo Easy 373 A Supply Chain Manager Needs To Allocate Resources Across Four Dif
+competition_type: modeling
+awards_medals: false
+prizes: null
+description: benchmarks/mathmodelingbench/competitions/mamo-easy-373/description.md
+
+dataset:
+  answers: mamo-easy-373/prepared/private/answer.csv
+  sample_submission: mamo-easy-373/prepared/public/sample_submission.csv
+
+grader:
+  name: generic_tag_cost
+  grade_fn: benchmarks.mathmodelingbench.competitions.mamo-easy-373.grade:grade
+
+preparer: benchmarks.mathmodelingbench.competitions.mamo-easy-373.prepare:prepare
