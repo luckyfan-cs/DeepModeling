@@ -8,7 +8,7 @@
 <div align="center">
   <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-blue.svg?logo=python&logoColor=white" alt="Python"></a>
   <a href="#"><img src="https://img.shields.io/badge/Framework-Agentic%20LLM-orange.svg" alt="Framework"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Benchmarks-1,851%20Problems-green.svg" alt="Benchmark"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Benchmarks-1,846%20Problems-green.svg" alt="Benchmark"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/Get%20Started-Quick%20Start-red.svg" alt="Quick Start"></a>
 </div>
 
@@ -21,10 +21,10 @@
 | Domain | Problems | Description |
 |--------|----------|-------------|
 | 📊 **Data Science** | 349 | Kaggle-style ML competitions, predictive modeling, multi-modal analysis |
-| 📐 **Mathematical Modeling** | 1,296 | Operations research, optimization, linear programming, differential equations |
+| 📐 **Mathematical Modeling** | 1,291 | Optimization, linear programming, differential equations |
 | 🔬 **Scientific Discovery** | 104 | Computational chemistry, materials science, physics simulations, drug discovery |
-| ⚙️ **Engineering** | 102 | Industrial optimization, process design, systems engineering |
-| **Total** | **1,851** | Comprehensive autonomous problem-solving suite |
+| ⚙️ **Engineering** | 102 | Industrial operations research, process design, systems engineering |
+| **Total** | **1,846** | Comprehensive autonomous problem-solving suite |
 
 ### ✨ Core Capabilities
 
@@ -61,11 +61,11 @@
 
 <div class="scrollable">
   <ul>
-    <li><strong>[2025.11]</strong>: 🎯 <b>Four-Domain Framework</b> - Unified platform for Data Science, Mathematical Modeling, Scientific Discovery, and Engineering with 1,851 benchmark problems!</li>
-    <li><strong>[2025.11]</strong>: ⚙️ <b>Engineering Benchmark</b> - 102 industrial engineering problems including process optimization and systems design!</li>
+    <li><strong>[2025.11]</strong>: 🎯 <b>Four-Domain Framework</b> - Unified platform for Data Science, Mathematical Modeling, Scientific Discovery, and Engineering with 1,846 benchmark problems!</li>
+    <li><strong>[2025.11]</strong>: ⚙️ <b>Engineering Benchmark</b> - 102 industrial operations research problems including process optimization and systems design!</li>
     <li><strong>[2025.11]</strong>: 🔬 <b>Scientific Discovery Benchmark</b> - 104 computational science problems spanning chemistry, materials, and physics!</li>
     <li><strong>[2025.11]</strong>: 📊 <b>Data Science Benchmark</b> - 349 Kaggle-style ML competitions with multi-modal support!</li>
-    <li><strong>[2025.11]</strong>: 📐 <b>Mathematical Modeling Benchmark</b> - 1,296 optimization and operations research problems!</li>
+    <li><strong>[2025.11]</strong>: 📐 <b>Mathematical Modeling Benchmark</b> - 1,291 optimization and differential equation problems!</li>
     <li><strong>[2025.11]</strong>: 🎨 <b>Multi-Modal Data Support</b> - Full support for any data modality (images, time series, tabular, text) and format!</li>
     <li><strong>[2025.11]</strong>: 🎉 <b>Registry-Data Separation Architecture</b> - Supports external data storage for large-scale datasets!</li>
     <li><strong>[2025.11]</strong>: 🧠 <b>Scientific Workflow</b> - Autonomous problem-solving using XML-structured reasoning following the scientific method!</li>
@@ -110,25 +110,23 @@ The Data Science domain covers end-to-end machine learning workflows, from data 
 
 <span id='mathematical-modeling'/>
 
-### 📐 2. Mathematical Modeling (1,296 Problems)
+### 📐 2. Mathematical Modeling (1,291 Problems)
 
-**Optimization, Operations Research & Differential Equations**
+**Optimization, Linear Programming & Differential Equations**
 
-The Mathematical Modeling domain focuses on quantitative analysis and optimization:
+The Mathematical Modeling domain focuses on quantitative analysis and mathematical optimization:
 
 **Core Areas:**
 - **Linear Programming**: Resource allocation, production planning, blending problems
-- **Operations Research**: Scheduling, assignment, transportation, network flow
 - **Business Analytics**: Profit maximization, cost minimization, supply chain optimization
 - **Differential Equations**: Dynamic systems, population models, physics simulations
+- **Constraint Optimization**: Complex constraint systems and multi-objective optimization
 
 **Problem Categories:**
-- **BWOR** (82): Business and Operations Research
-- **IndustryOR** (100): Industrial Operations Research
 - **Easy LP** (652): Linear programming foundations
-- **Complex LP** (211): Advanced optimization problems
 - **ODE** (346): Ordinary differential equations
-- **Others** (105): Mixed problem types
+- **Complex LP** (211): Advanced optimization problems
+- **BWOR** (82): Business and Operations Research
 
 **Example Tasks:**
 - Candy production optimization (maximize profit under constraints)
@@ -168,25 +166,28 @@ The Scientific Discovery domain tackles cutting-edge research problems in natura
 
 ### ⚙️ 4. Engineering (102 Problems)
 
-**Industrial Process Optimization & Systems Design**
+**Industrial Operations Research & Systems Design**
 
-The Engineering domain addresses real-world industrial and systems engineering challenges:
+The Engineering domain addresses real-world industrial optimization and systems engineering challenges:
 
 **Core Areas:**
+- **Industrial Operations Research**: Scheduling, assignment, transportation problems (IndustryOR benchmark)
 - **Process Optimization**: Manufacturing efficiency, production scheduling
 - **Systems Engineering**: Complex system design and integration
 - **Industrial Automation**: Workflow optimization, resource management
 - **Quality Control**: Defect detection, process monitoring
 
 **Problem Types:**
-- Industrial production planning
+- Industrial operations research (100 problems from IndustryOR)
+- Production planning and scheduling
 - Manufacturing resource allocation
 - Process parameter optimization
 - System performance analysis
 - Engineering constraint satisfaction
 
 **Example Tasks:**
-- Industrial production scheduling
+- Industrial scheduling and assignment problems
+- Transportation and logistics optimization
 - Manufacturing cost minimization
 - Process efficiency optimization
 - Multi-stage production planning
@@ -302,14 +303,12 @@ DeepModeling/
 │   │           ├── grade.py             # Scoring function
 │   │           └── metadata.json        # Competition config
 │   │
-│   ├── mathmodelingbench/      # 📐 Mathematical Modeling (1,296 competitions)
+│   ├── mathmodelingbench/      # 📐 Mathematical Modeling (1,291 competitions)
 │   │   └── competitions/
 │   │       ├── bwor-*/         # Business OR (82)
-│   │       ├── industry-*/     # Industry OR (100)
 │   │       ├── mamo-easy-*/    # Easy LP (652)
 │   │       ├── mamo-complex-*/ # Complex LP (211)
-│   │       ├── mamo-ode-*/     # ODE (346)
-│   │       └── others-*/       # Others (105)
+│   │       └── mamo-ode-*/     # ODE (346)
 │   │
 │   ├── sciencebench/           # 🔬 Scientific Discovery (104 competitions)
 │   │   └── competitions/
@@ -464,7 +463,7 @@ python main.py --workflow scientific --benchmark mathmodeling \
   --llm-model gpt-4o-mini \
   --task bwor-0
 
-# Batch evaluation (all 1,296 tasks)
+# Batch evaluation (all 1,291 tasks)
 python main.py --workflow scientific --benchmark mathmodeling \
   --data-dir ./data/mathmodeling-bench \
   --llm-model gpt-4o-mini
@@ -518,15 +517,15 @@ python main.py --workflow scientific --benchmark [mle|mathmodeling|science|engin
 
 ### Complete Dataset Statistics
 
-The framework provides **1,851 benchmark problems** across **four major domains**:
+The framework provides **1,846 benchmark problems** across **four major domains**:
 
 | Domain | Total | Subcategories | Description |
 |--------|-------|---------------|-------------|
 | **📊 Data Science** | **349** | MLE-Bench competitions | Kaggle-style ML tasks across all modalities |
-| **📐 Mathematical Modeling** | **1,296** | BWOR (82), Industry OR (100), Easy LP (652), Complex LP (211), ODE (346), Others (105) | Optimization and differential equations |
+| **📐 Mathematical Modeling** | **1,291** | Easy LP (652), ODE (346), Complex LP (211), BWOR (82) | Optimization and differential equations |
 | **🔬 Scientific Discovery** | **104** | Chemistry, Materials, Physics | Computational science research |
-| **⚙️ Engineering** | **102** | Industrial problems | Process optimization and systems design |
-| **Total** | **1,851** | 4 domains, 10+ subcategories | Comprehensive autonomous solving suite |
+| **⚙️ Engineering** | **102** | IndustryOR (100+) | Industrial operations research and systems design |
+| **Total** | **1,846** | 4 domains, 10+ subcategories | Comprehensive autonomous solving suite |
 
 ### Domain-Specific Breakdown
 
@@ -543,17 +542,15 @@ The framework provides **1,851 benchmark problems** across **four major domains*
 | Multi-Modal | Image-Text, Audio-Visual | Combined modalities |
 | Evaluation | Accuracy, F1, RMSE, AUC, IoU, BLEU | Modality-specific metrics |
 
-#### 2. Mathematical Modeling Benchmarks (1,296 Problems)
+#### 2. Mathematical Modeling Benchmarks (1,291 Problems)
 
 | Dataset | Problems | Type | Description |
 |---------|----------|------|-------------|
 | **Easy LP** | 652 | Linear Programming | Foundation optimization problems |
 | **ODE** | 346 | Differential Equations | Dynamic systems, physics models |
 | **Complex LP** | 211 | Advanced Optimization | Complex constraint systems |
-| **IndustryOR** | 100 | Operations Research | Industrial scheduling, assignment |
 | **BWOR** | 82 | Business OR | Profit/cost optimization |
-| **Others** | 105 | Mixed | Diverse problem types |
-| **Subtotal** | **1,296** | | Comprehensive mathematical suite |
+| **Subtotal** | **1,291** | | Comprehensive mathematical suite |
 
 #### 3. Scientific Discovery Benchmarks (104 Problems)
 
@@ -568,10 +565,9 @@ The framework provides **1,851 benchmark problems** across **four major domains*
 
 | Category | Problem Count | Focus Areas |
 |----------|---------------|-------------|
-| **Industrial Optimization** | ~40 | Production scheduling, Resource allocation |
-| **Process Design** | ~30 | Manufacturing efficiency, Parameter tuning |
-| **Systems Engineering** | ~20 | Complex system integration |
-| **Quality & Automation** | ~12 | Process monitoring, Workflow optimization |
+| **IndustryOR** | 100 | Industrial operations research, Scheduling, Assignment, Transportation |
+| **Other Engineering** | 2 | Systems engineering, Process design |
+| **Subtotal** | **102** | Industrial optimization and systems design |
 
 ### Problem Format
 
@@ -837,10 +833,9 @@ mle_competitions:
   - nlp-getting-started
   # Add more Kaggle competitions...
 
-# 📐 Mathematical Modeling Benchmarks (1,296 total)
+# 📐 Mathematical Modeling Benchmarks (1,291 total)
 mathmodeling_competitions:
   - bwor-0
-  - industry-5
   - mamo-easy-10-resource-allocation
   - mamo-complex-42-advanced-optimization
   - mamo-ode-15-population-model
@@ -892,7 +887,7 @@ We welcome contributions! Areas for improvement across all four domains:
 - 📊 **Data Science**: Add more Kaggle competitions, especially multi-modal and complex tasks
 - 📐 **Mathematical Modeling**: Contribute optimization problems, nonlinear programming, mixed-integer problems
 - 🔬 **Scientific Discovery**: Add computational biology, quantum chemistry, climate modeling problems
-- ⚙️ **Engineering**: Contribute industrial case studies, control systems, robotics problems
+- ⚙️ **Engineering**: Contribute industrial operations research, control systems, robotics problems
 
 **General Improvements:**
 - 🎨 **Multi-Modal Datasets**: Expand image, audio, video, and sensor data benchmarks
@@ -922,7 +917,7 @@ If you use DeepModeling in your research, please cite:
   author={DeepModeling Team},
   year={2025},
   url={https://github.com/your-org/DeepModeling},
-  note={Four-domain framework with 1,851 benchmark problems}
+  note={Four-domain framework with 1,846 benchmark problems}
 }
 ```
 
@@ -934,9 +929,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Benchmark Sources:**
 - 📊 **Data Science**: MLE-Bench, Kaggle competition datasets
-- 📐 **Mathematical Modeling**: BWOR, IndustryOR, MaMo datasets (LP, ODE)
+- 📐 **Mathematical Modeling**: BWOR, MaMo datasets (LP, ODE)
 - 🔬 **Scientific Discovery**: DeepChem, Materials Project, computational science datasets
-- ⚙️ **Engineering**: Industrial optimization case studies
+- ⚙️ **Engineering**: IndustryOR, industrial optimization case studies
 
 **Infrastructure:**
 - **LLM Providers**: OpenAI, Anthropic, and other model providers
