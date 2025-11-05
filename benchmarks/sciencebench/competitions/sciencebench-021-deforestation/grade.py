@@ -1,35 +1,35 @@
-"""
-Grading function for ScienceBench task 21
-"""
+"""Grading function for ScienceBench task 21 (deforestation rate)."""
+
+from __future__ import annotations
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+REQUIRED_COLUMN = "percentage_deforestation"
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    """Return 1 - relative error (clipped at 0) between submission and answers."""
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
+    if answers.empty:
+        print("Answer data is empty.")
+        return 0.0
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    if REQUIRED_COLUMN not in submission.columns:
+        print(f"Submission missing column: {REQUIRED_COLUMN}")
+        return 0.0
+    if REQUIRED_COLUMN not in answers.columns:
+        print("Answers missing required column.")
+        return 0.0
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    pred_value = float(submission[REQUIRED_COLUMN].iloc[0])
+    gold_value = float(answers[REQUIRED_COLUMN].iloc[0])
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
+    if gold_value == 0:
+        relative_error = abs(pred_value - gold_value)
     else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+        relative_error = abs(pred_value - gold_value) / abs(gold_value)
+
+    print(f"Relative error: {relative_error}")
+    return max(0.0, 1.0 - relative_error)

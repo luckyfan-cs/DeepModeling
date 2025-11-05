@@ -9,16 +9,15 @@
 
 ## Task
 
-Train support vector machine (SVM) classifiers to detect Drug-Induced Liver Injury (DILI) risk using the CAMDA dataset splits. Map vDILIConcern labels to a binary target, build models for the `MCNC`, `MCLCNC`, and `all` configurations, and write predictions to `pred_results/{split}_SVM.csv` with the columns `standardised_smiles` and `label` (`DILI` or `NoDILI`).
+Train a support vector machine classifier on the provided Drug-Induced Liver Injury (DILI) training data and generate predictions for the held-out test compounds. Map the vDILIConcern labels to a binary outcome (`DILI` vs `NoDILI`) and keep the test set ordering intact when producing your outputs.
 
 ## Dataset
 
-The `dili/` directory provides the same training and test files as Task 18: `train.csv` (labeled data) and `test.csv` (evaluation data).
+The `dili/` directory provides:
 
-## Submission Format
-
-Produce three CSV files in `pred_results/`: `MCNC_SVM.csv`, `MCLCNC_SVM.csv`, and `all_SVM.csv`, each aligned to the order of `test.csv` and containing the required columns.
+- `train.csv` – labeled compounds with cluster metadata.
+- `test.csv` – held-out compounds to score.
 
 ## Evaluation
 
-Submissions are accepted when SMILES ordering matches the reference and the mean F1 score across the three splits reaches the 0.73 threshold defined by the official evaluation script.
+The grader compares your submitted labels against the reference file and reports the F1 score using `DILI` as the positive class. The SMILES order must match the reference exactly.

@@ -5,7 +5,6 @@
 - Domain: Geographical Information Science
 - Subtask Categories: Geospatial Analysis, Map Visualization
 - Source: geopandas/geopandas
-- Expected Output: flooding_analysis.png
 - Output Type: Image
 
 ## Task

@@ -6,7 +6,7 @@ import pandas as pd
 
 DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/dili")
 GOLD_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/test_DILI_gold.csv")
-OUTPUT_FILES = ["all_RF.csv", "MCNC_RF.csv", "MCLCNC_RF.csv"]
+OUTPUT_FILE = "test_DILI_predictions.csv"
 
 
 def _ensure_dir(path: Path) -> None:
@@ -18,10 +18,7 @@ def _write_sample_submission(path: Path) -> None:
         "standardised_smiles": ["SMILES_SAMPLE"],
         "label": ["DILI"],
     })
-    samples_dir = path / "sample_submission"
-    samples_dir.mkdir(parents=True, exist_ok=True)
-    for filename in OUTPUT_FILES:
-        sample_df.to_csv(samples_dir / filename, index=False)
+    sample_df.to_csv(path / "sample_submission.csv", index=False)
 
 
 def _write_answer(path: Path, gold_df: pd.DataFrame) -> None:
@@ -52,13 +49,13 @@ def prepare(raw: Path, public: Path, private: Path) -> None:
     print("✓ Copied DILI train/test CSV files to public directory")
 
     _write_sample_submission(public)
-    print("✓ Wrote sample submission placeholders")
+    print("✓ Wrote sample_submission.csv")
 
     gold_df = pd.read_csv(GOLD_PATH)
     _write_answer(private, gold_df)
     print("✓ Wrote answer.csv")
 
-    print("Preparation complete. Expected outputs:", ", ".join(f"pred_results/{name}" for name in OUTPUT_FILES))
+    print(f"Preparation complete. Expected output: pred_results/{OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

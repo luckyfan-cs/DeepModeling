@@ -2,26 +2,22 @@
 
 ## Overview
 
-- Domain: Computational Chemistry
-- Subtask Categories: Data Selection
-- Source: OlivierBeq/Papyrus-scripts
-- Output Type: Binary (Pickle)
+- Domain: Bioinformatics
+- Subtask Categories: Data Filtering, Cheminformatics
+- Source: Papyrus
+- Output Type: Tabular (pickle)
 
 ## Task
 
-Filter the Papyrus dataset according to four criteria: keep only entries with quality ≥ "medium", restrict targets to ligand-gated ion channels or SLC solute carriers, keep only Ki/KD activity types, and retain human or rat proteins. Use `papyrus_protein_set.pkl` for protein metadata if needed. Save the filtered table (same columns as the original) to `pred_results/papyrus_filtered.pkl`.
+Filter the Papyrus dataset according to the companion notebook's criteria and produce a pickled pandas DataFrame of the surviving compounds. Retain the column schema from the provided gold reference and ensure rows are sorted deterministically.
 
 ## Dataset
 
 The `papyrus/` directory contains:
 
-- `papyrus_unfiltered.pkl` – full Papyrus activity table.
-- `papyrus_protein_set.pkl` – protein metadata to support filtering.
-
-## Submission Format
-
-Write the filtered DataFrame to `pred_results/papyrus_filtered.pkl` using pandas pickle serialization.
+- `papyrus_unfiltered.pkl` – base dataset to filter.
+- `papyrus_protein_set.pkl` – protein metadata referenced by filtering rules.
 
 ## Evaluation
 
-Submissions are accepted when the sorted, rounded table matches the gold reference pickle exactly (row-by-row equality after sorting by `Activity_ID`).
+Your submission must save a pickled DataFrame at `pred_results/papyrus_filtered.pkl`. The grader normalizes both DataFrames (sorting, rounding numeric columns) and checks for an exact row-by-row match with the gold reference.

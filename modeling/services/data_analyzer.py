@@ -155,14 +155,16 @@ class DataAnalyzer:
                 "   - Your workflow's `solve` method receives an `output_path` argument.\n"
                 "   - You MUST save your final submission file using the filename derived from this argument (e.g., `output_path.name`).\n"
                 "   - The file must be saved in the current working directory (./).\n"
-                "   - **Example Write (Conceptual):** `final_df.to_csv(output_path.name, index=False)`"
+                "   - **Example Write (Conceptual):** `final_df.to_csv(output_path.name, index=False)`\n"
+                "   - **Do NOT rename or relocate this file across iterations; always overwrite the exact path provided.**"
             )
         else:
             output_instructions = (
                 f"2. **OUTPUT FILE:**\n"
                 f"   - You MUST save your final submission file to the **current working directory** (./).\n"
                 f"   - The required output filename is: `{output_filename}`\n"
-                f"   - **Correct Example:** `submission_df.to_csv('{output_filename}', index=False)`"
+                f"   - **Correct Example:** `submission_df.to_csv('{output_filename}', index=False)`\n"
+                f"   - **Do NOT rename or relocate this file across iterations; always overwrite `./{output_filename}`.**"
             )
 
         return f"""

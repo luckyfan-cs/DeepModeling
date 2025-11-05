@@ -9,19 +9,15 @@
 
 ## Task
 
-Train Random Forest models to detect Drug-Induced Liver Injury (DILI) risk using the CAMDA splits. Map the vDILIConcern labels to a binary target (DILI vs NoDILI), train separate models for the `MCNC`, `MCLCNC`, and `all` configurations, run cross-validation/hyperparameter search, and export the best-model predictions on the provided test set. Save each run to `pred_results/{split}_RF.csv` where `split` is `MCNC`, `MCLCNC`, or `all`, with columns `standardised_smiles` and `label` (`DILI` or `NoDILI`).
+Train a classification model on the provided Drug-Induced Liver Injury (DILI) training data and generate labels for the held-out test compounds. Keep the original ordering of the test set when producing your predictions.
 
 ## Dataset
 
 The `dili/` directory provides:
 
-- `train.csv` – labeled training compounds with cluster information.
+- `train.csv` – labeled compounds with cluster metadata.
 - `test.csv` – held-out compounds to score.
-
-## Submission Format
-
-Produce three CSV files in `pred_results/`: `MCNC_RF.csv`, `MCLCNC_RF.csv`, and `all_RF.csv`. Each must contain the columns `standardised_smiles` and `label`, aligned to the order of `test.csv`.
 
 ## Evaluation
 
-Submissions are accepted when the SMILES ordering matches the gold reference and the mean F1 score across the three splits reaches the 0.73 threshold used by the original evaluation script.
+The grader compares your submitted labels against the reference file and reports the F1 score using `DILI` as the positive class. The SMILES order must match the reference exactly.
