@@ -1,77 +1,69 @@
 """
-Data preparation for ScienceBench task 93
+Data preparation for ScienceBench Task 93: plot_h_distribution
 Dataset: jnmf_visualization
 """
 
-import base64
+import pandas as pd
+import numpy as np
 from pathlib import Path
 import shutil
-import pandas as pd
-
-
-EXPECTED_FILENAME = "H_distribution_conscientiousness.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/H_distribution_conscientiousness_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/H_distribution_conscientiousness_gold.png" else None
-SOURCE_DATASET = "jnmf_visualization"
 
 
 def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
-    print("=" * 60)
-    print("Preparing ScienceBench Task 93")
-    print("Dataset:", SOURCE_DATASET)
-    print("=" * 60)
-    print("Raw directory:", raw)
-    print("Public directory:", public)
-    print("Private directory:", private)
+    """
+    Prepare the plot_h_distribution task data.
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    Args:
+        raw: Path to raw data directory
+        public: Path to public directory (visible to participants)
+        private: Path to private directory (used for grading)
+    """
+    print(f"=" * 60)
+    print(f"Preparing ScienceBench Task 93: plot_h_distribution")
+    print(f"=" * 60)
+    print(f"Raw directory: {raw}")
+    print(f"Public directory: {public}")
+    print(f"Private directory: {private}")
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
+    # Source dataset path
+    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/jnmf_visualization")
 
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
 
-    public.mkdir(parents=True, exist_ok=True)
-    private.mkdir(parents=True, exist_ok=True)
+    # Copy all numpy files to public
+    print(f"\nCopying data files to public directory...")
+    for npy_file in source_dir.glob("*.npy"):
+        shutil.copy2(npy_file, public / npy_file.name)
+        print(f"  ✓ Copied: {npy_file.name}")
 
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
+    # Create sample_submission as a placeholder
+    # For image outputs, we just indicate the expected filename
+    sample_submission = pd.DataFrame({
+        "output_file": ["H_distribution_conscientiousness.png"],
+        "output_type": ["image/png"]
+    })
+    sample_submission.to_csv(public / "sample_submission.csv", index=False)
+    print(f"\n✓ Created sample_submission.csv")
+
+    # Copy gold result image to private for comparison
+    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/H_distribution_conscientiousness_gold.png")
+    if gold_file.exists():
+        shutil.copy2(gold_file, private / "H_distribution_conscientiousness_gold.png")
+        print(f"✓ Copied gold result image to private")
     else:
-        print("⚠ Gold image not found; creating empty placeholder.")
+        print(f"⚠ Warning: Gold result image not found at {gold_file}")
 
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
-    sample_df.to_csv(public / "sample_submission.csv", index=False)
-    print("✓ Created sample_submission.csv")
+    # Create answer metadata file
+    answer_meta = pd.DataFrame({
+        "expected_file": ["H_distribution_conscientiousness.png"],
+        "gold_file": ["H_distribution_conscientiousness_gold.png"],
+        "evaluation_method": ["visual_similarity"],
+        "threshold": [60]
+    })
+    answer_meta.to_csv(private / "answer.csv", index=False)
+    print(f"✓ Created answer.csv with evaluation metadata")
 
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
-    ])
-    answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
-
-    print("\nData preparation completed!")
+    print(f"\nData preparation completed!")
+    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
+    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")

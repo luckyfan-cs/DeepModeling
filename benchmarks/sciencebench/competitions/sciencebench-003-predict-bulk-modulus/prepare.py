@@ -1,91 +1,58 @@
-"""
-Data preparation for ScienceBench task 3
-Dataset: crystalline_compound
-"""
+"""Data preparation for ScienceBench Task 3 (predict bulk modulus)."""
 
-import pandas as pd
-import numpy as np
 from pathlib import Path
 import shutil
-import json
+import pandas as pd
+
+SOURCE_DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/crystalline_compound")
+TRAIN_FILE = SOURCE_DATA_DIR / "compound_elastic_properties_train.csv"
+TEST_FILE = SOURCE_DATA_DIR / "compound_elastic_properties_test.csv"
+GOLD_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/compound_elastic_properties_gold.csv")
 
 
-SOURCE_DATASET = "crystalline_compound"
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 3")
-    print(f"Dataset: crystalline_compound")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # CSV 输出格式
-    sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
+def _make_sample_submission(answer_df: pd.DataFrame) -> pd.DataFrame:
+    return pd.DataFrame({
+        "material_id": answer_df["material_id"],
+        "K_VRH": 0.0,
     })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
-
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 3: predict bulk modulus")
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    print("Placeholder files created")
+    if not TRAIN_FILE.exists() or not TEST_FILE.exists():
+        raise FileNotFoundError("Expected crystalline_compound dataset is missing.")
+
+    shutil.copy2(TRAIN_FILE, public / TRAIN_FILE.name)
+    shutil.copy2(TEST_FILE, public / TEST_FILE.name)
+    print("✓ Copied training and test CSV files to public directory")
+
+    if not GOLD_FILE.exists():
+        raise FileNotFoundError(f"Gold results not found at {GOLD_FILE}")
+
+    gold_df = pd.read_csv(GOLD_FILE)
+    answer_df = gold_df[["material_id", "K_VRH"]].copy()
+    answer_df.to_csv(private / "answer.csv", index=False)
+    print("✓ Wrote answer.csv with gold material IDs and K_VRH")
+
+    sample_df = _make_sample_submission(answer_df)
+    sample_df.to_csv(public / "sample_submission.csv", index=False)
+    print("✓ Wrote sample_submission.csv placeholder")
+
+    print("Data preparation completed.")
+
+
+if __name__ == "__main__":
+    raise SystemExit("Use this module via the benchmark preparation tooling.")

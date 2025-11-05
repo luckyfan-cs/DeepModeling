@@ -1,77 +1,62 @@
-"""
-Data preparation for ScienceBench task 17
-Dataset: papyrus_vis
-"""
+"""Data preparation for ScienceBench Task 17 (DrugEx visualization)."""
 
-import base64
 from pathlib import Path
 import shutil
+import base64
 import pandas as pd
 
-
+DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/papyrus_vis")
+SOURCE_FILE = DATA_DIR / "A2AR_LIGANDS.tsv"
+GOLD_IMAGE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/drugex_vis_gold.png")
 EXPECTED_FILENAME = "drugex_vis_pred.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/drugex_vis_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/drugex_vis_gold.png" else None
-SOURCE_DATASET = "papyrus_vis"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _encode_image(path: Path) -> str:
+    if not path.exists():
+        return ""
+    return base64.b64encode(path.read_bytes()).decode("utf-8")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
     print("=" * 60)
-    print("Preparing ScienceBench Task 17")
-    print("Dataset:", SOURCE_DATASET)
+    print("Preparing ScienceBench Task 17: DrugEx visualization")
     print("=" * 60)
-    print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
-
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
-
-    public.mkdir(parents=True, exist_ok=True)
-    private.mkdir(parents=True, exist_ok=True)
-
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
-    else:
-        print("⚠ Gold image not found; creating empty placeholder.")
+    if not SOURCE_FILE.exists():
+        raise FileNotFoundError(f"Missing dataset file: {SOURCE_FILE}")
+    target_file = public / SOURCE_FILE.relative_to(DATA_DIR.parent)
+    target_file.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SOURCE_FILE, target_file)
+    print("✓ Copied A2AR_LIGANDS.tsv to public directory")
 
     sample_df = pd.DataFrame([
         {"file_name": EXPECTED_FILENAME, "image_base64": ""}
     ])
     sample_df.to_csv(public / "sample_submission.csv", index=False)
-    print("✓ Created sample_submission.csv")
+    print("✓ Wrote sample_submission.csv")
 
+    encoded = _encode_image(GOLD_IMAGE)
     answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
+        {"file_name": EXPECTED_FILENAME, "image_base64": encoded}
     ])
     answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
+    print("✓ Wrote answer.csv")
 
-    print("\nData preparation completed!")
+    if GOLD_IMAGE.exists():
+        shutil.copy2(GOLD_IMAGE, private / GOLD_IMAGE.name)
+        print("✓ Copied gold image for reference")
+
+    print("Preparation complete. Expected submission file: pred_results/drugex_vis_pred.png")
+
+
+if __name__ == "__main__":
+    raise SystemExit("Use this module via the benchmark preparation tooling.")

@@ -1,35 +1,39 @@
 """
-Grading function for ScienceBench task 5
+Grading function for ScienceBench task 5 (DKPES model development).
+
+Mirrors the original ScienceAgentBench evaluation:
+1. Verify the `index` column matches between submission and gold labels.
+2. Compute ROC-AUC on `Signal-inhibition` and require >= 0.91 to pass.
 """
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import roc_auc_score
+
+EXPECTED_COLUMNS = {"index", "Signal-inhibition"}
+THRESHOLD = 0.91
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    if not EXPECTED_COLUMNS.issubset(submission.columns):
+        raise ValueError(f"Submission must contain columns: {EXPECTED_COLUMNS}")
+    if not EXPECTED_COLUMNS.issubset(answers.columns):
+        raise ValueError(f"Answers must contain columns: {EXPECTED_COLUMNS}")
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    submission = submission.reset_index(drop=True)
+    answers = answers.reset_index(drop=True)
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    if list(submission["index"]) != list(answers["index"]):
+        print("Index mismatch between submission and gold.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    try:
+        auc = roc_auc_score(
+            answers["Signal-inhibition"].astype(float),
+            submission["Signal-inhibition"].astype(float),
+        )
+    except ValueError as exc:
+        print(f"Failed to compute ROC-AUC: {exc}")
+        return 0.0
 
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    print(f"ROC-AUC: {auc}")
+    return 1.0 if auc >= THRESHOLD else 0.0

@@ -5,7 +5,6 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Computational Analysis
 - Source: felixjwong/antibioticsai
-- Expected Output: compound_filter_results.txt
 - Output Type: Tabular
 
 ## Task
@@ -32,8 +31,8 @@ CC(C)C[C@@H](N)C(=O)N[C@@H]1[C@H](O)c2ccc(c(c2)Cl)Oc2cc3cc(c2O[C@@H]2O[C@H](CO)[
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Create `pred_results/compound_filter_results.txt` with one SMILES string per line representing the retained compounds. Follow the public `sample_submission.txt` format precisely—no headers or extra fields.
 
 ## Evaluation
 
-Negative root mean squared error (closer to zero is better).
+Submissions pass when the submitted set of SMILES exactly matches the reference filtered set used by the benchmark.

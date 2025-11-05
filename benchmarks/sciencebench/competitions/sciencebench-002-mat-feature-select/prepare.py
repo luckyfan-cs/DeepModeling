@@ -1,175 +1,63 @@
 """
-Data preparation for ScienceBench task 2
-Dataset: mat_diffusion
+Data preparation for ScienceBench Task 2: mat_feature_select
 """
 
-import json
-import shutil
 from pathlib import Path
-
-import numpy as np
+import shutil
 import pandas as pd
 
 
-SOURCE_DATASET = "mat_diffusion"
-GOLD_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/mat_diffusion_features_gold.csv") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/mat_diffusion_features_gold.csv" else None
-ANSWER_FILENAME = "answer.csv"
-SAMPLE_FILENAME = "sample_submission.csv"
+SOURCE_DATA_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/mat_diffusion/diffusion_data_nofeatures_new.xlsx")
+GOLD_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/mat_diffusion_features_gold.csv")
 
 
-def load_gold_dataframe(path: Path) -> pd.DataFrame:
-    suffix = path.suffix.lower()
-
-    if suffix == ".csv":
-        return pd.read_csv(path)
-
-    if suffix in {".json", ".jsonl"}:
-        if suffix == ".jsonl":
-            records = []
-            with open(path, "r", encoding="utf-8") as f:
-                for line in f:
-                    line = line.strip()
-                    if line:
-                        records.append(json.loads(line))
-        else:
-            with open(path, "r", encoding="utf-8") as f:
-                payload = json.load(f)
-            if isinstance(payload, list):
-                records = payload
-            elif isinstance(payload, dict):
-                records = [payload]
-            else:
-                records = [{"value": payload}]
-
-        return pd.json_normalize(records)
-
-    if suffix in {".pkl", ".pickle"}:
-        obj = pd.read_pickle(path)
-        if isinstance(obj, pd.DataFrame):
-            return obj.reset_index(drop=True)
-        if isinstance(obj, dict):
-            return pd.json_normalize(obj)
-        if isinstance(obj, list):
-            return pd.json_normalize(obj)
-        return pd.DataFrame({"value": [obj]})
-
-    if suffix in {".npy", ".npz"}:
-        arr = np.load(path, allow_pickle=True)
-        if isinstance(arr, np.ndarray):
-            if arr.dtype.names is not None:
-                return pd.DataFrame(arr.tolist())
-            if arr.ndim == 1:
-                return pd.DataFrame({"value": arr.tolist()})
-            reshaped = arr.reshape(arr.shape[0], -1) if arr.ndim > 2 else arr
-            return pd.DataFrame(reshaped)
-        if isinstance(arr, dict):
-            return pd.DataFrame(arr)
-        return pd.DataFrame({"value": [arr]})
-
-    if suffix in {".txt", ".tsv"}:
-        if suffix == ".tsv":
-            return pd.read_csv(path, sep="	")
-        text = path.read_text(encoding="utf-8").splitlines()
-        return pd.DataFrame({"value": text})
-
-    if suffix in {".xlsx", ".xls"}:
-        return pd.read_excel(path)
-
-    raise ValueError(f"Unsupported gold result format: {suffix}")
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
-def create_sample_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    sample = df.copy()
+def _build_sample_submission(gold_df: pd.DataFrame) -> pd.DataFrame:
+    sample = gold_df.copy()
     for column in sample.columns:
         if pd.api.types.is_numeric_dtype(sample[column]):
             sample[column] = 0
         else:
             sample[column] = ""
-    return sample.fillna("")
+    return sample
 
 
-def ensure_directory(path: Path) -> None:
-    path.mkdir(parents=True, exist_ok=True)
-
-
-def create_placeholder_files(public: Path, private: Path) -> None:
-    ensure_directory(public)
-    ensure_directory(private)
-
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / SAMPLE_FILENAME, index=False
-    )
-
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / ANSWER_FILENAME, index=False
-    )
-
-    print("Placeholder files created")
-
-
-def prepare(raw: Path, public: Path, private: Path):
-    """Prepare the ScienceAgent task data."""
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    """Prepare data for ScienceBench Task 2."""
     print("=" * 60)
-    print("Preparing ScienceBench Task 2")
-    print("Dataset:", SOURCE_DATASET)
+    print("Preparing ScienceBench Task 2: mat_feature_select")
     print("=" * 60)
     print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
 
-    ensure_directory(public)
-    ensure_directory(private)
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    if raw.exists():
-        print("
-Copying data files to public directory...")
-        file_count = 0
-        for file in raw.rglob('*'):
-            if file.is_file() and not file.name.startswith('.'):
-                rel_path = file.relative_to(raw)
-                target = public / rel_path
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(file, target)
-                file_count += 1
-                if file_count <= 10:
-                    print("  ✓ Copied:", rel_path)
-        if file_count > 10:
-            print("  ... and", file_count - 10, "more files")
-        print("  Total files copied:", file_count)
-    else:
-        print("
-⚠ Warning: Raw data directory not found:", raw)
+    if not SOURCE_DATA_FILE.exists():
+        raise FileNotFoundError(f"Expected source dataset at {SOURCE_DATA_FILE}")
 
-    if GOLD_PATH and GOLD_PATH.exists():
-        try:
-            gold_df = load_gold_dataframe(GOLD_PATH)
-            sample_df = create_sample_dataframe(gold_df)
+    dataset_target = public / SOURCE_DATA_FILE.name
+    shutil.copy2(SOURCE_DATA_FILE, dataset_target)
+    print(f"✓ Copied dataset to public: {dataset_target.name}")
 
-            answer_path = private / ANSWER_FILENAME
-            sample_path = public / SAMPLE_FILENAME
+    if not GOLD_FILE.exists():
+        raise FileNotFoundError(f"Expected gold results at {GOLD_FILE}")
 
-            gold_df.to_csv(answer_path, index=False)
-            sample_df.to_csv(sample_path, index=False)
+    gold_df = pd.read_csv(GOLD_FILE)
+    gold_df.to_csv(private / "answer.csv", index=False)
+    print("✓ Wrote answer.csv with gold features")
 
-            print("✓ Created answer file:", answer_path)
-            print("✓ Created sample submission:", sample_path)
+    sample_df = _build_sample_submission(gold_df)
+    sample_df.to_csv(public / "sample_submission.csv", index=False)
+    print("✓ Wrote sample_submission.csv")
 
-            gold_copy = private / GOLD_PATH.name
-            if GOLD_PATH != gold_copy:
-                shutil.copy2(GOLD_PATH, gold_copy)
-                print("✓ Copied original gold file:", gold_copy)
+    print("Data preparation completed.")
 
-        except Exception as exc:
-            print("⚠ Failed to process gold results:", exc)
-            print("   Falling back to placeholder files")
-            create_placeholder_files(public, private)
-    else:
-        print("⚠ Gold results not found; creating placeholder files")
-        create_placeholder_files(public, private)
 
-    print("
-Data preparation completed!")
-    public_list = [p.name for p in public.iterdir() if p.is_file()]
-    private_list = [p.name for p in private.iterdir() if p.is_file()]
-    print("  Public files:", public_list)
-    print("  Private files:", private_list)
+if __name__ == "__main__":
+    raise SystemExit("This module is intended for import by preparation utilities, not direct execution.")
+

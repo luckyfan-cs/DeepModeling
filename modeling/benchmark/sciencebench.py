@@ -1,9 +1,8 @@
 # modeling/benchmark/sciencebench.py
 
-import os
+import re
 import uuid
 import yaml
-import importlib.util
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, List, Tuple, Optional, Dict, TYPE_CHECKING
@@ -28,6 +27,23 @@ logger = logging.getLogger(__name__)
 
 if TYPE_CHECKING:
     from modeling.runner import ModelingRunner
+
+
+DEFAULT_METADATA_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/ScienceAgentBench.csv").resolve()
+METADATA_FIELDS = [
+    "instance_id",
+    "domain",
+    "subtask_categories",
+    "task_inst",
+    "domain_knowledge",
+    "dataset_folder_tree",
+    "dataset_preview",
+    "src_file_or_path",
+    "github_name",
+    "gold_program_name",
+    "output_fname",
+    "eval_script_name",
+]
 
 
 # Simple data class for competition reports
@@ -92,6 +108,8 @@ class ScienceBenchmark(BaseBenchmark):
         if competitions:
             self.config["competitions"] = list(competitions)
 
+        self.metadata_index = self._load_metadata_index(DEFAULT_METADATA_PATH)
+
         super().__init__(name, file_path, log_path)
 
         # Create log directory
@@ -121,6 +139,49 @@ class ScienceBenchmark(BaseBenchmark):
         except Exception as e:
             logger.error(f"Error loading config: {e}")
             return {}
+
+    def _load_metadata_index(self, metadata_path: Path) -> Dict[int, Dict[str, Any]]:
+        """Load ScienceAgentBench metadata for task-specific contextual data."""
+        if not metadata_path or not metadata_path.exists():
+            logger.warning("ScienceBench metadata CSV not found: %s", metadata_path)
+            return {}
+
+        try:
+            df = pd.read_csv(metadata_path)
+        except Exception as exc:
+            logger.warning("Failed to load ScienceBench metadata from %s: %s", metadata_path, exc)
+            return {}
+
+        metadata_index: Dict[int, Dict[str, Any]] = {}
+        for _, row in df.iterrows():
+            if "instance_id" not in row:
+                continue
+            try:
+                instance_id = int(row["instance_id"])
+            except (TypeError, ValueError):
+                continue
+
+            entry: Dict[str, Any] = {}
+            for field in METADATA_FIELDS:
+                if field not in row:
+                    continue
+                value = row[field]
+                if pd.isna(value):
+                    entry[field] = None
+                else:
+                    python_value = value.item() if hasattr(value, "item") else value
+                    if isinstance(python_value, str):
+                        python_value = python_value.strip()
+                    entry[field] = python_value
+
+            metadata_index[instance_id] = entry
+
+        logger.info(
+            "Loaded ScienceBench metadata for %d task(s) from %s",
+            len(metadata_index),
+            metadata_path,
+        )
+        return metadata_index
 
     def _load_problems(self) -> List[Dict[str, Any]]:
         """
@@ -162,11 +223,16 @@ class ScienceBenchmark(BaseBenchmark):
                 public_dir = comp_data_dir / "public"
                 private_dir = comp_data_dir / "private"
 
+                instance_id = self._extract_instance_id_from_competition_id(competition_id)
+                metadata_entry = self.metadata_index.get(instance_id) if instance_id is not None else None
+
                 # Add competition (data can be prepared on-demand)
                 problems.append({
                     "competition_id": competition_id,
                     "registry_dir": str(comp_registry_dir),
                     "data_dir": str(comp_data_dir),
+                    "instance_id": instance_id,
+                    "metadata": metadata_entry.copy() if isinstance(metadata_entry, dict) else None,
                     "data_prepared": public_dir.exists() and private_dir.exists()
                 })
 
@@ -182,6 +248,17 @@ class ScienceBenchmark(BaseBenchmark):
             )
 
         return problems
+
+    @staticmethod
+    def _extract_instance_id_from_competition_id(competition_id: str) -> Optional[int]:
+        """Extract numeric instance_id from a ScienceBench competition identifier."""
+        match = re.search(r"sciencebench-(\d+)", competition_id or "")
+        if not match:
+            return None
+        try:
+            return int(match.group(1))
+        except ValueError:
+            return None
 
     def get_result_columns(self) -> List[str]:
         return [
@@ -238,6 +315,14 @@ class ScienceBenchmark(BaseBenchmark):
             else:
                 description = f"# {config.get('name', competition_id)}"
 
+            metadata_payload: Dict[str, Any] = {}
+            raw_metadata = problem.get("metadata")
+            if isinstance(raw_metadata, dict):
+                metadata_payload = {k: v for k, v in raw_metadata.items()}
+            instance_id = problem.get("instance_id")
+            if instance_id is not None:
+                metadata_payload.setdefault("instance_id", instance_id)
+
             # Get public data directory
             public_dir = Path(problem["data_dir"]) / "public"
 
@@ -248,11 +333,14 @@ class ScienceBenchmark(BaseBenchmark):
             # 1. Create standardized TaskDefinition
             task = TaskDefinition(
                 task_id=competition_id,
-                task_type="kaggle",
+                task_type="science",
                 payload={
                     "description": description,
                     "public_data_dir": str(public_dir.absolute()),
-                    "output_submission_path": str(output_submission_path.absolute())
+                    "output_submission_path": str(output_submission_path.absolute()),
+                    "config_path": str((registry_dir / "config.yaml").absolute()),
+                    "metadata": metadata_payload,
+                    "competition_id": competition_id,
                 }
             )
 

@@ -5,4 +5,4 @@ python main.py --workflow scientific --benchmark mathmodeling --data-dir "/home/
 python main.py --workflow scientific --benchmark mle --data-dir "/home/aiops/liufan/projects/mle/competitions" --llm-model openai/deepseek-ai/DeepSeek-V3.1-Terminus --task aptos2019-blindness-detection
 python main.py --workflow scientific --benchmark mle --data-dir "/home/aiops/liufan/projects/mle/competitions" --llm-model openai/deepseek-ai/DeepSeek-V3.1-Terminus --task santander-customer-satisfaction
 
-python main.py   --workflow scientific   --benchmark sciencebench   --data-dir /home/aiops/liufan/projects/DeepModeling/data/science-bench/competitions   --task sciencebench-001-clintox-nn
+python main.py   --workflow scientific   --benchmark sciencebench   --data-dir /home/aiops/liufan/projects/ScienceAgent-bench/competitions   --task sciencebench-001-clintox-nn

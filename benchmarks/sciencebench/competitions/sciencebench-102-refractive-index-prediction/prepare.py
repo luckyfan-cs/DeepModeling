@@ -1,5 +1,5 @@
 """
-Data preparation for ScienceBench task 102
+Data preparation for ScienceBench Task 102: refractive_index_prediction
 Dataset: ref_index
 """
 
@@ -7,85 +7,67 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import shutil
-import json
-
-
-SOURCE_DATASET = "ref_index"
 
 
 def prepare(raw: Path, public: Path, private: Path):
     """
-    Prepare the ScienceAgent task data.
+    Prepare the refractive_index_prediction task data.
 
     Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
+        raw: Path to raw data directory
         public: Path to public directory (visible to participants)
         private: Path to private directory (used for grading)
     """
     print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 102")
-    print(f"Dataset: ref_index")
+    print(f"Preparing ScienceBench Task 102: refractive_index_prediction")
     print(f"=" * 60)
     print(f"Raw directory: {raw}")
     print(f"Public directory: {public}")
     print(f"Private directory: {private}")
 
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
+    # Source dataset path
+    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/ref_index")
 
-    # 复制所有数据文件到 public
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
+
+    # Copy training and test data to public
+    # These are MODData format files (binary)
+    train_file = source_dir / "md_ref_index_train"
+    test_file = source_dir / "MP_2018.6"
+
+    if not train_file.exists() or not test_file.exists():
+        raise FileNotFoundError(f"Required data files not found in {source_dir}")
+
     print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
+    shutil.copy2(train_file, public / "md_ref_index_train")
+    shutil.copy2(test_file, public / "MP_2018.6")
+    print(f"  ✓ Copied: md_ref_index_train ({train_file.stat().st_size / 1024 / 1024:.1f} MB)")
+    print(f"  ✓ Copied: MP_2018.6 ({test_file.stat().st_size / 1024 / 1024:.1f} MB)")
 
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # CSV 输出格式
+    # Create sample_submission
+    # The output should be a CSV with refractive_index predictions
+    # We don't know the exact number of samples without loading MODData,
+    # so create a minimal template
     sample_submission = pd.DataFrame({
         "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
+        "refractive_index": [1.5, 1.5, 1.5]  # Placeholder values
     })
     sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
+    print(f"\n✓ Created sample_submission.csv (template)")
 
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
+    # Load gold results for answer
+    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/ref_index_predictions_gold.csv")
+    if gold_file.exists():
+        gold_df = pd.read_csv(gold_file)
+        gold_df.to_csv(private / "answer.csv", index=False)
+        print(f"✓ Created answer.csv with {len(gold_df)} rows from gold results")
+    else:
+        print(f"⚠ Warning: Gold results not found at {gold_file}")
+        answer = sample_submission.copy()
+        answer.to_csv(private / "answer.csv", index=False)
+        print(f"✓ Created placeholder answer.csv")
 
     print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
-
-
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
-
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
-
-    print("Placeholder files created")
+    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
+    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")

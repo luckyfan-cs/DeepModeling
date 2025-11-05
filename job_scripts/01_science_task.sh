@@ -1,0 +1,1 @@
+python main.py   --workflow scientific   --benchmark sciencebench   --data-dir ./data/science-bench/competitions   --task sciencebench-001-clintox-nn

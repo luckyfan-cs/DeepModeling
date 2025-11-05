@@ -1,33 +1,44 @@
-"""
-Grading function for ScienceBench task 13
-"""
+"""Grading function for ScienceBench Task 13 (HIV property prediction)."""
+
+from __future__ import annotations
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+
+REQUIRED_COLUMNS = {"smiles", "HIV_active"}
+F1_THRESHOLD = 0.43
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
     """
-    Grade submission using accuracy metric.
+    Evaluate predictions using F1 score with ordering validation.
 
     Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+        submission: DataFrame produced by the participant.
+        answers: Ground-truth DataFrame provided by the benchmark.
 
     Returns:
-        Accuracy score (0-1)
+        1.0 if the SMILES ordering matches and F1 >= threshold; otherwise 0.0.
     """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    if not REQUIRED_COLUMNS.issubset(submission.columns):
+        print(f"Submission missing required columns: {REQUIRED_COLUMNS - set(submission.columns)}")
+        return 0.0
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+    if not REQUIRED_COLUMNS.issubset(answers.columns):
+        print("Answer file is missing required columns.")
+        return 0.0
+
+    # Ensure ordering matches exactly.
+    if list(submission["smiles"]) != list(answers["smiles"]):
+        print("SMILES ordering mismatch.")
+        return 0.0
+
+    # Compute F1 score on the aligned columns.
+    metric = f1_score(answers["HIV_active"].values, submission["HIV_active"].values)
+    print(f"F1 score: {metric}")
+
+    return 1.0 if metric >= F1_THRESHOLD else 0.0

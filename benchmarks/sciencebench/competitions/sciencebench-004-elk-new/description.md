@@ -5,12 +5,11 @@
 - Domain: Geographical Information Science
 - Subtask Categories: Statistical Analysis, Data Visualization
 - Source: geopandas/geopandas
-- Expected Output: Elk_Analysis.png
 - Output Type: Image
 
 ## Task
 
-Analyze and visualize Elk movements in the given dataset. Estimate home ranges and assess habitat preferences using spatial analysis techniques. Identify the spatial clusters of Elk movements. Document the findings with maps and visualizations. Save the figure as "output file".
+Analyze and visualize Elk movements in the given dataset. Estimate home ranges and assess habitat preferences using spatial analysis techniques. Identify spatial clusters of Elk movements and present the findings with maps and supporting figures. Save the final visualization as `pred_results/Elk_Analysis.png`.
 
 ## Dataset
 
@@ -20,8 +19,8 @@ Analyze and visualize Elk movements in the given dataset. Estimate home ranges a
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode the PNG produced at `pred_results/Elk_Analysis.png` as base64 (UTF-8 string) and place it in the row for that file name.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes your base64 image, writes it to disk, and compares it against the gold reference using the original GPT-4 visual judge (threshold 60/100). If that dependency is unavailable, grading falls back to a pixel-level similarity proxy.

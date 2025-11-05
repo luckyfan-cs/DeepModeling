@@ -5,7 +5,6 @@
 - Domain: Bioinformatics
 - Subtask Categories: Deep Learning
 - Source: swansonk14/admet_ai
-- Expected Output: aai_preds.csv
 - Output Type: Tabular
 
 ## Task

@@ -1,5 +1,5 @@
 id: sciencebench-093-plot-h-distribution
-name: "ScienceBench - plot_h_distribution.py"
+name: "ScienceBench - plot_h_distribution"
 competition_type: code
 awards_medals: false
 prizes: null
@@ -10,7 +10,7 @@ dataset:
   sample_submission: sciencebench-093-plot-h-distribution/prepared/public/sample_submission.csv
 
 grader:
-  name: image_similarity
+  name: visual_similarity
   grade_fn: benchmarks.sciencebench.competitions.sciencebench-093-plot-h-distribution.grade:grade
 
 preparer: benchmarks.sciencebench.competitions.sciencebench-093-plot-h-distribution.prepare:prepare

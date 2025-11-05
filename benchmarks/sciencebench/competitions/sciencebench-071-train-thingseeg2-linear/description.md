@@ -2,24 +2,26 @@
 
 ## Overview
 
-- Domain: Psychology and Cognitive science
+- Domain: Psychology and Cognitive Science
 - Subtask Categories: Feature Engineering, Machine Learning
 - Source: ZitongLu1996/EEG2EEG
-- Expected Output: linear_sub01tosub03_pred.npy
-- Output Type: Tabular
+- Output Type: NumPy array
 
 ## Task
 
-Train a linear model to learn the mapping of neural representations in EEG signals from one subject (Sub 01) to another (Sub 03) based on the preprocessed EEG data from Sub 01 and Sub 03. Then use the test set of Subject 1 (Sub 01) to generate EEG signal of Subject 3 (Sub 03).
+Learn a linear mapping from Subject 01 to Subject 03 EEG representations using the provided ThingseEG2 training splits. Fit the model on the paired training recordings, apply it to the Subject 01 test data, and save the generated Subject 03 signals as the required NumPy file.
 
 ## Dataset
 
-N/A
+The `thingseeg2/` directory contains:
+
+- `train/sub01.npy`, `train/sub03.npy` – aligned training signals.
+- `test/sub01.npy` – Subject 01 test signals to transform.
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Write `pred_results/linear_sub01tosub03_pred.npy` containing a NumPy array shaped like the provided test data (200 × 3400 after reshaping).
 
 ## Evaluation
 
-Element-wise equality between your submission and the reference.
+Submissions are accepted when the Spearman correlation between the generated signals and the normalized gold signals reaches at least 0.6 (matching the reference evaluation script).

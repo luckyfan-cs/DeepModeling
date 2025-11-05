@@ -5,12 +5,11 @@
 - Domain: Bioinformatics
 - Subtask Categories: Data Visualization
 - Source: psa-lab/predicting-activity-by-machine-learning
-- Expected Output: dkpes_molecular_analysis_pred.png
 - Output Type: Image
 
 ## Task
 
-Given the DKPES dataset, visualize the distribution of signal inhibition values and also visualize their relationship with the tanimoto similarity score. Save the figure as "output file".
+Given the DKPES dataset, visualize the distribution of signal inhibition values and also visualize their relationship with the Tanimoto similarity score. Save the figure as `pred_results/dkpes_molecular_analysis_pred.png`.
 
 ## Dataset
 
@@ -24,8 +23,8 @@ ZINC01532179,0.686,0,0,0,0,0,0,1,3,0,0,1,DKPES_CSD_MMMF_1_16,0.965,0.633,0.332,1
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode the PNG stored at `pred_results/dkpes_molecular_analysis_pred.png` as base64 (UTF-8 string) and place it in the row for that filename.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes your base64 image, writes it to disk, and compares it against the gold visualization using the original GPT-4 visual judge with a 60/100 threshold (falling back to pixel similarity if unavailable).

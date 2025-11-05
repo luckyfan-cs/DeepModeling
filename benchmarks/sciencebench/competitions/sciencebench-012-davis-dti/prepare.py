@@ -1,84 +1,91 @@
-"""
-Data preparation for ScienceBench task 12
-Dataset: dti
-"""
+"""Data preparation for ScienceBench Task 12 (DAVIS DTI repurposing)."""
 
-import pandas as pd
-import numpy as np
 from pathlib import Path
 import shutil
-import json
+import pandas as pd
+
+DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/dti")
+DAVIS_DIR = DATA_DIR / "DAVIS"
+GOLD_TOP5 = [
+    "Foscarnet",
+    "Boceprevir",
+    "Sofosbuvir",
+    "Amantadine",
+    "Glecaprevir",
+]
+REMOVED_LAST5 = [
+    "Abacavir",
+    "Etravirine",
+    "Rilpivirine",
+    "Imiquimod",
+    "Pyrimidine",
+]
+OUTPUT_FILENAME = "pred_results/davis_dti_repurposing.txt"
 
 
-SOURCE_DATASET = "dti"
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 12")
-    print(f"Dataset: dti")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # 通用文件格式
-    with open(public / "sample_submission.txt", "w") as f:
-        f.write("Your output should match the format: pred_results/davis_dti_repurposing.txt\n")
-    print("Created sample_submission.txt")
-
-    with open(private / "answer.json", "w") as f:
-        json.dump({"expected_output": "pred_results/davis_dti_repurposing.txt"}, f)
-    print("Created answer.json")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+def _write_sample_submission(path: Path) -> None:
+    sample_lines = [
+        "SMILES_SAMPLE_1",
+        "SMILES_SAMPLE_2",
+        "SMILES_SAMPLE_3",
+        "SMILES_SAMPLE_4",
+        "SMILES_SAMPLE_5",
+    ]
+    with (path / "sample_submission.txt").open("w", encoding="utf-8") as handle:
+        handle.write("\n".join(sample_lines) + "\n")
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
+def _write_answer_metadata(path: Path) -> None:
+    answer_df = pd.DataFrame({
+        "gold_top5": GOLD_TOP5,
+        "removed_drugs": REMOVED_LAST5 + [""] * (len(GOLD_TOP5) - len(REMOVED_LAST5)),
+    })
+    answer_df.to_csv(path / "answer.csv", index=False)
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
 
-    print("Placeholder files created")
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 12: DAVIS DTI repurposing")
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    _ensure_dir(public)
+    _ensure_dir(private)
+
+    required_files = [
+        DAVIS_DIR / "affinity_train.csv",
+        DAVIS_DIR / "affinity_val.csv",
+        DAVIS_DIR / "drug_train.txt",
+        DAVIS_DIR / "drug_val.txt",
+        DAVIS_DIR / "target_seq.json",
+        DATA_DIR / "antiviral_drugs.tab",
+        DATA_DIR / "covid_seq.txt",
+    ]
+
+    missing = [str(f) for f in required_files if not f.exists()]
+    if missing:
+        raise FileNotFoundError("Missing dataset files: " + ", ".join(missing))
+
+    for file_path in required_files:
+        target = public / file_path.relative_to(DATA_DIR.parent)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file_path, target)
+    print("✓ Copied DAVIS dataset and antiviral inputs to public directory")
+
+    _write_sample_submission(public)
+    print("✓ Wrote sample_submission.txt")
+
+    _write_answer_metadata(private)
+    print("✓ Wrote answer.csv metadata")
+
+    print("Preparation complete. Expected submission file:", OUTPUT_FILENAME)
+
+
+if __name__ == "__main__":
+    raise SystemExit("Use this module via the benchmark preparation tooling.")

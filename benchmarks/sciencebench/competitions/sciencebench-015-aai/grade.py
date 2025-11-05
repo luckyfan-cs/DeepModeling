@@ -1,33 +1,36 @@
-"""
-Grading function for ScienceBench task 15
-"""
+"""Grading function for ScienceBench task 15 (admet_ai)."""
+
+from __future__ import annotations
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import roc_auc_score
+
+REQUIRED_COLUMNS = {"Drug", "Y"}
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+    """Return ROC AUC if ordering matches; otherwise 0.0."""
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    if not REQUIRED_COLUMNS.issubset(submission.columns):
+        print(f"Submission missing required columns: {REQUIRED_COLUMNS - set(submission.columns)}")
+        return 0.0
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    if not REQUIRED_COLUMNS.issubset(answers.columns):
+        print("Answer file is missing required columns.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    if list(submission["Drug"]) != list(answers["Drug"]):
+        print("Drug ordering mismatch.")
+        return 0.0
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+    try:
+        auc = roc_auc_score(answers["Y"].values, submission["Y"].values)
+    except ValueError as exc:
+        print(f"Unable to compute ROC AUC: {exc}")
+        return 0.0
+
+    print(f"ROC AUC: {auc}")
+    return float(auc)

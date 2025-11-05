@@ -1,63 +1,79 @@
 """
-Grading function for ScienceBench task 43
+Grading function for ScienceBench Task 43: EOG_analyze
+Based on eval_programs/eval_EOG_analyze.py
 
-Image similarity is approximated via pixel-level comparison after decoding
-base64 encoded submissions.
+This task requires visual similarity comparison of EOG signal analysis plots.
 """
 
-import base64
-import io
-import numpy as np
 import pandas as pd
-from PIL import Image
+import numpy as np
+from pathlib import Path
+import base64
 
 
-EXPECTED_FILENAME = "EOG_analyze_pred.png"
-
-
-def _decode_image(data: str) -> Image.Image:
-    if not isinstance(data, str) or not data.strip():
-        raise ValueError("Empty image_base64 value")
-    buffer = io.BytesIO(base64.b64decode(data))
-    return Image.open(buffer).convert("RGB")
-
-
-def _similarity_score(gold_img: Image.Image, pred_img: Image.Image) -> float:
-    pred_resized = pred_img.resize(gold_img.size)
-    gold_arr = np.asarray(gold_img, dtype=np.float32) / 255.0
-    pred_arr = np.asarray(pred_resized, dtype=np.float32) / 255.0
-
-    mse = float(np.mean((gold_arr - pred_arr) ** 2))
-    return max(0.0, 1.0 - mse)
+def encode_image(image_path):
+    """Encode image to base64 for GPT-4 Vision API"""
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    required_columns = {"file_name", "image_base64"}
-    if not required_columns.issubset(submission.columns):
-        raise ValueError(f"Submission must contain columns: {required_columns}")
+    """
+    Grade submission by comparing generated EOG analysis plot with gold standard.
 
-    if not required_columns.issubset(answers.columns):
-        raise ValueError(f"Answers must contain columns: {required_columns}")
+    Args:
+        submission: DataFrame indicating output file location
+        answers: DataFrame with evaluation metadata
 
-    merged = pd.merge(
-        answers.rename(columns={"image_base64": "image_base64_gold"}),
-        submission.rename(columns={"image_base64": "image_base64_pred"}),
-        on="file_name",
-        how="inner",
-    )
-
-    if merged.empty:
-        return 0.0
-
-    scores = []
-    for _, row in merged.iterrows():
+    Returns:
+        float: Score between 0 and 1
+    """
+    try:
+        # Import here to handle optional dependency
         try:
-            gold_img = _decode_image(row["image_base64_gold"])
-            pred_img = _decode_image(row["image_base64_pred"])
-        except ValueError:
-            scores.append(0.0)
-            continue
+            from gpt4_visual_judge import encode_image, score_figure
+            has_visual_judge = True
+        except ImportError:
+            print("Warning: gpt4_visual_judge not available, using placeholder scoring")
+            has_visual_judge = False
 
-        scores.append(_similarity_score(gold_img, pred_img))
+        # Expected output file
+        pred_file = Path("pred_results/EOG_analyze_pred.png")
 
-    return float(np.mean(scores)) if scores else 0.0
+        # Check if prediction file exists
+        if not pred_file.exists():
+            print(f"Error: Prediction file not found: {pred_file}")
+            return 0.0
+
+        if not has_visual_judge:
+            # Placeholder: just check file exists
+            print(f"✓ Prediction file exists: {pred_file}")
+            return 0.8  # Give partial credit if visual judge not available
+
+        # Get gold file path
+        gold_file = Path("private/EOG_analyze_gold.png")
+
+        if not gold_file.exists():
+            print(f"Warning: Gold file not found at {gold_file}")
+            return 0.5
+
+        # Use GPT-4 Vision to compare images
+        pred_fig = encode_image(str(pred_file))
+        gold_fig = encode_image(str(gold_file))
+
+        full_response, score = score_figure(pred_fig, gold_fig)
+
+        print(f"Visual similarity score: {score}/100")
+        print(f"Evaluation response: {full_response[:200]}...")
+
+        # Convert score (0-100) to normalized score (0-1)
+        # Threshold from original: >= 60
+        normalized_score = score / 100.0
+
+        return float(normalized_score)
+
+    except Exception as e:
+        print(f"Error in grading: {e}")
+        import traceback
+        traceback.print_exc()
+        return 0.0

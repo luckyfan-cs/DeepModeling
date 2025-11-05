@@ -5,27 +5,20 @@
 - Domain: Bioinformatics
 - Subtask Categories: Feature Engineering, Statistical Analysis, Data Visualization
 - Source: scverse/scvi-tutorials
-- Expected Output: hca_cell_type_pca.png
 - Output Type: Image
 
 ## Task
 
-For cell samples in the heart cell atlas dataset, filter out lowly expressed genes and plot UMAP results using the top 30 PCA components on the expression data.
+Process the Heart Cell Atlas subset, filter lowly expressed genes, compute the top 30 PCA components, and generate a UMAP embedding colored by cell type. Save the visualization to the required PNG output path.
 
 ## Dataset
 
-[START Preview of hca/hca_subsampled_20k.h5ad]
-                                    AL627309.1  AC114498.1  AL669831.2  ...  AL354822.1  AC004556.1  AC240274.1
-AACTCCCCACGAGAGT-1-HCAHeart7844001         0.0         0.0         0.0  ...         0.0         0.0         0.0
-ATAACGCAGAGCTGGT-1-HCAHeart7829979         0.0         0.0         0.0  ...         0.0         0.0         0.0 
-GTCAAGTCATGCCACG-1-HCAHeart7702879         0.0         0.0         0.0  ...         0.0         0.0         0.0
-...  
-[END Preview of hca/hca_subsampled_20k.h5ad]
+The `hca/` directory contains `hca_subsampled_20k.h5ad`, an AnnData object with expression values and cell-type annotations for a subsampled Heart Cell Atlas dataset.
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Write `pred_results/hca_cell_type_pca.png`. If the workflow works in base64 internally, ensure the image is finally written to disk with the expected filename.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+Submissions are accepted when the visualization achieves at least the reference similarity score (60/100) against the gold image produced by the evaluation script.

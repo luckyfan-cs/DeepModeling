@@ -7,10 +7,10 @@ description: benchmarks/sciencebench/competitions/sciencebench-016-compound-filt
 
 dataset:
   answers: sciencebench-016-compound-filter/prepared/private/answer.csv
-  sample_submission: sciencebench-016-compound-filter/prepared/public/sample_submission.csv
+  sample_submission: sciencebench-016-compound-filter/prepared/public/sample_submission.txt
 
 grader:
-  name: rmse
+  name: overlap
   grade_fn: benchmarks.sciencebench.competitions.sciencebench-016-compound-filter.grade:grade
 
 preparer: benchmarks.sciencebench.competitions.sciencebench-016-compound-filter.prepare:prepare

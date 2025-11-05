@@ -1,84 +1,94 @@
-"""
-Data preparation for ScienceBench task 16
-Dataset: compound_filter
-"""
+"""Prepare data for ScienceBench task 16 (compound filter)."""
 
-import pandas as pd
-import numpy as np
+from __future__ import annotations
+
 from pathlib import Path
 import shutil
-import json
+import pandas as pd
+
+DATASET_ROOT = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/compound_filter")
+GOLD_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/antibioticsai_filter_gold_results.txt")
+EXPECTED_OUTPUT = "compound_filter_results.txt"
 
 
-SOURCE_DATASET = "compound_filter"
+def _ensure(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
+def _copy_dataset(dataset_root: Path, target_root: Path) -> int:
+    if not dataset_root.exists():
+        raise FileNotFoundError(f"Source dataset not found: {dataset_root}")
 
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 16")
-    print(f"Dataset: compound_filter")
-    print(f"=" * 60)
+    copied = 0
+    for item in dataset_root.rglob("*"):
+        if not item.is_file() or item.name.startswith("."):
+            continue
+        rel = item.relative_to(dataset_root)
+        dest = target_root / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(item, dest)
+        copied += 1
+        if copied <= 10:
+            print(f"  ✓ Copied: {rel}")
+    if copied > 10:
+        print(f"  ... and {copied - 10} more files")
+    return copied
+
+
+def _write_sample_submission(public_dir: Path) -> None:
+    sample_lines = [
+        "# One SMILES per line, in the order you wish to submit.",
+        "SMILES_PLACEHOLDER_1",
+        "SMILES_PLACEHOLDER_2",
+        "SMILES_PLACEHOLDER_3",
+    ]
+    sample_path = public_dir / "sample_submission.txt"
+    sample_path.write_text("\n".join(sample_lines) + "\n", encoding="utf-8")
+    print(f"✓ Created {sample_path.name}")
+
+
+def _write_answers(private_dir: Path) -> None:
+    if not GOLD_FILE.exists():
+        raise FileNotFoundError(f"Gold file missing: {GOLD_FILE}")
+    gold_text = GOLD_FILE.read_text(encoding="utf-8")
+
+    answer_txt = private_dir / EXPECTED_OUTPUT
+    answer_txt.write_text(gold_text, encoding="utf-8")
+
+    smiles = [line.strip() for line in gold_text.splitlines() if line.strip()]
+    answer_csv = private_dir / "answer.csv"
+    pd.DataFrame({"SMILES": smiles}).to_csv(answer_csv, index=False)
+
+    print(f"✓ Copied gold results to {answer_txt.name}")
+    print(f"✓ Created answer.csv with {len(smiles)} rows")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 16: compound filter")
+    print("=" * 60)
     print(f"Raw directory: {raw}")
     print(f"Public directory: {public}")
     print(f"Private directory: {private}")
 
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
+    _ensure(public)
+    _ensure(private)
 
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
+    dataset_root = raw if raw.exists() and any(raw.iterdir()) else DATASET_ROOT
+    if dataset_root is DATASET_ROOT:
+        print(f"⚠ Raw directory missing or empty. Using canonical dataset: {DATASET_ROOT}")
+    else:
+        print("✓ Using provided raw dataset directory.")
 
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
+    total_copied = _copy_dataset(dataset_root, public)
+    print(f"  Total files copied: {total_copied}")
 
-    # 创建 sample_submission 文件
-    # 通用文件格式
-    with open(public / "sample_submission.txt", "w") as f:
-        f.write("Your output should match the format: pred_results/compound_filter_results.txt\n")
-    print("Created sample_submission.txt")
+    _write_sample_submission(public)
+    _write_answers(private)
 
-    with open(private / "answer.json", "w") as f:
-        json.dump({"expected_output": "pred_results/compound_filter_results.txt"}, f)
-    print("Created answer.json")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+    print("\nData preparation completed.")
+    print(f"  Expected submission file: pred_results/{EXPECTED_OUTPUT}")
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
-
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
-
-    print("Placeholder files created")
+if __name__ == "__main__":
+    raise SystemExit("Use via the benchmark preparation tooling.")

@@ -1,34 +1,19 @@
-"""
-Grading function for ScienceBench task 94
 
-Image similarity is approximated via pixel-level comparison after decoding
-base64 encoded submissions.
+"""
+Grading function for sciencebench 094 polyverse visualize molecules visualization task.
+
+Mirrors the original ScienceAgentBench evaluation that compares the generated
+PNG against the gold reference with a GPT-4 based judge (threshold 60). When
+that optional dependency is unavailable we fall back to a deterministic pixel
+similarity proxy.
 """
 
-import base64
-import io
-import numpy as np
 import pandas as pd
-from PIL import Image
 
+from benchmarks.sciencebench.image_eval import grade_visual_rows
 
 EXPECTED_FILENAME = "polyverse_visualize_molecules_pred.png"
-
-
-def _decode_image(data: str) -> Image.Image:
-    if not isinstance(data, str) or not data.strip():
-        raise ValueError("Empty image_base64 value")
-    buffer = io.BytesIO(base64.b64decode(data))
-    return Image.open(buffer).convert("RGB")
-
-
-def _similarity_score(gold_img: Image.Image, pred_img: Image.Image) -> float:
-    pred_resized = pred_img.resize(gold_img.size)
-    gold_arr = np.asarray(gold_img, dtype=np.float32) / 255.0
-    pred_arr = np.asarray(pred_resized, dtype=np.float32) / 255.0
-
-    mse = float(np.mean((gold_arr - pred_arr) ** 2))
-    return max(0.0, 1.0 - mse)
+THRESHOLD = 60.0
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
@@ -47,17 +32,14 @@ def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
     )
 
     if merged.empty:
+        print("No matching files between submission and answers.")
         return 0.0
 
-    scores = []
-    for _, row in merged.iterrows():
-        try:
-            gold_img = _decode_image(row["image_base64_gold"])
-            pred_img = _decode_image(row["image_base64_pred"])
-        except ValueError:
-            scores.append(0.0)
-            continue
+    filtered_rows = [
+        row for row in merged.to_dict("records") if row.get("file_name") == EXPECTED_FILENAME
+    ]
+    if not filtered_rows:
+        print(f"Expected visualization '{EXPECTED_FILENAME}' not found in submission.")
+        return 0.0
 
-        scores.append(_similarity_score(gold_img, pred_img))
-
-    return float(np.mean(scores)) if scores else 0.0
+    return grade_visual_rows(filtered_rows, threshold_score=THRESHOLD)

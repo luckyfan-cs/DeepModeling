@@ -1,91 +1,90 @@
 """
-Data preparation for ScienceBench task 1
+Data preparation for ScienceBench Task 1: clintox_nn
 Dataset: clintox
 """
 
 import pandas as pd
-import numpy as np
 from pathlib import Path
 import shutil
-import json
-
-
-SOURCE_DATASET = "clintox"
 
 
 def prepare(raw: Path, public: Path, private: Path):
     """
-    Prepare the ScienceAgent task data.
+    Prepare the clintox task data.
 
     Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
+        raw: Path to raw data directory (/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/clintox)
         public: Path to public directory (visible to participants)
         private: Path to private directory (used for grading)
     """
     print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 1")
-    print(f"Dataset: clintox")
+    print(f"Preparing ScienceBench Task 1: clintox_nn")
     print(f"=" * 60)
     print(f"Raw directory: {raw}")
     print(f"Public directory: {public}")
     print(f"Private directory: {private}")
 
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
+    # Source dataset path
+    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/clintox")
 
-    # 复制所有数据文件到 public
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
+
+    # Copy training and test data to public
+    train_file = source_dir / "clintox_train.csv"
+    test_file = source_dir / "clintox_test.csv"
+
+    if not train_file.exists() or not test_file.exists():
+        raise FileNotFoundError(f"Required data files not found in {source_dir}")
+
     print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
+    train_df = pd.read_csv(train_file)
+    test_df = pd.read_csv(test_file)
 
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
+    # Write training data as-is (includes labels)
+    train_output = train_df.copy()
+    train_output.to_csv(public / "clintox_train.csv", index=False)
+    print(f"  ✓ Saved: clintox_train.csv ({train_output.shape[0]} rows, {train_output.shape[1]} columns)")
 
-    # 创建 sample_submission 文件
-    # CSV 输出格式
+    # Remove any legacy duplicate files that may exist from earlier conversions
+    for legacy_name in ["train.csv", "test.csv"]:
+        legacy_path = public / legacy_name
+        if legacy_path.exists():
+            legacy_path.unlink()
+            print(f"  ↺ Removed legacy artifact: {legacy_name}")
+
+    # Create sample_submission with expected format
+    # The submission should contain: smiles, FDA_APPROVED, CT_TOX
     sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
+        "smiles": test_df["smiles"],
+        "FDA_APPROVED": 0.5,  # Probability placeholder
+        "CT_TOX": 0.5  # Probability placeholder
     })
     sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
+    print(f"\n✓ Created sample_submission.csv with {len(sample_submission)} rows")
 
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
+    # Provide a public test file that mirrors the sample submission format
+    test_output = pd.DataFrame({
+        "smiles": test_df["smiles"],
+        "FDA_APPROVED": "",
+        "CT_TOX": ""
     })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
+    test_output.to_csv(public / "clintox_test.csv", index=False)
+    print(f"  ✓ Saved: clintox_test.csv ({test_output.shape[0]} rows, {test_output.shape[1]} columns) with original SMILES")
+
+    # Load gold results for answer
+    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/clintox_gold.csv")
+    if gold_file.exists():
+        gold_df = pd.read_csv(gold_file)
+        gold_df.to_csv(private / "answer.csv", index=False)
+        print(f"✓ Created answer.csv with {len(gold_df)} rows from gold results")
+    else:
+        # If gold file doesn't exist, create placeholder
+        print(f"⚠ Warning: Gold results not found at {gold_file}")
+        answer = sample_submission.copy()
+        answer.to_csv(private / "answer.csv", index=False)
+        print(f"✓ Created placeholder answer.csv")
 
     print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
-
-
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
-
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
-
-    print("Placeholder files created")
+    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
+    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")

@@ -17,7 +17,7 @@ from modeling.services.llm import LLMService
 from modeling.workflows.base import ModelingWorkflow
 
 # Dynamic components (factories and handlers)
-from modeling.tasks.handlers import TaskHandler, KaggleTaskHandler, QATaskHandler
+from modeling.tasks.handlers import TaskHandler, KaggleTaskHandler, QATaskHandler, ScienceTaskHandler
 from modeling.workflows.factory import (
     WorkflowFactory,
     ScientificWorkflowFactory,
@@ -37,6 +37,7 @@ WORKFLOW_FACTORIES: Dict[str, WorkflowFactory] = {
 TASK_HANDLER_CLASSES: Dict[TaskType, Type[TaskHandler]] = {
     "kaggle": KaggleTaskHandler,
     "qa": QATaskHandler,
+    "science": ScienceTaskHandler,
     # "code": CodeTaskHandler, # future extension
 }
 

@@ -7,6 +7,7 @@ import pandas as pd
 from typing import Optional, List
 
 from modeling.models.task import TaskType
+from modeling.utils.context import truncate_output
 
 logger = logging.getLogger(__name__)
 
@@ -130,7 +131,7 @@ class DataAnalyzer:
         report += self._analyze_data_schema(data_dir)
 
         # 3. Task-Specific Analysis
-        if task_type == "kaggle":
+        if task_type in {"kaggle", "science"}:
             submission_analysis = self._analyze_kaggle_submission_format(data_dir)
             if submission_analysis:
                 report += f"## Submission Format Requirements\n{submission_analysis}\n\n"
@@ -180,6 +181,7 @@ You MUST follow these file system rules precisely. Failure to do so will cause a
         """Generates the file tree representation."""
         try:
             tree_output = generate_file_tree(data_dir, display_root_name=".")
+            tree_output = truncate_output(tree_output)
             return f"## Directory Structure (Current Working Directory)\n```text\n{tree_output}\n```\n\n"
         except Exception as e:
             logger.error(f"Failed to generate file tree for {data_dir}: {traceback.format_exc()}")
@@ -312,4 +314,5 @@ This includes the column names, column order, and data types. Failure to adhere 
         if not report_parts:
             return ""
 
-        return "## Data Schema Analysis\n" + "\n\n".join(report_parts) + "\n\n"
+        analysis = "## Data Schema Analysis\n" + "\n\n".join(report_parts) + "\n\n"
+        return truncate_output(analysis)

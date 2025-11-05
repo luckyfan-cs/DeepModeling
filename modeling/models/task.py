@@ -3,7 +3,7 @@ from typing import Literal, Dict, Any
 
 # Define a controlled vocabulary for task types.
 # The framework will choose appropriate TaskHandler based on this type.
-TaskType = Literal["kaggle", "qa", "code"]
+TaskType = Literal["kaggle", "qa", "code", "science"]
 
 
 class TaskDefinition(BaseModel):

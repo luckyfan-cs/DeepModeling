@@ -148,6 +148,7 @@ Thumbs.db
 logs/
 temp/
 *.tmp
+data/science-bench/
 
 /competitions/
 runs/

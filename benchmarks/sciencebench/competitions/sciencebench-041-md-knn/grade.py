@@ -1,33 +1,45 @@
-"""
-Grading function for ScienceBench task 41
-"""
+"""Grading function for ScienceBench Task 41 (MD KNN models)."""
 
-import pandas as pd
-import numpy as np
 from pathlib import Path
-from sklearn.metrics import accuracy_score
+
+import numpy as np
+import pandas as pd
+from sklearn.metrics import f1_score
+
+OUTPUT_FILES = {
+    "all": Path("pred_results/MD_all_KNN.csv"),
+    "MCNC": Path("pred_results/MD_MCNC_KNN.csv"),
+    "MCLCNC": Path("pred_results/MD_MCLCNC_KNN.csv"),
+}
+GOLD_PATH = Path("benchmark/eval_programs/gold_results/MD_gold.csv")
+F1_THRESHOLD = 0.73
+
+
+def _load_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(f"Expected submission file missing: {path}")
+    return pd.read_csv(path)
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+    gold_df = _load_csv(GOLD_PATH)
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    f1_scores = []
+    for split, file_path in OUTPUT_FILES.items():
+        pred_df = _load_csv(file_path)
+        required_cols = {"label"}
+        if not required_cols.issubset(pred_df.columns):
+            print(f"[{split}] missing label column")
+            return 0.0
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+        if len(pred_df) != len(gold_df):
+            print(f"[{split}] row count mismatch: {len(pred_df)} vs {len(gold_df)}")
+            return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+        f1 = f1_score(gold_df["label"].values, pred_df["label"].values, pos_label="DILI")
+        print(f"[{split}] F1 score: {f1}")
+        f1_scores.append(f1)
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+    mean_f1 = float(np.mean(f1_scores)) if f1_scores else 0.0
+    print(f"Mean F1: {mean_f1}")
+    return 1.0 if mean_f1 >= F1_THRESHOLD else 0.0

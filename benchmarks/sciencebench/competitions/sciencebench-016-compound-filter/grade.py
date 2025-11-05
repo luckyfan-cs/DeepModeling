@@ -1,35 +1,37 @@
-"""
-Grading function for ScienceBench task 16
-"""
+"""Grading function for ScienceBench task 16 (compound filter)."""
+
+from __future__ import annotations
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+REQUIRED_COLUMN = "SMILES"
+
+
+def _normalize(df: pd.DataFrame) -> pd.Series:
+    if REQUIRED_COLUMN in df.columns:
+        series = df[REQUIRED_COLUMN]
+    else:
+        # Fallback: use the first column if it appears unnamed.
+        series = df.iloc[:, 0]
+    return series.dropna().astype(str).str.strip()
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    """Return 1.0 when the submitted SMILES set matches the gold set."""
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
+    if answers.empty:
+        print("Answer set is empty.")
+        return 0.0
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    submitted = set(_normalize(submission))
+    gold = set(_normalize(answers))
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    if not gold:
+        print("Gold result set is empty after normalization.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    overlap = len(submitted.intersection(gold)) / len(gold)
+    print(f"Overlap: {overlap}")
+    return 1.0 if overlap == 1.0 else 0.0

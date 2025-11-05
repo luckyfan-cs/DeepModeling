@@ -72,14 +72,16 @@ Deliver a rigorous synthesis that references the most important observations, hi
 </Inference>
 
 <Conclusion>
-Create a comprehensive research report that stays grounded in the experiments and observations. Use the following section headings (each 2–3 sentences when possible):
-Objective & Context:
-Experimental Approach:
-Key Results & Evidence:
-Interpretation & Implications:
-Limitations & Sources of Error:
-Recommended Next Steps:
-Final Verdict:
+Compose a logically rigorous and academically styled research summary grounded in the experiments and observations. 
+The conclusion should demonstrate scientific reasoning and conceptual integration rather than simple description.
+Use the following structured headings (each typically one concise paragraph, 2–5 sentences):
+
+Research Objective and Context:
+Methodological Framework:
+Findings and Analytical Evidence:
+Interpretation and Broader Implications:
+Limitations and Future Work:
+Scholarly Significance and Overall Conclusion:
 </Conclusion>"""
 
 

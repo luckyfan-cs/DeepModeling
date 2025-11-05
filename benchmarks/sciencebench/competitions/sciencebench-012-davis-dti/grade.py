@@ -1,33 +1,53 @@
-"""
-Grading function for ScienceBench task 12
-"""
+"""Grading function for ScienceBench Task 12 (DAVIS DTI repurposing)."""
 
-import pandas as pd
-import numpy as np
 from pathlib import Path
-from sklearn.metrics import accuracy_score
+
+GOLD_TOP5 = [
+    "Foscarnet",
+    "Boceprevir",
+    "Sofosbuvir",
+    "Amantadine",
+    "Glecaprevir",
+]
+REMOVED_LAST5 = [
+    "Abacavir",
+    "Etravirine",
+    "Rilpivirine",
+    "Imiquimod",
+    "Pyrimidine",
+]
+OUTPUT_PATH = Path("pred_results/davis_dti_repurposing.txt")
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+def _read_submission_lines(path: Path) -> list[str]:
+    if not path.exists():
+        print(f"Submission file missing: {path}")
+        return []
+    with path.open("r", encoding="utf-8") as handle:
+        lines = [line.strip() for line in handle if line.strip()]
+    return lines
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+def grade(submission, answers) -> float:
+    """Return 1.0 when ordering matches the reference criteria, else 0.0."""
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    lines = _read_submission_lines(OUTPUT_PATH)
+    if not lines:
+        return 0.0
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+    # Ensure disqualified drugs are absent
+    data_correctness = all(rem not in "".join(lines) for rem in REMOVED_LAST5)
+    if not data_correctness:
+        print("Found disqualified antiviral in submission list")
+        return 0.0
+
+    if len(lines) < 5:
+        print("Submission contains fewer than 5 entries")
+        return 0.0
+
+    top5_matches = all(GOLD_TOP5[i] in lines[i] for i in range(5))
+    if not top5_matches:
+        print("Top five antiviral ordering does not match reference")
+        return 0.0
+
+    return 1.0

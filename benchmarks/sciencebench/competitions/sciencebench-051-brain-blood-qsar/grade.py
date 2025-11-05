@@ -1,33 +1,32 @@
-"""
-Grading function for ScienceBench task 51
-"""
+"""Grading function for ScienceBench Task 51 (brain-blood QSAR)."""
+
+from pathlib import Path
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import balanced_accuracy_score
+
+SUBMISSION_PATH = Path("pred_results/brain_blood_qsar.csv")
+GOLD_PATH = Path("benchmark/eval_programs/gold_results/brain_blood_qsar_gold.csv")
+BAL_ACC_THRESHOLD = 0.70
+
+
+def _load_labels(path: Path) -> pd.Series:
+    if not path.exists():
+        raise FileNotFoundError(f"Required CSV missing: {path}")
+    df = pd.read_csv(path)
+    if "label" not in df.columns:
+        raise ValueError("Submission file must contain a 'label' column")
+    return df["label"]
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+    pred = _load_labels(SUBMISSION_PATH)
+    gold = _load_labels(GOLD_PATH)
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    if len(pred) != len(gold):
+        print(f"Row count mismatch: {len(pred)} vs {len(gold)}")
+        return 0.0
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
-
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+    metric = balanced_accuracy_score(gold, pred)
+    print(f"Balanced Accuracy: {metric}")
+    return 1.0 if metric >= BAL_ACC_THRESHOLD else 0.0

@@ -11,6 +11,7 @@ import zipfile
 from logging import Logger
 from pathlib import Path
 from typing import Any, Callable, Optional
+import types
 
 import pandas as pd
 import py7zr
@@ -267,91 +268,92 @@ def import_fn(fn_import_string: str) -> Callable:
     """
     module_name, fn_name = fn_import_string.split(":")
 
+    def _import_optional_module(name: str) -> Optional[types.ModuleType]:
+        if not name:
+            return None
+        if name in sys.modules:
+            return sys.modules[name]
+        try:
+            return importlib.import_module(name)
+        except Exception:
+            return None
+
     # Check if module name contains hyphens (invalid for Python module names)
-    if '-' in module_name:
-        # Convert module path to file path
-        # e.g., "mlebench.competitions.aptos2019-blindness-detection.prepare"
-        # -> "mlebench/competitions/aptos2019-blindness-detection/prepare.py"
-        module_path_parts = module_name.split('.')
+    if "-" in module_name:
+        module_path_parts = module_name.split(".")
+        base_package = module_path_parts[0]
 
-        # Find the mlebench directory
-        mlebench_dir = get_module_dir()
+        if base_package == "mlebench":
+            base_dir = get_module_dir()
+        else:
+            base_module = _import_optional_module(base_package)
+            if not base_module:
+                raise ImportError(f"Cannot import base package '{base_package}' needed for '{module_name}'")
+            if hasattr(base_module, "__path__"):
+                try:
+                    base_dir = Path(next(iter(base_module.__path__))).resolve()
+                except StopIteration as exc:
+                    raise ImportError(f"Package '{base_package}' does not expose any paths") from exc
+            elif hasattr(base_module, "__file__"):
+                base_dir = Path(base_module.__file__).parent.resolve()
+            else:
+                raise ImportError(f"Cannot determine filesystem path for package '{base_package}'")
 
-        # Build file path from module_dir and path parts (skip 'mlebench' as we already have it)
-        file_path = mlebench_dir
-        for part in module_path_parts[1:]:  # Skip 'mlebench' prefix
+        file_path = base_dir
+        for part in module_path_parts[1:]:
             file_path = file_path / part
-        file_path = file_path.with_suffix('.py')
+        file_path = file_path.with_suffix(".py")
 
-        # First, ensure parent packages are loaded (mlebench, mlebench.competitions)
-        # This is needed for relative imports to work
-        parent_module_name = '.'.join(module_path_parts[:-1])
+        parent_module_name = ".".join(module_path_parts[:-1])
 
-        # Load mlebench.competitions if not loaded
-        competitions_module_name = 'mlebench.competitions'
-        if competitions_module_name not in sys.modules:
-            importlib.import_module(competitions_module_name)
-
-        # Create fake parent package for the competition directory if needed
-        # e.g., for "mlebench.competitions.aptos2019-blindness-detection.prepare"
-        # create "mlebench.competitions.aptos2019-blindness-detection"
         if parent_module_name and parent_module_name not in sys.modules:
-            import types
             fake_parent = types.ModuleType(parent_module_name)
             fake_parent.__path__ = [str(file_path.parent)]
             fake_parent.__package__ = parent_module_name
-            fake_parent.__file__ = str(file_path.parent / '__init__.py')
+            fake_parent.__file__ = str(file_path.parent / "__init__.py")
 
-            # Make competitions.utils available to this fake package
-            # so that "from .utils import X" works in prepare.py/grade.py
-            # First ensure mlebench.competitions.utils is loaded
-            comp_real_utils_name = 'mlebench.competitions.utils'
-            if comp_real_utils_name not in sys.modules:
-                try:
-                    importlib.import_module(comp_real_utils_name)
-                except Exception as e:
-                    logger.warning(f"Failed to import {comp_real_utils_name}: {e}")
-
-            # Now create a reference to it in the fake parent
-            if comp_real_utils_name in sys.modules:
-                fake_parent.utils = sys.modules[comp_real_utils_name]
-
-                # Also make it available as a submodule of the fake parent
-                fake_utils_name = f"{parent_module_name}.utils"
-                sys.modules[fake_utils_name] = sys.modules[comp_real_utils_name]
-
-            # Also make grade_helpers available (another commonly imported module)
-            comp_real_grade_helpers_name = 'mlebench.grade_helpers'
-            if comp_real_grade_helpers_name in sys.modules:
-                fake_parent.grade_helpers = sys.modules[comp_real_grade_helpers_name]
-                fake_grade_helpers_name = f"{parent_module_name}.grade_helpers"
-                sys.modules[fake_grade_helpers_name] = sys.modules[comp_real_grade_helpers_name]
-            else:
-                try:
-                    importlib.import_module(comp_real_grade_helpers_name)
-                    if comp_real_grade_helpers_name in sys.modules:
-                        fake_parent.grade_helpers = sys.modules[comp_real_grade_helpers_name]
-                        fake_grade_helpers_name = f"{parent_module_name}.grade_helpers"
-                        sys.modules[fake_grade_helpers_name] = sys.modules[comp_real_grade_helpers_name]
-                except Exception as e:
-                    logger.warning(f"Failed to import {comp_real_grade_helpers_name}: {e}")
+            utils_candidates = []
+            if parent_module_name:
+                utils_candidates.append(f"{parent_module_name}.utils")
+            if len(module_path_parts) >= 3:
+                utils_candidates.append(".".join(module_path_parts[:-2] + ["utils"]))
+            utils_candidates.append(f"{base_package}.competitions.utils")
+            utils_candidates.append(f"{base_package}.utils")
+            for candidate in utils_candidates:
+                utils_module = _import_optional_module(candidate)
+                if utils_module:
+                    fake_parent.utils = utils_module
+                    sys.modules[f"{parent_module_name}.utils"] = utils_module
+                    break
+            grade_helper_candidates = []
+            if parent_module_name:
+                grade_helper_candidates.append(f"{parent_module_name}.grade_helpers")
+            if len(module_path_parts) >= 3:
+                grade_helper_candidates.append(".".join(module_path_parts[:-2] + ["grade_helpers"]))
+            grade_helper_candidates.append(f"{base_package}.grade_helpers")
+            grade_helper_candidates.append(f"{base_package}.competitions.grade_helpers")
+            for candidate in grade_helper_candidates:
+                grade_helpers_module = _import_optional_module(candidate)
+                if grade_helpers_module:
+                    fake_parent.grade_helpers = grade_helpers_module
+                    sys.modules[f"{parent_module_name}.grade_helpers"] = grade_helpers_module
+                    break
 
             sys.modules[parent_module_name] = fake_parent
 
-        # Load module from file path
-        spec = importlib.util.spec_from_file_location(module_name, file_path,
-                                                        submodule_search_locations=[str(file_path.parent)])
+        spec = importlib.util.spec_from_file_location(
+            module_name,
+            file_path,
+            submodule_search_locations=[str(file_path.parent)],
+        )
         if spec is None or spec.loader is None:
             raise ImportError(f"Cannot load module from {file_path}")
+
         module = importlib.util.module_from_spec(spec)
-
-        # Set __package__ to enable relative imports
         module.__package__ = parent_module_name
-
-        sys.modules[module_name] = module  # Cache it
+        sys.modules[module_name] = module
         spec.loader.exec_module(module)
     else:
-        # Standard import for valid module names
         module = importlib.import_module(module_name)
 
     fn = getattr(module, fn_name)
