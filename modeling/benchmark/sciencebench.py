@@ -29,7 +29,6 @@ if TYPE_CHECKING:
     from modeling.runner import ModelingRunner
 
 
-DEFAULT_METADATA_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/ScienceAgentBench.csv").resolve()
 METADATA_FIELDS = [
     "instance_id",
     "domain",
@@ -91,15 +90,23 @@ class ScienceBenchmark(BaseBenchmark):
             name: Benchmark name
             file_path: Path to config file (optional)
             log_path: Path to save logs
-            data_dir: Path to data directory (competitions prepared data)
+            data_dir: Path to data directory (competitions prepared data).
+                     If not provided, will raise an error.
             competitions: List of specific competition IDs to run (optional)
         """
-        # Set default data directory
+        # Validate data_dir is provided
         if data_dir is None:
-            data_dir = "/home/aiops/liufan/projects/ScienceAgent-bench/competitions"
+            raise ValueError(
+                "data_dir is required for ScienceBenchmark. "
+                "Please provide --data-dir argument pointing to the competitions directory."
+            )
 
-        self.data_dir = Path(data_dir)
+        self.data_dir = Path(data_dir).resolve()
         self.registry_dir = Path(__file__).resolve().parent.parent.parent / "benchmarks" / "sciencebench" / "competitions"
+
+        # Derive metadata path from data_dir
+        # Assumes metadata is at: <data_dir>/../benchmark/ScienceAgentBench.csv
+        metadata_path = self.data_dir.parent / "benchmark" / "ScienceAgentBench.csv"
 
         # Load config or create default
         self.config = self._load_config(file_path) if file_path else {}
@@ -108,7 +115,7 @@ class ScienceBenchmark(BaseBenchmark):
         if competitions:
             self.config["competitions"] = list(competitions)
 
-        self.metadata_index = self._load_metadata_index(DEFAULT_METADATA_PATH)
+        self.metadata_index = self._load_metadata_index(metadata_path)
 
         super().__init__(name, file_path, log_path)
 

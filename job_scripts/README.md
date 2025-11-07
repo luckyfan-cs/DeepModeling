@@ -1,314 +1,328 @@
-# Job Scripts - Usage Examples
+# Job Scripts - Quick Start Examples
 
-This directory contains example scripts demonstrating various use cases of the DeepModeling framework.
+This directory contains example scripts for running different benchmarks in the DeepModeling framework.
 
-## 📋 Script Overview
+## 📋 Available Scripts
 
-| Script | Description | Use Case |
-|--------|-------------|----------|
-| `01_mathmodeling_single_task.sh` | Single mathematical modeling problem | Quick test, debugging |
-| `02_mathmodeling_batch.sh` | Batch evaluation of math problems | Benchmark evaluation |
-| `03_data_science_single_task.sh` | Single Kaggle competition | Data science task |
-| `04_data_science_batch.sh` | Multiple ML competitions | Multi-modal evaluation |
-| `05_external_storage.sh` | External data storage | Large datasets |
-| `06_multi_modal_cv.sh` | Computer vision tasks | Image data |
-| `07_multi_modal_timeseries.sh` | Time series forecasting | Temporal data |
-| `08_advanced_options.sh` | Advanced configurations | Model comparison |
+| Script | Benchmark | Description | Example Task |
+|--------|-----------|-------------|--------------|
+| `sciencebench.sh` | ScienceBench | 102 scientific computing tasks | Drug toxicity prediction |
+| `mathmodeling.sh` | Mathematical Modeling | 1,291 optimization problems | Linear programming, ODEs |
+| `engineeringbench.sh` | Engineering | 102 industrial problems | Process optimization |
+| `mlebench.sh` | MLE-Bench | 349 ML competitions | Kaggle-style challenges |
 
 ## 🚀 Quick Start
 
-### Make scripts executable
+### 1. Make scripts executable
 ```bash
 chmod +x job_scripts/*.sh
 ```
 
-### Run an example
+### 2. Run a benchmark
+
 ```bash
+# Scientific computing (requires external data)
+./job_scripts/sciencebench.sh
+
 # Mathematical modeling
-./job_scripts/01_mathmodeling_single_task.sh
+./job_scripts/mathmodeling.sh
 
-# Data science
-./job_scripts/03_data_science_single_task.sh
+# Engineering problems
+./job_scripts/engineeringbench.sh
 
-# Computer vision
-./job_scripts/06_multi_modal_cv.sh
+# Machine learning competitions
+./job_scripts/mlebench.sh
 ```
 
-## 📊 Example 1: Mathematical Modeling (Single Task)
+## 📊 Benchmark Details
 
-**Script:** `01_mathmodeling_single_task.sh`
+### 🔬 ScienceBench
 
-Demonstrates solving a single optimization problem from the BWOR dataset.
+**Script:** `sciencebench.sh`
 
+**Domains:**
+- Computational Chemistry (20 tasks)
+- Geographical Information Science (27 tasks)
+- Bioinformatics (27 tasks)
+- Psychology and Cognitive Science (28 tasks)
+
+**Usage:**
 ```bash
-./job_scripts/01_mathmodeling_single_task.sh
+python main.py \
+  --workflow scientific \
+  --benchmark sciencebench \
+  --data-dir /path/to/ScienceAgent-bench/competitions \
+  --task sciencebench-001-clintox-nn
 ```
 
-**What it does:**
-- Loads a candy factory production optimization problem
-- Applies scientific method workflow
-- Generates optimal solution using linear programming
-- Evaluates against ground truth
+**Requirements:**
+- External data directory with prepared datasets
+- Metadata file at: `<data-dir>/../benchmark/ScienceAgentBench.csv`
 
-## 📈 Example 2: Mathematical Modeling (Batch)
+**Example tasks:**
+- `sciencebench-001-clintox-nn` - Drug toxicity prediction
+- `sciencebench-002-mat-feature-select` - Materials property prediction
+- `sciencebench-003-predict-bulk-modulus` - Bulk modulus prediction
 
-**Script:** `02_mathmodeling_batch.sh`
+---
 
-Runs multiple mathematical modeling problems in batch mode.
+### 📐 Mathematical Modeling
 
+**Script:** `mathmodeling.sh`
+
+**Categories:**
+- BWOR: Basic word optimization problems (82 tasks)
+- MAMO-Easy: Elementary math modeling (652 tasks)
+- MAMO-Complex: Advanced optimization (211 tasks)
+- MAMO-ODE: Differential equations (346 tasks)
+
+**Usage:**
 ```bash
-./job_scripts/02_mathmodeling_batch.sh
+python main.py \
+  --workflow scientific \
+  --benchmark mathmodeling \
+  --data-dir ./data/mathmodeling-bench \
+  --task mamo-complex-105
 ```
 
-**What it does:**
-- Reads task list from `config.yaml`
-- Processes multiple problems sequentially
-- Aggregates results and metrics
-- Generates comprehensive evaluation report
+**Example tasks:**
+- `bwor-0` - Candy factory production optimization
+- `mamo-easy-0` - Resource allocation
+- `mamo-complex-105` - Multi-objective optimization
+- `mamo-ode-0` - Population dynamics modeling
 
-## 🤖 Example 3: Data Science (Single Task)
+---
 
-**Script:** `03_data_science_single_task.sh`
+### ⚙️ Engineering Bench
 
-Solves a Kaggle-style competition (Spaceship Titanic).
+**Script:** `engineeringbench.sh`
 
+**Focus Areas:**
+- Industrial operations research
+- Process design and optimization
+- Systems engineering
+
+**Usage:**
 ```bash
-./job_scripts/03_data_science_single_task.sh
+python main.py \
+  --workflow scientific \
+  --benchmark engineeringbench \
+  --data-dir ./benchmarks/engineeringbench/competitions \
+  --task industry-0
 ```
 
-**What it does:**
-- Loads tabular competition data
-- Performs EDA and feature engineering
-- Trains machine learning model
-- Generates predictions and submission file
+**Example tasks:**
+- `industry-0` to `industry-99` - Various industrial problems
 
-## 🌐 Example 4: Data Science (Batch - Multi-Modal)
+---
 
-**Script:** `04_data_science_batch.sh`
+### 🤖 MLE-Bench (Machine Learning)
 
-Evaluates multiple competitions across different data modalities.
+**Script:** `mlebench.sh`
 
+**Modalities:**
+- Tabular data (classification, regression)
+- Computer vision (image classification)
+- Natural language processing (text classification)
+- Time series (forecasting)
+
+**Usage:**
 ```bash
-./job_scripts/04_data_science_batch.sh
+python main.py \
+  --workflow scientific \
+  --benchmark mle \
+  --data-dir ./benchmarks/mlebench/competitions \
+  --task 3d-object-detection-for-autonomous-vehicles
 ```
 
-**Covered modalities:**
-- **Tabular**: Classification, regression
-- **Time Series**: Forecasting
-- **Computer Vision**: Image classification
-- **NLP**: Text classification
+**Example competitions:**
+- `spaceship-titanic` - Tabular classification
+- `digit-recognizer` - Image classification
+- `nlp-getting-started` - Text classification
 
-## 💾 Example 5: External Data Storage
-
-**Script:** `05_external_storage.sh`
-
-Demonstrates using external storage for large datasets.
-
-```bash
-# Set your external storage path
-export EXTERNAL_DATA_DIR="/mnt/external_drive/mathmodeling-data"
-
-./job_scripts/05_external_storage.sh
-```
-
-**Benefits:**
-- Registry (small) stays in project
-- Data (large) on external storage
-- Shared data across projects
-- Cost-optimized storage
-
-## 🖼️ Example 6: Computer Vision
-
-**Script:** `06_multi_modal_cv.sh`
-
-Handles image classification tasks.
-
-```bash
-./job_scripts/06_multi_modal_cv.sh
-```
-
-**What it does:**
-- Automatically loads images (PNG/JPG/TIFF)
-- Designs CNN architecture
-- Trains image classifier
-- Generates predictions
-
-## 📊 Example 7: Time Series Forecasting
-
-**Script:** `07_multi_modal_timeseries.sh`
-
-Processes time series data for forecasting.
-
-```bash
-./job_scripts/07_multi_modal_timeseries.sh
-```
-
-**What it does:**
-- Loads temporal data (CSV/Parquet/HDF5)
-- Extracts temporal features
-- Handles seasonality and trends
-- Generates multi-step forecasts
-
-## ⚙️ Example 8: Advanced Options
-
-**Script:** `08_advanced_options.sh`
-
-Demonstrates advanced configurations and model comparisons.
-
-```bash
-./job_scripts/08_advanced_options.sh
-```
-
-**Features:**
-- Multiple LLM model comparison
-- Custom API endpoints
-- Environment variables
-- Logging and debugging options
+---
 
 ## 🔧 Customization
 
-### Modify API Keys
+### Change the Data Directory
 
-Edit your `.env` file:
+Edit the script or provide command-line argument:
+
 ```bash
-OPENAI_API_KEY=sk-your-key-here
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+# Option 1: Edit the script
+vim job_scripts/sciencebench.sh
+# Change: --data-dir /path/to/your/data
+
+# Option 2: Run with custom path
+python main.py \
+  --workflow scientific \
+  --benchmark sciencebench \
+  --data-dir /custom/path/to/competitions \
+  --task your-task-id
 ```
 
-### Change Data Directory
+### Run Different Tasks
 
-Edit the script or set environment variable:
+Modify the `--task` parameter:
+
 ```bash
-export DATA_DIR="/path/to/your/data"
-./job_scripts/01_mathmodeling_single_task.sh
+python main.py \
+  --workflow scientific \
+  --benchmark mathmodeling \
+  --data-dir ./data/mathmodeling-bench \
+  --task bwor-10  # Change this
 ```
 
-### Select Different Tasks
+### Run Multiple Tasks
 
-Modify the `TASK` variable in the script:
+Pass multiple task IDs:
+
 ```bash
-# In the script
-TASK="your-task-id-here"
+python main.py \
+  --workflow scientific \
+  --benchmark mathmodeling \
+  --data-dir ./data/mathmodeling-bench \
+  --task bwor-0 bwor-1 bwor-2
 ```
 
-Or specify via config.yaml for batch processing:
+### Change LLM Model
+
+Use `--llm-model` parameter:
+
+```bash
+python main.py \
+  --workflow scientific \
+  --benchmark sciencebench \
+  --data-dir /path/to/data \
+  --task sciencebench-001-clintox-nn \
+  --llm-model gpt-4o  # or claude-3-5-sonnet-20241022
+```
+
+## 📝 Configuration
+
+### Environment Variables (.env)
+
+Set API keys:
+
+```bash
+# .env file
+LLM_MODEL=gpt-4o-mini
+LLM_TEMPERATURE=0.7
+API_KEY=your-api-key-here
+API_BASE=https://api.openai.com/v1
+```
+
+### Batch Processing (config.yaml)
+
+Configure multiple tasks:
+
 ```yaml
-mathmodeling_competitions:
-  - task-1
-  - task-2
-  - task-3
-```
-
-## 📝 Configuration Files
-
-### config.yaml
-
-Configure tasks for batch processing:
-
-```yaml
-# Mathematical Modeling
 mathmodeling_competitions:
   - bwor-0
-  - industry-5
-  - mamo-easy-10-resource-allocation
+  - bwor-1
+  - mamo-easy-0
+  - mamo-complex-105
 
-# Data Science (MLE-Bench)
-mle_competitions:
-  - spaceship-titanic
-  - house-prices-advanced-regression-techniques
-  - digit-recognizer
-  - nlp-getting-started
-```
-
-### .env
-
-Set API keys and endpoints:
-
-```bash
-# LLM Provider API Keys
-OPENAI_API_KEY=sk-...
-ANTHROPIC_API_KEY=sk-ant-...
-
-# Optional: Custom API endpoints
-OPENAI_API_BASE=https://api.openai.com/v1
+engineering_competitions:
+  - industry-0
+  - industry-1
+  - industry-10
 ```
 
 ## 📊 Results
 
-All results are saved in `runs/` directory:
+All results are saved in the `runs/` directory:
 
 ```
 runs/
 ├── benchmark_results/
-│   └── scientific_on_mathmodeling/
-│       ├── summary.json
-│       └── detailed_results.csv
+│   └── scientific_on_sciencebench/
+│       ├── results.csv           # Per-competition scores
+│       └── summary.json          # Aggregated metrics
 │
-└── modeling_run_<task>_<id>/
-    ├── submission.csv
-    ├── logs/
-    └── artifacts/
+└── modeling_run_<task>_<uuid>/
+    ├── submission.csv            # Model predictions
+    ├── workspace/                # Working directory
+    ├── logs/                     # Execution logs
+    └── metadata.json             # Run metadata
 ```
 
-## 🎯 Best Practices
+## ⚠️ Important Notes
 
-1. **Start Small**: Use single task scripts (`01`, `03`) for testing
-2. **Test Locally**: Verify with small datasets before large runs
-3. **Monitor Costs**: Use `gpt-4o-mini` for development, `gpt-4o` for production
-4. **External Storage**: Use for datasets > 1GB
-5. **Batch Processing**: Configure in `config.yaml` for multiple tasks
-6. **Check Logs**: Review `runs/` for detailed execution traces
+### ScienceBench Data Requirements
+
+**The `sciencebench.sh` script requires:**
+
+1. **External data directory** with prepared datasets
+2. **Metadata file** at: `<data-dir>/../benchmark/ScienceAgentBench.csv`
+
+**Example structure:**
+```
+/path/to/ScienceAgent-bench/
+├── benchmark/
+│   └── ScienceAgentBench.csv          # Required metadata
+└── competitions/                       # Pass this as --data-dir
+    ├── sciencebench-001-clintox-nn/
+    │   └── prepared/
+    │       ├── public/                # Input data
+    │       └── private/               # Ground truth
+    ├── sciencebench-002-mat-feature-select/
+    └── ...
+```
+
+**Usage:**
+```bash
+python main.py \
+  --workflow scientific \
+  --benchmark sciencebench \
+  --data-dir /path/to/ScienceAgent-bench/competitions \
+  --task sciencebench-001-clintox-nn
+```
 
 ## 🔍 Troubleshooting
 
-### Script fails with "Permission denied"
+### "Permission denied"
 ```bash
 chmod +x job_scripts/*.sh
 ```
 
-### "Data directory not found"
+### "data_dir is required"
 ```bash
-# Check data directory exists
-ls -la data/mathmodeling-bench/competitions/
+# Provide --data-dir argument
+python main.py --workflow scientific --benchmark sciencebench \
+  --data-dir /path/to/data --task your-task
+```
 
-# Or use external storage
-export EXTERNAL_DATA_DIR="/path/to/data"
+### "Metadata file not found"
+
+For ScienceBench, ensure metadata exists at:
+```bash
+ls <data-dir>/../benchmark/ScienceAgentBench.csv
 ```
 
 ### API key errors
 ```bash
-# Verify .env file exists
+# Check .env file
 cat .env
 
-# Ensure keys are set
-echo $OPENAI_API_KEY
+# Verify environment variables
+python -c "import os; from dotenv import load_dotenv; load_dotenv(); print(os.getenv('API_KEY'))"
 ```
 
-### Task not found
-```bash
-# List available tasks
-python -c "from benchmarks.mathmodelingbench.registry import Registry; r = Registry(); print(r.list_competition_ids())"
-```
+## 🎯 Best Practices
+
+1. **Start with single tasks** - Test with one task before batch processing
+2. **Check data paths** - Ensure `--data-dir` points to the correct directory
+3. **Monitor costs** - Use `gpt-4o-mini` for testing, upgrade for production
+4. **Review logs** - Check `runs/` directory for detailed execution traces
+5. **Use absolute paths** - Prefer absolute paths for `--data-dir` to avoid confusion
 
 ## 📚 Additional Resources
 
 - [Main README](../README.md) - Framework overview
-- [Quick Start Guide](../QUICK_START_SCIENTIFIC.md) - Getting started
-- [Documentation](../docs/) - Detailed implementation docs
-
-## 🤝 Contributing
-
-To add new example scripts:
-
-1. Create a new script in `job_scripts/`
-2. Follow the naming convention: `XX_description.sh`
-3. Add clear comments and echo statements
-4. Update this README with the new example
-5. Test the script before committing
+- [Quick Start Guide](../QUICK_START_SCIENTIFIC.md) - Detailed getting started
+- [Documentation](../docs/) - Implementation details
 
 ## 📬 Support
 
-For issues or questions:
-- Check [GitHub Issues](https://github.com/your-org/DeepModeling/issues)
-- Review [Documentation](../docs/)
-- Contact: your-email@example.com
+For issues or questions, please check the main repository documentation.
