@@ -14,12 +14,14 @@ def _ensure_dir(path: Path) -> None:
 
 
 def _write_sample_submission(path: Path) -> None:
-    sample_df = pd.DataFrame({
-        "standardised_smiles": ["SMILES_SAMPLE"],
-        "label": ["DILI"],
-    })
     samples_dir = path / "sample_submission"
     samples_dir.mkdir(parents=True, exist_ok=True)
+    sample_df = pd.DataFrame(
+        {
+            "standardised_smiles": ["CCO", "CCN", "CCC"],
+            "label": ["DILI", "NoDILI", "DILI"],
+        }
+    )
     for filename in OUTPUT_FILES:
         sample_df.to_csv(samples_dir / filename, index=False)
 

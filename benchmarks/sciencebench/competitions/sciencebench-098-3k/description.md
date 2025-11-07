@@ -14,19 +14,9 @@ Compute chain quality control information for this single-cell TCR/RNA-seq data 
 
 ## Dataset
 
-[START Preview of scirpy_3k/3kdata.h5ad, which is an MuData object]
-
-MuData object with n_obs × n_vars = 3000 × 30727
-  2 modalities
-    gex:        3000 x 30727
-      obs:        'cluster_orig', 'patient', 'sample', 'source'
-      uns:        'cluster_orig_colors'
-      obsm:        'X_umap_orig'
-    airr:        3000 x 0
-      obs:        'high_confidence', 'is_cell', 'clonotype_orig'
-      obsm:        'airr'
-
-[END Preview of scirpy_3k/3kdata.h5ad]
+[START Dataset Preview: cell_3k]
+|-- 3kdata.h5mu
+[END Dataset Preview]
 
 ## Submission Format
 
@@ -34,4 +24,4 @@ Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. 
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader compares the decoded image with the gold reference using a GPT-based judge (score ≥ 60) and a deterministic fallback similarity check when the judge is unavailable.

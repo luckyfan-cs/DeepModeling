@@ -1,77 +1,63 @@
 """
-Data preparation for ScienceBench task 38
-Dataset: ligand_protein
+Prepare fingerprint similarity visualization task.
+
+This task requires analyzing protein-ligand interaction fingerprints and visualizing similarities.
 """
 
-import base64
-from pathlib import Path
 import shutil
-import pandas as pd
-
-
-EXPECTED_FILENAME = "ligand_similarity_pred.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/ligand_similarity_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/ligand_similarity_gold.png" else None
-SOURCE_DATASET = "ligand_protein"
+from pathlib import Path
 
 
 def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
-    print("=" * 60)
-    print("Preparing ScienceBench Task 38")
-    print("Dataset:", SOURCE_DATASET)
-    print("=" * 60)
-    print("Raw directory:", raw)
-    print("Public directory:", public)
-    print("Private directory:", private)
+    """
+    Prepare the fingerprint similarity visualization task.
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    Args:
+        raw: Path to raw data directory
+        public: Path to public data directory (visible to agents)
+        private: Path to private data directory (for grading)
+    """
+    # Source paths from ScienceAgent-bench
+    source_data_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/ligand_protein")
+    source_gold_result = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/ligand_similarity_gold.png")
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
-
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
-
+    # Create directories
     public.mkdir(parents=True, exist_ok=True)
     private.mkdir(parents=True, exist_ok=True)
 
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
+    # Copy trajectory data to public directory
+    for filename in ["top.pdb", "traj.xtc"]:
+        source_file = source_data_dir / filename
+        if source_file.exists():
+            shutil.copy2(source_file, public / filename)
+            print(f"Copied {filename} to {public / filename}")
+        else:
+            raise FileNotFoundError(f"Data file not found: {source_file}")
+
+    # Create a simple sample submission (placeholder PNG)
+    sample_submission_path = public / "sample_submission.png"
+    import numpy as np
+    from PIL import Image
+
+    # Create a simple placeholder image
+    placeholder = np.zeros((100, 100, 3), dtype=np.uint8)
+    Image.fromarray(placeholder).save(sample_submission_path)
+    print(f"Created sample submission at {sample_submission_path}")
+
+    # Copy gold result to private directory
+    if source_gold_result.exists():
+        shutil.copy2(source_gold_result, private / "ligand_similarity_gold.png")
+        print(f"Copied gold result to {private / 'ligand_similarity_gold.png'}")
     else:
-        print("⚠ Gold image not found; creating empty placeholder.")
+        raise FileNotFoundError(f"Gold result not found: {source_gold_result}")
 
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
-    sample_df.to_csv(public / "sample_submission.csv", index=False)
-    print("✓ Created sample_submission.csv")
+    print("Fingerprint similarity visualization task preparation complete")
 
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
-    ])
-    answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
 
-    print("\nData preparation completed!")
+if __name__ == "__main__":
+    # For testing
+    from pathlib import Path
+    raw = Path("./raw")
+    public = Path("./public")
+    private = Path("./private")
+    prepare(raw, public, private)

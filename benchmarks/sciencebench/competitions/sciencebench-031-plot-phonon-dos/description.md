@@ -10,11 +10,16 @@
 
 ## Task
 
-Calculate and plot the phonon density of states (DOS) using the output from VASP DFPT calculation results in "vasprun.dfpt.phonon.xml.gz".
+Use `vasprun.dfpt.phonon.xml.gz` to reconstruct the phonon density of states. Make sure the DOS axes are labeled, include legends for projected curves if present, and export the visualization to the output image path defined by the submission template.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: materials_genomics]
+|-- F_CHGCAR
+|-- LiMoS2_F_CHGCAR
+|-- LiMoS2_CHGCAR
+|-- vasprun.dfpt.phonon.xml.gz
+[END Dataset Preview]
 
 ## Submission Format
 
@@ -22,4 +27,4 @@ Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. 
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes the submitted image, compares it against the reference visualization, and assigns a similarity score. Scores below 60 fail the evaluation.

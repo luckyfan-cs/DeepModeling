@@ -1,79 +1,39 @@
-"""
-Grading function for ScienceBench Task 43: EOG_analyze
-Based on eval_programs/eval_EOG_analyze.py
+"""Grading function for ScienceBench task 43 (EOG analysis visualization)."""
 
-This task requires visual similarity comparison of EOG signal analysis plots.
-"""
+from __future__ import annotations
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-import base64
 
+from benchmarks.sciencebench.image_eval import grade_visual_rows
 
-def encode_image(image_path):
-    """Encode image to base64 for GPT-4 Vision API"""
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
+EXPECTED_FILENAME = "EOG_analyze_pred.png"
+THRESHOLD = 60.0
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission by comparing generated EOG analysis plot with gold standard.
+    required_columns = {"file_name", "image_base64"}
+    if not required_columns.issubset(submission.columns):
+        raise ValueError(f"Submission must contain columns: {required_columns}")
 
-    Args:
-        submission: DataFrame indicating output file location
-        answers: DataFrame with evaluation metadata
+    if not required_columns.issubset(answers.columns):
+        raise ValueError(f"Answers must contain columns: {required_columns}")
 
-    Returns:
-        float: Score between 0 and 1
-    """
-    try:
-        # Import here to handle optional dependency
-        try:
-            from gpt4_visual_judge import encode_image, score_figure
-            has_visual_judge = True
-        except ImportError:
-            print("Warning: gpt4_visual_judge not available, using placeholder scoring")
-            has_visual_judge = False
+    merged = pd.merge(
+        answers.rename(columns={"image_base64": "image_base64_gold"}),
+        submission.rename(columns={"image_base64": "image_base64_pred"}),
+        on="file_name",
+        how="inner",
+    )
 
-        # Expected output file
-        pred_file = Path("pred_results/EOG_analyze_pred.png")
-
-        # Check if prediction file exists
-        if not pred_file.exists():
-            print(f"Error: Prediction file not found: {pred_file}")
-            return 0.0
-
-        if not has_visual_judge:
-            # Placeholder: just check file exists
-            print(f"✓ Prediction file exists: {pred_file}")
-            return 0.8  # Give partial credit if visual judge not available
-
-        # Get gold file path
-        gold_file = Path("private/EOG_analyze_gold.png")
-
-        if not gold_file.exists():
-            print(f"Warning: Gold file not found at {gold_file}")
-            return 0.5
-
-        # Use GPT-4 Vision to compare images
-        pred_fig = encode_image(str(pred_file))
-        gold_fig = encode_image(str(gold_file))
-
-        full_response, score = score_figure(pred_fig, gold_fig)
-
-        print(f"Visual similarity score: {score}/100")
-        print(f"Evaluation response: {full_response[:200]}...")
-
-        # Convert score (0-100) to normalized score (0-1)
-        # Threshold from original: >= 60
-        normalized_score = score / 100.0
-
-        return float(normalized_score)
-
-    except Exception as e:
-        print(f"Error in grading: {e}")
-        import traceback
-        traceback.print_exc()
+    if merged.empty:
+        print("No matching files between submission and answers.")
         return 0.0
+
+    filtered_rows = [
+        row for row in merged.to_dict("records") if row.get("file_name") == EXPECTED_FILENAME
+    ]
+    if not filtered_rows:
+        print(f"Expected visualization '{EXPECTED_FILENAME}' not found in submission.")
+        return 0.0
+
+    return grade_visual_rows(filtered_rows, threshold_score=THRESHOLD)

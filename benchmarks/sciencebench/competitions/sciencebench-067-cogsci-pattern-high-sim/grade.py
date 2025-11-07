@@ -1,35 +1,35 @@
 """
-Grading function for ScienceBench task 67
+Grading logic for ScienceBench task 67 (cognitive pattern similarity).
 """
 
+from __future__ import annotations
+
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+EXPECTED_COLUMNS = {"conscientiousness", "openness"}
+
+
+def _listify(df: pd.DataFrame) -> list:
+    if not EXPECTED_COLUMNS.issubset(df.columns):
+        raise ValueError(f"Submission must include columns: {', '.join(sorted(EXPECTED_COLUMNS))}")
+    rounded = df.copy()
+    numeric_cols = [col for col in EXPECTED_COLUMNS if pd.api.types.is_numeric_dtype(df[col])]
+    rounded[numeric_cols] = rounded[numeric_cols].round()
+    return rounded["conscientiousness"].tolist() + rounded["openness"].tolist()
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    submission_vector = _listify(submission)
+    answers_vector = _listify(answers)
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    if len(submission_vector) != len(answers_vector):
+        print("Vector length mismatch between submission and answers.")
+        return 0.0
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    matches = sum(int(a == b) for a, b in zip(submission_vector, answers_vector))
+    total = len(answers_vector)
+    if matches != total:
+        print(f"Matched {matches} of {total} rounded entries.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    return 1.0

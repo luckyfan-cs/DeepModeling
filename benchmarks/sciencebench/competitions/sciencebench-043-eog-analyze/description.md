@@ -1,50 +1,27 @@
-# ScienceBench Task 43: EOG_analyze
+# ScienceBench Task 43
 
 ## Overview
 
-- **Domain**: Psychology and Cognitive Science
-- **Subtask Categories**: Computational Analysis, Data Visualization
-- **Source**: neuropsychology/NeuroKit
-- **Output File**: EOG_analyze_pred.png
-- **Output Type**: Image (PNG)
+- Domain: Psychology and Cognitive science
+- Subtask Categories: Computational Analysis, Data Visualization
+- Source: neuropsychology/NeuroKit
+- Expected Output: EOG_analyze_pred.png
+- Output Type: Image
 
 ## Task
 
-Analyze Electrooculography (EOG) signal data to detect and visualize eye blinks.
+Process the EOG signal to detect and visualise eye blinks. Clean the signal, detect peaks, build epochs around each blink, and plot the aligned traces together with the median blink pattern. Save the final figure to `pred_results/EOG_analyze_pred.png`.
 
-The analysis involves:
-1. Filter the EOG signal to remove noise and trends
-2. Run a peak detection algorithm to detect eye blink locations
-3. Create epochs around detected blinks
-4. Visualize the aligned eye blink patterns
+## Dataset
 
-## Input/Output
-
-**Input Files**:
-- `eog_100hz.csv`: EOG signal data sampled at 100 Hz
-
-**Output Format**:
-- Save the visualization as: `pred_results/EOG_analyze_pred.png`
-- Format: PNG image
-- Should show aligned eye blink signals with median overlay
-
-## Task Details
-
-Use NeuroKit2 library for biosignal processing:
-- `nk.eog_clean()`: Filter the signal to remove noise and trends
-- `nk.eog_findpeaks()`: Detect peak locations (eye blinks)
-- Create epochs around blinks and visualize patterns
+[START Dataset Preview: biosignals]
+|-- eog_100hz.csv
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit the generated plot as an image file. The visualization should show:
-- Individual eye blink traces (semi-transparent lines)
-- Median/average blink pattern (bold line)
-- Time-aligned signals showing consistent blink morphology
+Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with `EOG_analyze_pred.png`.
 
 ## Evaluation
 
-**Metric**: Visual Similarity Score (using GPT-4 Vision)
-- Compares generated plot with gold standard reference
-- Evaluates signal processing accuracy and visualization quality
-- Threshold: >= 60/100 for passing
+The grader decodes the submitted image, compares it against the reference visualization, and accepts the submission when the similarity score meets or exceeds 60.

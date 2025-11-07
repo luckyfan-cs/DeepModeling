@@ -4,10 +4,16 @@ Dataset: biosignals
 """
 
 import pandas as pd
-import numpy as np
 from pathlib import Path
 import shutil
-import json
+
+
+GOLD_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/bio_eventrelated_100hz_analysis_gold.csv")
+EXPECTED_OUTPUT = "bio_eventrelated_100hz_analysis_pred.csv"
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 
 SOURCE_DATASET = "biosignals"
@@ -29,6 +35,9 @@ def prepare(raw: Path, public: Path, private: Path):
     print(f"Raw directory: {raw}")
     print(f"Public directory: {public}")
     print(f"Private directory: {private}")
+
+    _ensure_dir(public)
+    _ensure_dir(private)
 
     # 检查原始数据是否存在
     if not raw.exists():
@@ -55,21 +64,17 @@ def prepare(raw: Path, public: Path, private: Path):
     print(f"  Total files copied: {file_count}")
 
     # 创建 sample_submission 文件
-    # CSV 输出格式
-    sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
-
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
+    if GOLD_FILE.exists():
+        gold_df = pd.read_csv(GOLD_FILE)
+        sample_submission = gold_df.head(min(3, len(gold_df))).copy()
+        sample_submission.to_csv(public / "sample_submission.csv", index=False)
+        gold_df.to_csv(private / "answer.csv", index=False)
+        print("Created sample_submission.csv and answer.csv from gold data")
+    else:
+        columns = ["Condition", "ECG_Rate_Mean", "RSP_Rate_Mean", "EDA_Peak_Amplitude"]
+        sample_submission = pd.DataFrame({col: [] for col in columns})
+        sample_submission.to_csv(public / "sample_submission.csv", index=False)
+        print("Created empty sample_submission.csv (gold file missing)")
 
     print(f"\nData preparation completed!")
     print(f"  Public files: {list(public.glob('*'))}")

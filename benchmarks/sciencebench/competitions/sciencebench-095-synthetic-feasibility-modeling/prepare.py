@@ -1,84 +1,87 @@
-"""
-Data preparation for ScienceBench task 95
-Dataset: tox21
-"""
+"""Data preparation for ScienceBench task 95 (synthetic feasibility modeling)."""
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
+from __future__ import annotations
+
 import shutil
-import json
+from pathlib import Path
+
+import numpy as np
 
 
-SOURCE_DATASET = "tox21"
+DATASET_NAME = "tox21"
+PRED_FILENAME = "tox21_mol_scscores_pred.npy"
+GOLD_FILENAME = "tox21_mol_scscores_gold.npy"
+SAMPLE_FILENAME = "sample_submission.npy"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 95")
-    print(f"Dataset: tox21")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # 通用文件格式
-    with open(public / "sample_submission.txt", "w") as f:
-        f.write("Your output should match the format: pred_results/tox21_mol_scscores_pred.npy\n")
-    print("Created sample_submission.txt")
-
-    with open(private / "answer.json", "w") as f:
-        json.dump({"expected_output": "pred_results/tox21_mol_scscores_pred.npy"}, f)
-    print("Created answer.json")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
     )
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
 
-    print("Placeholder files created")
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    dest_root.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for item in src.iterdir():
+        if not item.is_file():
+            continue
+        shutil.copy2(item, dest_root / item.name)
+        copied += 1
+    print(f"✓ Copied {copied} dataset file(s) to {dest_root}")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 95")
+    print("Dataset:", DATASET_NAME)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    source_dir = raw if raw.exists() else _dataset_dir()
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
+
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold array not found: {gold_path}")
+
+    _ensure_dir(public)
+    _ensure_dir(private)
+
+    _copy_dataset(source_dir, public)
+
+    gold_array = np.load(gold_path)
+    np.save(public / SAMPLE_FILENAME, np.zeros_like(gold_array, dtype=np.float32))
+    print("✓ Wrote sample_submission.npy placeholder")
+
+    np.save(private / "answer.npy", gold_array)
+    print("✓ Saved answer.npy with gold scores")
+
+    (private / "notes.txt").write_text(
+        f"Expected submission: pred_results/{PRED_FILENAME}\nMSE threshold: 0.4\n",
+        encoding="utf-8",
+    )
+    print("✓ Wrote notes.txt")
+
+    print("Data preparation completed.")

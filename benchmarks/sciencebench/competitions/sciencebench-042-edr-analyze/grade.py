@@ -1,12 +1,6 @@
+"""Grading function for ScienceBench task 42 (EDR analysis visualization)."""
 
-"""
-Grading function for sciencebench 042 edr analyze visualization task.
-
-Mirrors the original ScienceAgentBench evaluation that compares the generated
-PNG against the gold reference with a GPT-4 based judge (threshold 60). When
-that optional dependency is unavailable we fall back to a deterministic pixel
-similarity proxy.
-"""
+from __future__ import annotations
 
 import pandas as pd
 

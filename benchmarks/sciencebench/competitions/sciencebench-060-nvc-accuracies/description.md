@@ -5,27 +5,25 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Computational Analysis
 - Source: nriesterer/syllogistic-nvc
-- Expected Output: accuracies.csv
 - Output Type: Tabular
 
 ## Task
 
-Evaluate the predictions made by various syllogistic reasoning models and NVC (No Valid Conclusion) rules against the MFA (most frequent answer) benchmark.
+Evaluate the syllogistic reasoning accuracies produced by multiple models and compare them against the most frequent answers. Export the full comparison to `pred_results/accuracies.csv`.
 
 ## Dataset
 
-[START Preview of nvc/Ragni2016.csv]
-id,sequence,task,choices,response,response_type,domain,gender,age
-1,0,Some;models;managers/All;models;clerks,All;managers;clerks|All;clerks;managers|Some;managers;clerks|Some;clerks;managers|Some not;managers;clerks|Some not;clerks;managers|No;managers;clerks|No;clerks;managers|NVC,Some;managers;clerks,single-choice,syllogistic,female,56
-1,1,No;divers;carpenters/All;linguists;carpenters,All;divers;linguists|All;linguists;divers|Some;divers;linguists|Some;linguists;divers|Some not;divers;linguists|Some not;linguists;divers|No;divers;linguists|No;linguists;divers|NVC,No;divers;linguists,single-choice,syllogistic,female,56
-1,2,All;therapists;climbers/Some;skaters;therapists,All;climbers;skaters|All;skaters;climbers|Some;climbers;skaters|Some;skaters;climbers|Some not;climbers;skaters|Some not;skaters;climbers|No;climbers;skaters|No;skaters;climbers|NVC,Some;skaters;climbers,single-choice,syllogistic,female,56
-...
-[END Preview of nvc/Ragni2016.csv]
+[START Dataset Preview: nvc]
+|-- Ragni2016.csv
+|-- accuracies_data_for_plot.csv
+|-- ind_data_for_plot.csv
+|-- valid_syllogisms.csv
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Submit `sample_submission.csv` with the same columns and ordering as the template (`model`, `nvc`, `task`, `prediction`, `plain_prediction`, `truth`, `improvement`, `hit_model`, `hit_nvc`). Preserve string formatting and numeric precision.
 
 ## Evaluation
 
-Negative root mean squared error (closer to zero is better).
+The grader sorts both CSV files lexicographically across all columns and requires an exact match with the reference data.

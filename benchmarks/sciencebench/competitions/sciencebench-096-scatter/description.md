@@ -32,4 +32,4 @@ Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. 
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader compares the decoded image with the gold reference using a GPT-based judge (score ≥ 60) and falls back to a deterministic similarity metric if the judge is unavailable.

@@ -1,16 +1,16 @@
 id: sciencebench-038-fingerprint-similarity-vis
-name: "ScienceBench - fingerprint_similarity_vis.py"
+name: "ScienceBench - Fingerprint Similarity Visualization"
 competition_type: code
 awards_medals: false
 prizes: null
 description: benchmarks/sciencebench/competitions/sciencebench-038-fingerprint-similarity-vis/description.md
 
 dataset:
-  answers: sciencebench-038-fingerprint-similarity-vis/prepared/private/answer.csv
-  sample_submission: sciencebench-038-fingerprint-similarity-vis/prepared/public/sample_submission.csv
+  answers: sciencebench-038-fingerprint-similarity-vis/prepared/private/ligand_similarity_gold.png
+  sample_submission: sciencebench-038-fingerprint-similarity-vis/prepared/public/sample_submission.png
 
 grader:
-  name: image_similarity
+  name: visual_similarity
   grade_fn: benchmarks.sciencebench.competitions.sciencebench-038-fingerprint-similarity-vis.grade:grade
 
 preparer: benchmarks.sciencebench.competitions.sciencebench-038-fingerprint-similarity-vis.prepare:prepare

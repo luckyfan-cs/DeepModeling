@@ -9,19 +9,19 @@
 
 ## Task
 
-Train a blood–brain barrier permeability model using the provided logBB dataset. Build and evaluate a graph convolutional or similar molecular model, generate predictions for the held-out test set, and save the classification results to the required CSV with columns `smiles` (or identifier) and `label` (`0` or `1`).
+Train a blood–brain barrier permeability model using the provided logBB dataset. Generate predictions for the held-out test set and write the class labels (`DILI` concern vs no concern, encoded as `1` or `0`) to `pred_results/brain_blood_qsar.csv`.
 
 ## Dataset
 
-The `brain-blood/` directory provides two SDF files:
-
-- `logBB.sdf` – training compounds with logBB labels and activity classes.
-- `logBB_test.sdf` – test compounds whose permeability class must be predicted.
+[START Dataset Preview: brain-blood]
+|-- logBB.sdf
+|-- logBB_test.sdf
+[END Dataset Preview]
 
 ## Submission Format
 
-Write `pred_results/brain_blood_qsar.csv` and include a `label` column with your predicted activity class for each test molecule.
+Create `pred_results/brain_blood_qsar.csv` with at least a `label` column containing the predicted class for each entry in `logBB_test.sdf`.
 
 ## Evaluation
 
-Submissions are accepted when the balanced accuracy on the test set meets or exceeds 0.70, matching the original evaluation script.
+The grader loads the submitted labels, compares them with the reference labels, and accepts the submission when the balanced accuracy is at least 0.70.

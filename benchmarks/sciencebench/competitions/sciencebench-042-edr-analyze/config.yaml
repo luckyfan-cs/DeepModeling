@@ -1,16 +1,16 @@
 id: sciencebench-042-edr-analyze
-name: "ScienceBench - EDR_analyze.py"
+name: "ScienceBench - EDR Analysis"
 competition_type: code
 awards_medals: false
 prizes: null
 description: benchmarks/sciencebench/competitions/sciencebench-042-edr-analyze/description.md
 
 dataset:
-  answers: sciencebench-042-edr-analyze/prepared/private/answer.csv
-  sample_submission: sciencebench-042-edr-analyze/prepared/public/sample_submission.csv
+  answers: sciencebench-042-edr-analyze/prepared/private/EDR_analyze_gold.png
+  sample_submission: sciencebench-042-edr-analyze/prepared/public/sample_submission.png
 
 grader:
-  name: image_similarity
+  name: visual_similarity
   grade_fn: benchmarks.sciencebench.competitions.sciencebench-042-edr-analyze.grade:grade
 
 preparer: benchmarks.sciencebench.competitions.sciencebench-042-edr-analyze.prepare:prepare

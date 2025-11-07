@@ -1,66 +1,56 @@
-"""
-Grading function for ScienceBench Task 102: refractive_index_prediction
-Based on eval_programs/eval_refractive_index_prediction.py
-"""
+"""Grader for ScienceBench task 102 (refractive index prediction)."""
+
+from __future__ import annotations
+
+from pathlib import Path
 
 import pandas as pd
-import numpy as np
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using Mean Absolute Error (MAE) metric.
+PRED_FILENAME = "ref_index_predictions_pred.csv"
+GOLD_FILENAME = "ref_index_predictions_gold.csv"
+TARGET_COLUMN = "refractive_index"
+THRESHOLD = 0.78
 
-    Lower MAE is better. The score is inverted to make higher better.
 
-    Args:
-        submission: DataFrame with columns [id or index, refractive_index]
-        answers: DataFrame with columns [id or index, refractive_index]
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
-    Returns:
-        float: Normalized score (higher is better)
-    """
-    try:
-        # Check for refractive_index column
-        if 'refractive_index' not in submission.columns:
-            print(f"Missing column. Expected 'refractive_index', Got: {list(submission.columns)}")
-            return 0.0
 
-        if 'refractive_index' not in answers.columns:
-            print(f"Missing column in answers. Expected 'refractive_index', Got: {list(answers.columns)}")
-            return 0.0
+def _pred_path() -> Path:
+    return Path("pred_results") / PRED_FILENAME
 
-        # Calculate MAE
-        y_pred = submission['refractive_index'].values
-        y_true = answers['refractive_index'].values
 
-        if len(y_pred) != len(y_true):
-            print(f"Length mismatch: submission has {len(y_pred)} rows, answers has {len(y_true)} rows")
-            return 0.0
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
 
-        mae = np.abs(y_pred - y_true).mean()
 
-        print(f"Mean Absolute Error (MAE): {mae:.6f}")
-        print(f"Threshold for passing: MAE < 0.78")
+def _load_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(f"Required file missing: {path}")
+    return pd.read_csv(path)
 
-        # Convert MAE to a score where lower MAE = higher score
-        # Original threshold: MAE < 0.78
-        # Score = 1 if MAE = 0, score approaches 0 as MAE increases
-        # Use inverse scoring: score = max(0, 1 - MAE/threshold)
-        threshold = 0.78
-        if mae < threshold:
-            # Good performance: normalize to 0.5-1.0 range
-            score = 1.0 - (mae / threshold) * 0.5
-        else:
-            # Poor performance: normalize to 0.0-0.5 range
-            score = max(0.0, 0.5 * (1.0 - (mae - threshold) / threshold))
 
-        print(f"Normalized score: {score:.4f}")
+def grade(submission, answers) -> float:
+    pred_df = _load_csv(_pred_path())
+    gold_df = _load_csv(_gold_path())
 
-        return float(score)
-
-    except Exception as e:
-        print(f"Error in grading: {e}")
-        import traceback
-        traceback.print_exc()
+    if TARGET_COLUMN not in pred_df.columns:
+        print(f"Missing '{TARGET_COLUMN}' column in prediction.")
         return 0.0
+
+    merged = gold_df[[TARGET_COLUMN]].join(pred_df[[TARGET_COLUMN]], how="inner", rsuffix="_pred")
+    if merged.empty:
+        print("No overlapping rows between prediction and gold.")
+        return 0.0
+
+    mae = (merged[TARGET_COLUMN] - merged[f"{TARGET_COLUMN}_pred"]).abs().mean()
+    print(f"MAE: {mae}")
+    return 1.0 if mae < THRESHOLD else 0.0

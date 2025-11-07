@@ -1,35 +1,34 @@
 """
-Grading function for ScienceBench task 60
+Grading function for ScienceBench task 60.
 """
 
+from __future__ import annotations
+
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+
+def _normalise(df: pd.DataFrame, column_order: pd.Index) -> pd.DataFrame:
+    missing = set(column_order) - set(df.columns)
+    if missing:
+        raise ValueError(f"Submission missing required columns: {', '.join(sorted(missing))}")
+    ordered = df.loc[:, column_order].copy()
+    return ordered.sort_values(by=list(column_order)).reset_index(drop=True)
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    column_order = answers.columns
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    submission_sorted = _normalise(submission, column_order)
+    answers_sorted = _normalise(answers, column_order)
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
-
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    try:
+        pd.testing.assert_frame_equal(
+            submission_sorted,
+            answers_sorted,
+            check_dtype=False,
+            check_exact=True,
+        )
+        return 1.0
+    except AssertionError as exc:
+        print(f"Mismatch detected: {exc}")
+        return 0.0

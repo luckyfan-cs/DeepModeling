@@ -10,24 +10,20 @@
 
 ## Task
 
-To evaluate mountain lion habitat suitability, calculate terrain ruggedness using elevation data.
+Use the elevation raster to compute terrain ruggedness for the study area and visualise the result. Export the final map to `pred_results/ruggedness.png`.
 
 ## Dataset
 
-[START Preview of dataset/Elevation.tif]
-[[242 242 244 ... 135 135 135]
- [242 242 242 ... 135 136 136]
- [242 241 240 ... 136 136 136]
- ...
- [  0   0   0 ...   7   7   7]
- [  0   0   0 ...   3   3   3]
- [  0   0   0 ...   3   3   3]]
- [EnD Preview of dataset/Elevation.tif]
+[START Dataset Preview: MountainLionNew]
+|-- Elevation.tif
+|-- landcover_reclassified.tif
+|-- ruggedness.tif
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with `ruggedness.png`.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes the submitted image, compares it against the reference visualization, and accepts the submission when the similarity score meets or exceeds 60.

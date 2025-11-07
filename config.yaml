@@ -1417,6 +1417,7 @@ custom_model_pricing:
   openai/deepseek-ai/DeepSeek-V3.1-Terminus:
     input_cost_per_token: 5.55e-07
     output_cost_per_token: 1.67e-06
-  run:
-    enable_trajectory_logging: true
-    trajectory_filename: aide_trajectory.jsonl
+
+run:
+  enable_trajectory_logging: true
+  trajectory_filename: aide_trajectory.jsonl

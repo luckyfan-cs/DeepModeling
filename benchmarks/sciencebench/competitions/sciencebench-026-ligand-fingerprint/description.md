@@ -5,13 +5,11 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Computational Analysis
 - Source: chemosim-lab/ProLIF
-- Expected Output: ligand_fingerprint_pred.csv
 - Output Type: Tabular
 
 ## Task
 
-Generate the interaction fingerprints between a selected ligand and protein for the first 10 trajectory frames.
-
+Generate the interaction fingerprints between a selected ligand and protein for the first 10 trajectory frames. Combine the ligand, protein, type of interactions, and frame index into a name in the output CSV file. Additionally, save the status of the fingerprint under the column Y.
 ## Dataset
 
 N/A

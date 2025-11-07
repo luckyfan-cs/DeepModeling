@@ -14,7 +14,11 @@ Assess burn scars using satellite imagery and perform spatial analysis to unders
 
 ## Dataset
 
-N/A
+[START Dataset Preview: BurnScar]
+|-- G_2014.tif
+|-- G_2015.tif
+|-- study_area.geojson
+[END Dataset Preview]
 
 ## Submission Format
 

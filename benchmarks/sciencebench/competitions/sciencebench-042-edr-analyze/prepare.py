@@ -3,75 +3,65 @@ Data preparation for ScienceBench task 42
 Dataset: biosignals
 """
 
+from __future__ import annotations
+
 import base64
-from pathlib import Path
 import shutil
+from pathlib import Path
+
 import pandas as pd
 
-
 EXPECTED_FILENAME = "EDR_analyze_pred.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EDR_analyze_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EDR_analyze_gold.png" else None
-SOURCE_DATASET = "biosignals"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
+def _default_dataset_dir() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "datasets" / "biosignals"
+
+
+def _default_gold_path() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / "EDR_analyze_gold.png"
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
     print("=" * 60)
     print("Preparing ScienceBench Task 42")
-    print("Dataset:", SOURCE_DATASET)
+    print("Dataset: biosignals")
     print("=" * 60)
     print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    data_dir = raw if raw.exists() else _default_dataset_dir()
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {data_dir}")
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
+    source_file = data_dir / "bio_eventrelated_100hz.csv"
+    if not source_file.exists():
+        raise FileNotFoundError(f"Data file not found: {source_file}")
+    shutil.copy2(source_file, public / "bio_eventrelated_100hz.csv")
+    print("✓ Copied biosignal data")
 
-    public.mkdir(parents=True, exist_ok=True)
-    private.mkdir(parents=True, exist_ok=True)
-
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
-    else:
-        print("⚠ Gold image not found; creating empty placeholder.")
-
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
+    sample_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": ""}])
     sample_df.to_csv(public / "sample_submission.csv", index=False)
     print("✓ Created sample_submission.csv")
 
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
-    ])
+    gold_path = _default_gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold image not found: {gold_path}")
+    gold_bytes = gold_path.read_bytes()
+    answer_df = pd.DataFrame(
+        [{"file_name": EXPECTED_FILENAME, "image_base64": base64.b64encode(gold_bytes).decode("utf-8")}]
+    )
     answer_df.to_csv(private / "answer.csv", index=False)
     print("✓ Created answer.csv with encoded gold image")
 
-    print("\nData preparation completed!")
+    print("EDR analysis task preparation complete")

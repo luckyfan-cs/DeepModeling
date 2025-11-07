@@ -5,7 +5,7 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Feature Engineering, Deep Learning
 - Source: ZitongLu1996/EEG2EEG
-- Output Type: Array
+- Output Type: NumPy array
 
 ## Task
 
@@ -13,17 +13,16 @@ Train the EEG2EEG model that maps neural representations from Subject 01 to Subj
 
 ## Dataset
 
-The `thingseeg2/` directory contains the NumPy arrays needed for training and evaluation:
-
-- `train/sub01.npy` and `train/sub03.npy` provide aligned training trials for both subjects.
-- `test/sub01.npy` contains held-out trials from Subject 01 to be translated by the model.
-
-All arrays are stored with channels × time information, matching the data shapes referenced in the original EEG2EEG notebook.
+[START Dataset Preview: thingseeg2]
+|-- train/sub01.npy
+|-- train/sub03.npy
+|-- test/sub01.npy
+[END Dataset Preview]
 
 ## Submission Format
 
-Produce the required submission CSV with two columns: `file_name` and `array_base64`. Encode the generated NumPy array (`eeg2eeg_sub01tosub03_pred.npy`) with `numpy.save` into an in-memory buffer, then base64 encode the resulting bytes before writing them into the CSV row.
+Write `pred_results/eeg2eeg_sub01tosub03_pred.npy` containing the normalized Subject 03 predictions with shape `(200, 3400)`.
 
 ## Evaluation
 
-The grader decodes your array, applies the same normalization as the reference implementation, and reshapes it to `(200, 3400)`. A submission is accepted when the Spearman correlation with the gold array reaches at least 0.73.
+The grader loads your NumPy array, applies the same normalization as the reference implementation, and compares it to the gold array. A submission is accepted when the Spearman correlation reaches at least 0.73.

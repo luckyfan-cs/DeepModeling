@@ -5,21 +5,23 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Molecule Visualization
 - Source: deepchem/deepchem
-- Expected Output: polyverse_visualize_molecules_pred.png
+- Expected Output: `polyverse_visualize_molecules_pred.png`
 - Output Type: Image
 
 ## Task
 
-Visuzalize the molecule in the file 'molecule_ZINC001754572633.pkl' with a graph, which is a rdkit.Chem.rdchem.Mol object, using the rdkit and networkx library. You should use orange for Carbon (C) atoms, magenta for Oxygen (O) atoms, and cyan for Nitrogen (N) atoms. Use the spring layout with random seed set to 10 when drawing the molecue. Set the node size to 800 and add labels to the nodes.
+Visualise the molecule stored in `molecule_ZINC001754572633.pkl` (an RDKit `Mol`) as a graph. Colour carbon atoms orange, oxygen atoms magenta, and nitrogen atoms cyan. Lay out the graph with NetworkX spring layout (seed=10), set node size to 800, and label each atom.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: polyverse_viz]
+|-- molecule_ZINC001754572633.pkl
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Encode the rendered figure as base64 and save it to `pred_results/polyverse_visualize_molecules_pred.png`. Submit `sample_submission.csv` with columns `file_name` and `image_base64` referencing that PNG.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader compares the decoded image with the gold reference via a GPT-based judge (threshold 60) and falls back to a deterministic similarity check when the judge is unavailable.

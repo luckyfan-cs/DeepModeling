@@ -3,22 +3,24 @@
 ## Overview
 
 - Domain: Bioinformatics
-- Subtask Categories: Feature Engineering, Deep Learning, Data Visualization
+- Subtask Categories: Differential Expression, Data Visualization
 - Source: scverse/scvi-tutorials
 - Output Type: Image
 
 ## Task
 
-Train a variational autoencoder (VAE) on the Heart Cell Atlas subset, perform one-vs-all differential expression for each cell type, select top markers, and visualize them in a dendrogram-organized dot plot. Save the visualization to the required PNG output path.
+Perform differential expression analysis on the Heart Cell Atlas subset and visualise the marker genes in a dot plot. Save the plot to `pred_results/hca_cell_type_de.png`.
 
 ## Dataset
 
-The `hca/` directory contains the AnnData file `hca_subsampled_20k.h5ad` with expression counts and cell-type annotations for ~20k cells.
+[START Dataset Preview: hca]
+|-- hca_subsampled_20k.h5ad
+[END Dataset Preview]
 
 ## Submission Format
 
-Write `pred_results/hca_cell_type_de.png`. If base64 is used internally, ensure the final dot plot image is written to disk under the expected filename.
+Create `sample_submission.csv` with columns `file_name` and `image_base64`. Provide one entry for `hca_cell_type_de.png`.
 
 ## Evaluation
 
-Submissions are accepted when the rendered plot reaches the reference similarity score (60/100) compared against the gold visualization.
+The grader decodes the submission, compares it with the gold-standard plot, and accepts the result once the similarity score reaches 60.

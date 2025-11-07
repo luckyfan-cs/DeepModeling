@@ -5,7 +5,6 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Computational Analysis, Data Visualization
 - Source: mad-lab-fau/BioPsyKit
-- Expected Output: ecg_processing_vis2_pred_result.png
 - Output Type: Image
 
 ## Task

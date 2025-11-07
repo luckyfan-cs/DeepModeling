@@ -5,21 +5,25 @@
 - Domain: Geographical Information Science
 - Subtask Categories: Geospatial Analysis, Data Visualization
 - Source: OGGM/tutorials
-- Expected Output: plotting_flowline_mb_elevation_pred.png
 - Output Type: Image
 
 ## Task
 
-Show a plot comparing the flowline of region 'RGI60-11.00001' in year 2010 and 2005 with OGGM. The plot should show the mass-balance (MB, in mm w.e. per year) against elevation (in m a.s.i).
+Use OGGM outputs to compare the 2005 and 2010 flowline mass balance for glacier `RGI60-11.00001`. Plot mass balance (mm w.e. yr⁻¹) against elevation and save the figure to `pred_results/plotting_flowline_mb_elevation_pred.png`.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: ocean_glacier]
+|-- RGI60-11.00001/climate_historical.nc
+|-- RGI60-11.00001/elevation_band_flowline.csv
+|-- RGI60-11.00001/model_flowlines_dyn_melt_f_calib.pkl
+|-- RGI60-11.00001/model_diagnostics_historical.nc
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Create `sample_submission.csv` with columns `file_name` and `image_base64`, containing a single row for `plotting_flowline_mb_elevation_pred.png`.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes the submitted image, compares it to the reference plot, and accepts the submission when the similarity score is at least 60.

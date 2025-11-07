@@ -1,49 +1,26 @@
 # ScienceBench Task 102: refractive_index_prediction
 
-## Overview
-
-- **Domain**: Computational Chemistry
-- **Subtask Categories**: Deep Learning
-- **Source**: ppdebreuck/modnet
-- **Output File**: ref_index_predictions_pred.csv
-- **Output Type**: Tabular (CSV with predictions)
+- Domain: Computational Chemistry
+- Subtask Categories: Deep Learning
+- Source: ppdebreuck/modnet
+- Expected Output: `ref_index_predictions_pred.csv`
+- Output Type: CSV
 
 ## Task
 
-Train a MODNet model for predicting the refractive index for materials using the provided training data, then predict refractive index for materials in the test dataset.
+Train a MODNet regressor on the provided refractive-index dataset and predict the refractive index for the held-out materials.
 
-## Input/Output
+## Dataset
 
-**Input Files**:
-- `md_ref_index_train`: Training data in MODData format
-- `MP_2018.6`: Test data in MODData format (Materials Project 2018.6 dataset)
-
-**Output Format**:
-- Submit predictions as a CSV file
-- Required column: `refractive_index`
-- Values should be numeric predictions of the refractive index
-
-## Model Requirements
-
-The task expects use of MODNet (Materials Optimal Descriptor Network) with specific architecture:
-- 300 input features
-- Layer structure: [128, 64, 32, []]
-- Activation function: 'elu'
+[START Dataset Preview: ref_index]
+|-- md_ref_index_train.h5
+|-- MP_2018.6.h5
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with structure:
-
-```csv
-id,refractive_index
-0,1.523
-1,2.145
-...
-```
+Write predictions to `pred_results/ref_index_predictions_pred.csv` with a `refractive_index` column aligned to the test set order.
 
 ## Evaluation
 
-**Metric**: Mean Absolute Error (MAE)
-- Lower is better
-- Threshold for good performance: MAE < 0.78
-- Score normalized where 0 MAE = perfect score
+The grader computes the mean absolute error against the gold targets (pass if MAE < 0.78).

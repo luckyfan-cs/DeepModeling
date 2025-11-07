@@ -1,77 +1,90 @@
 """
-Data preparation for ScienceBench task 63
-Dataset: biosignals
+Data preparation for ScienceBench task 63.
 """
 
+from __future__ import annotations
+
 import base64
-from pathlib import Path
 import shutil
+from pathlib import Path
+
 import pandas as pd
 
+DATASET_NAME = "biosignals"
+EXPECTED_FILES = [
+    "bio_ecg_plot.png",
+    "bio_rsp_plot.png",
+]
+GOLD_MAPPING = {
+    "bio_ecg_plot.png": "bio_ecg_plot_gold.png",
+    "bio_rsp_plot.png": "bio_rsp_plot_gold.png",
+}
 
-EXPECTED_FILENAME = "bio_ecg_plot.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/bio_ecg_plot_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/bio_ecg_plot_gold.png" else None
-SOURCE_DATASET = "biosignals"
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results"
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    counter = 0
+    for item in src.rglob("*"):
+        if not item.is_file():
+            continue
+        rel = item.relative_to(src)
+        target = dest_root / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(item, target)
+        counter += 1
+    print(f"✓ Copied {counter} dataset file(s) to {dest_root}")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
     print("=" * 60)
     print("Preparing ScienceBench Task 63")
-    print("Dataset:", SOURCE_DATASET)
+    print("Dataset:", DATASET_NAME)
     print("=" * 60)
     print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    source_dir = raw if raw.exists() else _dataset_dir()
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
+    _ensure_dir(public)
+    _ensure_dir(private)
+    _copy_dataset(source_dir, public)
 
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
-
-    public.mkdir(parents=True, exist_ok=True)
-    private.mkdir(parents=True, exist_ok=True)
-
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
-    else:
-        print("⚠ Gold image not found; creating empty placeholder.")
-
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
+    sample_df = pd.DataFrame([{"file_name": name, "image_base64": ""} for name in EXPECTED_FILES])
     sample_df.to_csv(public / "sample_submission.csv", index=False)
     print("✓ Created sample_submission.csv")
 
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
-    ])
+    gold_dir = _gold_dir()
+    answer_rows = []
+    for filename, gold_name in GOLD_MAPPING.items():
+        gold_path = gold_dir / gold_name
+        if not gold_path.exists():
+            raise FileNotFoundError(f"Missing gold image: {gold_path}")
+        encoded = base64.b64encode(gold_path.read_bytes()).decode("utf-8")
+        answer_rows.append({"file_name": filename, "image_base64": encoded})
+        target = private / gold_path.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(gold_path, target)
+    answer_df = pd.DataFrame(answer_rows)
     answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
+    print("✓ Created answer.csv and copied gold images")
 
-    print("\nData preparation completed!")
+    print("Data preparation completed.")

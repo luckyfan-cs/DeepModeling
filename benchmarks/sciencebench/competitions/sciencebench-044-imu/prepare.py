@@ -3,82 +3,63 @@ Data preparation for ScienceBench task 44
 Dataset: sleep_imu_data
 """
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
-import shutil
+from __future__ import annotations
+
 import json
+import shutil
+from pathlib import Path
+
+EXPECTED_FILE = "imu_pred.json"
 
 
-SOURCE_DATASET = "sleep_imu_data"
+def _default_dataset_dir() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "datasets" / "sleep_imu_data"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 44")
-    print(f"Dataset: sleep_imu_data")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # 通用文件格式
-    with open(public / "sample_submission.txt", "w") as f:
-        f.write("Your output should match the format: pred_results/imu_pred.json\n")
-    print("Created sample_submission.txt")
-
-    with open(private / "answer.json", "w") as f:
-        json.dump({"expected_output": "pred_results/imu_pred.json"}, f)
-    print("Created answer.json")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+def _default_gold_path() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / "biopsykit_imu_gold.json"
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
 
-    print("Placeholder files created")
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 44")
+    print("Dataset: sleep_imu_data")
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    data_dir = raw if raw.exists() else _default_dataset_dir()
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {data_dir}")
+
+    _ensure_dir(public)
+    _ensure_dir(private)
+
+    data_file = data_dir / "sleep_data.pkl"
+    if not data_file.exists():
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+    shutil.copy2(data_file, public / "sleep_data.pkl")
+    print("✓ Copied IMU sleep data")
+
+    sample_json = {
+        "sleep_onset": "2019-09-03T02:15:00+02:00",
+        "wake_onset": "2019-09-03T09:05:00+02:00",
+        "total_sleep_duration": 24540,
+    }
+    (public / "sample_submission.json").write_text(json.dumps(sample_json, indent=2))
+    print("✓ Created sample_submission.json")
+
+    gold_path = _default_gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold JSON not found: {gold_path}")
+    shutil.copy2(gold_path, private / "answer.json")
+    print("✓ Copied answer.json")
+
+    print("IMU analysis task preparation complete")

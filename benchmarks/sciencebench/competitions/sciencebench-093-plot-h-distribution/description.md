@@ -5,7 +5,6 @@
 - **Domain**: Psychology and Cognitive Science
 - **Subtask Categories**: Data Visualization
 - **Source**: brand-d/cogsci-jnmf
-- **Output File**: H_distribution_conscientiousness.png
 - **Output Type**: Image (PNG)
 
 ## Task
@@ -40,7 +39,7 @@ Submit the generated plot as an image file. The visualization should:
 
 ## Evaluation
 
-**Metric**: Visual Similarity Score (using GPT-4 Vision)
-- Compares generated plot with gold standard reference
+**Metric**: Visual similarity score (GPT-based judge with deterministic fallback)
+- Compares the generated plot with the gold standard reference
 - Evaluates layout, data distribution, and visual accuracy
-- Threshold: >= 60/100 for passing
+- Threshold: ≥ 60/100 for passing

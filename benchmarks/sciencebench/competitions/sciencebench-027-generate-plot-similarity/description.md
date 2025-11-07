@@ -5,7 +5,6 @@
 - Domain: Bioinformatics
 - Subtask Categories: Computational Analysis, Data Visualization
 - Source: anikaliu/CAMDA-DILI
-- Expected Output: similarity_plot.png
 - Output Type: Image
 
 ## Task

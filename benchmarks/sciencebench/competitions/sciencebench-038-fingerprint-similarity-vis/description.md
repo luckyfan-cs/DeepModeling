@@ -1,25 +1,35 @@
-# ScienceBench Task 38
+# Fingerprint Similarity Visualization
 
 ## Overview
 
-- Domain: Computational Chemistry
-- Subtask Categories: Computational Analysis, Data Visualization
-- Source: chemosim-lab/ProLIF
-- Expected Output: ligand_similarity_pred.png
-- Output Type: Image
+This task focuses on visualizing the Tanimoto similarities of protein-ligand interaction fingerprints across trajectory frames.
 
-## Task
+## Task Description
 
-Plot the Tanimoto similarities of the fingerprint between the frames. Specifically, the interaction fingerprints between a selected ligand and protein for the first 10 trajectory frames.
+Plot the Tanimoto similarities of the fingerprint between the frames. Specifically, analyze the interaction fingerprints between a selected ligand and protein for the first 10 trajectory frames.
 
 ## Dataset
 
-N/A
+The dataset contains molecular dynamics trajectory data:
+- `top.pdb`: Protein structure topology file (~500 KB)
+- `traj.xtc`: Trajectory file with multiple frames (~4.8 MB)
 
-## Submission Format
+Files are located in the public data directory.
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+## Task Requirements
+
+1. Load the protein structure (`top.pdb`) and trajectory (`traj.xtc`)
+2. Extract interaction fingerprints between ligand and protein for the first 10 frames
+3. Calculate Tanimoto similarities between consecutive frames
+4. Generate a visualization showing the similarity values
+5. Save the figure as a PNG file
+
+## Tools and Libraries
+
+You may use **ProLIF** for analyzing protein-ligand interactions. ProLIF is built upon MDAnalysis and is capable of analyzing protein-ligand interactions.
+
+Reference: https://github.com/chemosim-lab/ProLIF
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+Your submission will be evaluated by comparing your generated figure with the gold standard figure using visual similarity metrics. The score must be >= 60 (out of 100) to pass.

@@ -1,77 +1,63 @@
 """
-Data preparation for ScienceBench task 36
-Dataset: eeg_processing
+Prepare EEG processing visualization task.
+
+This task requires processing EEG data and generating a visualization of frequency band power.
 """
 
-import base64
-from pathlib import Path
 import shutil
-import pandas as pd
-
-
-EXPECTED_FILENAME = "eeg_processing_vis1_pred.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/biopsykit_eeg_processing_vis1_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/biopsykit_eeg_processing_vis1_gold.png" else None
-SOURCE_DATASET = "eeg_processing"
+from pathlib import Path
 
 
 def prepare(raw: Path, public: Path, private: Path):
-    """Prepare data for image-based ScienceBench task."""
-    print("=" * 60)
-    print("Preparing ScienceBench Task 36")
-    print("Dataset:", SOURCE_DATASET)
-    print("=" * 60)
-    print("Raw directory:", raw)
-    print("Public directory:", public)
-    print("Private directory:", private)
+    """
+    Prepare the EEG processing task.
 
-    if not raw.exists():
-        print("\n⚠ Warning: Raw data directory not found:", raw)
-        public.mkdir(parents=True, exist_ok=True)
-        private.mkdir(parents=True, exist_ok=True)
-        placeholder = pd.DataFrame([
-            {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-        ])
-        placeholder.to_csv(public / "sample_submission.csv", index=False)
-        placeholder.to_csv(private / "answer.csv", index=False)
-        return
+    Args:
+        raw: Path to raw data directory
+        public: Path to public data directory (visible to agents)
+        private: Path to private data directory (for grading)
+    """
+    # Source paths from ScienceAgent-bench
+    source_data_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/eeg_processing")
+    source_gold_result = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/biopsykit_eeg_processing_vis1_gold.png")
 
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:
-                print("  ✓ Copied:", rel_path)
-
-    if file_count > 10:
-        print("  ... and", file_count - 10, "more files")
-    print("  Total files copied:", file_count)
-
+    # Create directories
     public.mkdir(parents=True, exist_ok=True)
     private.mkdir(parents=True, exist_ok=True)
 
-    gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
-        gold_bytes = GOLD_IMAGE_PATH.read_bytes()
-        (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
-        gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")
-        print("✓ Embedded gold image from", GOLD_IMAGE_PATH)
+    # Copy EEG data to public directory
+    eeg_data_file = source_data_dir / "eeg_muse_example.csv"
+    if eeg_data_file.exists():
+        shutil.copy2(eeg_data_file, public / "eeg_muse_example.csv")
+        print(f"Copied EEG data to {public / 'eeg_muse_example.csv'}")
     else:
-        print("⚠ Gold image not found; creating empty placeholder.")
+        raise FileNotFoundError(f"EEG data file not found: {eeg_data_file}")
 
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
-    sample_df.to_csv(public / "sample_submission.csv", index=False)
-    print("✓ Created sample_submission.csv")
+    # Create a simple sample submission (placeholder PNG)
+    sample_submission_path = public / "sample_submission.png"
+    # Create a minimal 1x1 PNG as placeholder
+    import numpy as np
+    from PIL import Image
 
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": gold_base64}
-    ])
-    answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
+    # Create a simple placeholder image
+    placeholder = np.zeros((100, 100, 3), dtype=np.uint8)
+    Image.fromarray(placeholder).save(sample_submission_path)
+    print(f"Created sample submission at {sample_submission_path}")
 
-    print("\nData preparation completed!")
+    # Copy gold result to private directory
+    if source_gold_result.exists():
+        shutil.copy2(source_gold_result, private / "biopsykit_eeg_processing_vis1_gold.png")
+        print(f"Copied gold result to {private / 'biopsykit_eeg_processing_vis1_gold.png'}")
+    else:
+        raise FileNotFoundError(f"Gold result not found: {source_gold_result}")
+
+    print("EEG processing task preparation complete")
+
+
+if __name__ == "__main__":
+    # For testing
+    from pathlib import Path
+    raw = Path("./raw")
+    public = Path("./public")
+    private = Path("./private")
+    prepare(raw, public, private)

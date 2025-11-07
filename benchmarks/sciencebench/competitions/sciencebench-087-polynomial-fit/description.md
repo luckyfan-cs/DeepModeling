@@ -5,25 +5,23 @@
 - Domain: Geographical Information Science
 - Subtask Categories: Statistical Analysis
 - Source: SciTools/iris
-- Expected Output: polynomial_fit_pred.csv
-- Output Type: Tabular
+- Expected Output: `polynomial_fit_pred.csv`
+- Output Type: CSV (tabular)
 
 ## Task
 
-Generate the requested output based on the provided scientific data.
+Fit a polynomial model to the A1B North America air-temperature series provided in the dataset. Use the monthly temperatures to estimate a smoothed annual temperature curve and export the predicted yearly values to the required CSV file.
 
 ## Dataset
 
-[START Preview of polynomial_fit/A1B_north_america.nc]
- time: [-946800, -938160, -929520, ...]
- air_temperature: [[[296.07858, 296.17642, 296.25217, …]…]…]
- ...
- [END Preview of polynomial_fit/A1B_north_america.nc]
+[START Dataset Preview: polynomial_fit]
+|-- A1B_north_america.nc
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Write `pred_results/polynomial_fit_pred.csv` with the columns `Year` and `Fitted_Temperature`, sorted by year and stored as floating-point values.
 
 ## Evaluation
 
-Negative root mean squared error (closer to zero is better).
+The grader sorts both CSV files and requires an exact match with the gold reference after ordering.

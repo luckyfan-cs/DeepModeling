@@ -1,33 +1,50 @@
-"""
-Grading function for ScienceBench task 97
-"""
+"""Grader for ScienceBench task 97 (formation energy prediction)."""
 
-import pandas as pd
-import numpy as np
+from __future__ import annotations
+
 from pathlib import Path
-from sklearn.metrics import accuracy_score
+
+import numpy as np
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+PRED_FILENAME = "formation_energy_prediction_pred.txt"
+GOLD_FILENAME = "formation_energy_prediction_gold.txt"
+THRESHOLD = 0.1
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+def _pred_path() -> Path:
+    return Path("pred_results") / PRED_FILENAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
+
+
+def _load_array(path: Path) -> np.ndarray:
+    if not path.exists():
+        raise FileNotFoundError(f"Required file missing: {path}")
+    return np.loadtxt(path)
+
+
+def grade(submission, answers) -> float:
+    pred = _load_array(_pred_path())
+    gold = _load_array(_gold_path())
+
+    if pred.shape != gold.shape:
+        print(f"Shape mismatch: {pred.shape} vs {gold.shape}")
+        return 0.0
+
+    mse = float(np.mean((pred - gold) ** 2))
+    print(f"MSE: {mse}")
+    return 1.0 if mse <= THRESHOLD else 0.0

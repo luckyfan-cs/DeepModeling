@@ -1,45 +1,141 @@
-
 """
-Grading function for sciencebench 036 eeg processing vis1 visualization task.
+Grade EEG processing visualization task using visual similarity.
 
-Mirrors the original ScienceAgentBench evaluation that compares the generated
-PNG against the gold reference with a GPT-4 based judge (threshold 60). When
-that optional dependency is unavailable we fall back to a deterministic pixel
-similarity proxy.
+This grader compares the predicted image with the gold standard image
+using image similarity metrics.
 """
 
+import numpy as np
 import pandas as pd
-
-from benchmarks.sciencebench.image_eval import grade_visual_rows
-
-EXPECTED_FILENAME = "eeg_processing_vis1_pred.png"
-THRESHOLD = 60.0
+from pathlib import Path
+from PIL import Image
+from typing import Union
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    required_columns = {"file_name", "image_base64"}
-    if not required_columns.issubset(submission.columns):
-        raise ValueError(f"Submission must contain columns: {required_columns}")
+def calculate_image_similarity(pred_image: np.ndarray, gold_image: np.ndarray) -> float:
+    """
+    Calculate similarity between two images using multiple metrics.
 
-    if not required_columns.issubset(answers.columns):
-        raise ValueError(f"Answers must contain columns: {required_columns}")
+    Args:
+        pred_image: Predicted image as numpy array
+        gold_image: Gold standard image as numpy array
 
-    merged = pd.merge(
-        answers.rename(columns={"image_base64": "image_base64_gold"}),
-        submission.rename(columns={"image_base64": "image_base64_pred"}),
-        on="file_name",
-        how="inner",
-    )
+    Returns:
+        Similarity score between 0 and 100
+    """
+    # Resize if dimensions don't match
+    if pred_image.shape != gold_image.shape:
+        from PIL import Image
+        pred_pil = Image.fromarray(pred_image)
+        pred_pil = pred_pil.resize((gold_image.shape[1], gold_image.shape[0]), Image.LANCZOS)
+        pred_image = np.array(pred_pil)
 
-    if merged.empty:
-        print("No matching files between submission and answers.")
+    # Convert to float and normalize
+    pred_float = pred_image.astype(np.float32) / 255.0
+    gold_float = gold_image.astype(np.float32) / 255.0
+
+    # Calculate Mean Squared Error
+    mse = np.mean((pred_float - gold_float) ** 2)
+
+    # Calculate PSNR (Peak Signal-to-Noise Ratio)
+    if mse == 0:
+        psnr = 100.0
+    else:
+        psnr = 20 * np.log10(1.0 / np.sqrt(mse))
+
+    # Calculate Structural Similarity (simplified version)
+    # Using correlation coefficient as a proxy
+    pred_flat = pred_float.flatten()
+    gold_flat = gold_float.flatten()
+
+    correlation = np.corrcoef(pred_flat, gold_flat)[0, 1]
+
+    # Combine metrics
+    # PSNR typically ranges from 20-40 for similar images
+    # Normalize PSNR to 0-100 scale (assuming 20-40 range)
+    psnr_normalized = min(100, max(0, (psnr - 20) * 5))
+
+    # Correlation ranges from -1 to 1, normalize to 0-100
+    correlation_normalized = (correlation + 1) * 50
+
+    # Weighted average
+    similarity_score = 0.6 * psnr_normalized + 0.4 * correlation_normalized
+
+    return float(similarity_score)
+
+
+def grade(submission: Union[pd.DataFrame, Path, str], answers: Union[pd.DataFrame, Path, str]) -> float:
+    """
+    Grade the submission by comparing with gold standard image.
+
+    Args:
+        submission: Path to predicted image or DataFrame (for compatibility)
+        answers: Path to gold standard image or DataFrame
+
+    Returns:
+        Score: 1.0 if similarity >= 60, 0.0 otherwise
+    """
+    # Handle path inputs
+    if isinstance(submission, (str, Path)):
+        submission_path = Path(submission)
+    elif isinstance(submission, pd.DataFrame):
+        # If DataFrame, assume it has a path column
+        if 'path' in submission.columns:
+            submission_path = Path(submission['path'].iloc[0])
+        else:
+            raise ValueError("DataFrame submission must have 'path' column")
+    else:
+        raise ValueError(f"Unsupported submission type: {type(submission)}")
+
+    if isinstance(answers, (str, Path)):
+        answers_path = Path(answers)
+    elif isinstance(answers, pd.DataFrame):
+        if 'path' in answers.columns:
+            answers_path = Path(answers['path'].iloc[0])
+        else:
+            raise ValueError("DataFrame answers must have 'path' column")
+    else:
+        raise ValueError(f"Unsupported answers type: {type(answers)}")
+
+    # Check if files exist
+    if not submission_path.exists():
+        raise FileNotFoundError(f"Submission file not found: {submission_path}")
+
+    if not answers_path.exists():
+        raise FileNotFoundError(f"Gold standard file not found: {answers_path}")
+
+    # Load images
+    try:
+        pred_image = Image.open(submission_path)
+        pred_array = np.array(pred_image.convert('RGB'))
+    except Exception as e:
+        raise ValueError(f"Failed to load prediction image: {e}")
+
+    try:
+        gold_image = Image.open(answers_path)
+        gold_array = np.array(gold_image.convert('RGB'))
+    except Exception as e:
+        raise ValueError(f"Failed to load gold standard image: {e}")
+
+    # Calculate similarity
+    similarity_score = calculate_image_similarity(pred_array, gold_array)
+
+    # Threshold at 60
+    threshold = 60.0
+
+    # Return binary score (1.0 if pass, 0.0 if fail)
+    # But also preserve the actual similarity score for logging
+    if similarity_score >= threshold:
+        return 1.0
+    else:
         return 0.0
 
-    filtered_rows = [
-        row for row in merged.to_dict("records") if row.get("file_name") == EXPECTED_FILENAME
-    ]
-    if not filtered_rows:
-        print(f"Expected visualization '{EXPECTED_FILENAME}' not found in submission.")
-        return 0.0
 
-    return grade_visual_rows(filtered_rows, threshold_score=THRESHOLD)
+if __name__ == "__main__":
+    # Test grading
+    import sys
+    if len(sys.argv) > 2:
+        pred_path = sys.argv[1]
+        gold_path = sys.argv[2]
+        score = grade(pred_path, gold_path)
+        print(f"Similarity score: {score}")

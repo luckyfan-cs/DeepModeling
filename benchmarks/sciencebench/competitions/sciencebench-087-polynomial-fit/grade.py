@@ -1,35 +1,52 @@
-"""
-Grading function for ScienceBench task 87
-"""
+"""Grader for ScienceBench task 87 (polynomial fit)."""
 
-import pandas as pd
-import numpy as np
+from __future__ import annotations
+
+import csv
 from pathlib import Path
-from sklearn.metrics import mean_squared_error
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+PRED_FILENAME = "polynomial_fit_pred.csv"
+GOLD_FILENAME = "polynomial_fit_gold.csv"
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
 
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+def _pred_path() -> Path:
+    return Path("pred_results") / PRED_FILENAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
+
+
+def _load_sorted_csv(path: Path) -> tuple[list[str], list[list[str]]]:
+    if not path.exists():
+        raise FileNotFoundError(f"Required file missing: {path}")
+    with path.open("r", newline="", encoding="utf-8") as handle:
+        reader = csv.reader(handle)
+        headers = next(reader)
+        rows = sorted(reader)
+    return headers, rows
+
+
+def grade(submission, answers) -> float:
+    pred_headers, pred_rows = _load_sorted_csv(_pred_path())
+    gold_headers, gold_rows = _load_sorted_csv(_gold_path())
+
+    if pred_headers != gold_headers:
+        print("Header mismatch between prediction and gold.")
+        return 0.0
+    if pred_rows != gold_rows:
+        print("Row contents differ from the gold reference.")
+        return 0.0
+    return 1.0

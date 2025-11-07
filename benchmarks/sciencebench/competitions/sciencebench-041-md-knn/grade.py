@@ -7,22 +7,29 @@ import pandas as pd
 from sklearn.metrics import f1_score
 
 OUTPUT_FILES = {
-    "all": Path("pred_results/MD_all_KNN.csv"),
-    "MCNC": Path("pred_results/MD_MCNC_KNN.csv"),
-    "MCLCNC": Path("pred_results/MD_MCLCNC_KNN.csv"),
+    "all": "pred_results/MD_all_KNN.csv",
+    "MCNC": "pred_results/MD_MCNC_KNN.csv",
+    "MCLCNC": "pred_results/MD_MCLCNC_KNN.csv",
 }
-GOLD_PATH = Path("benchmark/eval_programs/gold_results/MD_gold.csv")
 F1_THRESHOLD = 0.73
 
 
-def _load_csv(path: Path) -> pd.DataFrame:
-    if not path.exists():
+def _load_csv(path: str) -> pd.DataFrame:
+    file_path = Path(path)
+    if not file_path.exists():
         raise FileNotFoundError(f"Expected submission file missing: {path}")
-    return pd.read_csv(path)
+    return pd.read_csv(file_path)
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    gold_df = _load_csv(GOLD_PATH)
+    if answers is None or answers.empty:
+        print("Answer data is empty.")
+        return 0.0
+    if "label" not in answers.columns:
+        print("Answers missing 'label' column.")
+        return 0.0
+
+    gold_df = answers[["label"]].reset_index(drop=True)
 
     f1_scores = []
     for split, file_path in OUTPUT_FILES.items():

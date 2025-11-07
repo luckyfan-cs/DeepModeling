@@ -10,6 +10,10 @@ import shutil
 import json
 
 
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
 SOURCE_DATASET = "ligand_protein"
 
 
@@ -29,6 +33,10 @@ def prepare(raw: Path, public: Path, private: Path):
     print(f"Raw directory: {raw}")
     print(f"Public directory: {public}")
     print(f"Private directory: {private}")
+
+    # Ensure output directories exist
+    _ensure_dir(public)
+    _ensure_dir(private)
 
     # 检查原始数据是否存在
     if not raw.exists():

@@ -1,73 +1,89 @@
-"""
-Data preparation for ScienceBench Task 102: refractive_index_prediction
-Dataset: ref_index
-"""
+"""Data preparation for ScienceBench task 102 (refractive index prediction)."""
+
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-import shutil
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the refractive_index_prediction task data.
+DATASET_NAME = "ref_index"
+PRED_FILENAME = "ref_index_predictions_pred.csv"
+GOLD_FILENAME = "ref_index_predictions_gold.csv"
+SAMPLE_FILENAME = "sample_submission.csv"
 
-    Args:
-        raw: Path to raw data directory
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 102: refractive_index_prediction")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
 
-    # Source dataset path
-    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/ref_index")
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
+
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    dest_root.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for item in src.iterdir():
+        if not item.is_file():
+            continue
+        shutil.copy2(item, dest_root / item.name)
+        copied += 1
+    print(f"✓ Copied {copied} dataset file(s) to {dest_root}")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 102")
+    print("Dataset:", DATASET_NAME)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    source_dir = raw if raw.exists() else _dataset_dir()
     if not source_dir.exists():
-        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
 
-    # Copy training and test data to public
-    # These are MODData format files (binary)
-    train_file = source_dir / "md_ref_index_train"
-    test_file = source_dir / "MP_2018.6"
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold CSV not found: {gold_path}")
 
-    if not train_file.exists() or not test_file.exists():
-        raise FileNotFoundError(f"Required data files not found in {source_dir}")
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    print(f"\nCopying data files to public directory...")
-    shutil.copy2(train_file, public / "md_ref_index_train")
-    shutil.copy2(test_file, public / "MP_2018.6")
-    print(f"  ✓ Copied: md_ref_index_train ({train_file.stat().st_size / 1024 / 1024:.1f} MB)")
-    print(f"  ✓ Copied: MP_2018.6 ({test_file.stat().st_size / 1024 / 1024:.1f} MB)")
+    _copy_dataset(source_dir, public)
 
-    # Create sample_submission
-    # The output should be a CSV with refractive_index predictions
-    # We don't know the exact number of samples without loading MODData,
-    # so create a minimal template
-    sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "refractive_index": [1.5, 1.5, 1.5]  # Placeholder values
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print(f"\n✓ Created sample_submission.csv (template)")
+    gold_df = pd.read_csv(gold_path)
+    sample = gold_df.head(3).copy()
+    sample["refractive_index"] = 0.0
+    sample.to_csv(public / SAMPLE_FILENAME, index=False)
+    print("✓ Created sample_submission.csv placeholder")
 
-    # Load gold results for answer
-    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/ref_index_predictions_gold.csv")
-    if gold_file.exists():
-        gold_df = pd.read_csv(gold_file)
-        gold_df.to_csv(private / "answer.csv", index=False)
-        print(f"✓ Created answer.csv with {len(gold_df)} rows from gold results")
-    else:
-        print(f"⚠ Warning: Gold results not found at {gold_file}")
-        answer = sample_submission.copy()
-        answer.to_csv(private / "answer.csv", index=False)
-        print(f"✓ Created placeholder answer.csv")
+    gold_df.to_csv(private / "answer.csv", index=False)
+    print("✓ Copied gold CSV to private directory")
 
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
-    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")
+    (private / "notes.txt").write_text(
+        f"Expected submission: pred_results/{PRED_FILENAME}\nMAE threshold: 0.78\n",
+        encoding="utf-8",
+    )
+    print("✓ Wrote notes.txt")
+
+    print("Data preparation completed.")

@@ -1,84 +1,101 @@
-"""
-Data preparation for ScienceBench task 90
-Dataset: jnmf_data
-"""
+"""Data preparation for ScienceBench task 90 (joint NMF reconstruction)."""
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
+from __future__ import annotations
+
 import shutil
-import json
+from pathlib import Path
+
+import numpy as np
 
 
-SOURCE_DATASET = "jnmf_data"
+DATASET_NAME = "jnmf_data"
+EXPECTED_FILES = [
+    "fit_result_conscientiousness_W_high.npy",
+    "fit_result_conscientiousness_H_high.npy",
+    "fit_result_conscientiousness_W_low.npy",
+    "fit_result_conscientiousness_H_low.npy",
+]
+GOLD_FACTORS = {
+    "fit_result_conscientiousness_W_high.npy": "fit_result_conscientiousness_W_high_gold.npy",
+    "fit_result_conscientiousness_H_high.npy": "fit_result_conscientiousness_H_high_gold.npy",
+    "fit_result_conscientiousness_W_low.npy": "fit_result_conscientiousness_W_low_gold.npy",
+    "fit_result_conscientiousness_H_low.npy": "fit_result_conscientiousness_H_low_gold.npy",
+}
+DATA_FILES = ["X1_conscientiousness.npy", "X2_conscientiousness.npy"]
+THRESHOLDS = "Reconstruction thresholds — X1 < 34, X2 < 32"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 90")
-    print(f"Dataset: jnmf_data")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # 通用文件格式
-    with open(public / "sample_submission.txt", "w") as f:
-        f.write("Your output should match the format: pred_results/fit_result_conscientiousness_H_high.npy\n")
-    print("Created sample_submission.txt")
-
-    with open(private / "answer.json", "w") as f:
-        json.dump({"expected_output": "pred_results/fit_result_conscientiousness_H_high.npy"}, f)
-    print("Created answer.json")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results"
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    copied = 0
+    for name in DATA_FILES:
+        source_file = src / name
+        if not source_file.exists():
+            raise FileNotFoundError(f"Missing dataset file: {source_file}")
+        target = dest_root / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_file, target)
+        copied += 1
+    print(f"✓ Copied {copied} dataset file(s) to {dest_root}")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 90")
+    print("Dataset:", DATASET_NAME)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    source_dir = raw if raw.exists() else _dataset_dir()
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
+
+    gold_dir = _gold_dir()
+    for gold_name in GOLD_FACTORS.values():
+        gold_path = gold_dir / gold_name
+        if not gold_path.exists():
+            raise FileNotFoundError(f"Gold factor missing: {gold_path}")
+
+    _ensure_dir(public)
+    _ensure_dir(private)
+
+    _copy_dataset(source_dir, public)
+
+    sample_dir = public / "sample_submission"
+    sample_dir.mkdir(parents=True, exist_ok=True)
+    for pred_name, gold_name in GOLD_FACTORS.items():
+        gold_array = np.load(gold_dir / gold_name)
+        np.save(sample_dir / pred_name, np.zeros_like(gold_array, dtype=np.float32))
+    print("✓ Wrote zero baseline factors in sample_submission/")
+
+    answer_dir = private / "gold_factors"
+    answer_dir.mkdir(parents=True, exist_ok=True)
+    for gold_name in GOLD_FACTORS.values():
+        shutil.copy2(gold_dir / gold_name, answer_dir / gold_name)
+    print("✓ Copied gold factor matrices for reference")
+
+    (private / "notes.txt").write_text(
+        f"Expected files in pred_results/: {', '.join(EXPECTED_FILES)}\n{THRESHOLDS}\n",
+        encoding="utf-8",
     )
+    print("✓ Wrote evaluation notes")
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
-
-    print("Placeholder files created")
+    print("Data preparation completed.")

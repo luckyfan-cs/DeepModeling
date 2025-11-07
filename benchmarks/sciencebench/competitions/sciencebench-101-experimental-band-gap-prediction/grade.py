@@ -1,33 +1,56 @@
-"""
-Grading function for ScienceBench task 101
-"""
+"""Grader for ScienceBench task 101 (experimental band-gap prediction)."""
+
+from __future__ import annotations
+
+from pathlib import Path
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import accuracy_score
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using accuracy metric.
+PRED_FILENAME = "experimental_band_gap_prediction_pred.csv"
+GOLD_FILENAME = "experimental_band_gap_prediction_gold.csv"
+TARGET_COLUMN = "gap_expt_eV"
+THRESHOLD = 0.6
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
 
-    Returns:
-        Accuracy score (0-1)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
 
-        return accuracy_score(merged[true_col], merged[pred_col])
-    else:
-        # 简单比较
-        return float(np.mean(submission.values == answers.values))
+def _pred_path() -> Path:
+    return Path("pred_results") / PRED_FILENAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
+
+
+def _load_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(f"Required file missing: {path}")
+    return pd.read_csv(path)
+
+
+def grade(submission, answers) -> float:
+    pred_df = _load_csv(_pred_path())
+    gold_df = _load_csv(_gold_path())
+
+    if TARGET_COLUMN not in pred_df.columns:
+        print(f"Missing '{TARGET_COLUMN}' column in prediction.")
+        return 0.0
+
+    merged = gold_df[[TARGET_COLUMN]].join(pred_df[[TARGET_COLUMN]], how="inner", rsuffix="_pred")
+    if merged.empty:
+        print("No overlapping rows between prediction and gold.")
+        return 0.0
+
+    mae = (merged[TARGET_COLUMN] - merged[f"{TARGET_COLUMN}_pred"]).abs().mean()
+    print(f"MAE: {mae}")
+    return 1.0 if mae < THRESHOLD else 0.0

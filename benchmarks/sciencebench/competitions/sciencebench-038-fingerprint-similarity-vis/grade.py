@@ -1,45 +1,78 @@
-
 """
-Grading function for sciencebench 038 fingerprint similarity vis visualization task.
-
-Mirrors the original ScienceAgentBench evaluation that compares the generated
-PNG against the gold reference with a GPT-4 based judge (threshold 60). When
-that optional dependency is unavailable we fall back to a deterministic pixel
-similarity proxy.
+Grade fingerprint similarity visualization task using visual similarity.
 """
 
+import numpy as np
 import pandas as pd
-
-from benchmarks.sciencebench.image_eval import grade_visual_rows
-
-EXPECTED_FILENAME = "ligand_similarity_pred.png"
-THRESHOLD = 60.0
+from pathlib import Path
+from PIL import Image
+from typing import Union
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    required_columns = {"file_name", "image_base64"}
-    if not required_columns.issubset(submission.columns):
-        raise ValueError(f"Submission must contain columns: {required_columns}")
+def calculate_image_similarity(pred_image: np.ndarray, gold_image: np.ndarray) -> float:
+    """Calculate similarity between two images."""
+    if pred_image.shape != gold_image.shape:
+        pred_pil = Image.fromarray(pred_image)
+        pred_pil = pred_pil.resize((gold_image.shape[1], gold_image.shape[0]), Image.LANCZOS)
+        pred_image = np.array(pred_pil)
 
-    if not required_columns.issubset(answers.columns):
-        raise ValueError(f"Answers must contain columns: {required_columns}")
+    pred_float = pred_image.astype(np.float32) / 255.0
+    gold_float = gold_image.astype(np.float32) / 255.0
 
-    merged = pd.merge(
-        answers.rename(columns={"image_base64": "image_base64_gold"}),
-        submission.rename(columns={"image_base64": "image_base64_pred"}),
-        on="file_name",
-        how="inner",
-    )
+    mse = np.mean((pred_float - gold_float) ** 2)
+    psnr = 100.0 if mse == 0 else 20 * np.log10(1.0 / np.sqrt(mse))
 
-    if merged.empty:
-        print("No matching files between submission and answers.")
-        return 0.0
+    pred_flat = pred_float.flatten()
+    gold_flat = gold_float.flatten()
+    correlation = np.corrcoef(pred_flat, gold_flat)[0, 1]
 
-    filtered_rows = [
-        row for row in merged.to_dict("records") if row.get("file_name") == EXPECTED_FILENAME
-    ]
-    if not filtered_rows:
-        print(f"Expected visualization '{EXPECTED_FILENAME}' not found in submission.")
-        return 0.0
+    psnr_normalized = min(100, max(0, (psnr - 20) * 5))
+    correlation_normalized = (correlation + 1) * 50
+    similarity_score = 0.6 * psnr_normalized + 0.4 * correlation_normalized
 
-    return grade_visual_rows(filtered_rows, threshold_score=THRESHOLD)
+    return float(similarity_score)
+
+
+def grade(submission: Union[pd.DataFrame, Path, str], answers: Union[pd.DataFrame, Path, str]) -> float:
+    """Grade submission by comparing with gold standard image."""
+    if isinstance(submission, (str, Path)):
+        submission_path = Path(submission)
+    elif isinstance(submission, pd.DataFrame):
+        if 'path' in submission.columns:
+            submission_path = Path(submission['path'].iloc[0])
+        else:
+            raise ValueError("DataFrame submission must have 'path' column")
+    else:
+        raise ValueError(f"Unsupported submission type: {type(submission)}")
+
+    if isinstance(answers, (str, Path)):
+        answers_path = Path(answers)
+    elif isinstance(answers, pd.DataFrame):
+        if 'path' in answers.columns:
+            answers_path = Path(answers['path'].iloc[0])
+        else:
+            raise ValueError("DataFrame answers must have 'path' column")
+    else:
+        raise ValueError(f"Unsupported answers type: {type(answers)}")
+
+    if not submission_path.exists():
+        raise FileNotFoundError(f"Submission file not found: {submission_path}")
+    if not answers_path.exists():
+        raise FileNotFoundError(f"Gold standard file not found: {answers_path}")
+
+    try:
+        pred_image = Image.open(submission_path)
+        pred_array = np.array(pred_image.convert('RGB'))
+    except Exception as e:
+        raise ValueError(f"Failed to load prediction image: {e}")
+
+    try:
+        gold_image = Image.open(answers_path)
+        gold_array = np.array(gold_image.convert('RGB'))
+    except Exception as e:
+        raise ValueError(f"Failed to load gold standard image: {e}")
+
+    similarity_score = calculate_image_similarity(pred_array, gold_array)
+    threshold = 60.0
+
+    return 1.0 if similarity_score >= threshold else 0.0

@@ -5,21 +5,25 @@
 - Domain: Geographical Information Science
 - Subtask Categories: Geospatial Analysis, Data Visualization
 - Source: OGGM/tutorials
-- Expected Output: plotting_surface_mass_pred.png
 - Output Type: Image
 
 ## Task
 
-Show a time series plot for the mass-balance (MB) computed by OGGM for the region 'RGI60-11.00001' from 1960 to 2020.
+Generate a time-series plot of OGGM surface mass balance for glacier `RGI60-11.00001`, covering 1960–2020. Save the figure to `pred_results/plotting_surface_mass_pred.png`.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: ocean_glacier]
+|-- RGI60-11.00001/model_diagnostics_historical.nc
+|-- RGI60-11.00001/model_diagnostics_spinup_historical.nc
+|-- RGI60-11.00001/reference_mb_results.csv
+|-- RGI60-11.00001/gridded_data.nc
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Create `sample_submission.csv` with columns `file_name` and `image_base64`. Include a single row for `plotting_surface_mass_pred.png`.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes your PNG, compares it with the reference plot, and accepts submissions with a similarity score of at least 60.

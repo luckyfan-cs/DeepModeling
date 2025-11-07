@@ -5,21 +5,24 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Deep Learning
 - Source: deepchem/deepchem
-- Expected Output: formation_energy_prediction_pred.txt
-- Output Type: Tabular
+- Expected Output: `formation_energy_prediction_pred.txt`
+- Output Type: Text (numeric)
 
 ## Task
 
-Train a fromation energy prediction model using the NumpyDataset in the perovskite_train.pkl file of the perovskite dataset. After that, predict the formation energy for the molecues in the test set.
+Train a formation-energy predictor using the provided perovskite training molecules and output the predicted energies for the test set in the original order.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: perovskite]
+|-- perovskite_train.pkl
+|-- perovskite_test.pkl
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Write the predictions to `pred_results/formation_energy_prediction_pred.txt`, one floating-point value per line.
 
 ## Evaluation
 
-Classification accuracy (higher is better).
+The grader computes the mean squared error against the gold targets (pass if MSE ≤ 0.1).

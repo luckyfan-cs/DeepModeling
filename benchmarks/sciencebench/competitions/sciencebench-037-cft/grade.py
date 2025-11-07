@@ -1,35 +1,60 @@
-"""
-Grading function for ScienceBench task 37
-"""
+"""Grading function for ScienceBench task 37 (Cold Face Test analysis)."""
 
-import pandas as pd
-import numpy as np
+from __future__ import annotations
+
+import json
+import math
 from pathlib import Path
-from sklearn.metrics import mean_squared_error
+from typing import Any, Dict
+
+EXPECTED_KEYS = {"baseline_hr", "onset_hr", "onset_hr_percent"}
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+def _load_json(data: Any) -> Dict[str, Any]:
+    if isinstance(data, dict):
+        return data
+    if isinstance(data, str):
+        return json.loads(data)
+    raise TypeError("Submission must be a JSON object or string.")
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+def grade(submission: Any, answers: Any) -> float:
+    if submission is None:
+        print("Submission is empty.")
+        return 0.0
+    if answers is None:
+        print("Answer data is empty.")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    if isinstance(submission, Path):
+        submission = submission.read_text()
+    if isinstance(answers, Path):
+        answers = answers.read_text()
 
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    try:
+        pred = _load_json(submission)
+        gold = _load_json(answers)
+    except (TypeError, json.JSONDecodeError) as exc:
+        print(f"Failed to parse JSON: {exc}")
+        return 0.0
+
+    missing_keys = EXPECTED_KEYS - pred.keys()
+    if missing_keys:
+        print(f"Submission missing required keys: {sorted(missing_keys)}")
+        return 0.0
+
+    correct = 0
+    total = len(EXPECTED_KEYS)
+
+    for key in EXPECTED_KEYS:
+        if key not in gold:
+            print(f"Gold data missing key '{key}'.")
+            return 0.0
+        if math.isclose(float(pred[key]), float(gold[key])):
+            correct += 1
+
+    if correct != total:
+        print(f"CFT parameter matches: {correct} / {total}")
+        return 0.0
+
+    return 1.0

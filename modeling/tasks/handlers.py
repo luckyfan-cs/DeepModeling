@@ -235,6 +235,12 @@ class ScienceTaskHandler(TaskHandler):
         config_requirements = self._load_config_requirements(config_path)
         output_info = self._detect_output_characteristics(output_path, metadata, sample_submission)
 
+        original_name = output_info.get("original_name")
+        if output_path.suffix.lower() == ".csv" and output_info.get("logical_extension") == ".pkl":
+            output_path = output_path.with_suffix(".pkl")
+
+        output_info["submission_extension"] = output_path.suffix.lower()
+
         data_report = self.analyzer.analyze_data(data_dir, task_type="science")
 
         augmented_description = "\n\n".join(part for part in [description.strip(), data_report] if part)
@@ -284,9 +290,8 @@ class ScienceTaskHandler(TaskHandler):
             optimization_context=False,
         )
 
-        submission_ext = output_info.get("submission_extension")
+        submission_ext = output_info.get("submission_extension") or output_path.suffix.lower()
         expects_base64_csv = output_info.get("expects_base64_csv", False)
-        original_name = output_info.get("original_name")
         logical_ext = output_info.get("logical_extension")
 
         notes: list[str] = []
@@ -310,7 +315,14 @@ class ScienceTaskHandler(TaskHandler):
             notes.append("- Ensure the output can be opened with standard Python tooling for that format.")
 
         if not notes:
+            if submission_ext == '.pkl':
+                base_instructions = base_instructions.replace('.to_csv(', '.to_pickle(')
+                base_instructions = base_instructions.replace(', index=False', '')
             return base_instructions
+
+        if submission_ext == '.pkl':
+            base_instructions = base_instructions.replace('.to_csv(', '.to_pickle(')
+            base_instructions = base_instructions.replace(', index=False', '')
 
         return f"{base_instructions}\n\n" + "\n".join(notes)
 

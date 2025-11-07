@@ -5,39 +5,28 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Computational Analysis
 - Source: brand-d/cogsci-jnmf
-- Expected Output: fit_result_conscientiousness_H_high.npy
-- Output Type: Tabular
+- Expected Output: Numpy arrays (`fit_result_*_W_*.npy`, `fit_result_*_H_*.npy`)
+- Output Type: NumPy arrays
 
 ## Task
 
-Perform Non-negative matrix factorization for the matrices X1 and X2 given in jnmf_data. X1 should be factorized into two matrices W_high and H_high, where the product of W_high and H_high's transpose should be close to X1. Similarly, X2 should be factorized into W_low and H_low.
+Perform a joint non-negative matrix factorization on the provided conscientiousness features. Factor `X1_conscientiousness.npy` into `W_high` and `H_high`, and `X2_conscientiousness.npy` into `W_low` and `H_low`. Ensure all factors are non-negative and reconstruct the inputs closely.
 
 ## Dataset
 
-[START Preview of jnmf_data/X1_conscientiousness.npy]
-[[1. 1. 1. ... 1. 1. 1.]
- [0. 0. 0. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 0. 0.]
- ...
- [0. 0. 0. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 0. 0.]
- [1. 1. 1. ... 1. 0. 1.]]
- [END Preview of jnmf_data/X1_conscientiousness.npy]
-
-[START Preview of jnmf_data/X2_conscientiousness.npy]
-[[1. 1. 1. ... 1. 1. 1.]
- [0. 0. 0. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 0. 0.]
- ...
- [0. 0. 1. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 0. 0.]
- [1. 1. 0. ... 1. 1. 1.]]
- [END Preview of jnmf_data/X2_conscientiousness.npy]
+[START Dataset Preview: jnmf_data]
+|-- X1_conscientiousness.npy
+|-- X2_conscientiousness.npy
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Place the four factor matrices in `pred_results/` using the exact filenames:
+- `fit_result_conscientiousness_W_high.npy`
+- `fit_result_conscientiousness_H_high.npy`
+- `fit_result_conscientiousness_W_low.npy`
+- `fit_result_conscientiousness_H_low.npy`
 
 ## Evaluation
 
-Negative root mean squared error (closer to zero is better).
+The grader checks non-negativity and measures reconstruction error for each input (thresholds: X1 < 34, X2 < 32). Both conditions must be satisfied to receive credit.

@@ -1,69 +1,88 @@
-"""
-Data preparation for ScienceBench Task 93: plot_h_distribution
-Dataset: jnmf_visualization
-"""
+"""Data preparation for ScienceBench task 93 (H distribution visualization)."""
+
+from __future__ import annotations
+
+import base64
+import shutil
+from pathlib import Path
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-import shutil
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the plot_h_distribution task data.
+DATASET_NAME = "jnmf_visualization"
+EXPECTED_FILENAME = "H_distribution_conscientiousness.png"
+GOLD_FILENAME = "H_distribution_conscientiousness_gold.png"
 
-    Args:
-        raw: Path to raw data directory
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 93: plot_h_distribution")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
 
-    # Source dataset path
-    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/jnmf_visualization")
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
+
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_path() -> Path:
+    return (
+        _repo_root()
+        / "ScienceAgent-bench"
+        / "benchmark"
+        / "eval_programs"
+        / "gold_results"
+        / GOLD_FILENAME
+    )
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    copied = 0
+    for item in src.rglob("*"):
+        if not item.is_file():
+            continue
+        rel = item.relative_to(src)
+        target = dest_root / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(item, target)
+        copied += 1
+    print(f"✓ Copied {copied} dataset file(s) to {dest_root}")
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 93")
+    print("Dataset:", DATASET_NAME)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    source_dir = raw if raw.exists() else _dataset_dir()
     if not source_dir.exists():
-        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
 
-    # Copy all numpy files to public
-    print(f"\nCopying data files to public directory...")
-    for npy_file in source_dir.glob("*.npy"):
-        shutil.copy2(npy_file, public / npy_file.name)
-        print(f"  ✓ Copied: {npy_file.name}")
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold image not found: {gold_path}")
 
-    # Create sample_submission as a placeholder
-    # For image outputs, we just indicate the expected filename
-    sample_submission = pd.DataFrame({
-        "output_file": ["H_distribution_conscientiousness.png"],
-        "output_type": ["image/png"]
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print(f"\n✓ Created sample_submission.csv")
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    # Copy gold result image to private for comparison
-    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/H_distribution_conscientiousness_gold.png")
-    if gold_file.exists():
-        shutil.copy2(gold_file, private / "H_distribution_conscientiousness_gold.png")
-        print(f"✓ Copied gold result image to private")
-    else:
-        print(f"⚠ Warning: Gold result image not found at {gold_file}")
+    _copy_dataset(source_dir, public)
 
-    # Create answer metadata file
-    answer_meta = pd.DataFrame({
-        "expected_file": ["H_distribution_conscientiousness.png"],
-        "gold_file": ["H_distribution_conscientiousness_gold.png"],
-        "evaluation_method": ["visual_similarity"],
-        "threshold": [60]
-    })
-    answer_meta.to_csv(private / "answer.csv", index=False)
-    print(f"✓ Created answer.csv with evaluation metadata")
+    sample_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": ""}])
+    sample_df.to_csv(public / "sample_submission.csv", index=False)
+    print("✓ Created sample_submission.csv")
 
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
-    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")
+    gold_bytes = gold_path.read_bytes()
+    (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
+    encoded = base64.b64encode(gold_bytes).decode("utf-8")
+    pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": encoded}]).to_csv(
+        private / "answer.csv", index=False
+    )
+    print("✓ Stored gold image and encoded answer")
+
+    print("Data preparation completed.")

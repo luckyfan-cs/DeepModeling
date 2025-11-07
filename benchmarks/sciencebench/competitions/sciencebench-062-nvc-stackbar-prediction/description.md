@@ -5,27 +5,25 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Computational Analysis, Data Visualization
 - Source: nriesterer/syllogistic-nvc
-- Expected Output: stackedbar_prediction.png
 - Output Type: Image
 
 ## Task
 
-Generate a stacked bar plot illustrating the error metrics (misses, false alarms, total errors) for different models using the prediction data. The data is available in the accuracies_data_for_plot.csv file.
+Visualise the syllogistic model accuracies as a stacked bar chart highlighting plain predictions versus truth labels. Save the rendered figure to `pred_results/stackedbar_prediction.png`.
 
 ## Dataset
 
-[START Preview of nvc/accuracies_data_for_plot.csv]
-model,nvc,task,prediction,plain_prediction,truth,improvement,hit_model,hit_nvc
-PSYCOP,PartNeg,IA4,Iac;Ica;Oac;Oca,Iac;Ica;Oac;Oca,Ica,0.0,0.25,0.25
-PSYCOP,EmptyStart,IA4,Iac;Ica;Oac;Oca,Iac;Ica;Oac;Oca,Ica,0.0,0.25,0.25
-PSYCOP,FiguralRule,IA4,NVC,Iac;Ica;Oac;Oca,Ica,-0.25,0.25,0.0
-...
-[END Preview of nvc/accuracies_data_for_plot.csv]
+[START Dataset Preview: nvc]
+|-- Ragni2016.csv
+|-- accuracies_data_for_plot.csv
+|-- ind_data_for_plot.csv
+|-- valid_syllogisms.csv
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with the expected file name.
+Create `sample_submission.csv` with the columns `file_name` and `image_base64`. Include a single row for `stackedbar_prediction.png` and leave the encoded value blank.
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes the submitted PNG, compares it with the reference visualization, and awards full credit when the similarity score reaches at least 60.

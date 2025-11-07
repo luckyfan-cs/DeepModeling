@@ -267,6 +267,41 @@ class ScienceBenchmark(BaseBenchmark):
             "submission_exists", "valid_submission", "error_message",
         ]
 
+    def _load_dataframe(self, path: Path) -> pd.DataFrame:
+        suffix = path.suffix.lower()
+        if suffix == ".csv":
+            return pd.read_csv(path)
+        if suffix in {".pkl", ".pickle"}:
+            try:
+                return pd.read_pickle(path)
+            except ModuleNotFoundError as exc:
+                if "numpy._core.numeric" in str(exc):
+                    import numpy as np
+                    import sys
+                    import numpy.core.numeric  # ensure module is importable
+                    sys.modules.setdefault("numpy._core", np.core)
+                    sys.modules.setdefault("numpy._core.numeric", numpy.core.numeric)
+                    return pd.read_pickle(path)
+                raise
+        if suffix == ".json":
+            return pd.read_json(path)
+
+        raise ValueError(f"Unsupported submission format: {path.suffix}")
+
+    def _resolve_answers_path(self, problem: Dict[str, Any]) -> Optional[Path]:
+        try:
+            registry_dir = Path(problem["registry_dir"])
+            with open(registry_dir / "config.yaml", "r", encoding="utf-8") as handle:
+                config = yaml.safe_load(handle) or {}
+            dataset_cfg = config.get("dataset") or {}
+            answers_rel = dataset_cfg.get("answers")
+            if not answers_rel:
+                return None
+            return self.data_dir / answers_rel
+        except Exception as exc:
+            logger.warning("Unable to resolve answers path: %s", exc)
+            return None
+
     def _create_error_report(self, competition_id: str, submission_path: Path, error_msg: str) -> CompetitionReport:
         """Creates a dummy report if grading or eval_fn execution fails."""
         report = CompetitionReport(
@@ -370,11 +405,12 @@ class ScienceBenchmark(BaseBenchmark):
             report = self._create_error_report(competition_id, output_submission_path, final_error)
             error_message = final_error
 
+        answers_path = self._resolve_answers_path(problem)
+
         if not report.valid_submission:
-            answers_path = Path(problem["data_dir"]) / "private" / "answer.csv"
             self.log_mismatch(
                 problem=competition_id,
-                expected_output=str(answers_path),
+                expected_output=str(answers_path) if answers_path else "<unknown>",
                 prediction=f"File: {output_submission_path}, Exists: {report.submission_exists}, Valid: {report.valid_submission}",
                 extracted_output=report.score,
                 extract_answer_code=error_message or "Grading function failed or file invalid/missing"
@@ -382,7 +418,6 @@ class ScienceBenchmark(BaseBenchmark):
             if not error_message:
                 error_message = "Submission invalid or missing."
 
-        answers_path = Path(problem["data_dir"]) / "private" / "answer.csv"
         csv_tuple = (
             report.competition_id, str(report.submission_path), str(answers_path),
             report.score, cost, report.gold_medal, report.silver_medal, report.bronze_medal,
@@ -434,7 +469,7 @@ class ScienceBenchmark(BaseBenchmark):
                     error_message="Submission file not found"
                 )
 
-            submission_df = pd.read_csv(submission_path)
+            submission_df = self._load_dataframe(submission_path)
 
             # Load answers
             answers_rel_path = config['dataset']['answers']
@@ -449,7 +484,7 @@ class ScienceBenchmark(BaseBenchmark):
                     error_message=f"Answers file not found: {answers_path}"
                 )
 
-            answers_df = pd.read_csv(answers_path)
+            answers_df = self._load_dataframe(answers_path)
 
             # Grade
             score = grade_fn(submission_df, answers_df)

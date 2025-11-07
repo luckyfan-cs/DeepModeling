@@ -1,66 +1,79 @@
-"""Prepare data for ScienceBench Task 76 (Mineral prospectivity map)."""
+"""
+Data preparation for ScienceBench task 76 (mineral prospectivity visualization).
+"""
+
+from __future__ import annotations
 
 import base64
-from pathlib import Path
 import shutil
-from typing import Iterable
+from pathlib import Path
 
 import pandas as pd
 
+DATASET_NAME = "MineralProspectivity"
 EXPECTED_FILENAME = "mineral_prospectivity.png"
-DATA_ROOT = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/MineralProspectivity")
-GOLD_IMAGE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/mineral_prospectivity_gold.png")
+GOLD_FILENAME = "mineral_prospectivity_gold.png"
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
+
+
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_path() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / GOLD_FILENAME
 
 
 def _ensure_dir(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
-def _copy_files(files: Iterable[Path], destination_root: Path) -> None:
-    for file_path in files:
-        rel = file_path.relative_to(DATA_ROOT.parent)
-        target = destination_root / rel
+def _copy_dataset(src: Path, public: Path) -> None:
+    dest_root = public / DATASET_NAME
+    counter = 0
+    for item in src.rglob("*"):
+        if not item.is_file():
+            continue
+        rel = item.relative_to(src)
+        target = dest_root / rel
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(file_path, target)
-
-
-def _encode_image(path: Path) -> str:
-    return base64.b64encode(path.read_bytes()).decode("utf-8")
+        shutil.copy2(item, target)
+        counter += 1
+    print(f"✓ Copied {counter} dataset file(s) to {dest_root}")
 
 
 def prepare(raw: Path, public: Path, private: Path) -> None:
     print("=" * 60)
-    print("Preparing ScienceBench Task 76: Mineral prospectivity map")
+    print("Preparing ScienceBench Task 76")
+    print("Dataset:", DATASET_NAME)
     print("=" * 60)
+    print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
 
+    source_dir = raw if raw.exists() else _dataset_dir()
+    if not source_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {source_dir}")
+
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold image not found: {gold_path}")
+
     _ensure_dir(public)
     _ensure_dir(private)
+    _copy_dataset(source_dir, public)
 
-    if not DATA_ROOT.exists():
-        raise FileNotFoundError(f"Missing dataset directory: {DATA_ROOT}")
-    if not GOLD_IMAGE.exists():
-        raise FileNotFoundError(f"Missing gold image: {GOLD_IMAGE}")
-
-    data_files = sorted(p for p in DATA_ROOT.glob("*") if p.is_file())
-    _copy_files(data_files, public)
-    print(f"✓ Copied {len(data_files)} dataset files to public directory")
-
-    gold_b64 = _encode_image(GOLD_IMAGE)
-    shutil.copy2(GOLD_IMAGE, private / GOLD_IMAGE.name)
-    print("✓ Copied gold image for diagnostics")
-
-    sample_df = pd.DataFrame(
-        [{"file_name": EXPECTED_FILENAME, "image_base64": ""}],
-    )
+    sample_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": ""}])
     sample_df.to_csv(public / "sample_submission.csv", index=False)
     print("✓ Created sample_submission.csv")
 
-    answer_df = pd.DataFrame(
-        [{"file_name": EXPECTED_FILENAME, "image_base64": gold_b64}],
-    )
+    encoded = base64.b64encode(gold_path.read_bytes()).decode("utf-8")
+    answer_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": encoded}])
     answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Created answer.csv with encoded gold image")
+    shutil.copy2(gold_path, private / gold_path.name)
+    print("✓ Stored encoded gold image and copied original")
 
-    print("Preparation complete.")
+    print("Data preparation completed.")

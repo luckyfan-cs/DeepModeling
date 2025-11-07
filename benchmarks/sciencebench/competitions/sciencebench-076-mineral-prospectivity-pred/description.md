@@ -13,12 +13,12 @@ Run a random-forest-based prospectivity analysis for tin–tungsten deposits acr
 
 ## Dataset
 
-The `MineralProspectivity/` directory contains the inputs required by the notebook:
-
-- `sn_w_minoccs.gpkg` records known mineral occurrences.
-- Raster layers such as `tasgrav_IR.tif`, `tasmag_TMI.tif`, and `tasrad_*` provide geophysical evidence grids.
-
-Use these assets to reproduce the preprocessing, feature extraction, and model training steps from the source project.
+[START Dataset Preview: MineralProspectivity]
+|-- sn_w_minoccs.gpkg
+|-- tasgrav_IR.tif
+|-- tasmag_TMI.tif
+|-- tasrad_K_pct.tif
+[END Dataset Preview]
 
 ## Submission Format
 

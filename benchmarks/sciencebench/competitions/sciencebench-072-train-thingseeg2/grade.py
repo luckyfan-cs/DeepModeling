@@ -1,63 +1,63 @@
-"""Grading logic for ScienceBench Task 72 (EEG2EEG subject transfer)."""
+"""
+Grading function for ScienceBench task 72 (EEG2EEG subject transfer).
+"""
 
-import base64
-import io
-from typing import Tuple
+from __future__ import annotations
+
+from pathlib import Path
 
 import numpy as np
-import pandas as pd
 from scipy.stats import spearmanr
 
-EXPECTED_FILENAME = "eeg2eeg_sub01tosub03_pred.npy"
-REQUIRED_COLUMNS = {"file_name", "array_base64"}
-SPEARMAN_THRESHOLD = 0.73
+THRESHOLD = 0.73
+PRED_FILENAME = "eeg2eeg_sub01tosub03_pred.npy"
 
 
-def _decode_array(payload: str) -> np.ndarray:
-    """Decode a base64-encoded NumPy array."""
-    if not isinstance(payload, str) or not payload.strip():
-        raise ValueError("array_base64 must contain a non-empty string.")
-
-    buffer = io.BytesIO(base64.b64decode(payload))
-    buffer.seek(0)
-    return np.load(buffer, allow_pickle=False)
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
 
-def _extract_array(df: pd.DataFrame, source: str) -> Tuple[np.ndarray, bool]:
-    """Fetch and decode the array for EXPECTED_FILENAME."""
-    subset = df[df["file_name"] == EXPECTED_FILENAME]
-    if subset.empty:
-        print(f"Missing row for {EXPECTED_FILENAME} in {source}.")
-        return np.empty((0,)), False
-
-    encoded = subset.iloc[0]["array_base64"]
-    return _decode_array(encoded), True
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / "thingseeg2"
 
 
-def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade the submission by comparing Spearman correlation with the reference.
-    """
-    if not REQUIRED_COLUMNS.issubset(submission.columns):
-        raise ValueError(f"Submission must contain columns: {REQUIRED_COLUMNS}")
-    if not REQUIRED_COLUMNS.issubset(answers.columns):
-        raise ValueError(f"Answers must contain columns: {REQUIRED_COLUMNS}")
+def _gold_path() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / "sub03.npy"
 
-    pred_array, ok_pred = _extract_array(submission, "submission")
-    gold_array, ok_gold = _extract_array(answers, "answers")
 
-    if not (ok_pred and ok_gold):
-        print("Missing expected file entry in submission or answers.")
+def _pred_path() -> Path:
+    return Path("pred_results") / PRED_FILENAME
+
+
+def _load_array(path: Path) -> np.ndarray:
+    if not path.exists():
+        raise FileNotFoundError(f"Required file missing: {path}")
+    return np.load(path)
+
+
+def _prepare_gold() -> np.ndarray:
+    dataset_dir = _dataset_dir()
+    train = _load_array(dataset_dir / "train" / "sub03.npy")
+    gold = _load_array(_gold_path())
+
+    mean = train.mean()
+    std = train.std()
+    normalized = (gold - mean) / std
+    reshaped = np.transpose(normalized, (1, 0, 2)).reshape(200, 3400)
+    return reshaped
+
+
+def grade(submission, answers) -> float:
+    pred = _load_array(_pred_path())
+    gold = _prepare_gold()
+
+    if pred.shape != gold.shape:
+        print(f"Shape mismatch: submission {pred.shape} vs gold {gold.shape}")
         return 0.0
 
-    if pred_array.shape != gold_array.shape:
-        print(f"Shape mismatch: submission {pred_array.shape} vs gold {gold_array.shape}")
-        return 0.0
-
-    corr = spearmanr(pred_array.ravel(), gold_array.ravel())[0]
+    corr = spearmanr(pred.ravel(), gold.ravel())[0]
     print(f"Spearman correlation: {corr}")
 
     if np.isnan(corr):
         return 0.0
-
-    return 1.0 if corr >= SPEARMAN_THRESHOLD else 0.0
+    return 1.0 if corr >= THRESHOLD else 0.0

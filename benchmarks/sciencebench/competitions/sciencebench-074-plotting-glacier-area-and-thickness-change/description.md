@@ -14,7 +14,12 @@ I would like to simulate and display the change of glacier area and thickness fo
 
 ## Dataset
 
-N/A
+[START Dataset Preview: ocean_glacier]
+|-- RGI60-11.00001/elevation_band_flowline.csv
+|-- RGI60-11.00001/model_diagnostics_historical.nc
+|-- RGI60-11.00001/model_flowlines_dyn_melt_f_calib.pkl
+|-- RGI60-11.00001/gridded_data.nc
+[END Dataset Preview]
 
 ## Submission Format
 

@@ -1,63 +1,73 @@
-"""Data preparation for ScienceBench Task 69 (Heart Cell Atlas UMAP)."""
+"""
+Data preparation for ScienceBench task 69.
+"""
 
-from pathlib import Path
-import shutil
+from __future__ import annotations
+
 import base64
+import shutil
+from pathlib import Path
+
 import pandas as pd
 
-DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/hca")
-SOURCE_FILE = DATA_DIR / "hca_subsampled_20k.h5ad"
-GOLD_IMAGE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/hca_cell_type_pca_gold.png")
+DATASET_NAME = "hca"
+SOURCE_FILE = "hca_subsampled_20k.h5ad"
 EXPECTED_FILENAME = "hca_cell_type_pca.png"
+GOLD_FILENAME = "hca_cell_type_pca_gold.png"
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
+
+
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
+
+
+def _gold_path() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / GOLD_FILENAME
 
 
 def _ensure_dir(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
-def _encode_image(path: Path) -> str:
-    if not path.exists():
-        return ""
-    return base64.b64encode(path.read_bytes()).decode("utf-8")
-
-
 def prepare(raw: Path, public: Path, private: Path) -> None:
     print("=" * 60)
-    print("Preparing ScienceBench Task 69: Heart Cell Atlas UMAP")
+    print("Preparing ScienceBench Task 69")
+    print("Dataset:", DATASET_NAME)
     print("=" * 60)
+    print("Raw directory:", raw)
     print("Public directory:", public)
     print("Private directory:", private)
+
+    dataset_dir = raw if raw.exists() else _dataset_dir()
+    if not dataset_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {dataset_dir}")
+
+    source_file = dataset_dir / SOURCE_FILE
+    if not source_file.exists():
+        raise FileNotFoundError(f"Missing dataset file: {source_file}")
 
     _ensure_dir(public)
     _ensure_dir(private)
 
-    if not SOURCE_FILE.exists():
-        raise FileNotFoundError(f"Missing dataset file: {SOURCE_FILE}")
-
-    target = public / SOURCE_FILE.relative_to(DATA_DIR.parent)
+    target = public / DATASET_NAME / SOURCE_FILE
     target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(SOURCE_FILE, target)
-    print("✓ Copied hca_subsampled_20k.h5ad to public directory")
+    shutil.copy2(source_file, target)
+    print(f"✓ Copied {SOURCE_FILE} to public directory")
 
-    sample_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": ""}
-    ])
+    sample_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": ""}])
     sample_df.to_csv(public / "sample_submission.csv", index=False)
-    print("✓ Wrote sample_submission.csv")
+    print("✓ Created sample_submission.csv")
 
-    encoded = _encode_image(GOLD_IMAGE)
-    answer_df = pd.DataFrame([
-        {"file_name": EXPECTED_FILENAME, "image_base64": encoded}
-    ])
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold image not found: {gold_path}")
+    encoded = base64.b64encode(gold_path.read_bytes()).decode("utf-8")
+    answer_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": encoded}])
     answer_df.to_csv(private / "answer.csv", index=False)
-    print("✓ Wrote answer.csv")
+    shutil.copy2(gold_path, private / gold_path.name)
+    print("✓ Stored encoded gold image and copied original")
 
-    if GOLD_IMAGE.exists():
-        shutil.copy2(GOLD_IMAGE, private / GOLD_IMAGE.name)
-        print("✓ Copied gold image for reference")
-
-    print("Preparation complete. Expected submission file: pred_results/hca_cell_type_pca.png")
-
-
-if __name__ == "__main__":
-    raise SystemExit("Use this module via the benchmark preparation tooling.")
+    print("Data preparation completed.")

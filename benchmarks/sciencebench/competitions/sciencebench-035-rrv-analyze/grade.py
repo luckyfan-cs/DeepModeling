@@ -1,35 +1,53 @@
-"""
-Grading function for ScienceBench task 35
-"""
+"""Grading function for ScienceBench task 35 (RRV analysis)."""
+
+from __future__ import annotations
+
+import math
+from typing import Iterable
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+TOLERANCE = 1.0
+MIN_MATCH_RATIO = 0.6
+
+
+def _iter_columns(df: pd.DataFrame) -> Iterable[str]:
+    """Return columns in a deterministic order."""
+    return list(df.columns)
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
+    if answers.empty:
+        print("Answer data is empty.")
+        return 0.0
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    missing_columns = set(answers.columns) - set(submission.columns)
+    if missing_columns:
+        print(f"Submission missing required columns: {sorted(missing_columns)}")
+        return 0.0
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    submission_aligned = submission[_iter_columns(answers)]
+    if len(submission_aligned) != len(answers):
+        print(f"Row count mismatch: submission {len(submission_aligned)} vs gold {len(answers)}")
+        return 0.0
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    matches = 0
+    total = len(answers.columns)
 
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    for column in answers.columns:
+        diff = (submission_aligned[column] - answers[column]).abs().sum()
+        if math.isnan(diff):
+            print(f"Non-numeric values encountered in column '{column}'.")
+            return 0.0
+        if diff <= TOLERANCE:
+            matches += 1
+
+    ratio = matches / total if total else 0.0
+    if ratio < MIN_MATCH_RATIO:
+        print(f"RRV feature matches: {matches} / {total}")
+        return 0.0
+
+    return 1.0

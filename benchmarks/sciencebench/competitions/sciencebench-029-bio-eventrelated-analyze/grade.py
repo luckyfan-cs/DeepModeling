@@ -1,35 +1,74 @@
-"""
-Grading function for ScienceBench task 29
-"""
+"""Grading function for ScienceBench task 29 (biosignal event analysis)."""
+
+from __future__ import annotations
+
+import math
+from typing import Any
 
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+REQUIRED_COLUMNS = ["Condition", "ECG_Rate_Mean", "RSP_Rate_Mean", "EDA_Peak_Amplitude"]
+
+
+def _rounded(value: Any, digits: int = 3) -> float:
+    """Round a scalar to the desired precision, returning NaN on failure."""
+    try:
+        return round(float(value), digits)
+    except (TypeError, ValueError):
+        return float("nan")
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    if submission.empty:
+        print("Submission is empty.")
+        return 0.0
+    if answers.empty:
+        print("Answer data is empty.")
+        return 0.0
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    if not set(REQUIRED_COLUMNS).issubset(submission.columns):
+        print("Submission missing required columns.")
+        return 0.0
+    if not set(REQUIRED_COLUMNS).issubset(answers.columns):
+        print("Answers missing required columns.")
+        return 0.0
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
+    pred = submission[REQUIRED_COLUMNS].copy().reset_index(drop=True)
+    gold = answers[REQUIRED_COLUMNS].copy().reset_index(drop=True)
 
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
+    if len(pred) != len(gold):
+        print(f"Row count mismatch: submission {len(pred)} vs gold {len(gold)}")
+        return 0.0
 
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    total_cells = len(gold) * len(REQUIRED_COLUMNS)
+    cell_matches = 0
+
+    for idx, gold_row in gold.iterrows():
+        pred_row = pred.iloc[idx]
+
+        matches = [0] * len(REQUIRED_COLUMNS)
+        matches[0] = int(pred_row["Condition"] == gold_row["Condition"])
+
+        ecg_pred = _rounded(pred_row["ECG_Rate_Mean"])
+        ecg_gold = _rounded(gold_row["ECG_Rate_Mean"])
+
+        rsp_pred = _rounded(pred_row["RSP_Rate_Mean"])
+        rsp_gold = _rounded(gold_row["RSP_Rate_Mean"])
+
+        eda_pred = _rounded(pred_row["EDA_Peak_Amplitude"])
+        eda_gold = _rounded(gold_row["EDA_Peak_Amplitude"])
+
+        if any(math.isnan(value) for value in (ecg_pred, ecg_gold, rsp_pred, rsp_gold, eda_pred, eda_gold)):
+            print(f"Non-numeric values detected at row {idx}.")
+            return 0.0
+
+        matches[1] = int(abs(ecg_pred - ecg_gold) <= 0.5)
+        matches[2] = int(abs(rsp_pred - rsp_gold) <= 0.5)
+        matches[3] = int(abs(eda_pred - eda_gold) <= 1.0)
+
+        cell_matches += sum(matches)
+
+    if cell_matches != total_cells:
+        print(f"Biosignal event analysis matches: {cell_matches} / {total_cells}")
+
+    return float(cell_matches == total_cells)

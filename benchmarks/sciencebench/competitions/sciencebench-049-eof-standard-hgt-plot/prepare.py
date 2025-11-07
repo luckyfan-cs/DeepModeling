@@ -10,7 +10,7 @@ import pandas as pd
 
 
 EXPECTED_FILENAME = "EOF_standard.png"
-GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EOF_standard_hgt_plot_gold.png") if "/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EOF_standard_hgt_plot_gold.png" else None
+GOLD_IMAGE_PATH = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EOF_standard_hgt_plot_gold.png")
 SOURCE_DATASET = "EOF_standard"
 
 
@@ -54,7 +54,7 @@ def prepare(raw: Path, public: Path, private: Path):
     private.mkdir(parents=True, exist_ok=True)
 
     gold_base64 = ""
-    if GOLD_IMAGE_PATH and GOLD_IMAGE_PATH.exists():
+    if GOLD_IMAGE_PATH.exists():
         gold_bytes = GOLD_IMAGE_PATH.read_bytes()
         (private / EXPECTED_FILENAME).write_bytes(gold_bytes)
         gold_base64 = base64.b64encode(gold_bytes).decode("utf-8")

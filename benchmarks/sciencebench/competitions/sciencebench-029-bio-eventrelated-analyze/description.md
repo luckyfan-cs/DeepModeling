@@ -49,4 +49,9 @@ Submit `sample_submission.csv` with the same header and column order as the temp
 
 ## Evaluation
 
-Negative root mean squared error (closer to zero is better).
+Submissions pass when the biosignal statistics match the reference values.
+
+- `Condition` must align row-by-row.
+- Rounded means for `ECG_Rate_Mean` and `RSP_Rate_Mean` must be within ±0.5 of the reference.
+- Rounded `EDA_Peak_Amplitude` must be within ±1.0 of the reference.
+- Any deviation beyond these tolerances fails evaluation.

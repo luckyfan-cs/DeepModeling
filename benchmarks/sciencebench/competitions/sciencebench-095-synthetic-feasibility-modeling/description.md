@@ -5,21 +5,24 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Feature Engineering, Deep Learning
 - Source: deepchem/deepchem
-- Expected Output: tox21_mol_scscores_pred.npy
-- Output Type: Tabular
+- Expected Output: `tox21_mol_scscores_pred.npy`
+- Output Type: NumPy array
 
 ## Task
 
-Train a synthetic feasibility model using the NumpyDataset in the train_mols.pkl file of the tox21 dataset. Featurize all our molecules with the ECFP fingerprint with chirality. Use radius 2 and 512 feature dimensions. Create a training set of 100000 molecue pairs and fit the model for 20 epochs. Use the length of smiles as the ground truth complexity metric. After that, predict the complexity scores for the molecues in the test_mols.pkl file.
+Train a synthetic feasibility surrogate model using the provided Tox21 train/test molecule sets. Use the specified featurisation pipeline (ECFP radius 2, 512 bits) to predict the synthetic complexity scores for the test molecules and save the resulting NumPy array.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: tox21]
+|-- train_mols.pkl
+|-- test_mols.pkl
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Save the predicted scores to `pred_results/tox21_mol_scscores_pred.npy`. The array must align with the order of molecules in `test_mols.pkl`.
 
 ## Evaluation
 
-Classification accuracy (higher is better).
+The grader computes the mean squared error against the gold scores (pass if MSE ≤ 0.4).

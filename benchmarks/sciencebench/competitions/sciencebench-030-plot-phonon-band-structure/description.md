@@ -10,11 +10,16 @@
 
 ## Task
 
-Calculate and plot the phonon band structure using the output from VASP DFPT calculations saved in "vasprun.dfpt.phonon.xml.gz".
+Read the DFPT results in `vasprun.dfpt.phonon.xml.gz`, reconstruct the phonon dispersion, and render the band structure plot with an appropriate high-symmetry path. Keep the axes labeled and include a legend if multiple branches require clarification. Store the visualization in the output image file expected by the submission template.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: materials_genomics]
+|-- F_CHGCAR
+|-- LiMoS2_F_CHGCAR
+|-- LiMoS2_CHGCAR
+|-- vasprun.dfpt.phonon.xml.gz
+[END Dataset Preview]
 
 ## Submission Format
 
@@ -22,4 +27,4 @@ Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. 
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes the submitted image, compares it against the reference visualization, and assigns a similarity score. Scores below 60 fail the evaluation.

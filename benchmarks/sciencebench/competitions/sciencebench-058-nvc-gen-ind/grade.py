@@ -1,35 +1,51 @@
 """
-Grading function for ScienceBench task 58
+Grading function for ScienceBench task 58.
 """
 
+from __future__ import annotations
+
 import pandas as pd
-import numpy as np
-from pathlib import Path
-from sklearn.metrics import mean_squared_error
+
+EXPECTED_COLUMNS = ["Model", "Rule", "Num persons"]
+
+
+def _normalise(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame(columns=EXPECTED_COLUMNS)
+
+    if all(column in df.columns for column in EXPECTED_COLUMNS):
+        result = df[EXPECTED_COLUMNS].copy()
+    elif len(df.columns) == 1:
+        column = df.columns[0]
+        split = df[column].astype(str).str.split(";", expand=True)
+        if split.shape[1] != 3:
+            raise ValueError("Unable to parse semicolon-separated submission format.")
+        split.columns = EXPECTED_COLUMNS
+        result = split
+    else:
+        raise ValueError("Submission must contain columns 'Model', 'Rule', 'Num persons'.")
+
+    result["Model"] = result["Model"].astype(str).str.strip()
+    result["Rule"] = result["Rule"].astype(str).str.strip()
+    result["Num persons"] = result["Num persons"].astype(int)
+    return result
 
 
 def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
-    """
-    Grade submission using RMSE metric (lower is better).
+    submission_norm = _normalise(submission)
+    answers_norm = _normalise(answers)
 
-    Args:
-        submission: DataFrame with predictions
-        answers: DataFrame with ground truth
+    submission_sorted = submission_norm.sort_values(["Model", "Rule"]).reset_index(drop=True)
+    answers_sorted = answers_norm.sort_values(["Model", "Rule"]).reset_index(drop=True)
 
-    Returns:
-        Negative RMSE (higher is better for consistency)
-    """
-    # 对齐数据
-    if 'id' in submission.columns and 'id' in answers.columns:
-        merged = pd.merge(answers, submission, on='id', suffixes=('_true', '_pred'))
-
-        # 找到预测列
-        pred_col = [c for c in merged.columns if c.endswith('_pred')][0]
-        true_col = pred_col.replace('_pred', '_true')
-
-        rmse = mean_squared_error(merged[true_col], merged[pred_col], squared=False)
-        return -rmse  # 负数，因为更高的分数更好
-    else:
-        # 简单 RMSE
-        rmse = np.sqrt(np.mean((submission.values - answers.values) ** 2))
-        return -rmse
+    try:
+        pd.testing.assert_frame_equal(
+            submission_sorted,
+            answers_sorted,
+            check_dtype=False,
+            check_exact=True,
+        )
+        return 1.0
+    except AssertionError as exc:
+        print(f"Mismatch detected: {exc}")
+        return 0.0

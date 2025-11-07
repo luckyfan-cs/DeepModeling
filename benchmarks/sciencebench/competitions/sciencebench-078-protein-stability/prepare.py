@@ -1,91 +1,77 @@
 """
-Data preparation for ScienceBench task 78
-Dataset: pucci
+Data preparation for ScienceBench task 78 (protein stability prediction).
 """
 
-import pandas as pd
-import numpy as np
+from __future__ import annotations
+
 from pathlib import Path
 import shutil
-import json
+
+import pandas as pd
+
+DATASET_NAME = "pucci"
+TRAIN_FILE = "pucci-proteins_train.csv"
+TEST_FILE = "pucci-proteins_test.csv"
+EXPECTED_FILENAME = "pucci-proteins_test_pred.csv"
+GOLD_FILENAME = "pucci-proteins_test_gold.csv"
 
 
-SOURCE_DATASET = "pucci"
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[5]
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the ScienceAgent task data.
-
-    Args:
-        raw: Path to raw data directory (ScienceAgent-bench datasets)
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 78")
-    print(f"Dataset: pucci")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
-
-    # 检查原始数据是否存在
-    if not raw.exists():
-        print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
-        return
-
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
-    file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
-            rel_path = file.relative_to(raw)
-            target = public / rel_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, target)
-            file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
-
-    if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
-
-    # 创建 sample_submission 文件
-    # CSV 输出格式
-    sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
-
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+def _dataset_dir() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "datasets" / DATASET_NAME
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
+def _gold_path() -> Path:
+    return _repo_root() / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / GOLD_FILENAME
 
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
 
-    print("Placeholder files created")
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 78")
+    print("Dataset:", DATASET_NAME)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
+
+    dataset_dir = raw if raw.exists() else _dataset_dir()
+    if not dataset_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {dataset_dir}")
+
+    train_path = dataset_dir / TRAIN_FILE
+    test_path = dataset_dir / TEST_FILE
+    if not train_path.exists() or not test_path.exists():
+        raise FileNotFoundError("Missing Pucci dataset CSVs.")
+
+    gold_path = _gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold CSV not found: {gold_path}")
+
+    _ensure_dir(public)
+    _ensure_dir(private)
+
+    for source in (train_path, test_path):
+        target = public / DATASET_NAME / source.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+    print("✓ Copied Pucci train/test CSVs")
+
+    sample_df = pd.DataFrame({"deltaTm": [0.0]})
+    sample_df.to_csv(public / "sample_submission.csv", index=False)
+    print("✓ Created sample_submission.csv with placeholder column")
+
+    gold_df = pd.read_csv(gold_path)
+    gold_df.to_csv(private / "answer.csv", index=False)
+    print("✓ Wrote answer.csv containing gold deltaTm values")
+
+    shutil.copy2(gold_path, private / gold_path.name)
+    print("✓ Copied gold CSV for reference")
+
+    print("Data preparation completed.")

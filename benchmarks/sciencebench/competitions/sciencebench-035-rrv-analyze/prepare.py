@@ -3,17 +3,22 @@ Data preparation for ScienceBench task 35
 Dataset: biosignals
 """
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
+from __future__ import annotations
+
 import shutil
-import json
+from pathlib import Path
 
+import pandas as pd
 
+GOLD_FILE = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/rrv_analysis_gold.csv")
 SOURCE_DATASET = "biosignals"
 
 
-def prepare(raw: Path, public: Path, private: Path):
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def prepare(raw: Path, public: Path, private: Path) -> None:
     """
     Prepare the ScienceAgent task data.
 
@@ -22,70 +27,56 @@ def prepare(raw: Path, public: Path, private: Path):
         public: Path to public directory (visible to participants)
         private: Path to private directory (used for grading)
     """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 35")
-    print(f"Dataset: biosignals")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
+    print("=" * 60)
+    print("Preparing ScienceBench Task 35")
+    print("Dataset:", SOURCE_DATASET)
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
 
-    # 检查原始数据是否存在
+    _ensure_dir(public)
+    _ensure_dir(private)
+
     if not raw.exists():
         print(f"\n⚠ Warning: Raw data directory not found: {raw}")
-        print("Creating placeholder files...")
-        create_placeholder_files(public, private)
+        _create_placeholder_files(public, private)
         return
 
-    # 复制所有数据文件到 public
-    print(f"\nCopying data files to public directory...")
+    print("\nCopying data files to public directory...")
     file_count = 0
-    for file in raw.rglob('*'):
-        if file.is_file() and not file.name.startswith('.'):
+    for file in raw.rglob("*"):
+        if file.is_file() and not file.name.startswith("."):
             rel_path = file.relative_to(raw)
             target = public / rel_path
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(file, target)
             file_count += 1
-            if file_count <= 10:  # Only print first 10 files
-                print(f"  ✓ Copied: {rel_path}")
+            if file_count <= 10:
+                print("  ✓ Copied:", rel_path)
 
     if file_count > 10:
-        print(f"  ... and {file_count - 10} more files")
-    print(f"  Total files copied: {file_count}")
+        print("  ... and", file_count - 10, "more files")
+    print("  Total files copied:", file_count)
 
-    # 创建 sample_submission 文件
-    # CSV 输出格式
-    sample_submission = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print("Created sample_submission.csv")
+    if GOLD_FILE.exists():
+        gold_df = pd.read_csv(GOLD_FILE)
+        sample_rows = gold_df.head(1).copy()
+        sample_rows.to_csv(public / "sample_submission.csv", index=False)
+        gold_df.to_csv(private / "answer.csv", index=False)
+        print("✓ Created sample_submission.csv and answer.csv from gold data")
+    else:
+        print(f"⚠ Gold file not found: {GOLD_FILE}")
+        _create_placeholder_files(public, private)
+        return
 
-    # 创建答案文件（placeholder）
-    answer = pd.DataFrame({
-        "id": [0, 1, 2],
-        "value": [0.0, 0.0, 0.0]
-    })
-    answer.to_csv(private / "answer.csv", index=False)
-    print("Created answer.csv (placeholder)")
-
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {list(public.glob('*'))}")
-    print(f"  Private files: {list(private.glob('*'))}")
+    print("\nData preparation completed!")
+    print("  Public files:", list(public.glob("*")))
+    print("  Private files:", list(private.glob("*")))
 
 
-def create_placeholder_files(public: Path, private: Path):
-    """创建占位符文件"""
-    # Public
-    pd.DataFrame({"info": ["Data not available"]}).to_csv(
-        public / "sample_submission.csv", index=False
-    )
-
-    # Private
-    pd.DataFrame({"info": ["Answer not available"]}).to_csv(
-        private / "answer.csv", index=False
-    )
-
+def _create_placeholder_files(public: Path, private: Path) -> None:
+    """Create placeholder CSVs when raw or gold data are unavailable."""
+    pd.DataFrame().to_csv(public / "sample_submission.csv", index=False)
+    pd.DataFrame().to_csv(private / "answer.csv", index=False)
     print("Placeholder files created")

@@ -1,72 +1,69 @@
 """
-Data preparation for ScienceBench Task 43: EOG_analyze
+Data preparation for ScienceBench task 43
 Dataset: biosignals
 """
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
+from __future__ import annotations
+
+import base64
 import shutil
+from pathlib import Path
+
+import pandas as pd
+
+EXPECTED_FILENAME = "EOG_analyze_pred.png"
 
 
-def prepare(raw: Path, public: Path, private: Path):
-    """
-    Prepare the EOG_analyze task data.
+def _default_dataset_dir() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "datasets" / "biosignals"
 
-    Args:
-        raw: Path to raw data directory
-        public: Path to public directory (visible to participants)
-        private: Path to private directory (used for grading)
-    """
-    print(f"=" * 60)
-    print(f"Preparing ScienceBench Task 43: EOG_analyze")
-    print(f"=" * 60)
-    print(f"Raw directory: {raw}")
-    print(f"Public directory: {public}")
-    print(f"Private directory: {private}")
 
-    # Source dataset path
-    source_dir = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/datasets/biosignals")
+def _default_gold_path() -> Path:
+    root = Path(__file__).resolve().parents[5]
+    return root / "ScienceAgent-bench" / "benchmark" / "eval_programs" / "gold_results" / "EOG_analyze_gold.png"
 
-    if not source_dir.exists():
-        raise FileNotFoundError(f"Source dataset not found: {source_dir}")
 
-    # Copy EOG data file to public
-    eog_file = source_dir / "eog_100hz.csv"
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
-    if not eog_file.exists():
-        raise FileNotFoundError(f"Required data file not found: {eog_file}")
 
-    print(f"\nCopying data files to public directory...")
-    shutil.copy2(eog_file, public / "eog_100hz.csv")
-    print(f"  ✓ Copied: eog_100hz.csv ({eog_file.stat().st_size / 1024:.1f} KB)")
+def prepare(raw: Path, public: Path, private: Path) -> None:
+    print("=" * 60)
+    print("Preparing ScienceBench Task 43")
+    print("Dataset: biosignals")
+    print("=" * 60)
+    print("Raw directory:", raw)
+    print("Public directory:", public)
+    print("Private directory:", private)
 
-    # Create sample_submission as a placeholder for image output
-    sample_submission = pd.DataFrame({
-        "output_file": ["EOG_analyze_pred.png"],
-        "output_type": ["image/png"]
-    })
-    sample_submission.to_csv(public / "sample_submission.csv", index=False)
-    print(f"\n✓ Created sample_submission.csv")
+    data_dir = raw if raw.exists() else _default_dataset_dir()
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Dataset directory not found: {data_dir}")
 
-    # Copy gold result image to private for comparison
-    gold_file = Path("/home/aiops/liufan/projects/ScienceAgent-bench/benchmark/eval_programs/gold_results/EOG_analyze_gold.png")
-    if gold_file.exists():
-        shutil.copy2(gold_file, private / "EOG_analyze_gold.png")
-        print(f"✓ Copied gold result image to private ({gold_file.stat().st_size / 1024:.1f} KB)")
-    else:
-        print(f"⚠ Warning: Gold result image not found at {gold_file}")
+    _ensure_dir(public)
+    _ensure_dir(private)
 
-    # Create answer metadata file
-    answer_meta = pd.DataFrame({
-        "expected_file": ["EOG_analyze_pred.png"],
-        "gold_file": ["EOG_analyze_gold.png"],
-        "evaluation_method": ["visual_similarity"],
-        "threshold": [60]
-    })
-    answer_meta.to_csv(private / "answer.csv", index=False)
-    print(f"✓ Created answer.csv with evaluation metadata")
+    data_file = data_dir / "eog_100hz.csv"
+    if not data_file.exists():
+        raise FileNotFoundError(f"Required data file not found: {data_file}")
 
-    print(f"\nData preparation completed!")
-    print(f"  Public files: {sorted([f.name for f in public.glob('*')])}")
-    print(f"  Private files: {sorted([f.name for f in private.glob('*')])}")
+    shutil.copy2(data_file, public / "eog_100hz.csv")
+    print("✓ Copied EOG data")
+
+    sample_df = pd.DataFrame([{"file_name": EXPECTED_FILENAME, "image_base64": ""}])
+    sample_df.to_csv(public / "sample_submission.csv", index=False)
+    print("✓ Created sample_submission.csv")
+
+    gold_path = _default_gold_path()
+    if not gold_path.exists():
+        raise FileNotFoundError(f"Gold image not found: {gold_path}")
+
+    gold_bytes = gold_path.read_bytes()
+    answer_df = pd.DataFrame(
+        [{"file_name": EXPECTED_FILENAME, "image_base64": base64.b64encode(gold_bytes).decode("utf-8")}]
+    )
+    answer_df.to_csv(private / "answer.csv", index=False)
+    print("✓ Created answer.csv with encoded gold image")
+
+    print("EOG analysis task preparation complete")

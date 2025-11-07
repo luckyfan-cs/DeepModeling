@@ -9,19 +9,19 @@
 
 ## Task
 
-Train an aquatic toxicity model on the Papyrus Tetrahymena pyriformis dataset, compute atomic contribution scores for the provided test compound, and render a visualization highlighting per-atom effects. Save the visualization to the required PNG output path.
+Visualise the aquatic toxicity QSAR dataset by highlighting atomic contributions for the provided test compound. Export the figure to `pred_results/aquatic_toxicity_qsar_vis.png`.
 
 ## Dataset
 
-The `aquatic_toxicity/` folder contains:
-
-- `Tetrahymena_pyriformis_OCHEM.sdf` – training molecules with toxicity endpoints.
-- `Tetrahymena_pyriformis_OCHEM_test_ex.sdf` – the test molecule for visualization.
+[START Dataset Preview: aquatic_toxicity]
+|-- Tetrahymena_pyriformis_OCHEM.sdf
+|-- Tetrahymena_pyriformis_OCHEM_test_ex.sdf
+[END Dataset Preview]
 
 ## Submission Format
 
-Generate `pred_results/aquatic_toxicity_qsar_vis.png`. If the workflow uses base64 internally, ensure the final image is written to disk with the expected filename.
+Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. Encode your final image as base64 (UTF-8 string) and associate it with `aquatic_toxicity_qsar_vis.png`.
 
 ## Evaluation
 
-Submissions are accepted when the generated visualization achieves at least the reference similarity score (60/100) against the gold figure.
+The grader decodes the submitted image, compares it against the reference visualization, and accepts the submission when the similarity score meets or exceeds 60.

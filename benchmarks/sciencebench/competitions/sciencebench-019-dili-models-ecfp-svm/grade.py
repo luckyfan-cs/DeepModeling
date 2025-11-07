@@ -28,6 +28,9 @@ def grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float:
         print("SMILES ordering mismatch.")
         return 0.0
 
-    f1 = f1_score(answers["label"].values, submission["label"].values, pos_label="DILI")
+    gold_binary = (answers["label"].astype(str).str.upper() == "DILI").astype(int)
+    pred_binary = (submission["label"].astype(str).str.upper() == "DILI").astype(int)
+
+    f1 = f1_score(gold_binary, pred_binary, average="binary")
     print(f"F1 score: {f1}")
     return float(f1)

@@ -13,7 +13,9 @@ Train the amortized Latent Dirichlet Allocation (LDA) model with 10 topics on th
 
 ## Dataset
 
-The PBMC dataset is provided as `pbmc/pbmc_10k_protein_v3.h5ad`, an AnnData object containing RNA and protein counts. Use it to reproduce the preprocessing, model training, and embedding steps required by the original notebook.
+[START Dataset Preview: pbmc]
+|-- pbmc_10k_protein_v3.h5ad
+[END Dataset Preview]
 
 ## Submission Format
 

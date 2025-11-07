@@ -13,10 +13,11 @@ Learn a linear mapping from Subject 01 to Subject 03 EEG representations using t
 
 ## Dataset
 
-The `thingseeg2/` directory contains:
-
-- `train/sub01.npy`, `train/sub03.npy` – aligned training signals.
-- `test/sub01.npy` – Subject 01 test signals to transform.
+[START Dataset Preview: thingseeg2]
+|-- train/sub01.npy
+|-- train/sub03.npy
+|-- test/sub01.npy
+[END Dataset Preview]
 
 ## Submission Format
 

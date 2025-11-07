@@ -5,22 +5,20 @@
 - Domain: Psychology and Cognitive science
 - Subtask Categories: Data Visualization
 - Source: nriesterer/syllogistic-nvc
-- Expected Output: indiv_table.png
 - Output Type: Image
 
 ## Task
 
-Generate a heatmap to visualize the number of persons associated with each model and rule using the data from ind_data_for_plot.csv.
+Use the provided syllogistic reasoning results to summarise model–rule frequencies and render the participant counts as a heatmap saved to `pred_results/indiv_table.png`.
 
 ## Dataset
 
-[START Preview of nvc/ind_data_for_plot.csv]
-Model;Rule;Num persons
-PSYCOP;PartNeg;41
-PSYCOP;EmptyStart;43
-PSYCOP;FiguralRule;24
-...
-[END Preview of nvc/ind_data_for_plot.csv]
+[START Dataset Preview: nvc]
+|-- Ragni2016.csv
+|-- accuracies_data_for_plot.csv
+|-- ind_data_for_plot.csv
+|-- valid_syllogisms.csv
+[END Dataset Preview]
 
 ## Submission Format
 
@@ -28,4 +26,4 @@ Submit `sample_submission.csv` with the columns `file_name` and `image_base64`. 
 
 ## Evaluation
 
-The grader decodes your base64 image, rescales it to the reference size, and computes a similarity score between 0 and 1.
+The grader decodes your base64 image, compares it with the reference visualization, and accepts submissions meeting the 60-point similarity threshold.

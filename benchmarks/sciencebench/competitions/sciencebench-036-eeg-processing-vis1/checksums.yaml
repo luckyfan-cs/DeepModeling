@@ -1,5 +1,3 @@
 # Checksums for data integrity verification
-# Will be populated after data preparation
-
-public: {}
-private: {}
+# This file can be updated after data preparation
+checksums: {}

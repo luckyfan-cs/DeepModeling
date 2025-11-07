@@ -5,21 +5,24 @@
 - Domain: Computational Chemistry
 - Subtask Categories: Deep Learning
 - Source: ppdebreuck/modnet
-- Expected Output: experimental_band_gap_prediction_pred.csv
-- Output Type: Tabular
+- Expected Output: `experimental_band_gap_prediction_pred.csv`
+- Output Type: CSV
 
 ## Task
 
-Train a MODNet model for predicting experimental band gap using the examples in the matbench_expt_gap_train dataset. Use 'elu' as the activation function. Your target attribute is 'gap_expt_eV'. Make sure the results are in the 'gap_expt_eV' column.
+Train a MODNet-style regressor on the provided experimental band-gap dataset. Use the supplied training split to fit the model and predict the experimental band gap (`gap_expt_eV`) for the held-out structures.
 
 ## Dataset
 
-N/A
+[START Dataset Preview: experimental_band_gap]
+|-- matbench_expt_gap_train.csv
+|-- matbench_expt_gap_test.csv
+[END Dataset Preview]
 
 ## Submission Format
 
-Submit `sample_submission.csv` with the same header and column order as the template. Ensure numeric columns retain their dtype and identifiers remain aligned.
+Write predictions to `pred_results/experimental_band_gap_prediction_pred.csv` with a `gap_expt_eV` column matching the test set order.
 
 ## Evaluation
 
-Classification accuracy (higher is better).
+The grader measures mean absolute error against the gold targets (pass if MAE < 0.6 eV).
