@@ -33,10 +33,8 @@ litellm.failure_callbacks = []
 def _load_custom_model_pricing():
     """Load custom model pricing configuration from config.yaml file."""
     try:
-        # Get the path to the config.yaml file relative to this module
-        current_dir = Path(__file__).parent
-        framework_dir = current_dir.parent.parent  # Go up to ds_agent_framework
-        config_yaml_path = framework_dir / "config.yaml"
+        from modeling.utils.paths import get_config_file
+        config_yaml_path = get_config_file()
         
         if config_yaml_path.exists():
             with open(config_yaml_path, 'r', encoding='utf-8') as f:
@@ -225,7 +223,8 @@ class LLMService:
         try:
             call_cost_raw = litellm.completion_cost(completion_response=response)
             call_cost = float(call_cost_raw) if call_cost_raw is not None else 0.0
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Failed to calculate LLM call cost: {e}")
             call_cost = 0.0
 
         self.total_cost += call_cost

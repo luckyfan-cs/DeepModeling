@@ -11,9 +11,10 @@ import logging
 import sys
 
 from modeling.benchmark.benchmark import BaseBenchmark
+from modeling.utils.paths import get_benchmarks_dir
 
 # Add benchmarks directory to sys.path so sciencebench can be imported directly
-_BENCHMARKS_DIR = Path(__file__).resolve().parent.parent.parent / "benchmarks"
+_BENCHMARKS_DIR = get_benchmarks_dir()
 if str(_BENCHMARKS_DIR) not in sys.path:
     sys.path.insert(0, str(_BENCHMARKS_DIR))
 
@@ -102,7 +103,7 @@ class ScienceBenchmark(BaseBenchmark):
             )
 
         self.data_dir = Path(data_dir).resolve()
-        self.registry_dir = Path(__file__).resolve().parent.parent.parent / "benchmarks" / "sciencebench" / "competitions"
+        self.registry_dir = get_benchmarks_dir("sciencebench") / "competitions"
 
         # Derive metadata path from data_dir
         # Assumes metadata is at: <data_dir>/../benchmark/ScienceAgentBench.csv

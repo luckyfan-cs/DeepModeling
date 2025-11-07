@@ -11,10 +11,11 @@ import logging
 import sys
 
 from modeling.benchmark.benchmark import BaseBenchmark
+from modeling.utils.paths import get_benchmarks_dir, get_config_file
 
 # Add benchmarks directory to sys.path so mlebench can be imported directly
 # (competition configs use "mlebench.*" not "benchmarks.mlebench.*")
-_BENCHMARKS_DIR = Path(__file__).resolve().parent.parent.parent / "benchmarks"
+_BENCHMARKS_DIR = get_benchmarks_dir()
 if str(_BENCHMARKS_DIR) not in sys.path:
     sys.path.insert(0, str(_BENCHMARKS_DIR))
 
@@ -60,9 +61,8 @@ class MLEBenchmark(BaseBenchmark):
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from config.yaml file."""
         try:
-            # Get the path to the config.yaml file relative to this module
-            framework_dir = Path(__file__).parent.parent.parent
-            config_path = framework_dir / "config.yaml"
+            # Get the path to the config.yaml file
+            config_path = get_config_file()
             
             if not config_path.exists():
                 logger.warning(f"Config file not found at {config_path}, using default configuration")

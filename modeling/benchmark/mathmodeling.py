@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, TYPE_CHECKING
 import logging
 
 from modeling.benchmark.benchmark import BaseBenchmark
+from modeling.utils.paths import get_config_file
 
 # --- mathmodelingbench imports ---
 from benchmarks.mathmodelingbench.data import is_dataset_prepared
@@ -56,8 +57,7 @@ class MathModelingBenchmark(BaseBenchmark):
 
     def _load_config(self) -> Dict[str, Any]:
         try:
-            framework_dir = Path(__file__).parent.parent.parent
-            config_path = framework_dir / "config.yaml"
+            config_path = get_config_file()
 
             if not config_path.exists():
                 logger.warning("Config file not found at %s, using default configuration", config_path)

@@ -29,6 +29,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import logging
 
 try:
     import seaborn as sns
@@ -37,7 +38,7 @@ except Exception:
     pass
 
 warnings.filterwarnings('ignore')
-print("Modeling Notebook environment initialized.")
+logging.getLogger().info("Modeling Notebook environment initialized.")
 """
 
 class NotebookExecutor:
@@ -68,8 +69,9 @@ class NotebookExecutor:
         sandbox_workdir_path = self.workspace.get_path("sandbox_workdir").resolve()
         full_init_code = (
             f"import os\n"
+            f"import logging\n"
             f"os.chdir(r'{sandbox_workdir_path}')\n"
-            f"print(f'CWD set to: {{os.getcwd()}}')\n"
+            f"logging.getLogger().debug(f'CWD set to: {{os.getcwd()}}')\n"
             f"\n"
             f"{NOTEBOOK_INIT_CODE}"
         )
