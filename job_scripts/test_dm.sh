@@ -6,3 +6,7 @@ python main.py --workflow scientific --benchmark mle --data-dir "/home/aiops/liu
 python main.py --workflow scientific --benchmark mle --data-dir "/home/aiops/liufan/projects/mle/competitions" --llm-model openai/deepseek-ai/DeepSeek-V3.1-Terminus --task santander-customer-satisfaction
 
 python main.py   --workflow scientific   --benchmark sciencebench   --data-dir /home/aiops/liufan/projects/ScienceAgent-bench/competitions   --task sciencebench-001-clintox-nn
+
+
+python main.py --workflow scientific --benchmark mathmodeling --data-dir "/home/aiops/liufan/projects/DeepModeling/data/mathmodeling-bench/competitions" --llm-model openai/deepseek-ai/DeepSeek-V3.1-Terminus --task mathmodeling-0
+

@@ -1,0 +1,25 @@
+# Workspace
+workspace_rl/
+workspace/
+
+# Checkpoints
+checkpoints/
+*.ckpt
+
+# Logs
+logs/
+*.log
+wandb/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Ray
+/tmp/ray/

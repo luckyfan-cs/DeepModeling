@@ -1,0 +1,1 @@
+python train_deepmodeling.py fast --split engineering_mini --model-path /home/aiops/liufan/projects/models/Qwen2.5-Coder-1.5B-Instruct 
