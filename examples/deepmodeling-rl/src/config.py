@@ -6,6 +6,27 @@ from copy import deepcopy
 from datetime import datetime
 from typing import Any, Dict
 import multiprocessing as mp
+import os
+
+
+def _resolve_gpus_per_node(default: int = 8) -> int:
+    """Return the GPU count (default 8) while tolerating bad env input."""
+
+    raw_value = os.environ.get("DM_NUM_GPUS")
+    if raw_value is None:
+        return default
+    try:
+        parsed = int(raw_value)
+    except ValueError:
+        return default
+    return max(parsed, 1)
+
+
+GPUS_PER_NODE = _resolve_gpus_per_node()
+PER_GPU_TRAIN_BATCH = 1
+TRAIN_BATCH_SIZE = max(PER_GPU_TRAIN_BATCH * GPUS_PER_NODE, 1)
+PPO_MICRO_BATCH_SIZE = max(PER_GPU_TRAIN_BATCH, 1)
+PPO_MINI_BATCH_SIZE = max(TRAIN_BATCH_SIZE, 1)
 
 
 BASE_RL_CONFIG: Dict[str, Any] = {
@@ -19,7 +40,7 @@ BASE_RL_CONFIG: Dict[str, Any] = {
         # Other Ray settings like num_gpus are handled by VERL internally via trainer.n_gpus_per_node
     },
     "data": {
-        "train_batch_size": 16,  # Must be divisible by n_gpus_per_node (8)
+        "train_batch_size": TRAIN_BATCH_SIZE,  # Divisible by GPUS_PER_NODE
         "max_prompt_length": 4096,
         "max_response_length": 2048,
         "truncation": "error",
@@ -28,14 +49,15 @@ BASE_RL_CONFIG: Dict[str, Any] = {
         "rollout": {
             "tensor_model_parallel_size": 1,
             "n": 2,
-            "log_prob_micro_batch_size_per_gpu": 2,
+            "log_prob_micro_batch_size_per_gpu": PPO_MICRO_BATCH_SIZE,
             "multi_turn": {"format": "hermes"},
             "name": "vllm",
-            "gpu_memory_utilization": 0.8,
+            "gpu_memory_utilization": 0.6,
+            "mode": "async",  # Agent mode requires async rollouts when using the LLM proxy
         },
         "actor": {
-            "ppo_mini_batch_size": 16,
-            "ppo_micro_batch_size_per_gpu": 2,
+            "ppo_mini_batch_size": PPO_MINI_BATCH_SIZE,
+            "ppo_micro_batch_size_per_gpu": PPO_MICRO_BATCH_SIZE,
             "optim": {"lr": 1e-6},
             "use_kl_loss": False,
             "kl_loss_coef": 0.0,
@@ -52,13 +74,13 @@ BASE_RL_CONFIG: Dict[str, Any] = {
             "fsdp_config": {"param_offload": True},
         },
         "model": {
-            "path": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+            "path": "/home/aiops/liufan/projects/models/Qwen2.5-7B-Instruct",
             "use_remove_padding": True,
             "enable_gradient_checkpointing": True,
         },
     },
     "trainer": {
-        "n_gpus_per_node": 8,
+        "n_gpus_per_node": GPUS_PER_NODE,  # Single-node, multi-GPU (default: 8)
         "val_before_train": True,
         "critic_warmup": 0,
         "logger": ["console"],
@@ -86,7 +108,7 @@ def config_train_fast() -> Dict[str, Any]:
         }
     )
     config["actor_rollout_ref"]["rollout"]["n"] = 1
-    config["actor_rollout_ref"]["model"]["path"] = "Qwen/Qwen2.5-Coder-0.5B-Instruct"
+    config["actor_rollout_ref"]["model"]["path"] = "/home/aiops/liufan/projects/models/Qwen2.5-7B-Instruct"
     return config
 
 

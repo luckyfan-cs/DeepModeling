@@ -1,14 +1,15 @@
 # Workspace
-workspace_rl/
 workspace/
 
 # Checkpoints
 checkpoints/
 *.ckpt
 
-# Logs
+# Logs and Backups
 logs/
+backup/
 *.log
+*.bak
 wandb/
 
 # Python

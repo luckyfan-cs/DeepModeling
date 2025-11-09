@@ -7,27 +7,36 @@ import argparse
 import logging
 import os
 import random
+import socket
 import sys
 from pathlib import Path
 from typing import List
 
 # Add DeepModeling root to Python path for benchmarks import
-_DEEPMODELING_ROOT = Path(__file__).resolve().parents[2]
+_DEEPMODELING_ROOT = Path(__file__).resolve().parents[3]
 if str(_DEEPMODELING_ROOT) not in sys.path:
     sys.path.insert(0, str(_DEEPMODELING_ROOT))
 
 import agentlightning as agl
 
-from config import resolve_config
-from data_utils import (
+from .config import resolve_config
+from .data_utils import (
     PREDEFINED_SPLITS,
+    DEFAULT_DATA_ROOTS,
     load_benchmark_tasks,
     load_predefined_split,
     split_dataset,
 )
-from deepmodeling_agent import DeepModelingConfig, LitDeepModelingAgent
+from .agent import LitDeepModelingAgent
+from .utils import set_benchmark_data_root
 
 logger = logging.getLogger(__name__)
+
+
+def _find_free_port() -> int:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(("", 0))
+        return s.getsockname()[1]
 
 
 def parse_args() -> argparse.Namespace:
@@ -50,6 +59,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workspace-dir", type=Path, default=Path("./workspace_rl"), help="Base directory for sandboxes")
     parser.add_argument("--sandbox-timeout", type=int, default=600, help="Sandbox timeout in seconds")
     parser.add_argument("--max-turns", type=int, default=3, help="Maximum Scientific Method iterations per task")
+    parser.add_argument("--train-temperature", type=float, default=0.7, help="Temperature for training rollouts")
     parser.add_argument("--model-path", type=str, help="Override the HF model path used for VERL actor/ref")
     parser.add_argument("--val-temperature", type=float, default=0.0, help="Temperature for validation/test rollouts")
     parser.add_argument("--n-runners", type=int, default=1, help="Number of parallel Agent-Lightning runners")
@@ -62,6 +72,16 @@ def parse_args() -> argparse.Namespace:
 def configure_logging(log_level: str) -> None:
     numeric_level = getattr(logging, log_level.upper(), logging.INFO)
     logging.basicConfig(level=numeric_level, format="[%(levelname)s] %(message)s")
+
+
+def _resolve_default_data_root(benchmark: str) -> Path | None:
+    return DEFAULT_DATA_ROOTS.get(benchmark.lower())
+
+
+def _configure_benchmark_data_roots(benchmark: str, data_root: Path | None) -> None:
+    root = data_root or _resolve_default_data_root(benchmark)
+    if root:
+        set_benchmark_data_root(benchmark, root)
 
 
 def _ensure_min_train_tasks(
@@ -181,6 +201,7 @@ def _ensure_ray_init(config: dict) -> None:
 def main() -> None:
     args = parse_args()
     configure_logging(args.log_level)
+    _configure_benchmark_data_roots(args.benchmark, args.data_root)
 
     config = resolve_config(args.config)
     maybe_override_model_path(config, args.model_path)
@@ -188,28 +209,28 @@ def main() -> None:
 
     train_tasks, val_tasks = prepare_datasets(args)
 
-    dm_config = DeepModelingConfig(
-        sandbox_timeout=args.sandbox_timeout,
-        max_turns=args.max_turns,
-        workspace_dir=str(args.workspace_dir),
-    )
-
     agent = LitDeepModelingAgent(
-        config=dm_config,
+        max_turns=args.max_turns,
+        train_temperature=args.train_temperature,
         val_temperature=args.val_temperature,
     )
 
     algorithm = agl.VERL(config)
-    adapter = {"agent_match": args.agent_match or f"deepmodeling-{args.config}"}
-    trainer = agl.Trainer(n_runners=args.n_runners, algorithm=algorithm, adapter=adapter)
+    if args.agent_match:
+        logger.warning("--agent-match is ignored when using the LLM proxy adapter.")
+
+    adapter = agl.LlmProxyTraceToTriplet()
+    store_port = _find_free_port()
+    trainer = agl.Trainer(n_runners=args.n_runners, algorithm=algorithm, adapter=adapter, port=store_port)
 
     val_dataset = val_tasks if val_tasks else None
 
     logger.info(
-        "Starting training with config='%s', runners=%d, agent_match='%s'",
+        "Starting training with config='%s', runners=%d, adapter=%s, store_port=%d",
         args.config,
         args.n_runners,
-        adapter["agent_match"],
+        adapter.__class__.__name__,
+        store_port,
     )
 
     trainer.fit(agent, train_dataset=train_tasks, val_dataset=val_dataset)
