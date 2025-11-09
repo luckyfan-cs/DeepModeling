@@ -205,19 +205,8 @@ def _load_engineering_tasks(
 
 
 def _format_engineering_prompt(description: str, public_dir: Path, sample_name: str) -> str:
-    """Compose the natural language prompt for Kaggle-style competitions."""
-
-    return textwrap.dedent(
-        f"""
-        {description.strip()}
-
-        Additional instructions:
-        - All prepared input files are located under `{public_dir}`.
-        - Use `{sample_name}` as the schema reference for your prediction file.
-        - Save your final predictions to `submission.csv` in the current working directory.
-        - Keep the Scientific Method structure in your reasoning before running experiments.
-        """
-    ).strip()
+    """Return the competition description (I/O instructions will be added by TaskHandler)."""
+    return description.strip()
 
 
 __all__ = [

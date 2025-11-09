@@ -1,8 +1,21 @@
 #!/bin/bash
 # examples/deepmodeling-rl/quickstart.sh
 # Quick start script for DeepModeling RL training
+#
+# Usage:
+#   bash quickstart.sh [benchmark] [mode] [num_gpus]
+#
+# Examples:
+#   bash quickstart.sh                    # engineering, fast mode, 1 GPU
+#   bash quickstart.sh engineering fast 1 # same as above
+#   bash quickstart.sh mathmodeling       # mathmodeling, fast mode, 1 GPU
+#   bash quickstart.sh engineering fast 2 # use 2 GPUs
 
 set -e
+
+# Get the absolute path of the script's directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
 
 echo "==================================="
 echo "DeepModeling RL Quick Start"
@@ -11,10 +24,10 @@ echo "==================================="
 # 1. Parse inputs / defaults
 BENCHMARK="${1:-engineering}"
 MODE="${2:-fast}"
-REQUESTED_GPU_COUNT="${3:-}"
-DEFAULT_GPUS_PER_NODE=8
-WORKSPACE_DIR="${WORKSPACE_DIR:-../workspace}"
-DATA_ROOT="${DATA_ROOT:-../../../data/engineering-bench/competitions}"
+REQUESTED_GPU_COUNT="${3:-1}"  # 默认使用 1 个 GPU
+DEFAULT_GPUS_PER_NODE=1  # 修改默认值为 1
+WORKSPACE_DIR="${WORKSPACE_DIR:-${PROJECT_ROOT}/workspace}"
+DATA_ROOT="${DATA_ROOT:-${PROJECT_ROOT}/../../data/engineering-bench/competitions}"
 
 if [ -n "$REQUESTED_GPU_COUNT" ]; then
     GPUS_PER_NODE="$REQUESTED_GPU_COUNT"
@@ -87,10 +100,11 @@ echo "  CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 # 4. Run training
 echo ""
 echo "[4/4] Starting RL training..."
+echo "  Project root: $PROJECT_ROOT"
 echo ""
 
 export RAY_RUNTIME_ENV_AGENT_DISABLED=1
-cd .. && python -m src.train "$MODE" \
+cd "$PROJECT_ROOT" && python -m src.train "$MODE" \
     --benchmark "$BENCHMARK" \
     --split engineering_mini \
     --n-runners 1 \

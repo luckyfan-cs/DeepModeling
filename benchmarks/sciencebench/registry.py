@@ -8,7 +8,8 @@ from benchmarks.sciencebench.utils import get_logger, get_module_dir, get_repo_d
 logger = get_logger(__name__)
 
 
-DEFAULT_DATA_DIR = Path("/home/aiops/liufan/projects/ScienceAgent-bench/competitions").resolve()
+MODULE_DIR = Path(__file__).resolve().parent
+DEFAULT_DATA_DIR = (MODULE_DIR / "competitions").resolve()
 
 
 @dataclass(frozen=True)

@@ -62,15 +62,40 @@ class SimpleDeepModelingAgent:
         self.sandbox_timeout = sandbox_timeout
         self.temperature = temperature
 
-    def _call_llm(self, prompt: str, temperature: Optional[float] = None) -> str:
-        """Call LLM endpoint (OpenAI compatible)."""
+    def _call_llm(
+        self,
+        prompt: str = None,
+        messages: List[Dict[str, str]] = None,
+        temperature: Optional[float] = None
+    ) -> str:
+        """Call LLM endpoint (OpenAI compatible).
+
+        Args:
+            prompt: Single prompt string (for first turn)
+            messages: Full conversation history (for subsequent turns)
+            temperature: Sampling temperature
+
+        Returns:
+            LLM response content
+        """
         llm_temperature = temperature if temperature is not None else self.temperature
+
+        # Build messages list
+        if messages is not None:
+            # Use provided conversation history
+            api_messages = messages
+        elif prompt is not None:
+            # First turn: single user message
+            api_messages = [{"role": "user", "content": prompt}]
+        else:
+            raise ValueError("Either prompt or messages must be provided")
+
         try:
             response = requests.post(
                 f"{self.llm_endpoint}/v1/chat/completions",
                 json={
                     "model": self.model_name,
-                    "messages": [{"role": "user", "content": prompt}],
+                    "messages": api_messages,
                     "temperature": llm_temperature,
                     "max_tokens": 4096,
                 },
@@ -83,22 +108,30 @@ class SimpleDeepModelingAgent:
             logger.error(f"LLM call failed: {e}")
             return f"Error calling LLM: {e}"
 
-    def _prepare_task_io(self, task: Dict[str, Any]) -> tuple[str, str, Path, Path]:
+    def _prepare_task_io(
+        self,
+        task: Dict[str, Any],
+        output_submission_path: str
+    ) -> tuple[str, str, Path, Path]:
         """Prepare task I/O using ScienceTaskHandler from modeling.
+
+        Args:
+            task: Task dictionary
+            output_submission_path: Full path for submission file (like benchmark does)
 
         Returns: (description, io_instructions, data_dir, output_path)
         """
         # Use the same TaskHandler as modeling/runner.py
         handler = ScienceTaskHandler()
 
-        # Convert task dict to TaskDefinition format
+        # Convert task dict to TaskDefinition format (same as benchmark does)
         task_def = TaskDefinition(
             task_id=task["task_id"],
             task_type="science",
             payload={
                 "description": task["prompt"],
                 "public_data_dir": task["data_dir"],
-                "output_submission_path": task.get("expected_output_path", "submission.csv"),
+                "output_submission_path": output_submission_path,  # Use full path
                 "metadata": {
                     "eval_metric": task.get("eval_metric", "score"),
                     "threshold": task.get("threshold", 0.7),
@@ -208,21 +241,31 @@ class SimpleDeepModelingAgent:
         """Run one episode for a task."""
         task_id = task["task_id"]
 
-        # Generate unique run name with UUID (like runner.py does)
+        # Generate unique run name with UUID (same format as runner.py: modeling_run_{task_id}_{uuid})
         safe_task_id = "".join(c if c.isalnum() else "_" for c in task_id)
         unique_suffix = uuid.uuid4().hex[:8]
-        run_name = f"rl_{safe_task_id}_{unique_suffix}"
+        run_name = f"modeling_run_{safe_task_id}_{unique_suffix}"
+
+        # Create output submission path (same format as benchmark does)
+        # Format: {workspace_base}/submission_{task_id}_{uuid}.csv
+        submission_unique_id = uuid.uuid4().hex[:6]
+        output_filename = f"submission_{task_id}_{submission_unique_id}.csv"
+        output_submission_path = str((Path(self.workspace_base) / output_filename).absolute())
 
         logger.info(f"[EPISODE] Starting episode: run_name={run_name}, task_id={task_id}")
+        logger.info(f"[EPISODE] Output path: {output_submission_path}")
 
         # Prepare task I/O using TaskHandler (same as runner.py)
-        description, io_instructions, data_dir, output_path = self._prepare_task_io(task)
+        description, io_instructions, data_dir, output_path = self._prepare_task_io(
+            task, output_submission_path
+        )
 
         # Create initial prompt with full description and I/O instructions
         # (scientific_prompt.py already has complete guidance)
         prompt = create_initial_prompt(description, io_instructions)
 
-        conversation = []
+        # Initialize conversation with the initial user prompt
+        conversation = [{"role": "user", "content": prompt}]
         telemetry_log: List[Dict[str, Any]] = []
         num_turns = 0
         success = False
@@ -248,6 +291,10 @@ class SimpleDeepModelingAgent:
             logger.info(f"[TURN {num_turns}/{self.max_turns}] Calling LLM...")
 
             llm_temperature = self.temperature
+
+            # Use full conversation history (which includes the initial prompt)
+            current_messages = conversation.copy()
+
             telemetry_log.append(
                 {
                     "event": "llm_call",
@@ -257,13 +304,13 @@ class SimpleDeepModelingAgent:
                     "payload": {
                         "temperature": llm_temperature,
                         "max_tokens": 4096,
-                        "prompt": prompt,
+                        "messages": current_messages,
                     },
                 }
             )
 
-            # Call LLM
-            response = self._call_llm(prompt, temperature=llm_temperature)
+            # Call LLM with conversation history
+            response = self._call_llm(messages=current_messages, temperature=llm_temperature)
             conversation.append({"role": "assistant", "content": response})
             telemetry_log.append(
                 {
@@ -288,13 +335,12 @@ class SimpleDeepModelingAgent:
             experiment = extract_tag_content(response, "Experiment")
             if not experiment:
                 logger.warning(f"[TURN {num_turns}] No Experiment found, continuing...")
-                # Generate continue prompt without observation
-                prompt = create_continue_prompt(
-                    self._format_conversation(conversation),
-                    "No experiment code was provided",
-                    num_turns,
-                    self.max_turns
-                )
+                # Add feedback message to conversation
+                feedback_msg = {
+                    "role": "user",
+                    "content": f"No experiment code was provided. Please provide an <Experiment> block with Python code. (Turn {num_turns}/{self.max_turns})"
+                }
+                conversation.append(feedback_msg)
                 continue
 
             logger.info(f"[TURN {num_turns}] Executing experiment ({len(experiment)} chars)")
@@ -331,13 +377,8 @@ class SimpleDeepModelingAgent:
                     logger.info(f"[TURN {num_turns}] Copied output to: {output_path}")
                 success = True
 
-            # Generate next prompt
-            prompt = create_continue_prompt(
-                self._format_conversation(conversation),
-                observation,
-                num_turns,
-                self.max_turns
-            )
+            # Next turn will automatically use the updated conversation history
+            # (observation has been appended to conversation at line 358)
 
         ended_at = datetime.utcnow()
         duration_sec = (ended_at - started_at).total_seconds()
