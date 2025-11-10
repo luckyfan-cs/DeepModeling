@@ -493,13 +493,12 @@ class LitDeepModelingAgent(agl.LitAgent[Dict[str, Any]]):
 
         logger.info("=" * 80)
         logger.info(
-            "[ROLLOUT COMPLETE] rollout_id=%s | Reward=%.3f | exec=%.2f qual=%.2f thor=%.2f achv=%.2f | grade=%.4f",
+            "[ROLLOUT COMPLETE] rollout_id=%s | Reward=%.3f | exec=%.2f got_score=%.2f score_qual=%.2f | grade=%.4f",
             rollout.rollout_id,
             reward,
             breakdown["execution"],
-            breakdown["quality"],
-            breakdown["thoroughness"],
-            breakdown["achievement"],
+            breakdown["got_score"],
+            breakdown["score_quality"],
             result.get("grade_score") or 0.0,
         )
         logger.info("=" * 80)

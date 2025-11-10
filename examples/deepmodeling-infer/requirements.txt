@@ -1,0 +1,26 @@
+# Core dependencies for DeepModeling Inference
+# No training dependencies (Agent-Lightning, VERL) required
+
+# HTTP requests for API calls
+requests>=2.31.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Optional: For local model inference
+# Uncomment if using --use-local-model
+# transformers>=4.35.0
+# torch>=2.1.0
+# accelerate>=0.25.0
+
+# Optional: For specific model types
+# sentencepiece>=0.1.99  # For some tokenizers
+# protobuf>=3.20.0
+
+# Utilities
+pydantic>=2.0.0
+
+# Note: The following are provided by the DeepModeling project
+# - modeling/ (core modeling framework)
+# - benchmarks/ (benchmark datasets and grading)

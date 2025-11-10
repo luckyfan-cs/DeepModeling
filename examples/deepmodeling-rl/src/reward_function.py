@@ -1,50 +1,42 @@
 # examples/deepmodeling-rl/reward_function.py
 
-"""Reward function for DeepModeling RL training.
+"""Simplified Reward function for DeepModeling RL training.
 
-The reward is calculated based on:
-1. Execution success (did the experiment run without errors?)
-2. Quality score from ReviewResult (how good is the solution?)
-3. Thoroughness score from ReviewResult (how thorough is the analysis?)
-4. Achievement bonus (did it pass the benchmark threshold?)
+The reward is calculated based on 3 simple components:
+1. Code execution success (did the experiment run without errors?)
+2. Got a score (did the submission get graded successfully?)
+3. Score quality (how good is the score? normalized to higher-is-better)
+
+Note: grade_score from BenchmarkGrader is already normalized to "higher is better" format.
 """
 
 from typing import Dict, Any, Optional, List
 import json
 from pathlib import Path
 
-import sys
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-
-from modeling.models.formats import ReviewResult
-from modeling.common.typing import ExecutionResult
-
 
 class RewardCalculator:
-    """Calculate rewards for DeepModeling RL training."""
+    """Calculate rewards for DeepModeling RL training based on execution and benchmark score."""
 
     def __init__(
         self,
-        base_execution_reward: float = 0.2,
-        quality_weight: float = 0.5,
-        thoroughness_weight: float = 0.3,
-        achievement_bonus: float = 1.0,
-        failure_penalty: float = -0.1,
+        execution_reward: float = 0.3,
+        got_score_reward: float = 0.2,
+        score_weight: float = 1.0,
+        execution_failure_penalty: float = -0.1,
     ):
         """Initialize reward calculator.
 
         Args:
-            base_execution_reward: Reward for successful execution
-            quality_weight: Weight for quality score (0-1)
-            thoroughness_weight: Weight for thoroughness score (0-1)
-            achievement_bonus: Bonus for passing benchmark threshold
-            failure_penalty: Penalty for execution failure
+            execution_reward: Reward for successful code execution (default 0.3)
+            got_score_reward: Reward for getting a valid grade score (default 0.2)
+            score_weight: Weight for the normalized grade score (default 1.0)
+            execution_failure_penalty: Penalty for execution failure (default -0.1)
         """
-        self.base_execution_reward = base_execution_reward
-        self.quality_weight = quality_weight
-        self.thoroughness_weight = thoroughness_weight
-        self.achievement_bonus = achievement_bonus
-        self.failure_penalty = failure_penalty
+        self.execution_reward = execution_reward
+        self.got_score_reward = got_score_reward
+        self.score_weight = score_weight
+        self.execution_failure_penalty = execution_failure_penalty
 
     def calculate_reward(
         self,
@@ -56,45 +48,34 @@ class RewardCalculator:
         Args:
             agent_output: Output from agent.run(), containing:
                 - messages: List of conversation messages
-                - success: Whether the task succeeded
-                - last_review: ReviewResult object
-                - task_id: Task identifier
-            task_data: Original task data, containing:
-                - threshold: Target threshold for success
-                - eval_metric: Metric to evaluate
+                - success: Whether code execution succeeded
+                - grade_score: Normalized benchmark score (higher is better, or None)
+            task_data: Original task data (not used in simplified version)
 
         Returns:
-            Float reward value (typically 0.0 to 2.0)
+            Float reward value (typically -0.1 to 1.5+)
         """
         reward = 0.0
 
-        # Extract information
+        # 1. Code execution success
         success = agent_output.get("success", False)
-        last_review = agent_output.get("last_review")
-
-        # Check if we have experiments in the conversation
         has_experiment = self._check_for_experiments(agent_output.get("messages", []))
 
-        # Base reward for execution
         if has_experiment:
             if success:
-                reward += self.base_execution_reward
+                reward += self.execution_reward
             else:
-                reward += self.failure_penalty
+                reward += self.execution_failure_penalty
 
-        # Quality and thoroughness rewards
-        if last_review:
-            quality_score = last_review.quality_score if hasattr(last_review, 'quality_score') else 0.0
-            thoroughness_score = last_review.thoroughness_score if hasattr(last_review, 'thoroughness_score') else 0.0
+        # 2. Got a valid grade score
+        grade_score = agent_output.get("grade_score")
+        if grade_score is not None:
+            reward += self.got_score_reward
 
-            reward += quality_score * self.quality_weight
-            reward += thoroughness_score * self.thoroughness_weight
+            # 3. Score quality (already normalized to higher-is-better by BenchmarkGrader)
+            reward += grade_score * self.score_weight
 
-            # Achievement bonus
-            if self._check_achievement(last_review, task_data):
-                reward += self.achievement_bonus
-
-        # Ensure non-negative reward
+        # Ensure non-negative total reward
         reward = max(0.0, reward)
 
         return reward
@@ -107,43 +88,6 @@ class RewardCalculator:
                 return True
         return False
 
-    def _check_achievement(
-        self,
-        review: ReviewResult,
-        task_data: Dict[str, Any]
-    ) -> bool:
-        """Check if the solution achieves the target threshold.
-
-        Args:
-            review: ReviewResult from evaluation
-            task_data: Task data with threshold
-
-        Returns:
-            True if achievement condition is met
-        """
-        # Check completion state
-        if hasattr(review, 'completion_state'):
-            if review.completion_state in ["complete", "excellent"]:
-                return True
-
-        # Check quality threshold
-        if hasattr(review, 'quality_score'):
-            threshold = task_data.get("threshold", 0.7)
-            if review.quality_score >= threshold:
-                return True
-
-        # Check metric value if available
-        if hasattr(review, 'metric_value') and review.metric_value is not None:
-            threshold = task_data.get("threshold", 0.7)
-            is_lower_better = getattr(review, 'lower_is_better', True)
-
-            if is_lower_better:
-                return review.metric_value <= threshold
-            else:
-                return review.metric_value >= threshold
-
-        return False
-
     def calculate_detailed_reward(
         self,
         agent_output: Dict[str, Any],
@@ -154,48 +98,40 @@ class RewardCalculator:
         Returns:
             Dictionary with reward components:
             - total: Total reward
-            - execution: Execution reward
-            - quality: Quality reward
-            - thoroughness: Thoroughness reward
-            - achievement: Achievement bonus
+            - execution: Execution success/failure reward
+            - got_score: Reward for obtaining a valid score
+            - score_quality: Weighted grade score
         """
         breakdown = {
             "total": 0.0,
             "execution": 0.0,
-            "quality": 0.0,
-            "thoroughness": 0.0,
-            "achievement": 0.0,
+            "got_score": 0.0,
+            "score_quality": 0.0,
         }
 
         success = agent_output.get("success", False)
-        last_review = agent_output.get("last_review")
         has_experiment = self._check_for_experiments(agent_output.get("messages", []))
+        grade_score = agent_output.get("grade_score")
 
-        # Execution reward
+        # 1. Execution reward/penalty
         if has_experiment:
             if success:
-                breakdown["execution"] = self.base_execution_reward
+                breakdown["execution"] = self.execution_reward
             else:
-                breakdown["execution"] = self.failure_penalty
+                breakdown["execution"] = self.execution_failure_penalty
 
-        # Quality and thoroughness
-        if last_review:
-            quality_score = last_review.quality_score if hasattr(last_review, 'quality_score') else 0.0
-            thoroughness_score = last_review.thoroughness_score if hasattr(last_review, 'thoroughness_score') else 0.0
+        # 2. Got score reward
+        if grade_score is not None:
+            breakdown["got_score"] = self.got_score_reward
 
-            breakdown["quality"] = quality_score * self.quality_weight
-            breakdown["thoroughness"] = thoroughness_score * self.thoroughness_weight
-
-            # Achievement
-            if self._check_achievement(last_review, task_data):
-                breakdown["achievement"] = self.achievement_bonus
+            # 3. Score quality
+            breakdown["score_quality"] = grade_score * self.score_weight
 
         # Calculate total
         breakdown["total"] = max(0.0, sum([
             breakdown["execution"],
-            breakdown["quality"],
-            breakdown["thoroughness"],
-            breakdown["achievement"]
+            breakdown["got_score"],
+            breakdown["score_quality"]
         ]))
 
         return breakdown
@@ -240,71 +176,89 @@ def calculate_detailed_reward(
 # Example usage and testing
 if __name__ == "__main__":
     # Test reward calculation
-    print("Testing reward calculator...")
+    print("Testing simplified reward calculator...")
+    print("=" * 60)
 
-    # Mock ReviewResult
-    class MockReview:
-        def __init__(self):
-            self.quality_score = 0.8
-            self.thoroughness_score = 0.7
-            self.completion_state = "complete"
-            self.metric_value = 0.85
-            self.lower_is_better = False
+    task_data = {}  # Not used in simplified version
 
-    # Test case 1: Successful execution with good scores
-    agent_output_success = {
+    # Test case 1: Successful execution with high grade score
+    print("\nTest Case 1: Successful execution + high grade score (0.95)")
+    agent_output_1 = {
         "success": True,
-        "last_review": MockReview(),
+        "grade_score": 0.95,  # High normalized score
         "messages": [
             {"role": "assistant", "content": "<Experiment>\nprint('test')\n</Experiment>"}
         ],
         "task_id": "test-001"
     }
+    reward_1 = calculate_reward(agent_output_1, task_data)
+    breakdown_1 = calculate_detailed_reward(agent_output_1, task_data)
+    print(f"Total Reward: {reward_1:.3f}")
+    print(f"Breakdown: {json.dumps(breakdown_1, indent=2)}")
 
-    task_data = {
-        "threshold": 0.7,
-        "eval_metric": "accuracy"
-    }
-
-    reward = calculate_reward(agent_output_success, task_data)
-    breakdown = calculate_detailed_reward(agent_output_success, task_data)
-
-    print(f"\nTest Case 1: Successful execution")
-    print(f"Total Reward: {reward:.2f}")
-    print(f"Breakdown: {json.dumps(breakdown, indent=2)}")
-
-    # Test case 2: Failed execution
-    agent_output_fail = {
-        "success": False,
-        "last_review": None,
+    # Test case 2: Successful execution with low grade score
+    print("\nTest Case 2: Successful execution + low grade score (0.15)")
+    agent_output_2 = {
+        "success": True,
+        "grade_score": 0.15,  # Low normalized score
         "messages": [
-            {"role": "assistant", "content": "<Experiment>\ninvalid code\n</Experiment>"}
+            {"role": "assistant", "content": "<Experiment>\nprint('test')\n</Experiment>"}
         ],
         "task_id": "test-002"
     }
+    reward_2 = calculate_reward(agent_output_2, task_data)
+    breakdown_2 = calculate_detailed_reward(agent_output_2, task_data)
+    print(f"Total Reward: {reward_2:.3f}")
+    print(f"Breakdown: {json.dumps(breakdown_2, indent=2)}")
 
-    reward = calculate_reward(agent_output_fail, task_data)
-    breakdown = calculate_detailed_reward(agent_output_fail, task_data)
-
-    print(f"\nTest Case 2: Failed execution")
-    print(f"Total Reward: {reward:.2f}")
-    print(f"Breakdown: {json.dumps(breakdown, indent=2)}")
-
-    # Test case 3: No experiments
-    agent_output_no_exp = {
-        "success": False,
-        "last_review": None,
+    # Test case 3: Successful execution but no grade score
+    print("\nTest Case 3: Successful execution but no grade (None)")
+    agent_output_3 = {
+        "success": True,
+        "grade_score": None,  # Failed to grade
         "messages": [
-            {"role": "assistant", "content": "I don't know how to solve this."}
+            {"role": "assistant", "content": "<Experiment>\nprint('test')\n</Experiment>"}
         ],
         "task_id": "test-003"
     }
+    reward_3 = calculate_reward(agent_output_3, task_data)
+    breakdown_3 = calculate_detailed_reward(agent_output_3, task_data)
+    print(f"Total Reward: {reward_3:.3f}")
+    print(f"Breakdown: {json.dumps(breakdown_3, indent=2)}")
 
-    reward = calculate_reward(agent_output_no_exp, task_data)
-    breakdown = calculate_detailed_reward(agent_output_no_exp, task_data)
+    # Test case 4: Failed execution
+    print("\nTest Case 4: Failed execution")
+    agent_output_4 = {
+        "success": False,
+        "grade_score": None,
+        "messages": [
+            {"role": "assistant", "content": "<Experiment>\ninvalid code\n</Experiment>"}
+        ],
+        "task_id": "test-004"
+    }
+    reward_4 = calculate_reward(agent_output_4, task_data)
+    breakdown_4 = calculate_detailed_reward(agent_output_4, task_data)
+    print(f"Total Reward: {reward_4:.3f}")
+    print(f"Breakdown: {json.dumps(breakdown_4, indent=2)}")
 
-    print(f"\nTest Case 3: No experiments")
-    print(f"Total Reward: {reward:.2f}")
-    print(f"Breakdown: {json.dumps(breakdown, indent=2)}")
+    # Test case 5: No experiments
+    print("\nTest Case 5: No experiments at all")
+    agent_output_5 = {
+        "success": False,
+        "grade_score": None,
+        "messages": [
+            {"role": "assistant", "content": "I don't know how to solve this."}
+        ],
+        "task_id": "test-005"
+    }
+    reward_5 = calculate_reward(agent_output_5, task_data)
+    breakdown_5 = calculate_detailed_reward(agent_output_5, task_data)
+    print(f"Total Reward: {reward_5:.3f}")
+    print(f"Breakdown: {json.dumps(breakdown_5, indent=2)}")
 
-    print("\n✓ Reward calculator tests completed!")
+    print("\n" + "=" * 60)
+    print("✓ Reward calculator tests completed!")
+    print("\nReward formula: max(0, execution + got_score + score_quality)")
+    print("  - execution: +0.3 (success) or -0.1 (failure)")
+    print("  - got_score: +0.2 (if grade_score is not None)")
+    print("  - score_quality: grade_score × 1.0")
