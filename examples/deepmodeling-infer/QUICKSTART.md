@@ -50,7 +50,7 @@ pip install vllm
 
 # 启动服务
 python -m vllm.entrypoints.openai.api_server \
-    --model /path/to/your/model \
+    --model /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
     --host 0.0.0.0 \
     --port 8000 \
     --tensor-parallel-size 1
@@ -73,9 +73,30 @@ python -m src.infer \
     --max-turns 10
 
 # 测试特定任务集
+# 例如：engineering benchmark 下的 industry-3 任务
 python -m src.infer \
     --api-endpoint http://localhost:8000 \
-    --competitions industry-0 industry-1 industry-2
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/data/engineering-bench/competitions \
+    --benchmark engineering \
+    --competitions industry-3
+
+
+#  例如：mathmodeling benchmark 下的 bwor-0 任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/data/mathmodeling-bench/competitions \
+    --benchmark mathmodeling \
+    --competitions bwor-0 mamo-easy-0 mamo-complex-0 mamo-ode-0
+
+# 例如：mle benchmark 下的 dabench-0-mean-fare 任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DSFlow/data/competitions \
+    --benchmark mle \
+    --competitions dabench-0-mean-fare
 ```
 
 ## 5. 查看结果

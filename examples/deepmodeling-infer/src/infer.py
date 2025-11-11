@@ -10,7 +10,8 @@ import os
 import sys
 import uuid
 import shutil
-from datetime import datetime
+import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -24,7 +25,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 # Import from modeling
 from modeling.prompts.scientific_prompt import (
     create_initial_prompt,
-    create_continue_prompt,
     extract_tag_content,
 )
 from modeling.services.sandbox import SandboxService
@@ -34,17 +34,52 @@ from modeling.models.task import TaskDefinition
 from modeling.utils.context import summarize_repetitive_logs, truncate_output
 
 # Import local utilities
-from .config import create_infer_config, DEFAULT_INFER_CONFIG
+from .config import DEFAULT_INFER_CONFIG
 
 # Import local data utilities and grading
-from .data_utils import load_benchmark_tasks, DEFAULT_DATA_ROOTS
-from .utils import get_grader, format_conversation
+from .data_utils import load_benchmark_tasks
+from .utils import get_grader, set_benchmark_data_root
 
 logging.basicConfig(
     level=logging.INFO,
     format='[%(levelname)s] %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def build_continue_prompt(turn_number: int, max_turns: int) -> str:
+    """Instruction appended after an observation to keep the cycle moving."""
+
+    final_cycle = (turn_number + 1 >= max_turns)
+
+    if final_cycle:
+        return "\n".join([
+            "Please complete the investigation by first analyzing the latest observation using:",
+            "<Inference>",
+            "Synthesize all accumulated evidence from the conversation above and explain whether the hypothesis holds.",
+            "</Inference>",
+            "",
+            "Then immediately provide the final summary:",
+            "<Conclusion>",
+            "Present the decisive experiments, key findings, and remaining questions. Do not start a new cycle.",
+            "</Conclusion>",
+        ])
+
+    lines = [
+        "Please respond by first analyzing the latest observation (shown immediately above) using:",
+        "<Inference>",
+        "Summarize what the new evidence implies for the current hypothesis, drawing on the full conversation history provided above.",
+        "</Inference>",
+        "",
+        "Then immediately start the next scientific cycle with the tags in order:",
+        "<Phenomenon>",
+        "<Hypothesis>",
+        "<Model>",
+        "<Experiment>",
+        "Each tag must appear exactly once and contain substantive content.",
+    ]
+
+    return "\n".join(lines)
 
 
 class DeepModelingInferenceAgent:
@@ -79,6 +114,7 @@ class DeepModelingInferenceAgent:
         self.sandbox_timeout = sandbox_timeout
         self.temperature = temperature
         self.use_local_model = use_local_model
+        self.max_retries_per_turn = 3
 
         # Load model locally if requested
         self.model = None
@@ -105,17 +141,19 @@ class DeepModelingInferenceAgent:
         self,
         prompt: str = None,
         messages: List[Dict[str, str]] = None,
-        temperature: Optional[float] = None
-    ) -> str:
+        temperature: Optional[float] = None,
+        stop: Optional[List[str]] = None
+    ) -> tuple[str, Optional[str]]:
         """Call LLM (either local or API).
 
         Args:
             prompt: Single prompt string
             messages: Full conversation history
             temperature: Sampling temperature
+            stop: Stop sequences for generation
 
         Returns:
-            LLM response content
+            Tuple of (LLM response content, stop_reason)
         """
         llm_temperature = temperature if temperature is not None else self.temperature
 
@@ -129,13 +167,14 @@ class DeepModelingInferenceAgent:
 
         # Use local model if loaded
         if self.use_local_model and self.model is not None:
-            return self._call_local_model(api_messages, llm_temperature)
+            response = self._call_local_model(api_messages, llm_temperature)
+            return response, None  # Local model doesn't support stop reasons
 
         # Otherwise use API
         if not self.api_endpoint:
             raise ValueError("No API endpoint provided and local model not loaded")
 
-        return self._call_api(api_messages, llm_temperature)
+        return self._call_api(api_messages, llm_temperature, stop=stop)
 
     def _call_local_model(
         self,
@@ -180,26 +219,73 @@ class DeepModelingInferenceAgent:
     def _call_api(
         self,
         messages: List[Dict[str, str]],
-        temperature: float
-    ) -> str:
-        """Call API endpoint (OpenAI compatible)."""
+        temperature: float,
+        stop: Optional[List[str]] = None
+    ) -> tuple[str, Optional[str]]:
+        """Call API endpoint (OpenAI compatible).
+
+        Returns:
+            Tuple of (response_content, stop_reason)
+        """
         try:
+  
+            # If a tokenizer is available, prefer tokenizer.num_tokens_from_messages().
+            # Otherwise, fall back to estimating ~4 tokens per message plus characters/4.
+
+            total_chars = sum(len(m.get("content", "")) for m in messages)
+            est_input_tokens = int(total_chars / 4)  # 粗略估算输入 token 数
+            max_context_len = 32768
+            safe_margin = 256  # 预留更多上下文空间，避免边界报错
+
+            # 计算最大可生成长度
+            max_tokens = max_context_len - est_input_tokens - safe_margin
+
+            # 限制范围：太大或太小时都修正
+            if max_tokens > 16384:
+                max_tokens = 16384  # 限制上限，防止过大浪费显存
+            elif max_tokens < 512:
+                max_tokens = 512     # 最小生成长度保证模型能输出
+            payload = {
+                "model": self.model_path,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            }
+            if stop:
+                payload["stop"] = stop
+
             response = requests.post(
                 f"{self.api_endpoint}/v1/chat/completions",
-                json={
-                    "model": self.model_path,
-                    "messages": messages,
-                    "temperature": temperature,
-                    "max_tokens": 16384,
-                },
-                timeout=120,
+                json=payload,
+                timeout=600,
             )
             response.raise_for_status()
             data = response.json()
-            return data["choices"][0]["message"]["content"]
+
+            content = data["choices"][0]["message"]["content"]
+            stop_reason = data["choices"][0].get("finish_reason")
+
+            if stop and stop_reason == "stop":
+                for stop_seq in stop:
+                    if stop_seq in data["choices"][0].get("stop_reason", ""):
+                        return content, stop_seq
+
+            return content, stop_reason
+
         except Exception as e:
             logger.error(f"API call failed: {e}")
-            return f"Error calling API: {e}"
+            return f"Error calling API: {e}", None
+
+
+    def _build_retry_prompt(self, turn_index: int, retry_count: int) -> str:
+        """Construct a retry prompt when the model omits the experiment block."""
+        return (
+            "The previous reply did not include the full scientific-cycle tags. "
+            "Please respond again for turn "
+            f"{turn_index} (retry {retry_count}) using the exact order "
+            "<Phenomenon> → <Hypothesis> → <Model> → <Experiment> → <Observation> → <Inference>. "
+            "You must include a valid <Experiment> block with executable Python code wrapped in one fenced code block."
+        )
 
     def _prepare_task_io(
         self,
@@ -262,6 +348,7 @@ class DeepModelingInferenceAgent:
         description: str,
         io_instructions: str,
         conversation: List[Dict[str, str]],
+        reasoning: str,
         success: bool,
         num_turns: int,
         started_at: datetime,
@@ -278,7 +365,7 @@ class DeepModelingInferenceAgent:
             metadata = {
                 "run_name": run_name,
                 "workspace_dir": str(workspace_dir),
-                "workflow": "inference_scientific_method",
+                "workflow": "inference_scientific_method_multiturn",
                 "task": {
                     "task_id": task["task_id"],
                     "benchmark": task.get("benchmark", "unknown"),
@@ -309,10 +396,14 @@ class DeepModelingInferenceAgent:
                 },
             }
 
-            # Save conversation
+            # Save conversation (message format for API)
             conversation_path = "telemetry/conversation.jsonl"
             lines = [json.dumps(item, ensure_ascii=False) for item in conversation]
             workspace.write_file("\n".join(lines), "artifacts", conversation_path)
+
+            # Save full reasoning history (includes responses and observations)
+            reasoning_path = "telemetry/reasoning.txt"
+            workspace.write_file(reasoning, "artifacts", reasoning_path)
 
             # Save metadata
             metadata_path = "telemetry/run_metadata.json"
@@ -323,12 +414,21 @@ class DeepModelingInferenceAgent:
             )
 
             logger.info(f"[RESULTS] Saved to {workspace_dir}")
+            logger.info(f"[RESULTS] - Conversation: {conversation_path} ({len(conversation)} messages)")
+            logger.info(f"[RESULTS] - Reasoning: {reasoning_path} ({len(reasoning)} chars)")
 
         except Exception as e:
             logger.error(f"[RESULTS] Failed to save: {e}", exc_info=True)
 
     def run_inference(self, task: Dict[str, Any]) -> Dict[str, Any]:
-        """Run inference on a single task.
+        """Run inference on a single task using multi-round reasoning.
+
+        This method implements a DeepAnalyzeVLLM-style workflow:
+        1. Call LLM with stop sequence ["</Experiment>"]
+        2. When stopped, extract and execute code from <Experiment> block
+        3. Append execution result as <Observation>
+        4. Check for <Conclusion>, if not found, continue from <Phenomenon>
+        5. Repeat until max_turns or <Conclusion> found
 
         Args:
             task: Task dictionary with task_id, prompt, data_dir, etc.
@@ -360,10 +460,11 @@ class DeepModelingInferenceAgent:
         prompt = create_initial_prompt(description, io_instructions)
 
         # Initialize conversation
-        conversation = [{"role": "user", "content": prompt}]
-        num_turns = 0
+        messages = [{"role": "user", "content": prompt}]
+        reasoning_entries: List[str] = [f"User Instruction:\n{prompt}"]
+        num_turns_completed = 0
         success = False
-        started_at = datetime.utcnow()
+        started_at = datetime.now(timezone.utc)
 
         # Create workspace
         workspace = WorkspaceService(
@@ -379,59 +480,146 @@ class DeepModelingInferenceAgent:
             except Exception as e:
                 logger.error(f"[INFER] Failed to link data: {e}")
 
-        # Multi-turn loop
-        while num_turns < self.max_turns:
-            num_turns += 1
-            logger.info(f"[TURN {num_turns}/{self.max_turns}] Calling LLM...")
+        # Multi-turn loop with DeepAnalyzeVLLM-style reasoning
+        try:
+            outer_break = False
+            for turn_index in range(self.max_turns):
+                turn_number = turn_index + 1
+                retry_count = 0
 
-            # Call LLM
-            response = self._call_llm(messages=conversation.copy())
-            conversation.append({"role": "assistant", "content": response})
+                while True:
+                    logger.info(
+                        f"[TURN {turn_number}/{self.max_turns}] Calling LLM with stop=['</Experiment>']..."
+                    )
+                    response, stop_reason = self._call_llm(
+                        messages=messages.copy(),
+                        stop=["</Experiment>"]
+                    )
 
-            # Check for Conclusion
-            conclusion = extract_tag_content(response, "Conclusion")
-            if conclusion:
-                logger.info(f"[TURN {num_turns}] Conclusion found, ending")
-                success = True
-                break
+                    if stop_reason and ("</Experiment>" in str(stop_reason) or stop_reason == "stop"):
+                        if not response.endswith("</Experiment>"):
+                            response += "</Experiment>"
+                            logger.info(
+                                f"[TURN {turn_number}] Stop sequence detected; </Experiment> completed"
+                            )
 
-            # Extract Experiment
-            experiment = extract_tag_content(response, "Experiment")
-            if not experiment:
-                logger.warning(f"[TURN {num_turns}] No Experiment found")
-                feedback_msg = {
-                    "role": "user",
-                    "content": f"No experiment code provided. Please provide <Experiment> block. (Turn {num_turns}/{self.max_turns})"
-                }
-                conversation.append(feedback_msg)
-                continue
+                    messages.append({"role": "assistant", "content": response})
+                    reasoning_entries.append(
+                        f"Turn {turn_number} Assistant Response:\n{response}"
+                    )
 
-            logger.info(f"[TURN {num_turns}] Executing experiment ({len(experiment)} chars)")
+                    experiment_content = extract_tag_content(response, "Experiment")
+                    conclusion_content = extract_tag_content(response, "Conclusion")
 
-            # Execute code
-            exec_success, exec_output = self._execute_code(experiment, workspace)
+                    if conclusion_content and not experiment_content:
+                        logger.info(f"[TURN {turn_number}] Conclusion provided without new experiment")
+                        success = True
+                        num_turns_completed = turn_number - 1 if turn_number > 0 else 0
+                        outer_break = True
+                        break
 
-            observation = f"Execution {'succeeded' if exec_success else 'failed'}.\n{exec_output}"
-            observation_entry = {"role": "user", "content": f"<Observation>\n{observation}\n</Observation>"}
-            conversation.append(observation_entry)
+                    if not experiment_content:
+                        retry_count += 1
+                        if retry_count > self.max_retries_per_turn:
+                            logger.warning(
+                                f"[TURN {turn_number}] Missing <Experiment> after {retry_count - 1} retries; aborting"
+                            )
+                            outer_break = True
+                            break
 
-            logger.info(f"[TURN {num_turns}] Execution: {'✓' if exec_success else '✗'}")
+                        # Remove the assistant response lacking an experiment before retrying
+                        messages.pop()
+                        if reasoning_entries:
+                            reasoning_entries.pop()
 
-            # Check if output file exists
-            sandbox_workdir = workspace.get_path("sandbox_workdir")
-            generated_file = sandbox_workdir / output_path.name
-            if generated_file.exists():
-                logger.info(f"[TURN {num_turns}] Output file created: {output_path.name}")
-                output_path.parent.mkdir(parents=True, exist_ok=True)
-                if generated_file.resolve() != output_path.resolve():
-                    shutil.copy(generated_file, output_path)
-                    logger.info(f"[TURN {num_turns}] Copied to: {output_path}")
-                success = True
+                        retry_prompt = self._build_retry_prompt(turn_number, retry_count)
+                        messages.append({"role": "user", "content": retry_prompt})
+                        reasoning_entries.append(
+                            f"Turn {turn_number} Retry Prompt ({retry_count}):\n{retry_prompt}"
+                        )
+                        continue
 
-        ended_at = datetime.utcnow()
+                    md_match = re.search(r"```(?:python)?(.*?)```", experiment_content, re.DOTALL)
+                    code_str = md_match.group(1).strip() if md_match else experiment_content.strip()
+
+                    logger.info(
+                        f"[TURN {turn_number}] Executing experiment code ({len(code_str)} chars)"
+                    )
+                    exec_success, exec_output = self._execute_code(code_str, workspace)
+
+                    observation = f"<Observation>\n{exec_output}\n</Observation>"
+                    reasoning_entries.append(
+                        f"Turn {turn_number} Observation:\n{observation}"
+                    )
+                    logger.info(
+                        f"[TURN {turn_number}] Execution {'succeeded' if exec_success else 'failed'}, output length: {len(exec_output)}"
+                    )
+
+                    sandbox_workdir = workspace.get_path("sandbox_workdir")
+                    generated_file = sandbox_workdir / output_path.name
+                    if generated_file.exists():
+                        logger.info(f"[TURN {turn_number}] Output file created: {output_path.name}")
+                        output_path.parent.mkdir(parents=True, exist_ok=True)
+                        if generated_file.resolve() != output_path.resolve():
+                            shutil.copy(generated_file, output_path)
+                            logger.info(f"[TURN {turn_number}] Copied to: {output_path}")
+                        success = True
+
+                    if conclusion_content:
+                        success = True
+                        num_turns_completed = turn_number
+                        outer_break = True
+                        break
+
+                    if turn_number < self.max_turns:
+                        observation_prompt = (
+                            f"{observation}\n\n{build_continue_prompt(turn_number, self.max_turns)}"
+                        )
+                        messages.append({"role": "user", "content": observation_prompt})
+                        reasoning_entries.append(
+                            f"Turn {turn_number} Continue Prompt issued"
+                        )
+                    else:
+                        logger.info(
+                            f"[TURN {turn_number}] Reached maximum turns ({self.max_turns}); awaiting conclusion"
+                        )
+
+                    num_turns_completed = turn_number
+                    break
+
+                if outer_break:
+                    break
+
+            needs_conclusion = True
+            if messages and messages[-1]["role"] == "assistant" and "<Conclusion>" in messages[-1]["content"]:
+                needs_conclusion = False
+
+            if needs_conclusion:
+                logger.info("[FINAL] Requesting conclusion response explicitly...")
+                conclusion_prompt = (
+                    "Provide the final analysis by replying with <Inference> that synthesizes all observations "
+                    "followed immediately by <Conclusion> summarizing the overall findings and remaining questions."
+                )
+                messages.append({"role": "user", "content": conclusion_prompt})
+                reasoning_entries.append("Conclusion Prompt issued")
+                final_response, _ = self._call_llm(messages=messages.copy(), stop=None)
+                messages.append({"role": "assistant", "content": final_response})
+                reasoning_entries.append(f"Conclusion Response:\n{final_response}")
+                if "<Conclusion>" in final_response:
+                    success = True
+                else:
+                    logger.warning("[FINAL] Conclusion tag still missing in final response")
+
+        except Exception as e:
+            logger.error(f"[INFER] Error during inference: {e}", exc_info=True)
+            reasoning_entries.append(f"[Error]: {str(e)}")
+
+        ended_at = datetime.now(timezone.utc)
         duration_sec = (ended_at - started_at).total_seconds()
 
-        logger.info(f"[INFER] Completed {num_turns} turns, success={success}, duration={duration_sec:.2f}s")
+        logger.info(
+            f"[INFER] Completed {num_turns_completed} turns, success={success}, duration={duration_sec:.2f}s"
+        )
 
         # Grade submission
         grade_score = None
@@ -440,13 +628,17 @@ class DeepModelingInferenceAgent:
             if grade_score is not None:
                 logger.info(f"[INFER] Grade score: {grade_score:.4f}")
 
+        # Build full reasoning from response history
+        reasoning = "\n\n".join(reasoning_entries)
+
         # Prepare result
         result = {
             "task_id": task_id,
             "run_name": run_name,
-            "messages": conversation,
+            "messages": messages,
+            "reasoning": reasoning,
             "success": success,
-            "num_turns": num_turns,
+            "num_turns": num_turns_completed,
             "grade_score": grade_score,
             "duration_seconds": duration_sec,
         }
@@ -458,9 +650,10 @@ class DeepModelingInferenceAgent:
             run_name=run_name,
             description=description,
             io_instructions=io_instructions,
-            conversation=conversation,
+            conversation=messages,
+            reasoning=reasoning,
             success=success,
-            num_turns=num_turns,
+            num_turns=num_turns_completed,
             started_at=started_at,
             ended_at=ended_at,
             duration_seconds=duration_sec,
@@ -480,7 +673,7 @@ def parse_args():
     parser.add_argument("--use-local-model", action="store_true", help="Load model locally")
 
     # Agent configuration
-    parser.add_argument("--max-turns", type=int, default=10, help="Max turns per task")
+    parser.add_argument("--max-turns", type=int, default=6, help="Max turns per task")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--sandbox-timeout", type=int, default=600, help="Sandbox timeout (seconds)")
     parser.add_argument("--workspace-dir", type=str, default="./workspace_infer", help="Workspace directory")
@@ -488,6 +681,7 @@ def parse_args():
     # Task configuration
     parser.add_argument("--benchmark", type=str, default="engineering", help="Benchmark name")
     parser.add_argument("--data-root", type=Path, help="Data root directory")
+    parser.add_argument("--data-dir", type=Path, help="Alias for --data-root")
     parser.add_argument("--task-id", type=str, help="Single task ID to run")
     parser.add_argument("--competitions", nargs="*", help="Competition IDs to run")
     parser.add_argument("--task-limit", type=int, help="Limit number of tasks")
@@ -510,13 +704,16 @@ def main():
 
     # Load tasks
     logger.info(f"Loading tasks from benchmark: {args.benchmark}")
+    data_root = args.data_dir or args.data_root
+    if data_root:
+        set_benchmark_data_root(args.benchmark, data_root)
 
     if args.task_id:
         # Single task mode
         logger.info(f"Running single task: {args.task_id}")
         tasks = load_benchmark_tasks(
             args.benchmark,
-            data_root=args.data_root,
+            data_root=data_root,
             competitions=[args.task_id],
             limit=1,
         )
@@ -524,7 +721,7 @@ def main():
         # Multiple tasks mode
         tasks = load_benchmark_tasks(
             args.benchmark,
-            data_root=args.data_root,
+            data_root=data_root,
             competitions=args.competitions,
             limit=args.task_limit,
         )
@@ -566,7 +763,7 @@ def main():
 
     # Save summary
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    summary_path = args.output_dir / f"summary_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
+    summary_path = args.output_dir / f"summary_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json"
 
     summary = {
         "total_tasks": len(tasks),

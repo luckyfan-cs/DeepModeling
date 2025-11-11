@@ -13,13 +13,26 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from benchmarks.engineeringbench.registry import Registry
+from benchmarks.engineeringbench.registry import Registry as EngineeringRegistry
+
+try:
+    from benchmarks.mathmodelingbench.registry import Registry as MathModelingRegistry
+    from benchmarks.mathmodelingbench.data import is_dataset_prepared as mathmodeling_is_prepared
+except Exception:  # pragma: no cover - optional dependency
+    MathModelingRegistry = None
+    mathmodeling_is_prepared = None
+
+try:
+    from benchmarks.mlebench.registry import Registry as MLERegistry
+except Exception:  # pragma: no cover - optional dependency
+    MLERegistry = None
 
 logger = logging.getLogger(__name__)
 
 DEFAULT_DATA_ROOTS = {
     "engineering": PROJECT_ROOT / "data" / "engineering-bench" / "competitions",
     "mathmodeling": PROJECT_ROOT / "data" / "mathmodeling-bench" / "competitions",
+    "mle": PROJECT_ROOT / "data" / "mle-bench" / "competitions",
 }
 
 PREDEFINED_SPLITS = {
@@ -93,6 +106,10 @@ def load_benchmark_tasks(
 
     if benchmark_key == "engineering":
         return _load_engineering_tasks(resolved_root, competitions, limit)
+    if benchmark_key == "mathmodeling":
+        return _load_mathmodeling_tasks(resolved_root, competitions, limit)
+    if benchmark_key == "mle":
+        return _load_mle_tasks(resolved_root, competitions, limit)
 
     raise ValueError(f"Benchmark '{benchmark}' is not implemented yet.")
 
@@ -159,7 +176,7 @@ def _load_engineering_tasks(
 ) -> List[Dict[str, Any]]:
     """Load prepared engineering-bench competitions as RL tasks."""
 
-    registry = Registry(data_root)
+    registry = EngineeringRegistry(data_root)
     competition_ids = list(competitions) if competitions else registry.list_competition_ids()
     competition_ids = sorted(dict.fromkeys(competition_ids))
 
@@ -200,6 +217,144 @@ def _load_engineering_tasks(
 
     if not tasks:
         logger.warning("No engineering tasks loaded from %s", data_root)
+
+    return tasks
+
+
+def _load_mle_tasks(
+    data_root: Path,
+    competitions: Optional[Sequence[str]],
+    limit: Optional[int],
+) -> List[Dict[str, Any]]:
+    """Load prepared MLE-Bench competitions as RL tasks."""
+
+    if MLERegistry is None:
+        raise ImportError(
+            "benchmarks.mlebench is not available. Ensure MLE-Bench dependencies are installed."
+        )
+
+    registry = MLERegistry(data_root)
+    competition_ids = list(competitions) if competitions else registry.list_competition_ids()
+    competition_ids = sorted(dict.fromkeys(competition_ids))
+
+    tasks: List[Dict[str, Any]] = []
+    for competition_id in competition_ids:
+        try:
+            competition = registry.get_competition(competition_id)
+        except Exception as exc:
+            logger.warning("Skipping %s: %s", competition_id, exc)
+            continue
+
+        public_dir = competition.public_dir
+        if not public_dir.exists():
+            logger.warning(
+                "Public data directory missing for %s at %s",
+                competition_id,
+                public_dir,
+            )
+            continue
+
+        sample_submission = Path(competition.sample_submission)
+        if not sample_submission.exists():
+            logger.warning(
+                "Sample submission missing for %s at %s",
+                competition_id,
+                sample_submission,
+            )
+
+        prompt = competition.description.strip()
+
+        tasks.append(
+            {
+                "task_id": competition.id,
+                "benchmark": "mle",
+                "competition_id": competition.id,
+                "prompt": prompt,
+                "data_dir": str(public_dir),
+                "expected_output_path": sample_submission.name,
+                "eval_metric": "score",
+                "threshold": 0.7,
+            }
+        )
+
+        if limit and len(tasks) >= limit:
+            break
+
+    if not tasks:
+        logger.warning("No MLE tasks loaded from %s", data_root)
+
+    return tasks
+
+
+def _load_mathmodeling_tasks(
+    data_root: Path,
+    competitions: Optional[Sequence[str]],
+    limit: Optional[int],
+) -> List[Dict[str, Any]]:
+    """Load prepared MathModeling competitions as RL tasks."""
+
+    if MathModelingRegistry is None or mathmodeling_is_prepared is None:
+        raise ImportError(
+            "benchmarks.mathmodelingbench is not available. Ensure MathModeling-Bench dependencies are installed."
+        )
+
+    registry = MathModelingRegistry(data_root)
+    competition_ids = list(competitions) if competitions else registry.list_competition_ids()
+    competition_ids = sorted(dict.fromkeys(competition_ids))
+
+    tasks: List[Dict[str, Any]] = []
+    for competition_id in competition_ids:
+        try:
+            competition = registry.get_competition(competition_id)
+        except Exception as exc:
+            logger.warning("Skipping %s: %s", competition_id, exc)
+            continue
+
+        public_dir = competition.public_dir
+        if not public_dir.exists():
+            logger.warning(
+                "Public data directory missing for %s at %s",
+                competition_id,
+                public_dir,
+            )
+            public_dir.parent.mkdir(parents=True, exist_ok=True)
+
+        private_dir = competition.private_dir
+        if not mathmodeling_is_prepared(competition, grading_only=False):
+            try:
+                logger.info("Preparing MathModeling dataset for %s", competition_id)
+                competition.prepare_fn(competition.raw_dir, public_dir, private_dir)
+            except Exception as exc:
+                logger.warning("Failed to prepare %s: %s", competition_id, exc)
+                continue
+
+        if not mathmodeling_is_prepared(competition, grading_only=False):
+            logger.warning("Dataset still incomplete for %s after preparation", competition_id)
+            continue
+
+        sample_submission = Path(competition.sample_submission)
+        expected_output = sample_submission.name if sample_submission.exists() else "submission.csv"
+
+        prompt = competition.description.strip()
+
+        tasks.append(
+            {
+                "task_id": competition.id,
+                "benchmark": "mathmodeling",
+                "competition_id": competition.id,
+                "prompt": prompt,
+                "data_dir": str(public_dir),
+                "expected_output_path": expected_output,
+                "eval_metric": "score",
+                "threshold": 0.7,
+            }
+        )
+
+        if limit and len(tasks) >= limit:
+            break
+
+    if not tasks:
+        logger.warning("No MathModeling tasks loaded from %s", data_root)
 
     return tasks
 

@@ -42,16 +42,15 @@ class BenchmarkGrader:
         # Engineering Benchmark
         try:
             from benchmarks.engineeringbench.grade import grade_csv
-            from benchmarks.engineeringbench import registry as engineering_module
+            from benchmarks.engineeringbench.registry import Registry as EngineeringRegistry
 
             data_root = _custom_data_roots.get("engineering", DEFAULT_DATA_ROOTS["engineering"])
-            engineering_registry = engineering_module.Registry(data_root)
-            engineering_module.registry = engineering_registry
+            engineering_registry = EngineeringRegistry(data_root)
 
             self._grading_functions["engineering"] = grade_csv
             self._registries["engineering"] = engineering_registry
             logger.info("Loaded engineeringbench grading support (data_root=%s)", data_root)
-        except ImportError as e:
+        except (ImportError, AttributeError) as e:
             logger.warning(f"Failed to load engineeringbench: {e}")
 
         # Math Modeling Benchmark
