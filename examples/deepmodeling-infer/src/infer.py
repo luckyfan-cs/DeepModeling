@@ -8,9 +8,11 @@ import json
 import logging
 import os
 import sys
+import time
 import uuid
 import shutil
 import re
+import types
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -39,6 +41,27 @@ from .config import DEFAULT_INFER_CONFIG
 # Import local data utilities and grading
 from .data_utils import load_benchmark_tasks
 from .utils import get_grader, set_benchmark_data_root
+
+# Ensure the vendored MLE-Bench package is importable via its original namespace
+try:  # pragma: no cover - defensive aliasing for downstream imports
+    import benchmarks.mlebench as _bench_mlebench
+    import benchmarks.mlebench.competitions as _bench_mlebench_competitions
+
+    if "mlebench" not in sys.modules:
+        mlebench_alias = types.ModuleType("mlebench")
+        mlebench_alias.__dict__.update(_bench_mlebench.__dict__)
+        mlebench_alias.__path__ = getattr(_bench_mlebench, "__path__", [])
+        mlebench_alias.__package__ = "mlebench"
+        sys.modules["mlebench"] = mlebench_alias
+
+    if "mlebench.competitions" not in sys.modules:
+        competitions_alias = types.ModuleType("mlebench.competitions")
+        competitions_alias.__dict__.update(_bench_mlebench_competitions.__dict__)
+        competitions_alias.__path__ = getattr(_bench_mlebench_competitions, "__path__", [])
+        competitions_alias.__package__ = "mlebench.competitions"
+        sys.modules["mlebench.competitions"] = competitions_alias
+except Exception:
+    pass
 
 logging.basicConfig(
     level=logging.INFO,
@@ -71,12 +94,15 @@ def build_continue_prompt(turn_number: int, max_turns: int) -> str:
         "Summarize what the new evidence implies for the current hypothesis, drawing on the full conversation history provided above.",
         "</Inference>",
         "",
-        "Then immediately start the next scientific cycle with the tags in order:",
+        "Immediately after </Inference>, decide whether the investigation can end conclusively.",
+        "Produce <Conclusion> only when the accumulated evidence resolves the task with high confidence; otherwise clearly state why more experimentation is required.",
+        "If the inference reveals errors, contradictions, or open questions, DO NOT output <Conclusion>.",
+        "Instead, continue the next scientific cycle starting with the tags in order:",
         "<Phenomenon>",
         "<Hypothesis>",
         "<Model>",
         "<Experiment>",
-        "Each tag must appear exactly once and contain substantive content.",
+        "Each required tag must appear exactly once and contain substantive content.",
     ]
 
     return "\n".join(lines)
@@ -115,6 +141,8 @@ class DeepModelingInferenceAgent:
         self.temperature = temperature
         self.use_local_model = use_local_model
         self.max_retries_per_turn = 3
+        self.api_max_retries = 3
+        self.api_retry_delay_seconds = 3
 
         # Load model locally if requested
         self.model = None
@@ -227,54 +255,71 @@ class DeepModelingInferenceAgent:
         Returns:
             Tuple of (response_content, stop_reason)
         """
-        try:
+        last_exception: Optional[Exception] = None
+
+        for attempt in range(1, self.api_max_retries + 2):
+            try:
   
-            # If a tokenizer is available, prefer tokenizer.num_tokens_from_messages().
-            # Otherwise, fall back to estimating ~4 tokens per message plus characters/4.
+                # If a tokenizer is available, prefer tokenizer.num_tokens_from_messages().
+                # Otherwise, fall back to estimating ~4 tokens per message plus characters/4.
 
-            total_chars = sum(len(m.get("content", "")) for m in messages)
-            est_input_tokens = int(total_chars / 4)  # 粗略估算输入 token 数
-            max_context_len = 32768
-            safe_margin = 256  # 预留更多上下文空间，避免边界报错
+                total_chars = sum(len(m.get("content", "")) for m in messages)
+                est_input_tokens = int(total_chars / 4)  # 粗略估算输入 token 数
+                max_context_len = 32768
+                safe_margin = 256  # 预留更多上下文空间，避免边界报错
 
-            # 计算最大可生成长度
-            max_tokens = max_context_len - est_input_tokens - safe_margin
+                # 计算最大可生成长度
+                max_tokens = max_context_len - est_input_tokens - safe_margin
 
-            # 限制范围：太大或太小时都修正
-            if max_tokens > 16384:
-                max_tokens = 16384  # 限制上限，防止过大浪费显存
-            elif max_tokens < 512:
-                max_tokens = 512     # 最小生成长度保证模型能输出
-            payload = {
-                "model": self.model_path,
-                "messages": messages,
-                "temperature": temperature,
-                "max_tokens": max_tokens,
-            }
-            if stop:
-                payload["stop"] = stop
+                # 限制范围：太大或太小时都修正
+                if max_tokens > 16384:
+                    max_tokens = 16384  # 限制上限，防止过大浪费显存
+                elif max_tokens < 512:
+                    max_tokens = 512     # 最小生成长度保证模型能输出
+                payload = {
+                    "model": self.model_path,
+                    "messages": messages,
+                    "temperature": temperature,
+                    "max_tokens": max_tokens,
+                }
+                if stop:
+                    payload["stop"] = stop
 
-            response = requests.post(
-                f"{self.api_endpoint}/v1/chat/completions",
-                json=payload,
-                timeout=600,
-            )
-            response.raise_for_status()
-            data = response.json()
+                response = requests.post(
+                    f"{self.api_endpoint}/v1/chat/completions",
+                    json=payload,
+                    timeout=600,
+                )
+                response.raise_for_status()
+                data = response.json()
 
-            content = data["choices"][0]["message"]["content"]
-            stop_reason = data["choices"][0].get("finish_reason")
+                content = data["choices"][0]["message"]["content"]
+                stop_reason = data["choices"][0].get("finish_reason")
 
-            if stop and stop_reason == "stop":
-                for stop_seq in stop:
-                    if stop_seq in data["choices"][0].get("stop_reason", ""):
-                        return content, stop_seq
+                if stop and stop_reason == "stop":
+                    raw_stop_reason = data["choices"][0].get("stop_reason")
+                    if isinstance(raw_stop_reason, list):
+                        for stop_seq in stop:
+                            if stop_seq and stop_seq in raw_stop_reason:
+                                return content, stop_seq
+                    elif isinstance(raw_stop_reason, str):
+                        for stop_seq in stop:
+                            if stop_seq and stop_seq in raw_stop_reason:
+                                return content, stop_seq
+                    # If provider does not return explicit stop_reason, fall back to generic stop
+                    return content, stop_reason
 
-            return content, stop_reason
+                return content, stop_reason
 
-        except Exception as e:
-            logger.error(f"API call failed: {e}")
-            return f"Error calling API: {e}", None
+            except Exception as e:
+                last_exception = e
+                logger.error(
+                    f"API call failed (attempt {attempt}/{self.api_max_retries + 1}): {e}"
+                )
+                if attempt <= self.api_max_retries:
+                    time.sleep(self.api_retry_delay_seconds)
+
+        return f"Error calling API: {last_exception}", None
 
 
     def _build_retry_prompt(self, turn_index: int, retry_count: int) -> str:
@@ -463,6 +508,7 @@ class DeepModelingInferenceAgent:
         messages = [{"role": "user", "content": prompt}]
         reasoning_entries: List[str] = [f"User Instruction:\n{prompt}"]
         num_turns_completed = 0
+        completed_cycles = 0
         success = False
         started_at = datetime.now(timezone.utc)
 
@@ -497,7 +543,7 @@ class DeepModelingInferenceAgent:
                     )
 
                     if stop_reason and ("</Experiment>" in str(stop_reason) or stop_reason == "stop"):
-                        if not response.endswith("</Experiment>"):
+                        if "<Experiment>" in response and not response.rstrip().endswith("</Experiment>"):
                             response += "</Experiment>"
                             logger.info(
                                 f"[TURN {turn_number}] Stop sequence detected; </Experiment> completed"
@@ -510,14 +556,18 @@ class DeepModelingInferenceAgent:
 
                     experiment_content = extract_tag_content(response, "Experiment")
                     conclusion_content = extract_tag_content(response, "Conclusion")
-
-                    if conclusion_content and not experiment_content:
-                        logger.info(f"[TURN {turn_number}] Conclusion provided without new experiment")
+                    print("***********\n response:", response, "\n*******")
+                    if conclusion_content:
+                        if not experiment_content:
+                            logger.info(
+                                f"[TURN {turn_number}] Conclusion provided without new experiment"
+                            )
                         success = True
-                        num_turns_completed = turn_number - 1 if turn_number > 0 else 0
+                        num_turns_completed = completed_cycles
                         outer_break = True
                         break
 
+                    print("***********\n experiment_content:", experiment_content, "\n*******") 
                     if not experiment_content:
                         retry_count += 1
                         if retry_count > self.max_retries_per_turn:
@@ -565,9 +615,12 @@ class DeepModelingInferenceAgent:
                             logger.info(f"[TURN {turn_number}] Copied to: {output_path}")
                         success = True
 
+                    completed_cycles += 1
+                    num_turns_completed = completed_cycles
+
                     if conclusion_content:
                         success = True
-                        num_turns_completed = turn_number
+                        num_turns_completed = completed_cycles
                         outer_break = True
                         break
 
@@ -584,7 +637,6 @@ class DeepModelingInferenceAgent:
                             f"[TURN {turn_number}] Reached maximum turns ({self.max_turns}); awaiting conclusion"
                         )
 
-                    num_turns_completed = turn_number
                     break
 
                 if outer_break:
@@ -673,9 +725,9 @@ def parse_args():
     parser.add_argument("--use-local-model", action="store_true", help="Load model locally")
 
     # Agent configuration
-    parser.add_argument("--max-turns", type=int, default=6, help="Max turns per task")
-    parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
-    parser.add_argument("--sandbox-timeout", type=int, default=600, help="Sandbox timeout (seconds)")
+    parser.add_argument("--max-turns", type=int, default=10, help="Max turns per task")
+    parser.add_argument("--temperature", type=float, default=0.9, help="Sampling temperature")
+    parser.add_argument("--sandbox-timeout", type=int, default=3600, help="Sandbox timeout (seconds)")
     parser.add_argument("--workspace-dir", type=str, default="./workspace_infer", help="Workspace directory")
 
     # Task configuration

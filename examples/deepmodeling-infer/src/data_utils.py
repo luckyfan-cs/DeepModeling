@@ -17,15 +17,21 @@ from benchmarks.engineeringbench.registry import Registry as EngineeringRegistry
 
 try:
     from benchmarks.mathmodelingbench.registry import Registry as MathModelingRegistry
-    from benchmarks.mathmodelingbench.data import is_dataset_prepared as mathmodeling_is_prepared
+    from benchmarks.mathmodelingbench.data import (
+        is_dataset_prepared as mathmodeling_is_prepared,
+    )
 except Exception:  # pragma: no cover - optional dependency
     MathModelingRegistry = None
     mathmodeling_is_prepared = None
 
 try:
     from benchmarks.mlebench.registry import Registry as MLERegistry
+    from benchmarks.mlebench.data import (
+        is_dataset_prepared as mle_is_prepared,
+    )
 except Exception:  # pragma: no cover - optional dependency
     MLERegistry = None
+    mle_is_prepared = None
 
 logger = logging.getLogger(__name__)
 
@@ -261,6 +267,24 @@ def _load_mle_tasks(
                 competition_id,
                 sample_submission,
             )
+
+        if mle_is_prepared is not None and not mle_is_prepared(competition, grading_only=False):
+            try:
+                logger.info("Preparing MLE dataset for %s", competition_id)
+                competition.public_dir.parent.mkdir(parents=True, exist_ok=True)
+                competition.private_dir.parent.mkdir(parents=True, exist_ok=True)
+                competition.prepare_fn(
+                    raw=competition.raw_dir,
+                    public=competition.public_dir,
+                    private=competition.private_dir,
+                )
+            except Exception as exc:
+                logger.warning("Failed to prepare %s: %s", competition_id, exc)
+                continue
+
+        if mle_is_prepared is not None and not mle_is_prepared(competition, grading_only=False):
+            logger.warning("Dataset still incomplete for %s after preparation", competition_id)
+            continue
 
         prompt = competition.description.strip()
 

@@ -16,6 +16,94 @@ pip install -r requirements.txt
 pip install transformers torch accelerate
 ```
 
+
+
+
+## 2. 两步快速开始：部署和测试
+
+
+
+```bash
+# 启动服务
+python -m vllm.entrypoints.openai.api_server \
+    --model /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --tensor-parallel-size 1
+
+
+#测试服务
+# 测试特定任务集
+# 例如：engineering benchmark 下的 industry-3 任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/data/engineering-bench/competitions \
+    --benchmark engineering \
+    --competitions industry-3
+
+
+#  例如：mathmodeling benchmark 下的 bwor-0 任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/data/mathmodeling-bench/competitions \
+    --benchmark mathmodeling \
+    --competitions bwor-0 mamo-easy-0 mamo-complex-0 mamo-ode-0
+
+# 例如：mle benchmark 下的 dabench 经典任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/benchmarks/mlebench/competitions \
+    --benchmark mle \
+    --competitions dabench-0-mean-fare \
+                   dabench-716-data-preprocessing-dropping \
+                   dabench-727-machine-learning-techniques \
+                   dabench-738-distribution-column-credit \
+                   dabench-759-median-range-maximum
+
+# 例如：mle benchmark 下的精选 Kaggle 任务
+python -m src.infer \
+    --api-endpoint http://localhost:8000 \
+    --model-path /home/aiops/liufan/projects/models/dm-sft-Qwen2.5-7B-Instruct/merged \
+    --data-dir /home/aiops/liufan/projects/DeepModeling/benchmarks/mlebench/competitions \
+    --benchmark mle \
+    --competitions aptos2019-blindness-detection \
+                   plant-pathology-2020-fgvc7 \
+                   us-patent-phrase-to-phrase-matching \
+                   new-york-city-taxi-fare-prediction \
+                   tabular-playground-series-dec-2021
+
+
+## 额外提供：四大 Benchmark 批量测试脚本
+
+在 `scripts/` 目录下新增了开箱即用的批量测试脚本，完全对齐 `job_scripts/test_in_domain` 中的采样任务列表：
+
+```bash
+# 工程行业 Benchmark 30 个采样任务
+./scripts/run_engineering_sample.sh
+
+# 数学建模 Benchmark 145 个采样任务
+./scripts/run_mathmodeling_sample.sh
+
+# 科学 Benchmark 35 个采样任务
+./scripts/run_science_sample.sh
+
+# MLE (DA-Bench) 33 个采样任务
+./scripts/run_mle_dabench_sample.sh
+
+# MLE  Kaggle 任务 5 个
+./scripts/run_mle_selected_sample.sh
+```
+
+脚本默认使用当前项目内的数据目录和示例模型路径，可通过环境变量 `API_ENDPOINT`、`MODEL_PATH`、`OUTPUT_DIR` 等覆盖。运行前请确保目标模型和 vLLM 服务已经启动。
+
+```
+
+
+
+
 ## 2. 最简单的测试
 
 ### 使用 API Endpoint（推荐）

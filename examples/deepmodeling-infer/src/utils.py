@@ -26,6 +26,24 @@ DEFAULT_DATA_ROOTS = {
 
 _custom_data_roots: Dict[str, Path] = {}
 
+try:
+    from benchmarks.mathmodelingbench.registry import Registry as MathModelingRegistry
+    from benchmarks.mathmodelingbench.data import (
+        is_dataset_prepared as mathmodeling_is_prepared,
+    )
+except ImportError:  # pragma: no cover - optional dependency
+    MathModelingRegistry = None
+    mathmodeling_is_prepared = None
+
+try:
+    from benchmarks.mlebench.registry import Registry as MLERegistry
+    from benchmarks.mlebench.data import (
+        is_dataset_prepared as mle_is_prepared,
+    )
+except ImportError:  # pragma: no cover - optional dependency
+    MLERegistry = None
+    mle_is_prepared = None
+
 
 class BenchmarkGrader:
     """Centralized grading support for all benchmarks."""
@@ -56,20 +74,32 @@ class BenchmarkGrader:
         # Math Modeling Benchmark
         try:
             from benchmarks.mathmodelingbench.grade import grade_csv
-            from benchmarks.mathmodelingbench import registry
+
+            if MathModelingRegistry is None:
+                raise ImportError("mathmodelingbench registry not available")
+
+            data_root = _custom_data_roots.get("mathmodeling", DEFAULT_DATA_ROOTS["mathmodeling"])
+            math_registry = MathModelingRegistry(data_root)
+
             self._grading_functions["mathmodeling"] = grade_csv
-            self._registries["mathmodeling"] = registry
-            logger.info("Loaded mathmodelingbench grading support")
+            self._registries["mathmodeling"] = math_registry
+            logger.info("Loaded mathmodelingbench grading support (data_root=%s)", data_root)
         except ImportError as e:
             logger.warning(f"Failed to load mathmodelingbench: {e}")
 
         # MLE Benchmark
         try:
             from benchmarks.mlebench.grade import grade_csv
-            from benchmarks.mlebench.registry import registry
+
+            if MLERegistry is None:
+                raise ImportError("mlebench registry not available")
+
+            data_root = _custom_data_roots.get("mle", DEFAULT_DATA_ROOTS["mle"])
+            mle_registry = MLERegistry(data_root)
+
             self._grading_functions["mle"] = grade_csv
-            self._registries["mle"] = registry
-            logger.info("Loaded mlebench grading support")
+            self._registries["mle"] = mle_registry
+            logger.info("Loaded mlebench grading support (data_root=%s)", data_root)
         except ImportError as e:
             logger.warning(f"Failed to load mlebench: {e}")
 
@@ -120,6 +150,66 @@ class BenchmarkGrader:
             # Load competition and grade
             competition = registry.get_competition(competition_id)
             logger.info(f"[GRADE] Grading {competition_id} using {benchmark} benchmark...")
+
+            if benchmark == "mathmodeling" and mathmodeling_is_prepared is not None:
+                if not mathmodeling_is_prepared(competition, grading_only=True):
+                    try:
+                        logger.info(
+                            "[GRADE] Preparing mathmodeling dataset for %s before grading",
+                            competition_id,
+                        )
+                        competition.public_dir.parent.mkdir(parents=True, exist_ok=True)
+                        competition.private_dir.parent.mkdir(parents=True, exist_ok=True)
+                        competition.prepare_fn(
+                            competition.raw_dir,
+                            competition.public_dir,
+                            competition.private_dir,
+                        )
+                    except Exception as prep_exc:
+                        logger.error(
+                            "[GRADE] Failed to prepare dataset for %s: %s",
+                            competition_id,
+                            prep_exc,
+                            exc_info=True,
+                        )
+                        return None
+
+                    if not mathmodeling_is_prepared(competition, grading_only=True):
+                        logger.error(
+                            "[GRADE] Dataset for %s remains unprepared after attempting preparation",
+                            competition_id,
+                        )
+                        return None
+
+            if benchmark == "mle" and mle_is_prepared is not None:
+                if not mle_is_prepared(competition, grading_only=True):
+                    try:
+                        logger.info(
+                            "[GRADE] Preparing mle dataset for %s before grading",
+                            competition_id,
+                        )
+                        competition.public_dir.parent.mkdir(parents=True, exist_ok=True)
+                        competition.private_dir.parent.mkdir(parents=True, exist_ok=True)
+                        competition.prepare_fn(
+                            raw=competition.raw_dir,
+                            public=competition.public_dir,
+                            private=competition.private_dir,
+                        )
+                    except Exception as prep_exc:
+                        logger.error(
+                            "[GRADE] Failed to prepare dataset for %s: %s",
+                            competition_id,
+                            prep_exc,
+                            exc_info=True,
+                        )
+                        return None
+
+                    if not mle_is_prepared(competition, grading_only=True):
+                        logger.error(
+                            "[GRADE] Dataset for %s remains unprepared after attempting preparation",
+                            competition_id,
+                        )
+                        return None
 
             report = grade_fn(submission_path, competition)
 
